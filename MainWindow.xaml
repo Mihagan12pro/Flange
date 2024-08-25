@@ -16,11 +16,13 @@
 
 
 
-            <Label  Name="SizeDLbl" Visibility="{Binding DVisible}" Content="D" Canvas.Top="55" Height="24" Width="22" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Right="200"></Label>
-            <TextBox Name="SizeDTB" Visibility="{Binding DVisible}"  Canvas.Top="56"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Canvas.Right="85" Height="22" />
+            <Label  Name="SizeDLbl" Visibility="{Binding DVisibitily}" Content="D" Canvas.Top="55" Height="24" Width="22" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Right="200"></Label>
+            <TextBox Name="SizeDTB" Visibility="{Binding DVisibitily}"  Canvas.Top="56"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Canvas.Right="85" Height="22" />
 
 
             <ComboBox  ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="2" Width="120" IsReadOnly="True"/>
+            <Label  Name="SizeD1Lbl" Visibility="{Binding D1Visibitily}" Content="D1" Canvas.Top="80" Height="24" Width="22" Canvas.Right="200" HorizontalAlignment="Center" Canvas.Left="178" VerticalAlignment="Center"/>
+            <TextBox Name="SizeD1TB" Visibility="{Binding D1Visibitily}"  Canvas.Top="80"  TextWrapping="Wrap" Width="120" Canvas.Right="85" Height="22" HorizontalAlignment="Center" Canvas.Left="195" VerticalAlignment="Center" />
         </Canvas>
 
     </Grid>

@@ -13,31 +13,35 @@ namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject
     {
-        private struct FlangeTypeStorage
-        {
-            public readonly ObservableCollection<string> FlangeTypesCBItems { get;  set; }
-        }
+       
 
         private readonly string SimpleFlangeType;
 
-        
+      
+
+        public ObservableCollection<string> FlangeTypesCBItems { get; private set; }
+
+       
+       
+
+        private string flangeTypeCrl;
+        private System.Windows.Visibility dVisibility;
 
 
-        private bool dVisible ;
-        public bool DVisible
+        public System.Windows.Visibility DVisibitily
         {
             get
             {
-                return dVisible;
+                return dVisibility;
             }
-            set
+            private set
             {
-                dVisible = value;
-            }
-           
-        }
+                if (value != dVisibility)
 
-        private string flangeTypeCrl;
+                    dVisibility = value;
+                
+            }
+        }
         public string FlangeTypeCrl
         {  
             get
@@ -46,11 +50,25 @@ namespace Flange.Model
             }
             set
             {
-                FlangeTypeCrl = value;
 
-                switch(FlangeTypeCrl)
+                flangeTypeCrl = value;
+
+               if (flangeTypeCrl!= FlangeTypeCrl)
                 {
-                    case FlangeTypesCBItems[0]:
+                    FlangeTypeCrl = flangeTypeCrl;
+                }
+
+
+                switch(FlangeTypesCBItems.IndexOf(FlangeTypeCrl))
+                {
+                    case 0:
+
+                       
+
+                        break;
+                    
+                    default:
+                        
                         break;
                 }
             }
@@ -58,7 +76,7 @@ namespace Flange.Model
 
         public FlangeModel()
         {
-            dVisible = false;
+            DVisibitily = Visibility.Visible;
 
            
 
