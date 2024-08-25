@@ -25,6 +25,21 @@ namespace Flange.Model
        
 
         private string flangeTypeCrl;
+
+        public string FlangeTypeCrl
+        {
+            get
+            {
+                return flangeTypeCrl;
+            }
+            set
+            {
+                if (value!=flangeTypeCrl)
+                {
+                    flangeTypeCrl = value;
+                }
+            }
+        }
         
         public VisibilityController DVisibleController { get; private set; }
         public VisibilityController D1VisibleController { get; private set; }
@@ -37,8 +52,8 @@ namespace Flange.Model
 
 
 
-            DVisibleController = new VisibilityController(Visibility.Hidden);
-            D1VisibleController = new VisibilityController(Visibility.Hidden);
+            DVisibleController = new VisibilityController(Visibility.Visible);
+            D1VisibleController = new VisibilityController(Visibility.Visible);
 
             FlangeTypesCBItems = new ObservableCollection<string>
             {
@@ -47,6 +62,8 @@ namespace Flange.Model
                 "Плоский фланец"
             };
             flangeTypeCrl = FlangeTypesCBItems[0] ;
+
+        
         }
         
     }
