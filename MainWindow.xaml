@@ -5,25 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
         mc:Ignorable="d"
-        Title="Flange" Height="450" Width="800">
-    <Grid>
+        Title="Flange" Height="450" Width="800" >
+    <Grid Name="WindowGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Canvas Name="ParamettresCvs" Grid.Column="2">
-
+            <ComboBox  ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True"/>
 
 
 
             <Label  Name="SizeDLbl" Visibility="{Binding  DVisibleController.Visibility}" Content="D" Canvas.Top="55" Height="24" Width="41" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Right="200" Canvas.Left="159"></Label>
-            <TextBox Name="SizeDTB" Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="56"  HorizontalAlignment="Left"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" />
+            <TextBox Name="SizeDTB" Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="58"  HorizontalAlignment="Left"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" />
 
 
-            <ComboBox  ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="2" Width="120" IsReadOnly="True"/>
+
             <Label  Name="SizeD1Lbl" Visibility="{Binding DVisibleController.Visibility}" Content="D1" Canvas.Top="80" Height="24" Width="41" Canvas.Right="200" HorizontalAlignment="Left" Canvas.Left="159" VerticalAlignment="Center"/>
             <TextBox Name="SizeD1TB" Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="80"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" HorizontalAlignment="Left" Canvas.Left="188" VerticalAlignment="Center" />
-        </Canvas>
 
+            <Label  x:Name="SizeD2Lbl" Visibility="{Binding D2VisibleController.Visibility}" Content="D2" Canvas.Top="100" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="SizeD2TB" Visibility="{Binding D2VisibleController.Visibility}"  Canvas.Top="100"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <Label  x:Name="SizeDbLbl" Visibility="{Binding DbVisibleController.Visibility}" Content="Db" Canvas.Top="120" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="SizeDbTB" Visibility="{Binding DbVisibleController.Visibility}"  Canvas.Top="120"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <Label  x:Name="SizeHLbl" Visibility="{Binding HVisibleController.Visibility}" Content="H" Canvas.Top="140" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="SizeHTB" Visibility="{Binding HVisibleController.Visibility}"  Canvas.Top="140"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
+           
+            <Label  x:Name="CountOfHolesLbl" Visibility="{Binding CountOfHolesVisibleConroller.Visibility}" Content="N" Canvas.Top="160" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="CountOfHolesTB" Visibility="{Binding CountOfHolesVisibleConroller.Visibility}"  Canvas.Top="160"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <Button Name="BuiltBtn" Content="Построить" Canvas.Right="130" Canvas.Top="0"></Button>
+
+
+        </Canvas>
+        <Canvas Name="SketchCvs" >
+            <Image Name="SketchImage" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Height="357" Margin="40,34,0,0" VerticalAlignment="Top" Width="317" Canvas.Top="0" />
+        </Canvas>
     </Grid>
 </Window>

@@ -24,9 +24,8 @@ namespace Flange
         {
             InitializeComponent();
 
-
-            
-
+            SketchImage.Height = WindowGrid.Height;
+           
 
             DataContext = new FlangeModel();
         }
