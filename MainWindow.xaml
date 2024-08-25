@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="Flange" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas Name="ParamettresCvs" Grid.Column="2">
+
+
+
+
+            <Label  Name="SizeDLbl" Visibility="{Binding DVisible}" Content="D" Canvas.Top="55" Height="24" Width="22" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Right="200"></Label>
+            <TextBox Name="SizeDTB" Visibility="{Binding DVisible}"  Canvas.Top="56"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Canvas.Right="85" Height="22" />
+
+
+            <ComboBox  ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="2" Width="120" IsReadOnly="True"/>
+        </Canvas>
+
     </Grid>
 </Window>
