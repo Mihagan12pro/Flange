@@ -25,62 +25,20 @@ namespace Flange.Model
        
 
         private string flangeTypeCrl;
-        private System.Windows.Visibility dVisibility;
+        
+        public VisibilityController DVisibleController { get; private set; }
+        public VisibilityController D1VisibleController { get; private set; }
 
 
-        public System.Windows.Visibility DVisibitily
-        {
-            get
-            {
-                return dVisibility;
-            }
-            private set
-            {
-                if (value != dVisibility)
-
-                    dVisibility = value;
-                
-            }
-        }
-        public string FlangeTypeCrl
-        {  
-            get
-            {
-                return flangeTypeCrl;
-            }
-            set
-            {
-
-                flangeTypeCrl = value;
-
-               if (flangeTypeCrl!= FlangeTypeCrl)
-                {
-                    FlangeTypeCrl = flangeTypeCrl;
-                }
-
-
-                switch(FlangeTypesCBItems.IndexOf(FlangeTypeCrl))
-                {
-                    case 0:
-
-                       
-
-                        break;
-                    
-                    default:
-                        
-                        break;
-                }
-            }
-        }
 
         public FlangeModel()
         {
-            DVisibitily = Visibility.Visible;
+           //DVisibitily = Visibility.Hidden;
 
-           
 
-            
+
+            DVisibleController = new VisibilityController(Visibility.Hidden);
+            D1VisibleController = new VisibilityController(Visibility.Hidden);
 
             FlangeTypesCBItems = new ObservableCollection<string>
             {

@@ -25,10 +25,7 @@ namespace Flange
             InitializeComponent();
 
 
-            var a = SizeDLbl.Visibility.GetType();
-
-            var b = a;
-
+            
 
 
             DataContext = new FlangeModel();
