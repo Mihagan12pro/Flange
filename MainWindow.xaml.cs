@@ -25,7 +25,11 @@ namespace Flange
             InitializeComponent();
 
             SketchImage.Height = WindowGrid.Height;
-           
+
+            SizeD1Lbl.MaxWidth = SizeD1Lbl.Width;
+            SizeDLbl.MaxWidth = SizeDLbl.Width;
+            SizeD2Lbl.MaxWidth = SizeD2Lbl.Width;
+            SizeHLbl.MaxWidth = SizeHLbl.Width;
 
             DataContext = new FlangeModel();
         }

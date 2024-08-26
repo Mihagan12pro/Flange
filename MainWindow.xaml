@@ -12,31 +12,56 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Canvas Name="ParamettresCvs" Grid.Column="2">
-            <ComboBox  ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True"/>
+            <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True"/>
+            <Button Name="BuiltBtn"  FontFamily="GOST Type B"  Content="Построить" Canvas.Right="130" Canvas.Top="0"></Button>
+
+
+            <Grid Name="SizesGrid" Canvas.Right="0" Canvas.Top="50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="23*"></RowDefinition>
+                    <RowDefinition Height="22*"></RowDefinition>
+                    <RowDefinition Height="22"></RowDefinition>
+                    <RowDefinition Height="22*"></RowDefinition>
+                    <RowDefinition Height="22*"></RowDefinition>
+                    <RowDefinition Height="22*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                    <RowDefinition Height="0*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label   Grid.Column="0" Name="SizeDLbl" FontSize="12"  FontFamily="GOST Type B"  Visibility="{Binding  DVisibleController.Visibility}" Content="D" Canvas.Top="58" Height="21" Width="24" HorizontalContentAlignment="Left"  Canvas.Right="127" HorizontalAlignment="Center" Canvas.Left="250" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Name="SizeDTB"  FontFamily="GOST Type B"  Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="58"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="116" Canvas.Right="0" Height="23"   />
+
+
+                <Label  Grid.Column="0"  Grid.Row="1" Name="SizeD1Lbl" FontSize="12"  FontFamily="GOST Type B"  Visibility="{Binding DVisibleController.Visibility}" Content="D1" Canvas.Top="80" Canvas.Right="127" Height="21" Width="20" HorizontalAlignment="Left" Canvas.Left="254" VerticalAlignment="Center"    />
+                <TextBox Grid.Column="1"  Grid.Row="1" Name="SizeD1TB"  FontFamily="GOST Type B"  Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="80"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22" HorizontalAlignment="Center"  VerticalAlignment="Center" />
+
+                <Label  Grid.Column="0"  Grid.Row="2" x:Name="SizeD2Lbl" FontSize="12"   FontFamily="GOST Type B"  Visibility="{Binding D2VisibleController.Visibility}" Content="D2" Canvas.Top="99" Height="21" Width="23" Canvas.Right="127"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
+                <TextBox  Grid.Column="1" Grid.Row="2" x:Name="SizeD2TB"  FontFamily="GOST Type B"  Visibility="{Binding D2VisibleController.Visibility}"  TextWrapping="Wrap" Width="116" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="289" Canvas.Top="98" />
 
 
 
-            <Label  Name="SizeDLbl" Visibility="{Binding  DVisibleController.Visibility}" Content="D" Canvas.Top="55" Height="24" Width="41" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Right="200" Canvas.Left="159"></Label>
-            <TextBox Name="SizeDTB" Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="58"  HorizontalAlignment="Left"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" />
+                <Label Grid.Column="0" Grid.Row="3" x:Name="SizeDbLbl" FontSize="12"  FontFamily="GOST Type B"  Visibility="{Binding DbVisibleController.Visibility}" Content="Db" Canvas.Top="120" Height="21" Width="23" Canvas.Right="200"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
+                <TextBox Grid.Column="1" Grid.Row="3" x:Name="SizeDbTB"  FontFamily="GOST Type B"  Visibility="{Binding DbVisibleController.Visibility}"  Canvas.Top="120"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
 
 
-            <Label  Name="SizeD1Lbl" Visibility="{Binding DVisibleController.Visibility}" Content="D1" Canvas.Top="80" Height="24" Width="41" Canvas.Right="200" HorizontalAlignment="Left" Canvas.Left="159" VerticalAlignment="Center"/>
-            <TextBox Name="SizeD1TB" Visibility="{Binding DVisibleController.Visibility}"  Canvas.Top="80"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" HorizontalAlignment="Left" Canvas.Left="188" VerticalAlignment="Center" />
+                <Label  Grid.Column="0" Grid.Row="4" x:Name="SizeHLbl" FontSize="12"   FontFamily="GOST Type B"   Visibility="{Binding HVisibleController.Visibility}" Content="H" Canvas.Top="139" Height="21" Width="19" Canvas.Right="200" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
+                <TextBox Grid.Column="1" Grid.Row="4" x:Name="SizeHTB"  FontFamily="GOST Type B"  Visibility="{Binding HVisibleController.Visibility}"  Canvas.Top="140"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-            <Label  x:Name="SizeD2Lbl" Visibility="{Binding D2VisibleController.Visibility}" Content="D2" Canvas.Top="100" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="SizeD2TB" Visibility="{Binding D2VisibleController.Visibility}"  Canvas.Top="100"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-            <Label  x:Name="SizeDbLbl" Visibility="{Binding DbVisibleController.Visibility}" Content="Db" Canvas.Top="120" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="SizeDbTB" Visibility="{Binding DbVisibleController.Visibility}"  Canvas.Top="120"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Label Grid.Column="0"  Grid.Row="5" Name="CountOfHolesLbl" FontFamily="GOST Type B"  Visibility="{Binding CountOfHolesVisibleConroller.Visibility}" Content="N" Canvas.Top="160" Height="22" Width="20" Canvas.Right="0" Canvas.Left="254" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Grid.Column="1" Grid.Row="5" x:Name="CountOfHolesTB" FontFamily="GOST Type B"  Visibility="{Binding CountOfHolesVisibleConroller.Visibility}"  Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-            <Label  x:Name="SizeHLbl" Visibility="{Binding HVisibleController.Visibility}" Content="H" Canvas.Top="140" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="SizeHTB" Visibility="{Binding HVisibleController.Visibility}"  Canvas.Top="140"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
-           
-            <Label  x:Name="CountOfHolesLbl" Visibility="{Binding CountOfHolesVisibleConroller.Visibility}" Content="N" Canvas.Top="160" Height="24" Width="41" Canvas.Right="200" Canvas.Left="159" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="CountOfHolesTB" Visibility="{Binding CountOfHolesVisibleConroller.Visibility}"  Canvas.Top="160"  TextWrapping="Wrap" Width="127" Canvas.Right="85" Height="22" Canvas.Left="188" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-            <Button Name="BuiltBtn" Content="Построить" Canvas.Right="130" Canvas.Top="0"></Button>
+            </Grid>
 
 
         </Canvas>
