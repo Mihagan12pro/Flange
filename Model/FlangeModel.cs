@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 namespace Flange.Model
 {
-    internal class FlangeModel : DependencyObject
+    internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
 
         private string flangeTypeCrl;
@@ -33,6 +33,12 @@ namespace Flange.Model
 
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public string FlangeTypeCrl
         {
@@ -55,6 +61,21 @@ namespace Flange.Model
                            
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
+                        case 1:
+                            file = new FileInfo(@"..\..\Sketches\FreeFlange.bmp");
+
+                            BitmapImage = new BitmapImage(new Uri(file.FullName));
+                            break;
+                        case 2:
+                            file = new FileInfo(@"..\..\Sketches\FlatFlange.bmp");
+
+                            BitmapImage = new BitmapImage(new Uri(file.FullName));
+                            break;
+                        default:
+                            MessageBox.Show("Error!");
+                            break;
+
+
                     }
 
                 }
@@ -70,8 +91,13 @@ namespace Flange.Model
             }
             set
             {
-                if (image!=value)
+                if (image != value)
+                {
+                   
                     image = value;
+
+                    OnPropertyChanged();
+                }
 
             }
         }

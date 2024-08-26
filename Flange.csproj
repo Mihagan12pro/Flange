@@ -99,9 +99,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Sketches\FreeFlange.bmp" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Sketches\SimpleFlange.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sketches\FlatFlange.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
