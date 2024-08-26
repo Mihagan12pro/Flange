@@ -66,7 +66,9 @@
 
         </Canvas>
         <Canvas Name="SketchCvs" >
-            <Image Name="SketchImage" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Height="357" Margin="40,34,0,0" VerticalAlignment="Top" Width="317" Canvas.Top="0" />
+            <Border BorderThickness="2" BorderBrush="Black">
+                <Image  Name="SketchImage" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Height="357" Margin="40,34,0,0" VerticalAlignment="Top" Width="317" Canvas.Top="0" />
+            </Border>
         </Canvas>
     </Grid>
 </Window>

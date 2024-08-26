@@ -95,6 +95,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Prototypes\Свободный фланец.m3d" />
+    <None Include="Prototypes\Свободный фланец.m3d.cdw" />
+    <None Include="Prototypes\Фланец.cdw" />
+    <None Include="Prototypes\Фланец.m3d" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -107,6 +111,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Sketches\FlatFlange.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Databases\" />
+    <Folder Include="Kompas\Drafting\" />
+    <Folder Include="Kompas\Modeling\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
