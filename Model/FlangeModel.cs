@@ -111,12 +111,12 @@ namespace Flange.Model
 
 
 
-            DController = new Controller(true);
-            D1Controller = new Controller(true);
-            D2Controller = new Controller(true);
-            HController = new Controller(true);
-            DbController = new Controller(true);
-            CountOfHolesConroller = new Controller(true);
+            DController = new Controller(false);
+            D1Controller = new Controller(false);
+            D2Controller = new Controller(false);
+            HController = new Controller(false);
+            DbController = new Controller(false);
+            CountOfHolesConroller = new Controller(false);
 
             FlangeTypesCBItems = new ObservableCollection<string>
             {
