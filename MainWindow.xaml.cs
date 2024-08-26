@@ -31,7 +31,12 @@ namespace Flange
             SizeD2Lbl.MaxWidth = SizeD2Lbl.Width;
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
+
+
+       
             DataContext = new FlangeModel();
+
+          
         }
     }
 }

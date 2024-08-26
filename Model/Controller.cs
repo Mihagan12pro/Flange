@@ -4,25 +4,25 @@ using System.Windows;
 
 public class Controller : INotifyPropertyChanged
 {
-    public Controller(Visibility visibility)
+    public Controller(bool readOnly)
     {
-        this.visibility= visibility;
+        this.readOnly= readOnly;
     }
 
 
 
-    private Visibility visibility;
-    public Visibility Visibility
+    private bool readOnly;
+    public bool ReadOnly
     {
         get
         {
-            return visibility;
+            return readOnly;
         }
             set
         {
-            if (visibility != value)
+            if (readOnly != value)
             {
-                visibility = value;
+                readOnly = value;
                 OnPropertyChanged();
             }
         }
