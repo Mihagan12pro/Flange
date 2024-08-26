@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-public class VisibilityController : INotifyPropertyChanged
+public class Controller : INotifyPropertyChanged
 {
-    public VisibilityController(Visibility visibility)
+    public Controller(Visibility visibility)
     {
         this.visibility= visibility;
     }

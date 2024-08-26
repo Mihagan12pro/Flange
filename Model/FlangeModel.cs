@@ -24,12 +24,12 @@ namespace Flange.Model
 
         public ObservableCollection<string> FlangeTypesCBItems { get; private set; }
 
-        public VisibilityController DVisibleController { get; private set; }
-        public VisibilityController D1VisibleController { get; private set; }
-        public VisibilityController D2VisibleController { get; private set; }
-        public VisibilityController HVisibleController { get; private set; }
-        public VisibilityController DbVisibleController { get; private set; }
-        public VisibilityController CountOfHolesVisibleConroller { get; private set; }
+        public Controller DController { get; private set; }
+        public Controller D1Controller { get; private set; }
+        public Controller D2Controller { get; private set; }
+        public Controller HController { get; private set; }
+        public Controller DbController { get; private set; }
+        public Controller CountOfHolesConroller { get; private set; }
 
 
 
@@ -111,12 +111,12 @@ namespace Flange.Model
 
 
 
-            DVisibleController = new VisibilityController(Visibility.Visible);
-            D1VisibleController = new VisibilityController(Visibility.Visible);
-            D2VisibleController = new VisibilityController(Visibility.Visible);
-            HVisibleController = new VisibilityController(Visibility.Visible);
-            DbVisibleController = new VisibilityController(Visibility.Visible);
-            CountOfHolesVisibleConroller = new VisibilityController(Visibility.Visible);
+            DController = new Controller(Visibility.Visible);
+            D1Controller = new Controller(Visibility.Visible);
+            D2Controller = new Controller(Visibility.Visible);
+            HController = new Controller(Visibility.Visible);
+            DbController = new Controller(Visibility.Visible);
+            CountOfHolesConroller = new Controller(Visibility.Visible);
 
             FlangeTypesCBItems = new ObservableCollection<string>
             {

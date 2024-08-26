@@ -73,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\FlangeModel.cs" />
-    <Compile Include="Model\VisibilityController.cs" />
+    <Compile Include="Model\Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
