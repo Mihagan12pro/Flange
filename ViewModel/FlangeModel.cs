@@ -10,17 +10,19 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
 using Flange.Databases;
+using System.Data.SqlTypes;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
 
+      
         private string flangeTypeCrl;
         private readonly string SimpleFlangeType;
 
 
         private BitmapImage image;
-
+        private SizesSimpleFlange flangeSizes;
 
 
         public ObservableCollection<string> FlangeTypesCBItems { get; private set; }
@@ -31,6 +33,15 @@ namespace Flange.Model
         public Controller HController { get; private set; }
         public Controller DbController { get; private set; }
         public Controller CountOfHolesConroller { get; private set; }
+
+
+
+        public Parametre DPar { get; private set; } = new Parametre(0);
+        public Parametre D1Par { get;private set; } = new Parametre(1);
+        public Parametre D2Par { get;private set; } = new Parametre(2);
+        public Parametre DbPar { get; private set; } = new Parametre(3);
+        public Parametre HPar { get; private set; } = new Parametre(4);
+        public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
 
 
 
@@ -58,20 +69,31 @@ namespace Flange.Model
                     switch (FlangeTypesCBItems.IndexOf(flangeTypeCrl))
                     {
                         case 0:
+
+
+                            ChangeTextBoxElems(0);
+
                             file = new FileInfo(@"..\..\Sketches\SimpleFlange.bmp");
                            
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
+
                         case 1:
+                            ChangeTextBoxElems(1);
+
+
                             file = new FileInfo(@"..\..\Sketches\FreeFlange.bmp");
 
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
+
                         case 2:
+                            ChangeTextBoxElems(2);
                             file = new FileInfo(@"..\..\Sketches\FlatFlange.bmp");
 
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
+
                         default:
                             MessageBox.Show("Error!");
                             break;
@@ -83,7 +105,21 @@ namespace Flange.Model
             }
         }
 
-       
+        public SizesSimpleFlange FlangeSizes
+        {
+            private set
+            {
+                if (value != flangeSizes)
+                {
+                    flangeSizes = value;
+                }
+            }
+            get
+            {
+                return flangeSizes;
+            }
+        }
+
         public BitmapImage BitmapImage
         {
             get
@@ -103,8 +139,41 @@ namespace Flange.Model
             }
         }
 
-        
-        
+        private void ChangeTextBoxElems(int index)
+        {
+            SizesSimpleFlange sizesFlange;
+
+
+            switch(index)
+            {
+                case 0:
+                    sizesFlange = new SizesSimpleFlange();
+                    break;
+
+                default:
+                    sizesFlange = null;
+                    break;
+            }
+            if (sizesFlange !=null)
+            {
+
+                //DController.TextBoxText = sizesFlange.GetParam(DController.TextBoxId);
+                //D1Controller.TextBoxText = sizesFlange.GetParam(D1Controller.TextBoxId);
+                //D2Controller.TextBoxText = sizesFlange.GetParam(D2Controller.TextBoxId);
+                //DbController.TextBoxText = sizesFlange.GetParam(DbController.TextBoxId);
+                //HController.TextBoxText = sizesFlange.GetParam(HController.TextBoxId);
+                //CountOfHolesConroller.TextBoxText = sizesFlange.GetParam(CountOfHolesConroller.TextBoxId);
+
+                DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
+                D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
+                D2Par.TextBoxValue = sizesFlange.GetParam(D2Par.Id);
+                DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
+                HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
+                CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
+            }
+            
+        }
+
 
         public FlangeModel()
         {

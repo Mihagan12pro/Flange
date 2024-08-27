@@ -97,8 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\FlangeModel.cs" />
-    <Compile Include="Model\Controller.cs" />
+    <Compile Include="ViewModel\FlangeModel.cs" />
+    <Compile Include="ViewModel\Controller.cs" />
+    <Compile Include="ViewModel\Parametre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

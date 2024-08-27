@@ -18,27 +18,27 @@ public class Controller : INotifyPropertyChanged
     }
 
 
-
+    private string textBoxText;
     private bool readOnly;
     private SolidColorBrush background;
-    private double parametre;
+
 
     public readonly int TextBoxId;
 
-    public double Parametre
+
+    public  string TextBoxText
     {
-        get
-        {
-            return parametre;
-        }
         set
         {
-            if (parametre != value)
-            {
-                parametre = value;
-            }
+            if (value != textBoxText)
+                textBoxText = value;
+        }
+        get
+        {
+            return textBoxText;
         }
     }
+
 
 
     public bool ReadOnly
