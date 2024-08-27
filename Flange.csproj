@@ -86,6 +86,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Databases\SizesDatabase.cs" />
+    <Compile Include="Databases\SizesSimpleFlange.cs" />
     <Compile Include="Kompas\Drafting\Kompas2D.cs" />
     <Compile Include="Kompas\Kompas.cs" />
     <Compile Include="Kompas\Modeling\Flange.cs" />

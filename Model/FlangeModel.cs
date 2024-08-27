@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
+using Flange.Databases;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
@@ -126,7 +127,7 @@ namespace Flange.Model
             };
             FlangeTypeCrl = FlangeTypesCBItems[0] ;
 
-        
+            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
         }
         
     }
