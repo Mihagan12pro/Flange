@@ -8,18 +8,39 @@ using System.Windows.Media;
 
 public class Controller : INotifyPropertyChanged
 {
-    public Controller(bool _readOnly)
+    public Controller(bool _readOnly, int textBoxId)
     {
 
 
 
         ReadOnly = _readOnly;
+        TextBoxId = textBoxId;
     }
 
 
 
     private bool readOnly;
     private SolidColorBrush background;
+    private double parametre;
+
+    public readonly int TextBoxId;
+
+    public double Parametre
+    {
+        get
+        {
+            return parametre;
+        }
+        set
+        {
+            if (parametre != value)
+            {
+                parametre = value;
+            }
+        }
+    }
+
+
     public bool ReadOnly
     {
         get

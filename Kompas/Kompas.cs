@@ -10,6 +10,16 @@ namespace Flange.Kompas
     internal abstract class Kompas
     {
         protected KompasObject kompasObject;
+        protected Application kompasApp;
+
+
+        protected Kompas(KompasObject kompasObject)
+        {
+            this.kompasObject = kompasObject;
+
+           
+        }
+
         public KompasObject KompasObject
         {
             get
@@ -21,7 +31,18 @@ namespace Flange.Kompas
                 kompasObject = value;
             }
         }
-
+       
+        public Application KompasApp
+        {
+            get
+            {
+                return kompasApp;
+            }
+            set
+            {
+                kompasApp = value;
+            }
+        }
 
 
     }
