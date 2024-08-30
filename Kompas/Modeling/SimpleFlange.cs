@@ -37,7 +37,7 @@ namespace Flange.Kompas.Modeling
                 return haveNotInvalid;
            else
             {
-                if (IsCorrect(paramsList[paramsList.Count],out db))
+                if (IsCorrect(paramsList[paramsList.Count-1],out db))
                 {
                     haveNotInvalid = true;
                 }
@@ -51,7 +51,7 @@ namespace Flange.Kompas.Modeling
 
         protected override void Build()
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Метод Build() пока не реализован. Данное сообщение является заглушкой!");
         }
 
     }
