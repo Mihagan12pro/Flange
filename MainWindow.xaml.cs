@@ -35,8 +35,10 @@ namespace Flange
 
        
             DataContext = new FlangeModel();
-
+           
           
         }
+
+     
     }
 }

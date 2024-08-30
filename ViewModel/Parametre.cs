@@ -5,11 +5,12 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Flange.Model
 {
     
-    class Parametre : INotifyPropertyChanged
+    class Parametre : INotifyPropertyChanged,ICommand
     {
         public readonly int Id;
         private string textBoxValue;
@@ -36,6 +37,17 @@ namespace Flange.Model
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute(object parameter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Execute(object parameter)
+        {
+            throw new NotImplementedException();
+        }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

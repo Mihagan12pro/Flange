@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using Flange.Databases;
 using System.Data.SqlTypes;
+using System.Windows.Input;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
@@ -46,6 +47,7 @@ namespace Flange.Model
 
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler CanExecuteChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -157,12 +159,6 @@ namespace Flange.Model
             if (sizesFlange !=null)
             {
 
-                //DController.TextBoxText = sizesFlange.GetParam(DController.TextBoxId);
-                //D1Controller.TextBoxText = sizesFlange.GetParam(D1Controller.TextBoxId);
-                //D2Controller.TextBoxText = sizesFlange.GetParam(D2Controller.TextBoxId);
-                //DbController.TextBoxText = sizesFlange.GetParam(DbController.TextBoxId);
-                //HController.TextBoxText = sizesFlange.GetParam(HController.TextBoxId);
-                //CountOfHolesConroller.TextBoxText = sizesFlange.GetParam(CountOfHolesConroller.TextBoxId);
 
                 DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
                 D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
@@ -174,6 +170,7 @@ namespace Flange.Model
             
         }
 
+        
 
         public FlangeModel()
         {

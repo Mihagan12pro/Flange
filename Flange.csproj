@@ -89,7 +89,8 @@
     <Compile Include="Databases\SizesSimpleFlange.cs" />
     <Compile Include="Kompas\Drafting\Kompas2D.cs" />
     <Compile Include="Kompas\Kompas.cs" />
-    <Compile Include="Kompas\Modeling\Flange.cs" />
+    <Compile Include="Kompas\Modeling\AbstractFlange.cs" />
+    <Compile Include="Kompas\Modeling\SimpleFlange.cs" />
     <Compile Include="Kompas\Modeling\Kompas3D.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -97,6 +98,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\ButtonCommand.cs" />
     <Compile Include="ViewModel\FlangeModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
     <Compile Include="ViewModel\Parametre.cs" />
