@@ -12,6 +12,8 @@ using System.IO;
 using Flange.Databases;
 using System.Data.SqlTypes;
 using System.Windows.Input;
+using Flange.ViewModel;
+using Flange.Kompas.Modeling;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
@@ -104,6 +106,47 @@ namespace Flange.Model
                     }
 
                 }
+            }
+        }
+        private int click=0;
+        public int Clicks
+        {
+            get
+            {
+                return click;
+            }
+            set
+            {
+                click = value;
+            }
+        }
+
+        private void CreateFlange()
+        {
+
+           switch( FlangeTypesCBItems.IndexOf(flangeTypeCrl))
+           {
+                case 0:
+
+                    SimpleFlange simpleFlange = new SimpleFlange(DPar.TextBoxValue, D1Par.TextBoxValue, DPar.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue);
+
+                    break;
+                
+                default:
+                    MessageBox.Show("Error!");
+                    break;
+           }
+
+        }
+
+        public ButtonCommand BuildFlangeCommand
+        {
+            get
+            {
+                return new ButtonCommand((obj) =>
+                {
+                    CreateFlange();
+                });
             }
         }
 

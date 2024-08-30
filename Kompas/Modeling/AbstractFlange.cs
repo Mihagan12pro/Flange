@@ -58,7 +58,7 @@ namespace Flange.Kompas.Modeling
         public AbstractFlange(string D, string D1, string D2,  string H, string CountOfHoles)
         {
 
-            planeXOZ.Name = "ZOX";
+            //planeXOZ.Name = "ZOX";
             if (IsCorrect(D, out d) && IsCorrect(D1, out d1) && IsCorrect(D2, out d2) && IsCorrect(H, out h) && IsCorrect(CountOfHoles, out countOfHoles))
             {
                
@@ -99,11 +99,11 @@ namespace Flange.Kompas.Modeling
 
         protected virtual void Build()
         {
-            Sketch1();
+            //Sketch1();
         }
         protected virtual void Sketch1()
         {
-            sketch1Definition.SetPlane(planeXOZ);
+            //sketch1Definition.SetPlane(planeXOZ);
         }
 
         

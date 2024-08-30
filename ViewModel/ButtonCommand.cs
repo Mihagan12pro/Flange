@@ -26,7 +26,7 @@ namespace Flange.ViewModel
             }
         }
 
-        public ButtonCommand (Action<object> execute, Func<object, bool> canExucute)
+        public ButtonCommand (Action<object> execute, Func<object, bool> canExucute = null)
         {
             this.execute = execute;
             this.canExucute = canExucute;
