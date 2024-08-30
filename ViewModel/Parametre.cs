@@ -10,7 +10,7 @@ using System.Windows.Input;
 namespace Flange.Model
 {
     
-    class Parametre : INotifyPropertyChanged,ICommand
+    class Parametre : INotifyPropertyChanged
     {
         public readonly int Id;
         private string textBoxValue;
@@ -37,17 +37,9 @@ namespace Flange.Model
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler CanExecuteChanged;
+        
 
-        public bool CanExecute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

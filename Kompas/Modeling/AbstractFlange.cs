@@ -12,34 +12,7 @@ namespace Flange.Kompas.Modeling
 {
     internal class AbstractFlange
     {
-        //class Plane:Plane3D
-        //{
-        //    public bool Update()
-        //    {
-        //        throw new NotImplementedException();
-        //    }
 
-        //    public IKompasAPIObject Parent => throw new NotImplementedException();
-
-        //    public IApplication Application => throw new NotImplementedException();
-
-        //    public KompasAPIObjectTypeEnum Type => throw new NotImplementedException();
-
-        //    public int Reference => throw new NotImplementedException();
-
-        //    public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        //    public bool Hidden { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        //    public bool Valid => throw new NotImplementedException();
-
-        //    public Part7 Part => throw new NotImplementedException();
-
-        //    public global::Kompas6Constants3D.ksObj3dTypeEnum ModelObjectType => throw new NotImplementedException();
-
-        //    public IFeature7 Owner => throw new NotImplementedException();
-
-        //    public MathSurface3D Surface => throw new NotImplementedException();
-        //}
 
 
         protected Kompas3D kompas3D;
@@ -54,19 +27,74 @@ namespace Flange.Kompas.Modeling
 
         protected double d, d1, d2,  h;
         protected int countOfHoles;
+        protected List<string> paramsList = new List<string>();
 
         public AbstractFlange(string D, string D1, string D2,  string H, string CountOfHoles)
         {
 
-            //planeXOZ.Name = "ZOX";
-            if (IsCorrect(D, out d) && IsCorrect(D1, out d1) && IsCorrect(D2, out d2) && IsCorrect(H, out h) && IsCorrect(CountOfHoles, out countOfHoles))
-            {
-               
-            }
-           
+            paramsList.Add(D);
+            paramsList.Add(D1);
+            paramsList.Add(D2);
+            paramsList.Add(H);
+            paramsList.Add(CountOfHoles);
 
+
+
+            //if (IsCorrect(D, out d) && IsCorrect(D1, out d1) && IsCorrect(D2, out d2) && IsCorrect(H, out h) && IsCorrect(CountOfHoles, out countOfHoles))
+            //{
+
+            //}
+
+            if (CheckParams())
+            {
+                Build();
+            }
+            else
+            {
+                MessageBox.Show("Введены некорректные значения!");
+            }
         }
 
+        protected virtual bool CheckParams()
+        {
+            bool haveNotInvalid = true;
+            for (int i = 0; i < paramsList.Count; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        haveNotInvalid = IsCorrect(paramsList[i],out d);
+                        bool a = haveNotInvalid;
+                        break;
+
+                    case 1:
+                        haveNotInvalid = IsCorrect(paramsList[i], out d1);
+                        break;
+
+                    case 2:
+                        haveNotInvalid = IsCorrect(paramsList[i], out d2);
+                        break;
+
+                    case 3:
+                        haveNotInvalid = IsCorrect(paramsList[i], out h);
+                        break;
+
+                    case 4:
+                        haveNotInvalid = IsCorrect(paramsList[i], out countOfHoles);
+                        break;
+
+                    
+                }
+
+                if (haveNotInvalid == false)
+                
+                    return false;
+                
+            }
+
+
+            return true;
+        }
 
         protected virtual bool IsCorrect(string param, out double field)
         {
@@ -99,11 +127,11 @@ namespace Flange.Kompas.Modeling
 
         protected virtual void Build()
         {
-            //Sketch1();
+            
         }
         protected virtual void Sketch1()
         {
-            //sketch1Definition.SetPlane(planeXOZ);
+           // sketch1Definition.SetPlane(planeXOZ);
         }
 
         
