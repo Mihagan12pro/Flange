@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Flange.Kompas.Modeling
 {
-    internal class AbstractFlange
+    internal abstract class AbstractFlange
     {
 
 
@@ -45,14 +45,14 @@ namespace Flange.Kompas.Modeling
 
             //}
 
-            if (CheckParams())
-            {
-                Build();
-            }
-            else
-            {
-                MessageBox.Show("Введены некорректные значения!");
-            }
+            //if (CheckParams())
+            //{
+            //    Build();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Введены некорректные значения!");
+            //}
         }
 
         protected virtual bool CheckParams()
@@ -125,10 +125,7 @@ namespace Flange.Kompas.Modeling
             return false;
         }
 
-        protected virtual void Build()
-        {
-            
-        }
+        protected abstract void Build();
         protected virtual void Sketch1()
         {
            // sketch1Definition.SetPlane(planeXOZ);

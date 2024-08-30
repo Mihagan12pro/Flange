@@ -17,16 +17,42 @@ namespace Flange.Kompas.Modeling
 
         public SimpleFlange(string D, string D1, string D2, string Db, string H, string CountOfHoles) : base(D,D1,D2,H,CountOfHoles)
         {
-            //if (IsCorrect(D, out d) && IsCorrect(D1, out d1) && IsCorrect(D2, out d2) && IsCorrect(Db, out db) && IsCorrect(H, out h) && IsCorrect(CountOfHoles, out countOfHoles))
-            //{
-            //    Build();
-            //}
-            //else
-            //      MessageBox.Show("Некорректный ввод!");
-            
+     
+            paramsList.Add(Db);
+            if (CheckParams())
+            {
+                Build();
+            }
+            else
+                MessageBox.Show("Некорректный ввод!");
         }
 
+        protected override bool CheckParams()
+        {
+            bool haveNotInvalid = base.CheckParams();
 
-  
+           if (!haveNotInvalid)
+
+
+                return haveNotInvalid;
+           else
+            {
+                if (IsCorrect(paramsList[paramsList.Count],out db))
+                {
+                    haveNotInvalid = true;
+                }
+                else
+                {
+                    haveNotInvalid = false;
+                }
+            }
+            return haveNotInvalid;
+        }
+
+        protected override void Build()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
