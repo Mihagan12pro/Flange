@@ -12,18 +12,9 @@ namespace Flange.Kompas.Modeling
 {
     internal abstract class AbstractFlange
     {
-
-
-
-        protected Kompas3D kompas3D;
-
-
-        protected Sketch sketch1,sketch2;
-        protected ksSketchDefinition sketch1Definition, sketch2Definition;
-        protected Rotated rotated1;
-        protected CutExtrusion cutExtrusion1;
-        protected MirrorCopyAllDefinition mirrorArray1;
-        protected Plane3D planeXOZ;
+        protected ksDocument3D iDocument3D;
+        protected static KompasObject kompas;
+       
 
         protected double d, d1, d2,  h;
         protected int countOfHoles;
@@ -125,10 +116,34 @@ namespace Flange.Kompas.Modeling
             return false;
         }
 
-        protected abstract void Build();
+        protected virtual void Build()
+        {
+            if (kompas == null)
+            {
+                Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                kompas = (KompasObject)Activator.CreateInstance(t);
+            }
+
+            try
+            {
+                kompas.Visible = true;
+                kompas.ActivateControllerAPI();
+                iDocument3D = (ksDocument3D)kompas.Document3D();
+                iDocument3D.Create(false /*видимый*/, true /*деталь*/);
+            }
+            catch (System.Runtime.InteropServices.COMException)
+            {
+                Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                kompas = (KompasObject)Activator.CreateInstance(t);
+                kompas.Visible = true;
+                kompas.ActivateControllerAPI();
+                iDocument3D = (ksDocument3D)kompas.Document3D();
+                iDocument3D.Create(false /*видимый*/, true /*деталь*/);
+            }
+        }
         protected virtual void Sketch1()
         {
-           // sketch1Definition.SetPlane(planeXOZ);
+         
         }
 
         

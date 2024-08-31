@@ -87,11 +87,8 @@
     </Compile>
     <Compile Include="Databases\SizesDatabase.cs" />
     <Compile Include="Databases\SizesSimpleFlange.cs" />
-    <Compile Include="Kompas\Drafting\Kompas2D.cs" />
-    <Compile Include="Kompas\Kompas.cs" />
     <Compile Include="Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Kompas\Modeling\SimpleFlange.cs" />
-    <Compile Include="Kompas\Modeling\Kompas3D.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -143,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Databases\DBs\" />
+    <Folder Include="Kompas\Drafting\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">
@@ -174,6 +172,15 @@
     </COMReference>
     <COMReference Include="Kompas6Constants">
       <Guid>{75C9F5D0-B5B8-4526-8681-9903C567D2ED}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Kompas6Constants3D">
+      <Guid>{2CAF168C-7961-4B90-9DA2-701419BEEFE3}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
