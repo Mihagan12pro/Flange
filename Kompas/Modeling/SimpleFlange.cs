@@ -57,7 +57,10 @@ namespace Flange.Kompas.Modeling
 
 
             base.Build();
-            
+
+
+
+
 
         }
 
