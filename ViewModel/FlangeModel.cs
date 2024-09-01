@@ -128,7 +128,7 @@ namespace Flange.Model
            {
                 case 0:
 
-                    SimpleFlange simpleFlange = new SimpleFlange(DPar.TextBoxValue, D1Par.TextBoxValue, DPar.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue);
+                    SimpleFlange simpleFlange = new SimpleFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue);
 
                     break;
                 
