@@ -22,16 +22,18 @@ namespace Flange.Kompas.Modeling
         protected static KompasObject kompas;
         protected ksPart iPart;
 
-        protected  ksEntity planeXOZ,planeXOY;
+        protected  ksEntity planeXOZ,planeXOY,planeZOY,planeOffsetXOY;
 
         protected entity iSketch1, iSketch2;
         protected SketchDefinition iSketch1Definition, iSketch2Definition;
 
         protected entity iBossRotation1;
-        protected entity iCutRotation1;
+        protected entity iCutExtrusion1;
         protected BossRotatedDefinition iBossRotation1Definition;
-        protected CutRotatedDefinition iCutRotation1Definition;
+       // protected CutRotatedDefinition iCutRotation1Definition;
 
+        protected ksEntity iCircularArray;
+        protected ksCircularCopyDefinition  iCircularArrayDefinition;
 
         protected double d, d1, d2,  h;
         protected int countOfHoles;
@@ -138,13 +140,16 @@ namespace Flange.Kompas.Modeling
             }
             iPart = (part)iDocument3D.GetPart(-1);
 
-            planeXOZ =  (entity)iPart.GetDefaultEntity(2);
-            planeXOY = (entity)iPart.GetDefaultEntity(1);
+            planeXOZ = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
+            planeZOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ);
+            planeXOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
+            planeOffsetXOY = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
 
             Sketch1();
             BossRotation1();
             Sketch2();
-            CutRotation1();
+            CutExtrusion1();
+            CircularArray1();
         }
         private void OpenKompas3D()
         {
@@ -185,41 +190,42 @@ namespace Flange.Kompas.Modeling
         }
         protected void Sketch2()
         {
+            ksPlaneOffsetDefinition planeOffsetDefinition = (ksPlaneOffsetDefinition)planeOffsetXOY.GetDefinition();
+
+            planeOffsetDefinition.SetPlane(planeXOY);
+            planeOffsetDefinition.direction = false;
+            planeOffsetDefinition.offset = h;
+
+            planeOffsetXOY.Create();
+
+
             iSketch2 = (entity)iPart.NewEntity(5);
             iSketch2Definition = (SketchDefinition)iSketch2.GetDefinition();
 
-            iSketch2Definition.SetPlane(planeXOZ);
+            iSketch2Definition.SetPlane(planeOffsetXOY);
 
             iSketch2.Create();
 
             iDocument2D = iSketch2Definition.BeginEdit();
 
-            //iDocument2D.ksCircle(0, d1 / 2, d2 / 2, 1);
-            iDocument2D.ksLineSeg(d1/2,0,d2/2+d1/2,0,1);
-            iDocument2D.ksLineSeg(d2/2+d1 /2,0,d2/2 + d1 / 2,h,1);
-            iDocument2D.ksLineSeg(d2/2+d1 /2,h,d1 /2,h,1);
-            iDocument2D.ksLineSeg(d1 /2,h,d1 /2,0,1);
-
-            iDocument2D.ksLineSeg(d1/2,0,d1/2,100,3);
-
-            iSketch2Definition.EndEdit();
-            //iSketch2 = (entity)iPart.NewEntity(5);
-            //iSketch2Definition = (SketchDefinition)iSketch2.GetDefinition();
-
-            //iSketch2Definition.SetPlane(planeXOY);
-
-            //iSketch2.Create();
+            iDocument2D.ksCircle(d1/2,0,d2/2,1);
 
             //iDocument2D = iSketch2Definition.BeginEdit();
 
-            //iDocument2D.ksCircle(0,d1/2,d2/2,1);
+            ////iDocument2D.ksCircle(0, d1 / 2, d2 / 2, 1);
+            //iDocument2D.ksLineSeg(d1/2,0,d2/2+d1/2,0,1);
+            //iDocument2D.ksLineSeg(d2/2+d1 /2,0,d2/2 + d1 / 2,h,1);
+            //iDocument2D.ksLineSeg(d2/2+d1 /2,h,d1 /2,h,1);
+            //iDocument2D.ksLineSeg(d1 /2,h,d1 /2,0,1);
 
+            //iDocument2D.ksLineSeg(d1/2,0,d1/2,100,3);
 
-            //iSketch2Definition.EndEdit();
+            iSketch2Definition.EndEdit();
+
         }
         protected  void BossRotation1()
         {
-            
+
 
 
             iBossRotation1 = (entity)iPart.NewEntity((short)Obj3dType.o3d_bossRotated);
@@ -233,29 +239,52 @@ namespace Flange.Kompas.Modeling
             //iRotated1Param.
             iBossRotation1Definition.SetThinParam(false, (short)Direction_Type.dtBoth, 1, 1);   // тонкая стенка в два направления
             iBossRotation1Definition.SetSideParam(true, 360);
-            iBossRotation1Definition .SetSketch(iSketch1);  // эскиз операции вращения
+            iBossRotation1Definition.SetSketch(iSketch1);  // эскиз операции вращения
 
             iBossRotation1.Create();
         }
-        protected void CutRotation1()
+        protected void CutExtrusion1()
         {
-            iCutRotation1 = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutRotated);
-            iCutRotation1Definition = (CutRotatedDefinition)iCutRotation1.GetDefinition();
 
-            iCutRotation1Definition.SetThinParam(false, (short)Direction_Type.dtBoth, 1, 1);   // тонкая стенка в два направления
-            iCutRotation1Definition .SetSideParam(true, 360);
-            iCutRotation1Definition.SetSketch(iSketch2);
+            iCutExtrusion1 = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
 
-            iCutRotation1.Create();
-            //iCutExtrusion1 = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
-            //iCutExtrusion1Definition = (CutExtrusionDefinition)iCutExtrusion1.GetDefinition();
+            CutExtrusionDefinition iCutExtrusion1Definition = (CutExtrusionDefinition)iCutExtrusion1.GetDefinition();
 
-            //iCutExtrusion1Definition.SetSketch(iSketch2);
+            iCutExtrusion1Definition.SetSketch(iSketch2);
+            iCutExtrusion1Definition.SetSideParam(false,(short)Direction_Type.dtNormal,h,1);
 
-            //iCutExtrusion1Definition.SetSideParam(true, (short)End_Type.etThroughAll, -h, 0, true);
+            iCutExtrusion1.Create();
 
-            //iCutExtrusion1.Create();
 
+
+
+
+        }
+        protected void CircularArray1()
+        {
+            //(ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
+            iCircularArray = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_circularCopy);
+            iCircularArrayDefinition = (ksCircularCopyDefinition)iCircularArray.GetDefinition();
+
+            //bool a = (iCircularArrayDefinition == null);
+            //bool b = a;
+            ksEntity iAxis = iPart.NewEntity((short)Obj3dType.o3d_axis2Planes);
+            Axis2PlanesDefinition iAxisDefinition = (Axis2PlanesDefinition)iAxis.GetDefinition();
+            iAxisDefinition.SetPlane(1, planeZOY);
+            iAxisDefinition.SetPlane(2, planeXOZ);
+            iAxis.Create();
+
+            iCircularArrayDefinition.SetAxis(iAxis);
+            iCircularArrayDefinition.SetCopyParamAlongDir(countOfHoles,360,true,false);
+         
+
+
+            ksEntityCollection entityCollection = (ksEntityCollection)iCircularArrayDefinition.GetOperationArray();
+            entityCollection.Clear();
+            entityCollection.Add(iCutExtrusion1); // Добавляем вырез в массив
+
+            // Создаем массив
+            iCircularArray.Create();
         }
 
     }
