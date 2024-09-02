@@ -1,4 +1,5 @@
 ﻿using Kompas6API5;
+using Kompas6Constants3D;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +17,26 @@ namespace Flange.Kompas.Modeling
 
         protected double db;
 
+        protected entity iSketch3;
+        protected entity iCutExtrusion2;
 
         public SimpleFlange(string D, string D1, string D2, string Db, string H, string CountOfHoles) : base(D, D1, D2, H, CountOfHoles)
         {
 
             paramsList.Add(Db);
+           
+        }
+
+        public override void TryToBuild()
+        {
             if (CheckParams())
             {
                 Build();
             }
             else
                 MessageBox.Show("Некорректный ввод!");
-        }
 
+        }
         protected override bool CheckParams()
         {
             bool haveNotInvalid = base.CheckParams();
@@ -53,16 +61,49 @@ namespace Flange.Kompas.Modeling
 
         protected override void Build()
         {
-            //System.Runtime.InteropServices.COMException
+            
 
 
             base.Build();
 
 
-
+            Sketch3();
+            CutExtrusion2();
 
 
         }
 
+        protected void Sketch3()
+        {
+
+            iSketch3 = (entity)iPart.NewEntity(5);
+            SketchDefinition iSketch3Definition = (SketchDefinition)iSketch3.GetDefinition();
+
+            iSketch3Definition.SetPlane(planeOffsetXOY);
+
+            iSketch3.Create();
+
+            iDocument2D = iSketch3Definition.BeginEdit();
+
+            iDocument2D.ksCircle(0, 0,db/2, 1);
+
+
+
+            iSketch3Definition.EndEdit();
+
+        }
+
+        protected void CutExtrusion2()
+        {
+            iCutExtrusion2 = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+
+            CutExtrusionDefinition iCutExtrusion2Definition = (CutExtrusionDefinition)iCutExtrusion2.GetDefinition();
+
+            iCutExtrusion2Definition.SetSketch(iSketch3);
+            iCutExtrusion2Definition.SetSideParam(false, (short)Direction_Type.dtNormal, h, 1);
+            
+            iCutExtrusion2.Create();
+
+        }
     }
 }

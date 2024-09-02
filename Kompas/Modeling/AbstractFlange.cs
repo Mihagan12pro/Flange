@@ -53,6 +53,7 @@ namespace Flange.Kompas.Modeling
 
         }
 
+        public abstract void TryToBuild();
         protected virtual bool CheckParams()
         {
             bool haveNotInvalid = true;
@@ -210,15 +211,6 @@ namespace Flange.Kompas.Modeling
 
             iDocument2D.ksCircle(d1/2,0,d2/2,1);
 
-            //iDocument2D = iSketch2Definition.BeginEdit();
-
-            ////iDocument2D.ksCircle(0, d1 / 2, d2 / 2, 1);
-            //iDocument2D.ksLineSeg(d1/2,0,d2/2+d1/2,0,1);
-            //iDocument2D.ksLineSeg(d2/2+d1 /2,0,d2/2 + d1 / 2,h,1);
-            //iDocument2D.ksLineSeg(d2/2+d1 /2,h,d1 /2,h,1);
-            //iDocument2D.ksLineSeg(d1 /2,h,d1 /2,0,1);
-
-            //iDocument2D.ksLineSeg(d1/2,0,d1/2,100,3);
 
             iSketch2Definition.EndEdit();
 
@@ -233,13 +225,10 @@ namespace Flange.Kompas.Modeling
             iBossRotation1Definition = (BossRotatedDefinition)iBossRotation1.GetDefinition();
 
 
-            //ksRotatedParam iRotated1Param = (ksRotatedParam)iRotation1Definition.RotatedParam();
 
-
-            //iRotated1Param.
             iBossRotation1Definition.SetThinParam(false, (short)Direction_Type.dtBoth, 1, 1);   // тонкая стенка в два направления
             iBossRotation1Definition.SetSideParam(true, 360);
-            iBossRotation1Definition.SetSketch(iSketch1);  // эскиз операции вращения
+            iBossRotation1Definition.SetSketch(iSketch1); 
 
             iBossRotation1.Create();
         }
@@ -262,12 +251,11 @@ namespace Flange.Kompas.Modeling
         }
         protected void CircularArray1()
         {
-            //(ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
+         
             iCircularArray = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_circularCopy);
             iCircularArrayDefinition = (ksCircularCopyDefinition)iCircularArray.GetDefinition();
 
-            //bool a = (iCircularArrayDefinition == null);
-            //bool b = a;
+        
             ksEntity iAxis = iPart.NewEntity((short)Obj3dType.o3d_axis2Planes);
             Axis2PlanesDefinition iAxisDefinition = (Axis2PlanesDefinition)iAxis.GetDefinition();
             iAxisDefinition.SetPlane(1, planeZOY);
@@ -281,9 +269,9 @@ namespace Flange.Kompas.Modeling
 
             ksEntityCollection entityCollection = (ksEntityCollection)iCircularArrayDefinition.GetOperationArray();
             entityCollection.Clear();
-            entityCollection.Add(iCutExtrusion1); // Добавляем вырез в массив
+            entityCollection.Add(iCutExtrusion1); 
 
-            // Создаем массив
+            
             iCircularArray.Create();
         }
 
