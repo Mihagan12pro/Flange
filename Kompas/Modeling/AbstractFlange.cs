@@ -39,6 +39,33 @@ namespace Flange.Kompas.Modeling
         protected int countOfHoles;
         protected List<string> paramsList = new List<string>();
 
+
+        protected struct Line
+        {
+            public readonly double Angle1;
+            public readonly double Angle2;
+            public readonly double Line1;
+
+            public Line(double line1,double angle)
+            {
+                Angle1 = angle;
+                Line1 = line1;
+
+                Angle2 = 90 - Angle1;
+            }
+
+            
+        
+            public double Line2
+            {
+                get
+                {
+                    return (Math.Sin(Angle2) * Line1) / Math.Sin(Angle2);
+                }
+            }
+        }
+
+
         public AbstractFlange(string D, string D1, string D2,  string H, string CountOfHoles)
         {
            
