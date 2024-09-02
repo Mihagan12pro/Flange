@@ -47,8 +47,9 @@ namespace Flange.Kompas.Modeling
                 return haveNotInvalid;
             else
             {
-                if (IsCorrect(paramsList[paramsList.Count - 1], out db))
+                if (IsCorrect(paramsList[5], out db))
                 {
+                    var a = db;
                     haveNotInvalid = true;
                 }
                 else

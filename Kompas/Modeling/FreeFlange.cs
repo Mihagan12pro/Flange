@@ -14,12 +14,16 @@ namespace Flange.Kompas.Modeling
     {
         protected double a, s;
 
+        protected Lines lines;
+
         protected entity iChamfer1;//Фаска
       
 
-        public FreeFlange(string D, string D1, string D2, string Db, string H, string CountOfHoles,string A,string S) : base(D, D1, D2, Db, H, CountOfHoles)
+        public FreeFlange(string D, string D1, string D2,  string H, string CountOfHoles, string Db, string A,string S) : base(D, D1, D2,  H, CountOfHoles, Db)
         {
-
+            paramsList.Add(A);
+            paramsList.Add(S);
+               
         }
 
       
@@ -34,7 +38,7 @@ namespace Flange.Kompas.Modeling
                 return haveNotInvalid;
             else
             {
-                if (IsCorrect(paramsList[paramsList.Count - 1], out a) && IsCorrect(paramsList[paramsList.Count-2],out s))
+                if (IsCorrect(paramsList[6], out a) && IsCorrect(paramsList[7], out s))
                 {
                     haveNotInvalid = true;
                 }
@@ -50,6 +54,10 @@ namespace Flange.Kompas.Modeling
         protected override void Build()
         {
             base.Build();
+
+            lines = new Lines(s,a);
+
+            Chamfer1();
         }
 
         protected void Chamfer1()
@@ -58,8 +66,28 @@ namespace Flange.Kompas.Modeling
 
             ChamferDefinition iChamfer1Definition = (ChamferDefinition)iChamfer1.GetDefinition();
 
-            iChamfer1Definition.tangent = false;
-            //iChamfer1Definition.;
+            iChamfer1Definition.tangent = true;
+            iChamfer1Definition.SetChamferParam(true,lines.Line1,lines.Line2);
+
+            EntityCollection iEntityCollection = iPart.EntityCollection((short)Obj3dType.o3d_edge);
+
+            EntityCollection iChamferCollection = iChamfer1Definition.array();
+           
+
+            iChamferCollection.Clear();
+
+            //Edge a = (Edge)iEntityCollection.GetByIndex(0);
+
+            //iChamferCollection.Add(a);
+            //iEntityCollection.SelectByPoint(d/2, 0, h);
+            //iEntityCollection.SelectByPoint(db,0,-h);
+            iEntityCollection.SelectByPoint(db/2, 0, -h);
+
+            iChamferCollection.Add(iEntityCollection.GetByIndex(0));
+
+            iChamfer1.Create();
+
+
         }
     }
 }

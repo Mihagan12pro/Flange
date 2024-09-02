@@ -150,7 +150,7 @@ namespace Flange.Model
 
                     break;
                 case 1:
-                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue, CountOfHolesPar.TextBoxValue,APar.TextBoxValue,SPar.TextBoxValue);
+                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue,  HPar.TextBoxValue, CountOfHolesPar.TextBoxValue, DbPar.TextBoxValue, APar.TextBoxValue,SPar.TextBoxValue);
                     freeFlange.TryToBuild();
 
                     break;

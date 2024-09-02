@@ -1,9 +1,5 @@
-﻿using Kompas6API5;
-using Kompas6Constants;
-using Kompas6Constants3D;
+﻿
 using KompasAPI7;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Security.Principal;
@@ -11,7 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Kompas6Constants;
 
+using System;
+using System.Collections.Generic;
+using Kompas6API5;
+using Kompas6Constants3D;
 namespace Flange.Kompas.Modeling
 {
     internal abstract class AbstractFlange
@@ -40,13 +41,13 @@ namespace Flange.Kompas.Modeling
         protected List<string> paramsList = new List<string>();
 
 
-        protected struct Line
+        protected struct Lines
         {
             public readonly double Angle1;
             public readonly double Angle2;
             public readonly double Line1;
 
-            public Line(double line1,double angle)
+            public Lines(double line1,double angle)
             {
                 Angle1 = angle;
                 Line1 = line1;
@@ -84,7 +85,7 @@ namespace Flange.Kompas.Modeling
         protected virtual bool CheckParams()
         {
             bool haveNotInvalid = true;
-            for (int i = 0; i < paramsList.Count; i++)
+            for (int i = 0; i < 5; i++)
             {
                 switch (i)
                 {
