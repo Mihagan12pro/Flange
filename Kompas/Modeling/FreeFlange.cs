@@ -38,7 +38,7 @@ namespace Flange.Kompas.Modeling
                 return haveNotInvalid;
             else
             {
-                if (IsCorrect(paramsList[6], out a) && IsCorrect(paramsList[7], out s))
+                if (IsCorrect(paramsList[6], out a) && IsCorrect(paramsList[7], out s) && IsCorrect(paramsList[5], out db))
                 {
                     haveNotInvalid = true;
                 }

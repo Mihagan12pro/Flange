@@ -20,7 +20,7 @@ namespace Flange.Kompas.Modeling
         protected entity iSketch3;
         protected entity iCutExtrusion2;
 
-        public SimpleFlange(string D, string D1, string D2, string Db, string H, string CountOfHoles) : base(D, D1, D2, H, CountOfHoles)
+        public SimpleFlange(string D, string D1, string D2, string H, string CountOfHoles, string Db) : base(D, D1, D2, H, CountOfHoles)
         {
 
             paramsList.Add(Db);
