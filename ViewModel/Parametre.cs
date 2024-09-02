@@ -14,10 +14,15 @@ namespace Flange.Model
     {
         public readonly int Id;
         private string textBoxValue;
+       
+
         public Parametre(int Id)
         {
             this.Id = Id;
         }
+
+    
+
         public string TextBoxValue
         {
             get

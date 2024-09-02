@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Canvas Name="ParamettresCvs" Grid.Column="2">
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True"/>
-            <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить" Canvas.Right="130" Canvas.Top="0"   ></Button>
+            <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить 3D модель" Canvas.Right="130" Canvas.Top="0"   ></Button>
 
 
             <Grid Name="SizesGrid" Canvas.Right="0" Canvas.Top="50">
@@ -61,6 +61,12 @@
                 <Label Grid.Column="0"  Grid.Row="5" Name="CountOfHolesLbl" FontFamily="GOST Type B"   Content="N" Canvas.Top="160" Height="22" Width="20" Canvas.Right="0" Canvas.Left="254" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBox Text="{Binding  CountOfHolesPar.TextBoxValue}" Background="{Binding CountOfHolesConroller.Background}" IsReadOnly="{Binding CountOfHolesConroller.ReadOnly}" Grid.Column="1" Grid.Row="5" x:Name="CountOfHolesTB" FontFamily="GOST Type B"   Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
+                <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="6" Content="a" Name="aLbl" FontFamily="GOST Type B"></Label>
+                <TextBox Text="{Binding APar.TextBoxValue}" IsReadOnly="{Binding  AController.ReadOnly}" Grid.Column="1" Grid.Row="6" Name="aTb"></TextBox>
+
+                <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S" Name="SLbl" FontFamily="GOST Type B"></Label>
+                <TextBox Text="{Binding SPar.TextBoxValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" Name="STb"></TextBox>
+                
             </Grid>
 
 

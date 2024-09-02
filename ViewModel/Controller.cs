@@ -10,10 +10,11 @@ public class Controller : INotifyPropertyChanged
 {
     public Controller(bool _readOnly, int textBoxId)
     {
-
+        
 
 
         ReadOnly = _readOnly;
+       
         TextBoxId = textBoxId;
     }
 
@@ -26,18 +27,7 @@ public class Controller : INotifyPropertyChanged
     public readonly int TextBoxId;
 
 
-    public  string TextBoxText
-    {
-        set
-        {
-            if (value != textBoxText)
-                textBoxText = value;
-        }
-        get
-        {
-            return textBoxText;
-        }
-    }
+
 
 
 
@@ -59,6 +49,9 @@ public class Controller : INotifyPropertyChanged
                 }
                 else
                 {
+                    
+                  
+
                     Background = new SolidColorBrush(Colors.Gainsboro);
                     OnPropertyChanged(nameof(Background));
                 }

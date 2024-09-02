@@ -79,8 +79,16 @@ namespace Flange.Model
                     {
                         case 0:
 
+                            AController.ReadOnly = true;
+                            SController.ReadOnly = true;
+
+                            SPar.TextBoxValue = "";
+                            APar.TextBoxValue = "";
+
 
                             ChangeTextBoxElems(0);
+
+
 
                             file = new FileInfo(@"..\..\Sketches\SimpleFlange.bmp");
                            
@@ -88,6 +96,10 @@ namespace Flange.Model
                             break;
 
                         case 1:
+
+                            AController.ReadOnly = false;
+                            SController.ReadOnly = false;
+
                             ChangeTextBoxElems(1);
 
 
@@ -138,7 +150,7 @@ namespace Flange.Model
 
                     break;
                 case 1:
-                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue, CountOfHolesPar.TextBoxValue);
+                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue, CountOfHolesPar.TextBoxValue,APar.TextBoxValue,SPar.TextBoxValue);
                     freeFlange.TryToBuild();
 
                     break;
@@ -227,7 +239,8 @@ namespace Flange.Model
 
             if (sizesFlange is SizesFreeFlange)
             {
-
+                APar.TextBoxValue = sizesFlange.GetParam(APar.Id);
+                SPar.TextBoxValue = sizesFlange.GetParam(SPar.Id);
             }
             
         }
@@ -247,6 +260,10 @@ namespace Flange.Model
             DbController = new Controller(false,4);
             CountOfHolesConroller = new Controller(false,5);
 
+            AController = new Controller(true, 6);
+         
+            SController = new Controller(true, 7);
+
             FlangeTypesCBItems = new ObservableCollection<string>
             {
                 "Фланец",
@@ -256,6 +273,8 @@ namespace Flange.Model
             FlangeTypeCrl = FlangeTypesCBItems[0] ;
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
+
+  
         }
         
     }
