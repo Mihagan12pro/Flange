@@ -86,8 +86,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Databases\SizesDatabase.cs" />
+    <Compile Include="Databases\SizesFreeFlange.cs" />
     <Compile Include="Databases\SizesSimpleFlange.cs" />
     <Compile Include="Kompas\Modeling\AbstractFlange.cs" />
+    <Compile Include="Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Kompas\Modeling\SimpleFlange.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

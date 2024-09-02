@@ -30,9 +30,9 @@ namespace Flange.Kompas.Modeling
         public override void TryToBuild()
         {
             if (CheckParams())
-            {
+            
                 Build();
-            }
+            
             else
                 MessageBox.Show("Некорректный ввод!");
 

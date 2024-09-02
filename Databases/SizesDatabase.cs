@@ -35,8 +35,6 @@ namespace Flange.Databases
 
         public  string GetParam(int id)
         {
-            bool isNotFount = true;
-
 
             foreach (var par in parametresList)
             {
@@ -49,7 +47,7 @@ namespace Flange.Databases
             
         }
 
-        protected List<object>GetDefaultData()
+        protected  List<object>GetDefaultData(string table)
         {
             List<object>list = new List<object>();
             using (SQLiteConnection connection = new SQLiteConnection(databaseName))
@@ -59,7 +57,7 @@ namespace Flange.Databases
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
                     command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM {tableName}";
+                    command.CommandText = $"SELECT * FROM {table}";
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {

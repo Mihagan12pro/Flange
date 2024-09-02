@@ -37,6 +37,10 @@ namespace Flange.Model
         public Controller DbController { get; private set; }
         public Controller CountOfHolesConroller { get; private set; }
 
+        public Controller AController { get;private set; }
+        public Controller SController {  get; private set; }
+
+
 
 
         public Parametre DPar { get; private set; } = new Parametre(0);
@@ -46,7 +50,8 @@ namespace Flange.Model
         public Parametre HPar { get; private set; } = new Parametre(4);
         public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
 
-
+        public Parametre APar { get; private set; } = new Parametre(6);
+        public Parametre SPar { get; private set; } = new Parametre(7);
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
@@ -132,7 +137,11 @@ namespace Flange.Model
                     simpleFlange.TryToBuild();
 
                     break;
-                
+                case 1:
+                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue, DbPar.TextBoxValue, HPar.TextBoxValue, CountOfHolesPar.TextBoxValue);
+                    freeFlange.TryToBuild();
+
+                    break;
                 default:
                     MessageBox.Show("Error!");
                     break;
@@ -196,6 +205,10 @@ namespace Flange.Model
                     sizesFlange = new SizesSimpleFlange();
                     break;
 
+                case 1:
+                    sizesFlange = new SizesFreeFlange();
+                    break;
+
                 default:
                     sizesFlange = null;
                     break;
@@ -210,6 +223,11 @@ namespace Flange.Model
                 DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
                 HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
                 CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
+            }
+
+            if (sizesFlange is SizesFreeFlange)
+            {
+
             }
             
         }

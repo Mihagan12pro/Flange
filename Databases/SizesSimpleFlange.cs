@@ -15,7 +15,7 @@ namespace Flange.Databases
             databaseName = $"Data Source={@"..\..\Databases\DBs\Flange.db"}";
             tableName = "sizes";
 
-            List<object> data = GetDefaultData();
+            List<object> data = GetDefaultData(tableName);
 
          
 
