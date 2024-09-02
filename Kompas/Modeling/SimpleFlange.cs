@@ -49,7 +49,7 @@ namespace Flange.Kompas.Modeling
             {
                 if (IsCorrect(paramsList[5], out db))
                 {
-                    var a = db;
+                 
                     haveNotInvalid = true;
                 }
                 else
