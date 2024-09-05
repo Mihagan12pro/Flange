@@ -14,11 +14,12 @@ using System.Data.SqlTypes;
 using System.Windows.Input;
 using Flange.ViewModel;
 using Flange.Kompas.Modeling;
+using Flange.Databases.GOST_tables;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
-
+       
       
         private string flangeTypeCrl;
         private readonly string SimpleFlangeType;
@@ -53,8 +54,31 @@ namespace Flange.Model
         public Parametre APar { get; private set; } = new Parametre(6);
         public Parametre SPar { get; private set; } = new Parametre(7);
 
+
+        private FreeFlangeGostTable gostTableFree; 
+
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
+
+        private int lastSelectedItem = 0;
+
+        private int LastSelectedItem
+        {
+            get
+            {
+                return lastSelectedItem;
+            }
+            set
+            {
+                switch(lastSelectedItem)
+                {
+                    case 1:
+                        gostTableFree.Dispose();
+                        break;
+                }
+                lastSelectedItem = value;
+            }
+        }
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -99,6 +123,8 @@ namespace Flange.Model
 
                             AController.ReadOnly = false;
                             SController.ReadOnly = false;
+
+                            
 
                             ChangeTextBoxElems(1);
 
@@ -215,16 +241,26 @@ namespace Flange.Model
             {
                 case 0:
                     sizesFlange = new SizesSimpleFlange();
+
+                    
                     break;
 
                 case 1:
                     sizesFlange = new SizesFreeFlange();
+
+
+                    gostTableFree = new FreeFlangeGostTable();
+                  
+
                     break;
 
                 default:
                     sizesFlange = null;
                     break;
             }
+
+
+            LastSelectedItem = index;
             if (sizesFlange !=null)
             {
 
@@ -244,6 +280,8 @@ namespace Flange.Model
             }
             
         }
+
+        
 
         
 

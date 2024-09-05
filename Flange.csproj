@@ -87,7 +87,7 @@
     </Compile>
     <Compile Include="Databases\GOST tables\AbstractGostTable.cs" />
     <Compile Include="Databases\GOST tables\FreeFlangeGostTable.cs" />
-    <Compile Include="Databases\GOST tables\GOST data classes\FreeFlangeData.cs" />
+    <Compile Include="Databases\GOST tables\GOST data classes\GostDataFreeFlange.cs" />
     <Compile Include="Databases\GOST tables\GOST data classes\GostData.cs" />
     <Compile Include="Databases\SizesDatabase.cs" />
     <Compile Include="Databases\SizesFreeFlange.cs" />
