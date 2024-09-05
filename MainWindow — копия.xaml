@@ -6,32 +6,22 @@
         xmlns:local="clr-namespace:Flange"
         mc:Ignorable="d"
         Title="Flange" Height="450" Width="800" >
-    
     <Grid Name="WindowGrid">
-        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-            <ColumnDefinition Width="1.5*"></ColumnDefinition>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="*" Name="FirstMainColumn"  ></ColumnDefinition>
+            <ColumnDefinition Width="3*" Name="SecondMainColumn"></ColumnDefinition>
+            <ColumnDefinition Width="*" Name="ThirdMainColumn"  ></ColumnDefinition>
+
         </Grid.ColumnDefinitions>
 
-        <Canvas Name="SketchCvs" Grid.Column="0"   >
-            <Border BorderThickness="2" BorderBrush="Black"  Canvas.Left="0" Canvas.Right="-10" Canvas.Top="20">
-                <Image  Name="SketchImage" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Height="357" Margin="40,34,0,0" VerticalAlignment="Top" Width="228" Canvas.Top="0" />
-            </Border>
-        </Canvas>
-
-        
-            <DataGrid Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20"></DataGrid>
-         
-
-        <Canvas Name="ParamettresCvs" Grid.Column="2">
+        <DataGrid Name="TableDGr" Height="364" Margin="83,28,0,0" Width="393" HorizontalAlignment="Left" Grid.ColumnSpan="2"  VerticalAlignment="Top" Grid.Column="1"  />
+        <Canvas Name="ParamettresCvs" Grid.Column="3">
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True"/>
             <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить 3D модель" Canvas.Right="130" Canvas.Top="0"   ></Button>
 
 
 
-            <Grid Canvas.Right="0" Canvas.Top="50">
+            <Grid Name="SizesGrid" Canvas.Right="0" Canvas.Top="50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="23*"></RowDefinition>
                     <RowDefinition Height="22*"></RowDefinition>
@@ -84,8 +74,13 @@
                 <TextBox Text="{Binding SPar.TextBoxValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" Name="STb"></TextBox>
 
             </Grid>
+
+
         </Canvas>
-        
+        <Canvas Name="SketchCvs" Grid.Column="0"  >
+            <Border BorderThickness="2" BorderBrush="Black" Canvas.Left="1" Canvas.Top="30">
+                <Image  Name="SketchImage" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Height="357" Margin="40,34,0,0" VerticalAlignment="Top" Width="193" Canvas.Top="0" />
+            </Border>
+        </Canvas>
     </Grid>
-   
 </Window>

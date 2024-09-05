@@ -17,6 +17,8 @@ namespace Flange.Databases.GOST_tables
 
         protected string tableName;
 
+        protected MainWindow window;
+
         protected SQLiteConnection connection;
         protected SQLiteCommand command;
 
@@ -38,10 +40,12 @@ namespace Flange.Databases.GOST_tables
 
         protected abstract void AddElementsToDataList();
 
-        public AbstractGostTable()
+        public AbstractGostTable(MainWindow window)
         {
-            GridTable.ItemsSource = gostDataCollection;
+           
             gostTableClass = this;
+
+            this.window= window;
         }
 
    

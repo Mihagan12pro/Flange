@@ -20,21 +20,29 @@ namespace Flange
     /// </summary>
     public partial class MainWindow : Window
     {
+       private readonly MainWindow programWindow;
         public MainWindow()
         {
             InitializeComponent();
 
+            programWindow = this;
+
             SketchImage.Height = WindowGrid.Height;
+            //SketchImage.MaxHeight = SketchImage.Height;
 
             SizeD1Lbl.MaxWidth = SizeD1Lbl.Width;
             SizeDLbl.MaxWidth = SizeDLbl.Width;
             SizeD2Lbl.MaxWidth = SizeD2Lbl.Width;
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
+            
+           
+           
 
 
-       
-            DataContext = new FlangeModel();
+
+
+            DataContext = new FlangeModel(programWindow);
            
           
         }

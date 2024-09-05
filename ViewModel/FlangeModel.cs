@@ -37,7 +37,6 @@ namespace Flange.Model
         public Controller HController { get; private set; }
         public Controller DbController { get; private set; }
         public Controller CountOfHolesConroller { get; private set; }
-
         public Controller AController { get;private set; }
         public Controller SController {  get; private set; }
 
@@ -50,9 +49,10 @@ namespace Flange.Model
         public Parametre DbPar { get; private set; } = new Parametre(3);
         public Parametre HPar { get; private set; } = new Parametre(4);
         public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
-
         public Parametre APar { get; private set; } = new Parametre(6);
         public Parametre SPar { get; private set; } = new Parametre(7);
+
+        private  readonly MainWindow programWindow;
 
 
         private FreeFlangeGostTable gostTableFree; 
@@ -249,7 +249,7 @@ namespace Flange.Model
                     sizesFlange = new SizesFreeFlange();
 
 
-                    gostTableFree = new FreeFlangeGostTable();
+                    gostTableFree = new FreeFlangeGostTable(programWindow);
                   
 
                     break;
@@ -285,10 +285,10 @@ namespace Flange.Model
 
         
 
-        public FlangeModel()
+        public FlangeModel( MainWindow mainWindow)
         {
-           //DVisibitily = Visibility.Hidden;
-
+            //DVisibitily = Visibility.Hidden;
+            programWindow = mainWindow;
 
 
             DController = new Controller(false,0);

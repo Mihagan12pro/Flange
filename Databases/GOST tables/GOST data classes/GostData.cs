@@ -21,7 +21,7 @@ namespace Flange.Databases.GOST_tables.GOST_data_classes
             this.D = D.ToString();
             this.D1 = D1.ToString();
             this.D2 = D2.ToString() ;
-                   this.CountOfHoles = CountOfHoles.ToString() ;
+            this.CountOfHoles = CountOfHoles.ToString() ;
         }
     }
 }

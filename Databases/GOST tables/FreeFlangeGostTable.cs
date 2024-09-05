@@ -12,24 +12,14 @@ namespace Flange.Databases.GOST_tables
 {
     internal class FreeFlangeGostTable : AbstractGostTable
     {
-        public FreeFlangeGostTable()
+        public FreeFlangeGostTable(MainWindow window):base(window)
         {
             tableName = "free_flange";
             AddElementsToDataList();
         }
         protected override void AddElementsToDataList()
         {
-            //DataGridTextColumn columnD = new DataGridTextColumn();
-            //columnD.Header = "D";
 
-            //DataGridTextColumn columnD1 = new DataGridTextColumn();
-            //columnD1.Header = "D1";
-
-            //DataGridTextColumn columnD2 = new DataGridTextColumn();
-            //columnD2.Header = "D2";
-
-            //DataGridTextColumn columnN = new DataGridTextColumn();
-            //columnN.Header = "N";
 
 
             connection = new SQLiteConnection(database);
@@ -50,6 +40,32 @@ namespace Flange.Databases.GOST_tables
                 }
             }
             connection.Close();
+
+            GridTable.Columns.Add(new DataGridTextColumn
+            {
+                Header = "D",
+                Binding = new System.Windows.Data.Binding("D")
+            });
+
+            GridTable.Columns.Add(new DataGridTextColumn
+            {
+                Header = "D1",
+                Binding = new System.Windows.Data.Binding("D1")
+            });
+
+            GridTable.Columns.Add(new DataGridTextColumn
+            {
+                Header = "D2",
+                Binding = new System.Windows.Data.Binding("D2")
+            });
+
+            GridTable.Columns.Add(new DataGridTextColumn
+            {
+                Header = "N",
+                Binding = new System.Windows.Data.Binding("CountOfHoles")
+            });
+
+            GridTable.ItemsSource = gostDataCollection;
         }
     }
 }
