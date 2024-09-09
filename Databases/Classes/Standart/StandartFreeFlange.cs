@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using Flange.Databases.Classes.Standart.Data_storages;
+using System.Collections.ObjectModel;
 namespace Flange.Databases.Classes.Standart
 {
     internal class StandartFreeFlange : Standart
@@ -13,7 +15,7 @@ namespace Flange.Databases.Classes.Standart
         {
             tableName = "free_flange";
 
-            Data = new string[4,13];
+            Data = new ObservableCollection<DataStorage>();
 
             SelectfromDatabase();
         }
@@ -33,10 +35,12 @@ namespace Flange.Databases.Classes.Standart
                     {
                         while (dataReader.Read())
                         {
-                            Data[0, rowIndex] = dataReader.GetValue(0).ToString();
-                            Data[1, rowIndex] = dataReader.GetValue(1).ToString();
-                            Data[2, rowIndex] = dataReader.GetValue(2).ToString();
-                            Data[3, rowIndex] = dataReader.GetValue(3).ToString();
+                            
+
+
+                            Data.Add(new DataFreeStorage { D = dataReader.GetValue(0).ToString() ,D1= dataReader.GetValue(1).ToString(),
+                               D2 =  dataReader.GetValue(2).ToString(), N = dataReader.GetValue(3).ToString()
+                            });
 
                             rowIndex++;
                         }

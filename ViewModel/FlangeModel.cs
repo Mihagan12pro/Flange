@@ -69,21 +69,7 @@ namespace Flange.Model
 
 
 
-        private List<StandartTableData> dataItems;
-        public List<StandartTableData> DataItems 
-        {
-            get 
-            {
-                return dataItems;
-            }
-
-            private set
-            {
-                dataItems = value;
-                
-                
-            }
-        }
+       
 
 
         private int lastSelectedItem = 0;
@@ -240,6 +226,8 @@ namespace Flange.Model
             }
         }
 
+
+
         public SizesSimpleFlange FlangeSizes
         {
             private set
@@ -304,14 +292,8 @@ namespace Flange.Model
                 case 1:
                     sizesFlange = new SizesFreeFlange();
 
-
-                   // gostTableFree = new FreeFlangeGostTable(programWindow);
-                   //// TableItemSource = gostTableFree.GetColumns();
-
-                   // DataGrid dataGrid = gostTableFree.GridTable;
-
-                    
                    
+               
 
 
                     break;
@@ -370,7 +352,7 @@ namespace Flange.Model
                 "Свободный фланец",
                 "Плоский фланец"
             };
-            FlangeTypeCrl = FlangeTypesCBItems[0] ;
+            FlangeTypeCrl = FlangeTypesCBItems[1] ;
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 

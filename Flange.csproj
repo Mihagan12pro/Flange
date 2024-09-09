@@ -88,6 +88,8 @@
     <Compile Include="Databases\Classes\Sizes\SizesDatabase.cs" />
     <Compile Include="Databases\Classes\Sizes\SizesFreeFlange.cs" />
     <Compile Include="Databases\Classes\Sizes\SizesSimpleFlange.cs" />
+    <Compile Include="Databases\Classes\Standart\Data storages\DataFreeStorage.cs" />
+    <Compile Include="Databases\Classes\Standart\Data storages\DataStorage.cs" />
     <Compile Include="Databases\Classes\Standart\Standart.cs" />
     <Compile Include="Databases\Classes\Standart\StandartFreeFlange.cs" />
     <Compile Include="Kompas\Modeling\AbstractFlange.cs" />

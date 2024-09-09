@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Flange.Databases.Classes.Standart;
 using Flange.Model;
 namespace Flange
 {
@@ -46,6 +47,56 @@ namespace Flange
           
         }
 
-     
+
+
+
+        private void FlangeTypesCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            DeleteColumns();
+            switch(FlangeTypesCB.SelectedIndex)
+            {
+                
+
+                case 1:
+
+                    StandartFreeFlange standartFree = new StandartFreeFlange();
+
+
+                    TableDataGr.ItemsSource = standartFree.Data;
+
+                    TableDataGr.Columns.Add(new DataGridTextColumn
+                    {
+                        Header = "D",
+                        Binding = new System.Windows.Data.Binding("D")
+                    });
+                    TableDataGr.Columns.Add(new DataGridTextColumn
+                    {
+                        Header = "D1",
+                        Binding = new System.Windows.Data.Binding("D1")
+                    });
+                    TableDataGr.Columns.Add(new DataGridTextColumn
+                    {
+                        Header = "D2",
+                        Binding = new System.Windows.Data.Binding("D2")
+                    });
+                    TableDataGr.Columns.Add(new DataGridTextColumn
+                    {
+                        Header = "N",
+                        Binding = new System.Windows.Data.Binding("N")
+                    });
+
+                    break;
+
+                case 2:
+                    break;
+            }
+        }
+
+        private void DeleteColumns()
+        {
+            TableDataGr.ItemsSource = null;
+            TableDataGr.Columns.Clear();
+        }
     }
 }
