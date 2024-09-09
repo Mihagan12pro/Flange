@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Flange.Databases.Classes.Standart.Data_storages
 {
-    internal abstract class DataStorage
+    internal  class DataStorage
     {
+        public string D { get; set; } = "";
+        public string D1 { get; set; } = "";
+        public string D2 { get; set; } = "";
+        public string N { get; set; } = "";
+
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using Flange.Databases.Classes.Standart.Data_storages;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 namespace Flange.Databases.Classes.Standart
 {
     internal class StandartFreeFlange : Standart
@@ -35,11 +36,15 @@ namespace Flange.Databases.Classes.Standart
                     {
                         while (dataReader.Read())
                         {
-                            
 
 
-                            Data.Add(new DataFreeStorage { D = dataReader.GetValue(0).ToString() ,D1= dataReader.GetValue(1).ToString(),
-                               D2 =  dataReader.GetValue(2).ToString(), N = dataReader.GetValue(3).ToString()
+
+                            Data.Add(new DataStorage
+                            {
+                                D = dataReader.GetValue(0).ToString(),
+                                D1 = dataReader.GetValue(1).ToString(),
+                                D2 = dataReader.GetValue(2).ToString(),
+                                N = dataReader.GetValue(3).ToString()
                             });
 
                             rowIndex++;

@@ -18,6 +18,7 @@ using Flange.Databases.Classes.Standart;
 //using Flange.Databases.GOST_tables;
 //using Flange.Databases.GOST_tables.GOST_data_classes;
 using System.Windows.Controls;
+using Flange.Databases.Classes.Standart.Data_storages;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
@@ -59,7 +60,7 @@ namespace Flange.Model
 
 
 
-
+     
 
 
        // private FreeFlangeGostTable gostTableFree; 
@@ -69,7 +70,40 @@ namespace Flange.Model
 
 
 
-       
+
+
+
+
+
+
+
+
+
+        private ObservableCollection<DataStorage> tableData;
+        public ObservableCollection<DataStorage> TableData
+        {
+            get
+            {
+                return tableData;
+            }
+            set
+            {
+                tableData = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         private int lastSelectedItem = 0;
@@ -92,10 +126,34 @@ namespace Flange.Model
             }
         }
 
+
+
+
+
+
+
+
+
+
+
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public string FlangeTypeCrl
         {
@@ -163,6 +221,16 @@ namespace Flange.Model
                 }
             }
         }
+
+
+
+
+
+
+
+
+
+
         private Visibility tableVisibility;
 
         public Visibility TableVisibility
@@ -178,6 +246,11 @@ namespace Flange.Model
         }
 
 
+
+
+
+
+
         private int click=0;
         public int Clicks
         {
@@ -190,6 +263,14 @@ namespace Flange.Model
                 click = value;
             }
         }
+
+
+
+
+
+
+
+
 
         private void CreateFlange()
         {
@@ -215,6 +296,13 @@ namespace Flange.Model
         }
         
 
+
+
+
+
+
+
+
         public Command BuildFlangeCommand
         {
             get
@@ -225,6 +313,14 @@ namespace Flange.Model
                 });
             }
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -242,6 +338,16 @@ namespace Flange.Model
                 return flangeSizes;
             }
         }
+
+
+
+
+
+
+
+
+
+
 
         public BitmapImage BitmapImage
         {
@@ -262,6 +368,15 @@ namespace Flange.Model
             }
         }
 
+
+
+
+
+
+
+
+
+
         private Visibility gridTableVisibility;
         public Visibility GridTableVisibility
         {
@@ -276,6 +391,17 @@ namespace Flange.Model
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
         private void ChangeTextBoxElems(int index)
         {
             SizesSimpleFlange sizesFlange;
@@ -286,14 +412,16 @@ namespace Flange.Model
                 case 0:
                     sizesFlange = new SizesSimpleFlange();
 
-                    
+                    TableData = null;
+
                     break;
 
                 case 1:
                     sizesFlange = new SizesFreeFlange();
 
-                   
-               
+                    StandartFreeFlange standartFreeFlange = new StandartFreeFlange();
+
+                    TableData = standartFreeFlange.Data;
 
 
                     break;
@@ -325,14 +453,22 @@ namespace Flange.Model
             
         }
 
-        
+
+
+
+
+
+
+
 
         
 
-        public FlangeModel( MainWindow mainWindow)
+        
+
+        public FlangeModel()
         {
             //DVisibitily = Visibility.Hidden;
-            programWindow = mainWindow;
+            
 
 
             DController = new Controller(false,0);
@@ -360,19 +496,7 @@ namespace Flange.Model
         }
 
 
-        public class StandartTableData
-        {
-
-        }
-
-        public class FreeTableData : StandartTableData
-        {
-            public string D { get;  set; }
-            public string D1 { get;  set; }
-            public string D2 { get; set; }
-            public string N { get; set; }
-        }
-
+    
        
         
     }

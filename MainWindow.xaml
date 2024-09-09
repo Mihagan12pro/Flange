@@ -22,15 +22,21 @@
         </Canvas>
 
 
-        <DataGrid  AutoGenerateColumns="False" Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20">
+        <DataGrid ItemsSource="{Binding TableData}"  AutoGenerateColumns="False"  Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="D" Binding="{Binding D}" IsReadOnly="True" />
+                <DataGridTextColumn Header="D1" Binding="{Binding D1}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="D2" Binding="{Binding D2}" IsReadOnly="True" />
+                <DataGridTextColumn Header="N" Binding="{Binding N}" IsReadOnly="True" />
+            </DataGrid.Columns>
            
-            
-       </DataGrid>
+
+        </DataGrid>
         
          
 
         <Canvas Name="ParamettresCvs" Grid.Column="2">
-            <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" SelectionChanged="FlangeTypesCB_SelectionChanged"/>
+            <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />
             <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить 3D модель" Canvas.Right="130" Canvas.Top="0"   ></Button>
 
 

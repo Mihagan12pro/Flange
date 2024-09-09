@@ -8,9 +8,12 @@ namespace Flange.Databases.Classes.Standart.Data_storages
 {
     internal class DataFreeStorage : DataStorage
     {
-        public string D {  get; set; }  
-        public string D1    { get; set; }
-        public string D2 { get; set; }
-        public string N {  get; set; }
+        public DataFreeStorage(string D,string D1,string D2,string N)
+        {
+            this.D = D;
+            this.D1 = D1;
+            this.D2 = D2;
+            this.N = N;
+        }
     }
 }
