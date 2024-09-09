@@ -22,7 +22,7 @@
         </Canvas>
 
 
-        <DataGrid ItemsSource="{Binding TableItemSource}" AutoGenerateColumns="False" Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20">
+        <DataGrid ItemsSource="{Binding  DataItems}" AutoGenerateColumns="True" Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20">
            
        </DataGrid>
          

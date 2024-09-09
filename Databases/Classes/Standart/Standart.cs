@@ -10,9 +10,23 @@ namespace Flange.Databases.Classes.Standart
     {
         protected const string database = $"Data Source=..\\..\\Databases\\DBs\\gost sizes.db";
 
-        protected readonly string tableName;
+      
 
 
+        protected string[,] data;
 
+        public string[,] Data 
+        {  
+            get
+            {
+                return data;
+            } 
+            protected set
+            {
+                data = value;
+            }
+        }
+
+        protected abstract void SelectfromDatabase();
     }
 }

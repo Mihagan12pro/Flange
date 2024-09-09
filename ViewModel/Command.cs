@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Flange.ViewModel
 {
-    internal class ButtonCommand : ICommand
+    internal class Command : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -26,7 +26,7 @@ namespace Flange.ViewModel
             }
         }
 
-        public ButtonCommand (Action<object> execute, Func<object, bool> canExucute = null)
+        public Command (Action<object> execute, Func<object, bool> canExucute = null)
         {
             this.execute = execute;
             this.canExucute = canExucute;

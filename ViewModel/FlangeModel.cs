@@ -14,6 +14,7 @@ using System.Data.SqlTypes;
 using System.Windows.Input;
 using Flange.ViewModel;
 using Flange.Kompas.Modeling;
+using Flange.Databases.Classes.Standart;
 //using Flange.Databases.GOST_tables;
 //using Flange.Databases.GOST_tables.GOST_data_classes;
 using System.Windows.Controls;
@@ -54,7 +55,10 @@ namespace Flange.Model
         public Parametre APar { get; private set; } = new Parametre(6);
         public Parametre SPar { get; private set; } = new Parametre(7);
 
-        private  readonly MainWindow programWindow;
+        private readonly MainWindow programWindow;
+
+
+
 
 
 
@@ -63,7 +67,24 @@ namespace Flange.Model
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
-        
+
+
+        private List<StandartTableData> dataItems;
+        public List<StandartTableData> DataItems 
+        {
+            get 
+            {
+                return dataItems;
+            }
+
+            private set
+            {
+                dataItems = value;
+                
+                
+            }
+        }
+
 
         private int lastSelectedItem = 0;
 
@@ -78,7 +99,7 @@ namespace Flange.Model
                 switch(lastSelectedItem)
                 {
                     case 1:
-                        gostTableFree.Dispose();
+                       // gostTableFree.Dispose();
                         break;
                 }
                 lastSelectedItem = value;
@@ -98,8 +119,18 @@ namespace Flange.Model
             }
             set
             {
+
+
+
                 if (value!=flangeTypeCrl)
                 {
+
+                    AController.ReadOnly = true;
+                    SController.ReadOnly = true;
+
+                    SPar.TextBoxValue = "";
+                    APar.TextBoxValue = "";
+
                     flangeTypeCrl = value;
 
                     FileInfo file;
@@ -108,16 +139,7 @@ namespace Flange.Model
                     {
                         case 0:
 
-                            AController.ReadOnly = true;
-                            SController.ReadOnly = true;
-
-                            SPar.TextBoxValue = "";
-                            APar.TextBoxValue = "";
-
-
                             ChangeTextBoxElems(0);
-
-
 
                             file = new FileInfo(@"..\..\Sketches\SimpleFlange.bmp");
                            
@@ -129,10 +151,7 @@ namespace Flange.Model
                             AController.ReadOnly = false;
                             SController.ReadOnly = false;
 
-                            
-
                             ChangeTextBoxElems(1);
-
 
                             file = new FileInfo(@"..\..\Sketches\FreeFlange.bmp");
 
@@ -140,6 +159,7 @@ namespace Flange.Model
                             break;
 
                         case 2:
+
                             ChangeTextBoxElems(2);
                             file = new FileInfo(@"..\..\Sketches\FlatFlange.bmp");
 
@@ -147,6 +167,7 @@ namespace Flange.Model
                             break;
 
                         default:
+
                             MessageBox.Show("Error!");
                             break;
 
@@ -206,24 +227,13 @@ namespace Flange.Model
            }
 
         }
-        //ObservableCollection<GostData> tableItemSource;
-        //public  ObservableCollection<GostData> TableItemSource
-        //{
-        //    get
-        //    {
-        //        return tableItemSource;
-        //    }
-        //    private set
-        //    {
-        //        tableItemSource = value;
-        //    }
-        //}
+        
 
-        public ButtonCommand BuildFlangeCommand
+        public Command BuildFlangeCommand
         {
             get
             {
-                return new ButtonCommand((obj) =>
+                return new Command((obj) =>
                 {
                     CreateFlange();
                 });
@@ -366,6 +376,22 @@ namespace Flange.Model
 
   
         }
+
+
+        public class StandartTableData
+        {
+
+        }
+
+        public class FreeTableData : StandartTableData
+        {
+            public string D { get;  set; }
+            public string D1 { get;  set; }
+            public string D2 { get; set; }
+            public string N { get; set; }
+        }
+
+       
         
     }
 }
