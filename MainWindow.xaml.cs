@@ -36,10 +36,9 @@ namespace Flange
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
             
-           
-           
+            //TableDataGr.Visibility= Visibility.Hidden;
 
-
+           
 
 
             DataContext = new FlangeModel(programWindow);

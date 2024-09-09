@@ -85,13 +85,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Databases\GOST tables\AbstractGostTable.cs" />
-    <Compile Include="Databases\GOST tables\FreeFlangeGostTable.cs" />
-    <Compile Include="Databases\GOST tables\GOST data classes\GostDataFreeFlange.cs" />
-    <Compile Include="Databases\GOST tables\GOST data classes\GostData.cs" />
-    <Compile Include="Databases\SizesDatabase.cs" />
-    <Compile Include="Databases\SizesFreeFlange.cs" />
-    <Compile Include="Databases\SizesSimpleFlange.cs" />
+    <Compile Include="Databases\Classes\Sizes\SizesDatabase.cs" />
+    <Compile Include="Databases\Classes\Sizes\SizesFreeFlange.cs" />
+    <Compile Include="Databases\Classes\Sizes\SizesSimpleFlange.cs" />
+    <Compile Include="Databases\Classes\Standart\Standart.cs" />
     <Compile Include="Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Kompas\Modeling\SimpleFlange.cs" />

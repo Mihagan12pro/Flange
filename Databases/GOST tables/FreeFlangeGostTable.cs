@@ -66,6 +66,9 @@ namespace Flange.Databases.GOST_tables
             });
 
             GridTable.ItemsSource = gostDataCollection;
+
+
+      
         }
     }
 }

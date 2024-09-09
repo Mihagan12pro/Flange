@@ -14,7 +14,9 @@ using System.Data.SqlTypes;
 using System.Windows.Input;
 using Flange.ViewModel;
 using Flange.Kompas.Modeling;
-using Flange.Databases.GOST_tables;
+//using Flange.Databases.GOST_tables;
+//using Flange.Databases.GOST_tables.GOST_data_classes;
+using System.Windows.Controls;
 namespace Flange.Model
 {
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
@@ -55,10 +57,13 @@ namespace Flange.Model
         private  readonly MainWindow programWindow;
 
 
-        private FreeFlangeGostTable gostTableFree; 
+
+       // private FreeFlangeGostTable gostTableFree; 
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
+
+        
 
         private int lastSelectedItem = 0;
 
@@ -151,6 +156,21 @@ namespace Flange.Model
                 }
             }
         }
+        private Visibility tableVisibility;
+
+        public Visibility TableVisibility
+        {
+            get
+            {
+                return tableVisibility; 
+            }
+            set 
+            { 
+                tableVisibility = value; 
+            }
+        }
+
+
         private int click=0;
         public int Clicks
         {
@@ -186,6 +206,18 @@ namespace Flange.Model
            }
 
         }
+        //ObservableCollection<GostData> tableItemSource;
+        //public  ObservableCollection<GostData> TableItemSource
+        //{
+        //    get
+        //    {
+        //        return tableItemSource;
+        //    }
+        //    private set
+        //    {
+        //        tableItemSource = value;
+        //    }
+        //}
 
         public ButtonCommand BuildFlangeCommand
         {
@@ -232,6 +264,20 @@ namespace Flange.Model
             }
         }
 
+        private Visibility gridTableVisibility;
+        public Visibility GridTableVisibility
+        {
+            get
+            {
+                return gridTableVisibility;
+            }
+            set
+            {
+                gridTableVisibility= value;
+            }
+        }
+
+
         private void ChangeTextBoxElems(int index)
         {
             SizesSimpleFlange sizesFlange;
@@ -249,8 +295,14 @@ namespace Flange.Model
                     sizesFlange = new SizesFreeFlange();
 
 
-                    gostTableFree = new FreeFlangeGostTable(programWindow);
-                  
+                   // gostTableFree = new FreeFlangeGostTable(programWindow);
+                   //// TableItemSource = gostTableFree.GetColumns();
+
+                   // DataGrid dataGrid = gostTableFree.GridTable;
+
+                    
+                   
+
 
                     break;
 

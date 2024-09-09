@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SQLite;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Xml.Linq;
 
 namespace Flange.Databases.GOST_tables
@@ -17,17 +20,19 @@ namespace Flange.Databases.GOST_tables
 
         protected string tableName;
 
-        protected MainWindow window;
+       
 
         protected SQLiteConnection connection;
         protected SQLiteCommand command;
 
         //protected readonly int rowCount;
 
+        
+
 
         protected ObservableCollection<GostData> gostDataCollection = new ObservableCollection<GostData>();
 
-        private AbstractGostTable gostTableClass;
+      
 
         public DataGrid GridTable { get; private set; } = new DataGrid();
 
@@ -43,11 +48,14 @@ namespace Flange.Databases.GOST_tables
         public AbstractGostTable(MainWindow window)
         {
            
-            gostTableClass = this;
+          
 
-            this.window= window;
+      
+
         }
 
-   
+       
+
+
     }
 }
