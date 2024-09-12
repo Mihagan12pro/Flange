@@ -22,9 +22,9 @@
         </Canvas>
 
 
-        <DataGrid ItemsSource="{Binding TableData}"  AutoGenerateColumns="False"  Name="TableDataGr" Grid.Column="1" Margin="120 20 10 20">
-            <DataGrid.Columns>
-                <DataGridTextColumn  Header="D" Binding="{Binding D}" IsReadOnly="True" />
+            <DataGrid BorderBrush="White" CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White" Height="Auto"  ItemsSource="{Binding TableData}"  AutoGenerateColumns ="{Binding  AutoColumns}"  Name="TableDataGr" Grid.Column="1" Margin="120 20 0 0" >
+            <DataGrid.Columns >
+                <DataGridTextColumn   Header="D" Binding="{Binding D}" IsReadOnly="True" />
                 <DataGridTextColumn Header="D1" Binding="{Binding D1}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="D2" Binding="{Binding D2}" IsReadOnly="True" />
                 <DataGridTextColumn Header="N" Binding="{Binding N}" IsReadOnly="True" />
@@ -32,8 +32,9 @@
            
 
         </DataGrid>
-        
-         
+       
+
+
 
         <Canvas Name="ParamettresCvs" Grid.Column="2">
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />

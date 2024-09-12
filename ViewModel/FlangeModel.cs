@@ -73,11 +73,36 @@ namespace Flange.Model
 
 
 
+       
 
 
+        private int tableRowIndex;
+        public int TableRowIndex
+        {
+            get     
+            {
+
+                return tableRowIndex;
+             } 
+            set
+            {
+                //bool a = (value == TableData.Count);
+                //bool b = a;
+                if (value == TableData.Count)
+                {
+                    TableRowIndex = 0;
+                    OnPropertyChanged();
+                }
+                else
+                {
+                    tableRowIndex = value;
+                    OnPropertyChanged();
+                }
 
 
-
+                //tableRowIndex = value;
+            }
+        }
 
         private ObservableCollection<DataStorage> tableData;
         public ObservableCollection<DataStorage> TableData
@@ -89,13 +114,29 @@ namespace Flange.Model
             set
             {
                 tableData = value;
+
+                AutoColumns = true;
+                AutoColumns = false;
+
                 OnPropertyChanged();
             }
         }
 
 
 
-
+        private bool autoColumns;
+        public bool AutoColumns
+        {
+            get
+            {
+                return autoColumns;
+            }
+            set
+            {
+                autoColumns = value;
+                OnPropertyChanged();
+            }
+        }
 
 
 

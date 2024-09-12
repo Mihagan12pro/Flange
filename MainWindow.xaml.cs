@@ -30,18 +30,16 @@ namespace Flange
             programWindow = this;
 
             SketchImage.Height = WindowGrid.Height;
-            //SketchImage.MaxHeight = SketchImage.Height;
-
+          
             SizeD1Lbl.MaxWidth = SizeD1Lbl.Width;
             SizeDLbl.MaxWidth = SizeDLbl.Width;
             SizeD2Lbl.MaxWidth = SizeD2Lbl.Width;
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
 
-            //TableDataGr.Visibility= Visibility.Hidden;
 
 
-
+          
 
             DataContext = new FlangeModel();
 
@@ -51,8 +49,8 @@ namespace Flange
 
         }
 
-
-
-
+   
     }
+
+   
 }
