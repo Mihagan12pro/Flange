@@ -68,15 +68,56 @@ namespace Flange.Model
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
+        //private double widthVal;
+        //public double WidthVal 
+        //{
+        //    get
+        //    {
+        //        return widthVal;
+        //    }
+        //    set
+        //    {
+        //        widthVal = value;
+        //    }
+        //}
 
-
-
-
-
+        private double windowWith;
        
+        public double WindowWidth
+        {
+            get
+            {
+                return windowWith;
+            }
+            private set
+            {
+                windowWith = value;
+
+                TableWidth = value / 1.5;
+                OnPropertyChanged(nameof(TableWidth));
+
+            }
+        }
+
+
+        private double tableWidth;
+        public double TableWidth
+        {
+            get
+            {
+                return tableWidth;
+            }
+            set
+            {
+                tableWidth = value;
+            }
+        }
 
 
         private int tableRowIndex;
+        
+
+
         public int TableRowIndex
         {
             get     
@@ -86,21 +127,12 @@ namespace Flange.Model
              } 
             set
             {
-                //bool a = (value == TableData.Count);
-                //bool b = a;
-                if (value == TableData.Count)
-                {
-                    TableRowIndex = 0;
-                    OnPropertyChanged();
-                }
-                else
-                {
+               
+                                    
+               
                     tableRowIndex = value;
                     OnPropertyChanged();
-                }
-
-
-                //tableRowIndex = value;
+                
             }
         }
 
@@ -115,8 +147,7 @@ namespace Flange.Model
             {
                 tableData = value;
 
-                AutoColumns = true;
-                AutoColumns = false;
+              
 
                 OnPropertyChanged();
             }
@@ -124,19 +155,6 @@ namespace Flange.Model
 
 
 
-        private bool autoColumns;
-        public bool AutoColumns
-        {
-            get
-            {
-                return autoColumns;
-            }
-            set
-            {
-                autoColumns = value;
-                OnPropertyChanged();
-            }
-        }
 
 
 
@@ -533,7 +551,9 @@ namespace Flange.Model
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 
-  
+            WindowWidth = 800;
+
+
         }
 
 

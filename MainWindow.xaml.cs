@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +23,15 @@ namespace Flange
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly MainWindow programWindow;
+        //private readonly MainWindow programWindow;
         public MainWindow()
         {
             InitializeComponent();
 
-            programWindow = this;
+         
+          
 
-            SketchImage.Height = WindowGrid.Height;
+           
           
             SizeD1Lbl.MaxWidth = SizeD1Lbl.Width;
             SizeDLbl.MaxWidth = SizeDLbl.Width;
@@ -38,15 +40,19 @@ namespace Flange
 
 
 
-
+           
           
 
             DataContext = new FlangeModel();
 
 
 
+            
 
-
+            foreach(var col in TableDataGr.Columns)
+            {
+               
+            }
         }
 
    
