@@ -12,36 +12,23 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*" ></ColumnDefinition>
-            
+
         </Grid.ColumnDefinitions>
 
         <Canvas Name="SketchCvs" Grid.Column="0"  Margin="0,0,371,0"   >
+            <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding  SketchOffsetX.Left}" VerticalAlignment="Top" Width="228" Canvas.Top="0" />
+            <DataGrid ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White"    CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
 
+                <DataGrid.Columns>
 
-            <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="40,34,0,0" VerticalAlignment="Top" Width="228" Canvas.Top="0" />
-
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Canvas>
-
-
-        <DataGrid ColumnWidth="100"  CanUserSortColumns="False" BorderBrush="White" Width="Auto"   CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="3" Margin="291,31,212,83" >
-            <DataGrid.Columns>
-               
-            </DataGrid.Columns>
-
-
-        </DataGrid>
-
-
-
-
         <Canvas Name="ParamettresCvs" Grid.Column="1"  Margin="451,0,0,0">
 
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />
             <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить 3D модель" Canvas.Right="130" Canvas.Top="0"   ></Button>
-
-
-
             <Grid Canvas.Right="0" Canvas.Top="50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="23*"></RowDefinition>
@@ -73,8 +60,6 @@
 
                 <Label  Grid.Column="0"  Grid.Row="2" x:Name="SizeD2Lbl" FontSize="12"   FontFamily="GOST Type B"  Content="D2" Canvas.Top="99" Height="21" Width="23" Canvas.Right="127"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
                 <TextBox Text="{Binding       D2Par.TextBoxValue}" Background="{Binding D2Controller.Background}" IsReadOnly="{Binding D2Controller.ReadOnly}"  Grid.Column="1" Grid.Row="2" x:Name="SizeD2TB"  FontFamily="GOST Type B"    TextWrapping="Wrap" Width="116" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="289" Canvas.Top="98" />
-
-
 
                 <Label Grid.Column="0" Grid.Row="3" x:Name="SizeDbLbl" FontSize="12"  FontFamily="GOST Type B"   Content="Db" Canvas.Top="120" Height="21" Width="23" Canvas.Right="200"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
                 <TextBox Text="{Binding       DbPar.TextBoxValue}" Background="{Binding DbController.Background}" IsReadOnly="{Binding DbController.ReadOnly}" Grid.Column="1" Grid.Row="3" x:Name="SizeDbTB"  FontFamily="GOST Type B"  Canvas.Top="120"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />

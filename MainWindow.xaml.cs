@@ -47,13 +47,13 @@ namespace Flange
             DataContext = new FlangeModel();
 
 
-
-            
+           
 
             foreach(var col in TableDataGr.Columns)
             {
                
             }
+     
         }
 
         private void TableDataGr_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

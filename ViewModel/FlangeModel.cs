@@ -56,6 +56,9 @@ namespace Flange.Model
         public Parametre APar { get; private set; } = new Parametre(6);
         public Parametre SPar { get; private set; } = new Parametre(7);
 
+
+        public CanvasOffsetX SketchOffsetX { get;private set; }
+
         private readonly MainWindow programWindow;
 
 
@@ -144,16 +147,42 @@ namespace Flange.Model
             {
                 tableData = value;
 
-              
 
                 OnPropertyChanged();
             }
         }
 
+        private double columnWidth;
+        public double ColumnWidth
+        {
+            get
+            {
+                return columnWidth;
+            }
+            private set
+            {
+                columnWidth = value;
+            }
+        }
 
 
 
+        private  double sketchCancasLeft;
+        
+        public double SketchCanvasLeft
+        {
+            private set
+            {
+                sketchCancasLeft = value;
+                OnPropertyChanged(nameof(SketchCanvasLeft));
 
+            }
+            get
+            {
+                return sketchCancasLeft;
+            }
+        }
+      
 
 
 
@@ -550,6 +579,8 @@ namespace Flange.Model
 
             WindowWidth = 800;
 
+            SketchOffsetX = new CanvasOffsetX(10, 0);
+           
 
         }
 

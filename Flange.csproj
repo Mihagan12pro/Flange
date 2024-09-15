@@ -100,6 +100,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModel\CanvasOffset.cs" />
     <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\FlangeModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
