@@ -58,8 +58,9 @@ namespace Flange.Model
 
 
         public CanvasOffsetX SketchOffsetX { get;private set; }
+        public CanvasOffsetX TableOffsetX { get;private set; }
 
-        private readonly MainWindow programWindow;
+       // private readonly MainWindow programWindow;
 
 
 
@@ -580,6 +581,8 @@ namespace Flange.Model
             WindowWidth = 800;
 
             SketchOffsetX = new CanvasOffsetX(10, 0);
+
+            TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 20,0);
            
 
         }
