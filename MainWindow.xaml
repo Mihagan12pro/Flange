@@ -24,12 +24,9 @@
         </Canvas>
 
 
-        <DataGrid CanUserSortColumns="False" BorderBrush="White" Width="Auto"  CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"    Name="TableDataGr" Grid.ColumnSpan="3" Margin="291,31,212,83" >
-            <DataGrid.Columns >
-                <DataGridTextColumn    Header="D" Binding="{Binding D}" IsReadOnly="True" />
-                <DataGridTextColumn Header="D1" Binding="{Binding D1}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="D2" Binding="{Binding D2}" IsReadOnly="True" />
-                <DataGridTextColumn Header="N" Binding="{Binding N}" IsReadOnly="True" />
+        <DataGrid ColumnWidth="100"  CanUserSortColumns="False" BorderBrush="White" Width="Auto"   CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="3" Margin="291,31,212,83" >
+            <DataGrid.Columns>
+               
             </DataGrid.Columns>
 
 

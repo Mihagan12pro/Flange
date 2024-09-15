@@ -39,6 +39,7 @@ namespace Flange
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
 
+            TableDataGr.DataContextChanged += TableDataGr_DataContextChanged;
 
            
           
@@ -55,7 +56,10 @@ namespace Flange
             }
         }
 
-   
+        private void TableDataGr_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
     }
 
    

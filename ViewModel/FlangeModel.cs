@@ -127,10 +127,7 @@ namespace Flange.Model
              } 
             set
             {
-               
-                                    
-               
-                    tableRowIndex = value;
+                //TableRowIndex = 0;
                     OnPropertyChanged();
                 
             }
