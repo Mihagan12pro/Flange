@@ -5,31 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
         mc:Ignorable="d"
-        Title="Flange creator" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}" >
+        Title="Flange generator" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}" d:DesignWidth="665" >
+  
 
-    <Grid Name="WindowGrid">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*" ></ColumnDefinition>
+    <Canvas Name="MainCanvas" >
+        
 
-        </Grid.ColumnDefinitions>
+      
+        <Canvas Name="SketchCvs" Grid.Column="0"  Width="800"  >
+                <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
+                <DataGrid Canvas.Left="{Binding TableOffsetX.Left}" Canvas.Right="100" ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White" Width="{Binding  TableWidth}"    CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
 
-        <Canvas Name="SketchCvs" Grid.Column="0"  Margin="0,0,371,0"   >
-            <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding  SketchOffsetX.Left}" VerticalAlignment="Top" Width="228" Canvas.Top="0" />
-            <DataGrid Canvas.Left="{Binding TableOffsetX.Left}" ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White"    CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
+                    <DataGrid.Columns>
 
-                <DataGrid.Columns>
+                    </DataGrid.Columns>
+                </DataGrid>
 
-                </DataGrid.Columns>
-            </DataGrid>
 
-        </Canvas>
-        <Canvas Name="ParamettresCvs" Grid.Column="1"  Margin="451,0,0,0">
+
+
+
+
+
+
+
+            </Canvas>
+
 
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />
             <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="Построить 3D модель" Canvas.Right="130" Canvas.Top="0"   ></Button>
-            <Grid Canvas.Right="0" Canvas.Top="50">
+            <Grid  Canvas.Right="0" Canvas.Top="50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="23*"></RowDefinition>
                     <RowDefinition Height="22*"></RowDefinition>
@@ -80,9 +86,9 @@
                 <TextBox Text="{Binding SPar.TextBoxValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" Name="STb"></TextBox>
             </Grid>
 
+
         </Canvas>
+    
 
-
-    </Grid>
 
 </Window>

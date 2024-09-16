@@ -72,18 +72,6 @@ namespace Flange.Model
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
-        //private double widthVal;
-        //public double WidthVal 
-        //{
-        //    get
-        //    {
-        //        return widthVal;
-        //    }
-        //    set
-        //    {
-        //        widthVal = value;
-        //    }
-        //}
 
         private double windowWith;
        
@@ -104,6 +92,8 @@ namespace Flange.Model
         }
 
 
+
+
         private double tableWidth;
         public double TableWidth
         {
@@ -114,6 +104,7 @@ namespace Flange.Model
             set
             {
                 tableWidth = value;
+                OnPropertyChanged(nameof(TableWidth));
             }
         }
 
@@ -132,6 +123,7 @@ namespace Flange.Model
             set
             {
                 //TableRowIndex = 0;
+                TableRowIndex = value;
                     OnPropertyChanged();
                 
             }
@@ -455,11 +447,14 @@ namespace Flange.Model
         }
 
 
+        public void UpdateTableWidth(double width)
+        {
+            TableWidth = width *0.5;
+        }
 
 
 
-
-
+    
 
 
 
@@ -579,12 +574,13 @@ namespace Flange.Model
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 
             WindowWidth = 800;
+            UpdateTableWidth(WindowWidth);
 
             SketchOffsetX = new CanvasOffsetX(10, 0);
 
-            TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 20,0);
+            TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
            
-
+            //TableWidth = WindowWidth/2+  TableOffsetX.Left+SketchOffsetX.Left;
         }
 
 

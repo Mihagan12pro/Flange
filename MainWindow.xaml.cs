@@ -39,7 +39,7 @@ namespace Flange
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
 
-            TableDataGr.DataContextChanged += TableDataGr_DataContextChanged;
+           // TableDataGr.DataContextChanged += TableDataGr_DataContextChanged;
 
            
           
@@ -47,19 +47,38 @@ namespace Flange
             DataContext = new FlangeModel();
 
 
+            //TableDataGr.Width = 400;
+
+          
            
 
             foreach(var col in TableDataGr.Columns)
             {
                
             }
-     
+
+
+            MainCanvas.SizeChanged += MainCanvas_SizeChanged;
+
+            
         }
 
-        private void TableDataGr_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            //throw new NotImplementedException();
+            if (DataContext is FlangeModel flangeModel)
+            {
+                flangeModel.UpdateTableWidth(e.NewSize.Width);
+            }
         }
+
+        //private void TableDataGr_DataContextChanged(object sender, SizeChangedEventArgs e)
+        //{
+        //    if (DataContext is FlangeModel flangeModel)
+        //    {
+        //        flangeModel.UpdateTableWidth(e);
+        //    }
+          
+        //}
     }
 
    
