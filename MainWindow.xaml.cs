@@ -60,7 +60,7 @@ namespace Flange
 
             MainCanvas.SizeChanged += MainCanvas_SizeChanged;
 
-            
+          
         }
 
         private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e)

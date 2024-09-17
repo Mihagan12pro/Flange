@@ -13,9 +13,9 @@
         
 
       
-        <Canvas Name="SketchCvs" Grid.Column="0"  Width="800"  >
+
                 <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
-                <DataGrid Canvas.Left="{Binding TableOffsetX.Left}" Canvas.Right="100" ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White" Width="{Binding  TableWidth}"    CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
+                <DataGrid Canvas.Left="{Binding TableOffsetX.Left}" Canvas.Right="100" ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White" Width="{Binding  TableWidth}" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False"   CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
 
                     <DataGrid.Columns>
 
@@ -30,7 +30,7 @@
 
 
 
-            </Canvas>
+      
 
 
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     FlangeTypeCrl}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />
