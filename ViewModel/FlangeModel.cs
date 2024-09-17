@@ -123,7 +123,7 @@ namespace Flange.Model
             set
             {
                 //TableRowIndex = 0;
-                TableRowIndex = value;
+                tableRowIndex = value;
                     OnPropertyChanged();
                 
             }
@@ -450,6 +450,17 @@ namespace Flange.Model
         public void UpdateTableWidth(double width)
         {
             TableWidth = width *0.5;
+
+            var a = TableWidth;
+
+
+
+            if (TableData.Count != 0)
+            {
+                ColumnWidth = (TableWidth / TableData.Count);
+                OnPropertyChanged(nameof(ColumnWidth));
+            }
+            
         }
 
 
@@ -577,6 +588,8 @@ namespace Flange.Model
             UpdateTableWidth(WindowWidth);
 
             SketchOffsetX = new CanvasOffsetX(10, 0);
+
+          
 
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
            

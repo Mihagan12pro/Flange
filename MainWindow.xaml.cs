@@ -23,7 +23,7 @@ namespace Flange
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private readonly MainWindow programWindow;
+       
         public MainWindow()
         {
             InitializeComponent();
@@ -49,8 +49,8 @@ namespace Flange
 
             //TableDataGr.Width = 400;
 
-          
-           
+
+      
 
             foreach(var col in TableDataGr.Columns)
             {
@@ -71,14 +71,7 @@ namespace Flange
             }
         }
 
-        //private void TableDataGr_DataContextChanged(object sender, SizeChangedEventArgs e)
-        //{
-        //    if (DataContext is FlangeModel flangeModel)
-        //    {
-        //        flangeModel.UpdateTableWidth(e);
-        //    }
-          
-        //}
+
     }
 
    
