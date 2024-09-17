@@ -451,13 +451,15 @@ namespace Flange.Model
         {
             TableWidth = width *0.5;
 
-            var a = TableWidth;
+          
 
 
 
             if (TableData.Count != 0)
             {
-                ColumnWidth = (TableWidth / TableData.Count);
+                ColumnWidth = (TableWidth / TableData[0].ColumnsCount);
+
+               
                 OnPropertyChanged(nameof(ColumnWidth));
             }
             

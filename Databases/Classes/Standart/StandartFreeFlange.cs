@@ -39,7 +39,7 @@ namespace Flange.Databases.Classes.Standart
 
 
 
-                            Data.Add(new DataStorage
+                            Data.Add(new DataStorage(4)
                             {
                                 D = dataReader.GetValue(0).ToString(),
                                 D1 = dataReader.GetValue(1).ToString(),

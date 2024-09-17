@@ -6,12 +6,20 @@ using System.Threading.Tasks;
 
 namespace Flange.Databases.Classes.Standart.Data_storages
 {
-    internal  class DataStorage
+
+
+    internal class DataStorage
     {
+        public readonly int ColumnsCount;
         public string D { get; set; } = "";
         public string D1 { get; set; } = "";
         public string D2 { get; set; } = "";
         public string N { get; set; } = "";
+
+        public DataStorage(int columnsCount)
+        {
+            ColumnsCount = columnsCount;
+        }
 
     }
 }
