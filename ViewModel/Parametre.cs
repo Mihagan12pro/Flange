@@ -31,13 +31,12 @@ namespace Flange.Model
             }
             set
             {
-                if (value != textBoxValue)
-                {
+            
                     textBoxValue = value;
 
 
                     OnPropertyChanged();
-                }
+                
             }
         }
 

@@ -127,7 +127,19 @@ namespace Flange.Model
 
                 if (value != -1)
                 {
+                    switch(FlangeTypesCBItems.IndexOf(flangeTypeCrl))
+                    {
+                        case 0:
+                            break;
+                        case 1:
 
+                            DPar.TextBoxValue = TableData[tableRowIndex].D;
+                            D1Par.TextBoxValue = TableData[tableRowIndex].D1;
+                            D2Par.TextBoxValue = TableData[tableRowIndex].D2;
+                            CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
+
+                            break;
+                    }
                 }
 
                     OnPropertyChanged();
