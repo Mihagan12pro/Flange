@@ -13,12 +13,13 @@ namespace Flange.Databases
 
         private string tableName2;
 
-        public SizesFreeFlange()
+        public SizesFreeFlange(Parametre d, Parametre d1, Parametre d2, Parametre db, Parametre h, Parametre n, Parametre a,Parametre s):base(d,d1,d2,db,h,n)
         {
             tableName2 = "free_sizes";
 
-            a = new Parametre(6);
-            s = new Parametre(7);
+
+            this.a = a;
+            this.s = s;
 
             List<object> data = GetDefaultData(tableName2);
 

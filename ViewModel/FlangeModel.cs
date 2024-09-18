@@ -47,14 +47,22 @@ namespace Flange.Model
 
 
 
-        public Parametre DPar { get; private set; } = new Parametre(0);
-        public Parametre D1Par { get;private set; } = new Parametre(1);
-        public Parametre D2Par { get;private set; } = new Parametre(2);
-        public Parametre DbPar { get; private set; } = new Parametre(3);
-        public Parametre HPar { get; private set; } = new Parametre(4);
-        public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
-        public Parametre APar { get; private set; } = new Parametre(6);
-        public Parametre SPar { get; private set; } = new Parametre(7);
+        //public Parametre DPar { get; private set; } = new Parametre(0);
+        //public Parametre D1Par { get;private set; } = new Parametre(1);
+        //public Parametre D2Par { get;private set; } = new Parametre(2);
+        //public Parametre DbPar { get; private set; } = new Parametre(3);
+        //public Parametre HPar { get; private set; } = new Parametre(4);
+        //public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
+        //public Parametre APar { get; private set; } = new Parametre(6);
+        //public Parametre SPar { get; private set; } = new Parametre(7);
+        public ParametreDouble DPar { get; private set; } 
+        public ParametreDouble D1Par { get; private set; } 
+        public ParametreDouble D2Par { get; private set; } 
+        public ParametreDouble DbPar { get; private set; } 
+        public ParametreDouble HPar { get; private set; }
+        public ParametreInt CountOfHolesPar { get; private set; } 
+        public ParametreDouble APar { get; private set; }
+        public ParametreDouble SPar { get; private set; }
 
 
         public CanvasOffsetX SketchOffsetX { get;private set; }
@@ -130,7 +138,6 @@ namespace Flange.Model
                     switch(FlangeTypesCBItems.IndexOf(flangeTypeCrl))
                     {
                         case 0:
-                            break;
                         case 1:
 
                             DPar.TextBoxValue = TableData[tableRowIndex].D;
@@ -527,22 +534,31 @@ namespace Flange.Model
 
         private void ChangeTextBoxElems(int index)
         {
-            SizesSimpleFlange sizesFlange;
+            SizesSimpleFlange sizesFlange = null;
 
-
-            switch(index)
+            StandartFreeFlange standartFreeFlange;
+            switch (index)
             {
                 case 0:
-                    sizesFlange = new SizesSimpleFlange();
-
-                    TableData = null;
-
-                    break;
-
                 case 1:
-                    sizesFlange = new SizesFreeFlange();
+                 
+                   
 
-                    StandartFreeFlange standartFreeFlange = new StandartFreeFlange();
+                    if (index == 0 )
+                    {
+                        sizesFlange = new SizesSimpleFlange(DPar, D1Par, D2Par, DbPar, HPar, CountOfHolesPar);
+
+                    }
+                    else if (index ==1)
+                    {
+                        sizesFlange = new SizesFreeFlange(DPar, D1Par, D2Par, DbPar, HPar, CountOfHolesPar,APar,SPar);
+                    }
+
+                  
+
+           
+
+                    standartFreeFlange = new StandartFreeFlange();
 
                     TableData = standartFreeFlange.Data;
 
@@ -551,6 +567,7 @@ namespace Flange.Model
 
                 default:
                     sizesFlange = null;
+                    TableData = null;
                     break;
             }
 
@@ -601,9 +618,22 @@ namespace Flange.Model
             DbController = new Controller(false,4);
             CountOfHolesConroller = new Controller(false,5);
 
-            AController = new Controller(true, 6);
+            AController = new Controller(false, 6);
          
-            SController = new Controller(true, 7);
+            SController = new Controller(false, 7);
+
+
+          DPar = new ParametreDouble(0,DController);
+           D1Par = new ParametreDouble(1,D1Controller);
+            D2Par  = new ParametreDouble(2,D2Controller);
+   DbPar= new ParametreDouble(3,DbController);
+          HPar  = new ParametreDouble(4,HController);
+       CountOfHolesPar  = new ParametreInt(5,CountOfHolesConroller);
+            APar = new ParametreDouble(6,AController);
+            SPar  = new ParametreDouble(7,SController);
+
+
+
 
             FlangeTypesCBItems = new ObservableCollection<string>
             {
@@ -611,9 +641,9 @@ namespace Flange.Model
                 "Свободный фланец",
                 "Плоский фланец"
             };
-            FlangeTypeCrl = FlangeTypesCBItems[1] ;
+            FlangeTypeCrl = FlangeTypesCBItems[0] ;
 
-            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
+            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange(DPar,D1Par,D2Par,DbPar,HPar,CountOfHolesPar);
 
             WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);

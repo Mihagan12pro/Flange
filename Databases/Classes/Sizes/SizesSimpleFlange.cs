@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using Flange.Model;
 
 namespace Flange.Databases
 {
     internal class SizesSimpleFlange:SizesDatabase
     {
 
-        public SizesSimpleFlange() 
+        public SizesSimpleFlange(Parametre d, Parametre d1, Parametre d2, Parametre db, Parametre h, Parametre n) : base(d, d1, d2, db, h, n)
         {
             databaseName = $"Data Source={@"..\..\Databases\DBs\Flange.db"}";
             tableName = "sizes";
