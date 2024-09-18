@@ -124,6 +124,12 @@ namespace Flange.Model
             {
                 //TableRowIndex = 0;
                 tableRowIndex = value;
+
+                if (value != -1)
+                {
+
+                }
+
                     OnPropertyChanged();
                 
             }
@@ -329,18 +335,18 @@ namespace Flange.Model
 
 
 
-        private int click=0;
-        public int Clicks
-        {
-            get
-            {
-                return click;
-            }
-            set
-            {
-                click = value;
-            }
-        }
+        //private int click=0;
+        //public int Clicks
+        //{
+        //    get
+        //    {
+        //        return click;
+        //    }
+        //    set
+        //    {
+        //        click = value;
+        //    }
+        //}
 
 
 
@@ -393,7 +399,16 @@ namespace Flange.Model
         }
 
 
-
+        //public Command LeftMouse
+        //{
+        //    get
+        //    {
+        //        return new Command((obj) =>
+        //        {
+        //            TableRowIndex = -1;
+        //        });
+        //    }
+        //}
 
 
 
@@ -532,13 +547,13 @@ namespace Flange.Model
             if (sizesFlange !=null)
             {
 
-
                 DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
                 D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
                 D2Par.TextBoxValue = sizesFlange.GetParam(D2Par.Id);
                 DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
                 HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
                 CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
+
             }
 
             if (sizesFlange is SizesFreeFlange)
@@ -588,7 +603,7 @@ namespace Flange.Model
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 
-            WindowWidth = 800;
+            WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);
 
             SketchOffsetX = new CanvasOffsetX(10, 0);

@@ -60,7 +60,15 @@ namespace Flange
 
             MainCanvas.SizeChanged += MainCanvas_SizeChanged;
 
+            MouseDown += MainWindow_MouseDown;
+
           
+        }
+
+        private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TableDataGr.SelectedIndex = -1;
+            
         }
 
         private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -147,6 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Kompas\Drafting\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">
