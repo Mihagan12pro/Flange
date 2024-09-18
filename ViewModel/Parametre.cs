@@ -28,6 +28,14 @@ namespace Flange.Model
                 double tryDouble;
                 if (!controller.ReadOnly)
                 {
+                    if (value.Contains("."))
+                    
+                        value = value.Replace(".",",");
+
+                    
+
+
+
                     if (double.TryParse(value, out tryDouble))
                     {
                         if (tryDouble > 0)

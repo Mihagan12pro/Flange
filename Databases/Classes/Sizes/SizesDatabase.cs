@@ -25,12 +25,7 @@ namespace Flange.Databases
         protected List<Parametre> parametresList = new List<Parametre>();
         public SizesDatabase(Parametre d,Parametre d1,Parametre d2,Parametre db,Parametre h,Parametre n)
         {
-            //d = new Parametre(0);
-            //d1 = new Parametre(1);
-            //d2 = new Parametre(2);
-            //db = new Parametre(3);
-            //h = new Parametre(4);
-            //n = new Parametre(5);
+           
             this.d = d;
             this.d1 = d1;
             this.d2 = d2;
