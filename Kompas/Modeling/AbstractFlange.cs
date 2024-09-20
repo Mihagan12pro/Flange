@@ -152,22 +152,66 @@ namespace Flange.Kompas.Modeling
             return false;
         }
 
+        private void OpenKompas()
+        {
+            Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
+            kompas = (KompasObject)Activator.CreateInstance(t);
+        }
+        private void CreateDocument()
+        {
+            if (kompas != null)
+            {
+                kompas.Visible = true;
+                kompas.ActivateControllerAPI();
+            }
+            if (kompas != null)
+            {
+                iDocument3D = (ksDocument3D)kompas.Document3D();
+                iDocument3D.Create(false, true);
+            }
+        }
         protected virtual void Build()
         {
-
-            OpenKompas3D();
+            if (kompas == null)
+            {
+                //Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                //kompas = (KompasObject)Activator.CreateInstance(t);
+                OpenKompas();
+            }
 
             try
             {
-                CreateNewDocument();
+                //if (kompas != null)
+                //{
+                //    kompas.Visible = true;
+                //    kompas.ActivateControllerAPI();
+                //}
+                //if (kompas != null)
+                //{
+                //    iDocument3D = (ksDocument3D)kompas.Document3D();
+                //    iDocument3D.Create(false, true);
+                //}
+                CreateDocument();
             }
             catch
             {
-                kompas = null;
-                OpenKompas3D();
-                CreateNewDocument();
+                OpenKompas();
+                CreateDocument();
             }
-            iPart = (part)iDocument3D.GetPart(-1);
+      
+                //OpenKompas3D();
+
+                //try
+                //{
+                //    CreateNewDocument();
+                //}
+                //catch
+                //{
+                //    kompas = null;
+                //    OpenKompas3D();
+                //    CreateNewDocument();
+                //}
+                iPart = (part)iDocument3D.GetPart(-1);
 
             planeXOZ = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
             planeZOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ);
@@ -180,14 +224,14 @@ namespace Flange.Kompas.Modeling
             CutExtrusion1();
             CircularArray1();
         }
-        private void OpenKompas3D()
-        {
-            if (kompas == null)
-            {
-                kompas = new Kompas6API5.Application();
-                kompas.Visible = true;
-            }
-        }
+        //private void OpenKompas3D()
+        //{
+        //    if (kompas == null)
+        //    {
+        //        kompas = new Kompas6API5.Application();
+        //        kompas.Visible = true;
+        //    }
+        //}
         private void CreateNewDocument()
         {
             iDocument3D = (ksDocument3D)kompas.Document3D();
