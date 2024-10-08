@@ -80,7 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -88,16 +88,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Databases\Classes\Sizes\SizesDatabase.cs" />
-    <Compile Include="Databases\Classes\Sizes\SizesFreeFlange.cs" />
-    <Compile Include="Databases\Classes\Sizes\SizesSimpleFlange.cs" />
-    <Compile Include="Databases\Classes\Standart\Data storages\DataStorage.cs" />
-    <Compile Include="Databases\Classes\Standart\Standart.cs" />
-    <Compile Include="Databases\Classes\Standart\StandartFreeFlange.cs" />
-    <Compile Include="Kompas\Modeling\AbstractFlange.cs" />
-    <Compile Include="Kompas\Modeling\FreeFlange.cs" />
-    <Compile Include="Kompas\Modeling\SimpleFlange.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Model\DB classes\Sizes\SizesDatabase.cs" />
+    <Compile Include="Model\DB classes\Sizes\SizesFreeFlange.cs" />
+    <Compile Include="Model\DB classes\Sizes\SizesSimpleFlange.cs" />
+    <Compile Include="Model\DB classes\Standart\Data storages\DataStorage.cs" />
+    <Compile Include="Model\DB classes\Standart\Standart.cs" />
+    <Compile Include="Model\DB classes\Standart\StandartFreeFlange.cs" />
+    <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
+    <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
+    <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
+    <Compile Include="Other\SketchesExplorer.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -125,32 +126,31 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Databases\DBs\gost sizes.db" />
+    <None Include="Resours source\DBs\gost sizes.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Prototypes\Свободный фланец.m3d" />
-    <None Include="Prototypes\Свободный фланец.m3d.cdw" />
-    <None Include="Prototypes\Фланец.cdw" />
-    <None Include="Prototypes\Фланец.m3d" />
+    <None Include="Resours source\Prototypes\Свободный фланец.m3d" />
+    <None Include="Resours source\Prototypes\Свободный фланец.m3d.cdw" />
+    <None Include="Resours source\Prototypes\Фланец.cdw" />
+    <None Include="Resours source\Prototypes\Фланец.m3d" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Sketches\FreeFlange.bmp" />
+    <Resource Include="Resours source\Sketches\FreeFlange.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Sketches\SimpleFlange.bmp" />
+    <Resource Include="Resours source\Sketches\SimpleFlange.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Sketches\FlatFlange.bmp" />
+    <Resource Include="Resours source\Sketches\FlatFlange.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Kompas\Drafting\" />
-    <Folder Include="Model\" />
+    <Folder Include="Model\Kompas\Drafting\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">
