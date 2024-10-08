@@ -9,9 +9,10 @@ namespace Flange.Other
 {
     internal static class MainExplorer
     {
+        public static readonly SketchesExplorer SketchesExpl;
         static MainExplorer()
         {
-                
+            
         }
     }
 }
