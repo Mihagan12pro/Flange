@@ -97,6 +97,7 @@
     <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
+    <Compile Include="Other\MainExplorer.cs" />
     <Compile Include="Other\SketchesExplorer.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
