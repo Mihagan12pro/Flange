@@ -18,12 +18,19 @@ using Flange.Databases.Classes.Standart;
 //using Flange.Databases.GOST_tables;
 //using Flange.Databases.GOST_tables.GOST_data_classes;
 using System.Windows.Controls;
+using Flange.Other;
 using Flange.Databases.Classes.Standart.Data_storages;
+
+
+
+
 namespace Flange.Model
 {
+     
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
        
+     
       
         private string flangeTypeCrl;
         private readonly string SimpleFlangeType;
@@ -288,7 +295,7 @@ namespace Flange.Model
 
                             ChangeTextBoxElems(0);
 
-                            file = new FileInfo(@"..\..\Sketches\SimpleFlange.bmp");
+                            file = new FileInfo(MainExplorer.SketchesExpl.SimpleFlange);
                            
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
@@ -300,7 +307,7 @@ namespace Flange.Model
 
                             ChangeTextBoxElems(1);
 
-                            file = new FileInfo(@"..\..\Sketches\FreeFlange.bmp");
+                            file = new FileInfo(MainExplorer.SketchesExpl.FreeFlange);
 
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;
@@ -308,7 +315,7 @@ namespace Flange.Model
                         case 2:
 
                             ChangeTextBoxElems(2);
-                            file = new FileInfo(@"..\..\Sketches\FlatFlange.bmp");
+                            file = new FileInfo(MainExplorer.SketchesExpl.FlatFlange);
 
                             BitmapImage = new BitmapImage(new Uri(file.FullName));
                             break;

@@ -7,28 +7,37 @@ using Flange.Kompas.Modeling;
 using PathExplorerLibrary;
 namespace Flange.Other
 {
-    class SketchesExplorer : AbstractExplorer
+    class SketchesExplorer :Explorer
     {
-        public readonly PathMaster SimpleFlangePath;
-        public readonly PathMaster FlatFlangePath;
-        public readonly PathMaster FreeFlangePath;
+       
+        private readonly PathMaster simpleFlangePath;
+        private readonly PathMaster flatFlangePath;
+        private readonly PathMaster freeFlangePath;
+
+        public readonly string SimpleFlange;
+        public readonly string FlatFlange;
+        public readonly string FreeFlange;
         public SketchesExplorer(PathMaster simpleFlangePath,PathMaster flatFlangePath,PathMaster freeFlangePath)  : base(simpleFlangePath)
         {
-            SimpleFlangePath = simpleFlangePath;
-            FlatFlangePath = flatFlangePath;
-            FreeFlangePath = freeFlangePath;
+            this.simpleFlangePath = simpleFlangePath;
+            this.flatFlangePath = flatFlangePath;
+            this.freeFlangePath = freeFlangePath;
 
-            pathMasters.Add(SimpleFlangePath);
-            pathMasters.Add(FreeFlangePath);
-            pathMasters.Add(FlatFlangePath);
 
+
+
+
+            pathMasters.Add(this.simpleFlangePath);
+            pathMasters.Add(this.freeFlangePath);
+            pathMasters.Add(this.flatFlangePath);
+
+            SimpleFlange = this.simpleFlangePath.FilePath;
+            FlatFlange = this.flatFlangePath.FilePath;
+            FreeFlange = this.freeFlangePath.FilePath;
+
+            UniquePaths();
         }
-        protected override void UniquePaths()
-        {
-            var collection = (from master in pathMasters select master.FilePath).Distinct();
 
-            if (collection.Count() != pathMasters.Count())
-                throw eDublicateObjects;
-        }
+       
     }
 }

@@ -80,7 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -97,9 +97,11 @@
     <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
+    <Compile Include="Other\DataBaseExplorer.cs" />
+    <Compile Include="Other\Explorer.cs" />
     <Compile Include="Other\MainExplorer.cs" />
     <Compile Include="Other\SketchesExplorer.cs" />
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Kompas\Drafting\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">
