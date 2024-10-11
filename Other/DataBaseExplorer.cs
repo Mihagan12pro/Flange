@@ -13,7 +13,7 @@ namespace Flange.Other
 
         protected readonly Exception eConnectionError;
 
-        public DataBaseLocation(string _FileName, string _FolderName, string tableName) : base(_FileName, _FolderName)
+        public DataBaseLocation(string _FileName, string _FolderName) : base(_FileName, _FolderName)
         {
             DataBaseName = FileName;
             DataBaseFullName = "Data Source=" + FilePath;

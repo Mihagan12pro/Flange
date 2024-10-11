@@ -11,13 +11,12 @@ namespace Flange.Other
     internal static class MainExplorer
     {
         public static readonly SketchesExplorer SketchesExpl;
-        public static readonly DataBaseExplorer DataBaseExplt;
+        public static readonly DataBaseExplorer DataBaseExpl;
      
         static MainExplorer()
         {
-          SketchesExpl = new SketchesExplorer(new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"));
-           
-            //SketchesExpl = new SketchesExplorer(new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"));
+            SketchesExpl = new SketchesExplorer(new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"));
+            DataBaseExpl = new DataBaseExplorer(new DataBaseLocation("default_sizes.db","DBs"),new DataBaseLocation("standart_sizes.db","DBs"));
         }
     }
 }
