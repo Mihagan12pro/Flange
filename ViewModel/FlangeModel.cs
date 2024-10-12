@@ -32,7 +32,7 @@ namespace Flange.Model
        
      
       
-        private string flangeTypeCrl;
+        private string selectFlangeType;
         private readonly string SimpleFlangeType;
 
 
@@ -52,16 +52,6 @@ namespace Flange.Model
         public Controller SController {  get; private set; }
 
 
-
-
-        //public Parametre DPar { get; private set; } = new Parametre(0);
-        //public Parametre D1Par { get;private set; } = new Parametre(1);
-        //public Parametre D2Par { get;private set; } = new Parametre(2);
-        //public Parametre DbPar { get; private set; } = new Parametre(3);
-        //public Parametre HPar { get; private set; } = new Parametre(4);
-        //public Parametre CountOfHolesPar { get;private set; } = new Parametre(5);
-        //public Parametre APar { get; private set; } = new Parametre(6);
-        //public Parametre SPar { get; private set; } = new Parametre(7);
         public ParametreDouble DPar { get; private set; } 
         public ParametreDouble D1Par { get; private set; } 
         public ParametreDouble D2Par { get; private set; } 
@@ -75,15 +65,11 @@ namespace Flange.Model
         public CanvasOffsetX SketchOffsetX { get;private set; }
         public CanvasOffsetX TableOffsetX { get;private set; }
 
-       // private readonly MainWindow programWindow;
-
-
-
      
 
 
-       // private FreeFlangeGostTable gostTableFree; 
 
+   
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
@@ -142,7 +128,7 @@ namespace Flange.Model
 
                 if (value != -1)
                 {
-                    switch(FlangeTypesCBItems.IndexOf(flangeTypeCrl))
+                    switch(FlangeTypesCBItems.IndexOf(selectFlangeType))
                     {
                         case 0:
                         case 1:
@@ -265,18 +251,18 @@ namespace Flange.Model
 
 
 
-        public string FlangeTypeCrl
+        public string SelectFlangeType
         {
             get
             {
-                return flangeTypeCrl;
+                return selectFlangeType;
             }
             set
             {
 
 
 
-                if (value!=flangeTypeCrl)
+                if (value!=selectFlangeType)
                 {
 
                     AController.ReadOnly = true;
@@ -285,13 +271,17 @@ namespace Flange.Model
                     SPar.TextBoxValue = "";
                     APar.TextBoxValue = "";
 
-                    flangeTypeCrl = value;
+                    selectFlangeType = value;
 
                     FileInfo file;
 
-                    switch (FlangeTypesCBItems.IndexOf(flangeTypeCrl))
+                    switch (FlangeTypesCBItems.IndexOf(selectFlangeType))
                     {
                         case 0:
+                            AController.ReadOnly = false;
+                            SController.ReadOnly = false;
+                            SPar.TextBoxValue = "";
+                            APar.TextBoxValue = "";
 
                             ChangeTextBoxElems(0);
 
@@ -361,19 +351,6 @@ namespace Flange.Model
 
 
 
-        //private int click=0;
-        //public int Clicks
-        //{
-        //    get
-        //    {
-        //        return click;
-        //    }
-        //    set
-        //    {
-        //        click = value;
-        //    }
-        //}
-
 
 
 
@@ -385,7 +362,7 @@ namespace Flange.Model
         private void CreateFlange()
         {
 
-           switch( FlangeTypesCBItems.IndexOf(flangeTypeCrl))
+           switch( FlangeTypesCBItems.IndexOf(selectFlangeType))
            {
                 case 0:
 
@@ -425,16 +402,7 @@ namespace Flange.Model
         }
 
 
-        //public Command LeftMouse
-        //{
-        //    get
-        //    {
-        //        return new Command((obj) =>
-        //        {
-        //            TableRowIndex = -1;
-        //        });
-        //    }
-        //}
+
 
 
 
@@ -631,13 +599,13 @@ namespace Flange.Model
 
 
           DPar = new ParametreDouble(0,DController);
-           D1Par = new ParametreDouble(1,D1Controller);
-            D2Par  = new ParametreDouble(2,D2Controller);
-   DbPar= new ParametreDouble(3,DbController);
+          D1Par = new ParametreDouble(1,D1Controller);
+          D2Par  = new ParametreDouble(2,D2Controller);
+          DbPar= new ParametreDouble(3,DbController);
           HPar  = new ParametreDouble(4,HController);
-       CountOfHolesPar  = new ParametreInt(5,CountOfHolesConroller);
-            APar = new ParametreDouble(6,AController);
-            SPar  = new ParametreDouble(7,SController);
+          CountOfHolesPar  = new ParametreInt(5,CountOfHolesConroller);
+          APar = new ParametreDouble(6,AController);
+          SPar  = new ParametreDouble(7,SController);
 
 
 
@@ -648,7 +616,7 @@ namespace Flange.Model
                 "Свободный фланец",
                 "Плоский фланец"
             };
-            FlangeTypeCrl = FlangeTypesCBItems[0] ;
+            SelectFlangeType = FlangeTypesCBItems[0] ;
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange(DPar,D1Par,D2Par,DbPar,HPar,CountOfHolesPar);
 

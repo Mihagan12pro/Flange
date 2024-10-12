@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.Runtime.CompilerServices;
@@ -8,6 +11,8 @@ using System.Windows.Media;
 
 public class Controller : INotifyPropertyChanged
 {
+    private static readonly List<Controller> controllers = new List<Controller>();
+    private readonly Exception eIdDublicate = new Exception("This id is not free!");
     public Controller(bool _readOnly, int textBoxId)
     {
         
@@ -22,7 +27,19 @@ public class Controller : INotifyPropertyChanged
     private string textBoxText;
     private bool readOnly;
     private SolidColorBrush background;
-
+    
+    private string rowValue;
+    public string RowValue 
+    { 
+        get 
+        {
+            return rowValue;
+        } 
+        set 
+        {
+            rowValue = value;
+        } 
+    }
 
     public readonly int TextBoxId;
 
@@ -49,9 +66,9 @@ public class Controller : INotifyPropertyChanged
                 }
                 else
                 {
-                    
-                  
 
+
+                    RowValue = "";
                     Background = new SolidColorBrush(Colors.Gainsboro);
                     OnPropertyChanged(nameof(Background));
                 }

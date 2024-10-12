@@ -24,39 +24,40 @@ namespace Flange.Model
             }
             set
             {
+                textBoxValue = value;
 
-                double tryDouble;
-                if (!controller.ReadOnly)
-                {
-                    if (value.Contains("."))
-                    
-                        value = value.Replace(".",",");
+                //double tryDouble;
+                //if (!controller.ReadOnly)
+                //{
+                //    if (value.Contains("."))
 
-                    
-
+                //        value = value.Replace(".",",");
 
 
-                    if (double.TryParse(value, out tryDouble))
-                    {
-                        if (tryDouble > 0)
-                        {
-                            textBoxValue = value;
 
 
-                            OnPropertyChanged();
-                        }
-                        else
-                        {
-                            var a = tryDouble;
-                            MessageBox.Show("Данный параметр не может быть меньше нуля!");
-                        }
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Данных параметр должен быть числом!");
-                    }
-                }
+                //    if (double.TryParse(value, out tryDouble))
+                //    {
+                //        if (tryDouble > 0)
+                //        {
+                //            textBoxValue = value;
+
+
+                //            OnPropertyChanged();
+                //        }
+                //        else
+                //        {
+                //            var a = tryDouble;
+                //            MessageBox.Show("Данный параметр не может быть меньше нуля!");
+                //        }
+
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Данных параметр должен быть числом!");
+                //    }
+                //}
 
             }
         }
@@ -66,6 +67,7 @@ namespace Flange.Model
 
         public ParametreInt(int Id, Controller controller) : base(Id, controller)
         {
+
         }
         public string TextBoxValue
         {
@@ -118,6 +120,8 @@ namespace Flange.Model
         {
             this.Id = Id;
             this.controller = controller;
+
+            protectedParametresList.Add(this);
         }
 
         public string TextBoxValue;
@@ -133,6 +137,27 @@ namespace Flange.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-    
+
+        protected static readonly List<Parametre> protectedParametresList = new List<Parametre>();
+        protected static List<Parametre> publicParamentresList = new List<Parametre>();
+        
+        public static List<Parametre> PublicParametresList
+        {
+            get 
+            {
+                return publicParamentresList;
+            } 
+            set 
+            {
+                foreach(var par in protectedParametresList)
+                {
+                    if (!value.Contains(par))
+                    {
+                        par.TextBoxValue = "";
+                    }
+                }
+            }
+        }
+
     }
 }
