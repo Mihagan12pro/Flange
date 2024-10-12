@@ -100,6 +100,7 @@
     <Compile Include="Other\DataBaseExplorer.cs" />
     <Compile Include="Other\Explorer.cs" />
     <Compile Include="Other\MainExplorer.cs" />
+    <Compile Include="Other\ParamettresNames.cs" />
     <Compile Include="Other\SketchesExplorer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

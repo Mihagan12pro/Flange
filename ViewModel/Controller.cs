@@ -13,11 +13,21 @@ using System.Linq;
 public class Controller : INotifyPropertyChanged
 {
     protected static readonly List<Controller> controllers = new List<Controller>();
+
+    
+    public static List<Controller>Controllers
+    {
+        get
+        {
+            return controllers;
+        }
+    }
+
+
     private readonly Exception eIdDublicate = new Exception("This id is not free!");
     public Controller(bool _readOnly, int textBoxId)
     {
         
-
 
         ReadOnly = _readOnly;
        
