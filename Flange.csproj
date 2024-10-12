@@ -111,7 +111,6 @@
     <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\FlangeModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
-    <Compile Include="ViewModel\Parametre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

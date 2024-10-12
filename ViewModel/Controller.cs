@@ -8,10 +8,11 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Linq;
 
 public class Controller : INotifyPropertyChanged
 {
-    private static readonly List<Controller> controllers = new List<Controller>();
+    protected static readonly List<Controller> controllers = new List<Controller>();
     private readonly Exception eIdDublicate = new Exception("This id is not free!");
     public Controller(bool _readOnly, int textBoxId)
     {
@@ -21,6 +22,13 @@ public class Controller : INotifyPropertyChanged
         ReadOnly = _readOnly;
        
         TextBoxId = textBoxId;
+
+
+        if ((from controller in controllers where controller.TextBoxId == TextBoxId select controller).Count() > 0)
+            throw eIdDublicate;
+
+
+        controllers.Add(this);
     }
 
 

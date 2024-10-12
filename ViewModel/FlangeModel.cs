@@ -52,14 +52,14 @@ namespace Flange.Model
         public Controller SController {  get; private set; }
 
 
-        public ParametreDouble DPar { get; private set; } 
-        public ParametreDouble D1Par { get; private set; } 
-        public ParametreDouble D2Par { get; private set; } 
-        public ParametreDouble DbPar { get; private set; } 
-        public ParametreDouble HPar { get; private set; }
-        public ParametreInt CountOfHolesPar { get; private set; } 
-        public ParametreDouble APar { get; private set; }
-        public ParametreDouble SPar { get; private set; }
+        //public ParametreDouble DPar { get; private set; } 
+        //public ParametreDouble D1Par { get; private set; } 
+        //public ParametreDouble D2Par { get; private set; } 
+        //public ParametreDouble DbPar { get; private set; } 
+        //public ParametreDouble HPar { get; private set; }
+        //public ParametreInt CountOfHolesPar { get; private set; } 
+        //public ParametreDouble APar { get; private set; }
+        //public ParametreDouble SPar { get; private set; }
 
 
         public CanvasOffsetX SketchOffsetX { get;private set; }
@@ -265,58 +265,58 @@ namespace Flange.Model
                 if (value!=selectFlangeType)
                 {
 
-                    AController.ReadOnly = true;
-                    SController.ReadOnly = true;
+                    //AController.ReadOnly = true;
+                    //SController.ReadOnly = true;
 
-                    SPar.TextBoxValue = "";
-                    APar.TextBoxValue = "";
+                    //SPar.TextBoxValue = "";
+                    //APar.TextBoxValue = "";
 
-                    selectFlangeType = value;
+                    //selectFlangeType = value;
 
-                    FileInfo file;
+                    //FileInfo file;
 
-                    switch (FlangeTypesCBItems.IndexOf(selectFlangeType))
-                    {
-                        case 0:
-                            AController.ReadOnly = false;
-                            SController.ReadOnly = false;
-                            SPar.TextBoxValue = "";
-                            APar.TextBoxValue = "";
+                    //switch (FlangeTypesCBItems.IndexOf(selectFlangeType))
+                    //{
+                    //    case 0:
+                    //        AController.ReadOnly = false;
+                    //        SController.ReadOnly = false;
+                    //        SPar.TextBoxValue = "";
+                    //        APar.TextBoxValue = "";
 
-                            ChangeTextBoxElems(0);
+                    //        ChangeTextBoxElems(0);
 
-                            file = new FileInfo(MainExplorer.SketchesExpl.SimpleFlange);
+                    //        file = new FileInfo(MainExplorer.SketchesExpl.SimpleFlange);
                            
-                            BitmapImage = new BitmapImage(new Uri(file.FullName));
-                            break;
+                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
+                    //        break;
 
-                        case 1:
+                    //    case 1:
 
-                            AController.ReadOnly = false;
-                            SController.ReadOnly = false;
+                    //        AController.ReadOnly = false;
+                    //        SController.ReadOnly = false;
 
-                            ChangeTextBoxElems(1);
+                    //        ChangeTextBoxElems(1);
 
-                            file = new FileInfo(MainExplorer.SketchesExpl.FreeFlange);
+                    //        file = new FileInfo(MainExplorer.SketchesExpl.FreeFlange);
 
-                            BitmapImage = new BitmapImage(new Uri(file.FullName));
-                            break;
+                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
+                    //        break;
 
-                        case 2:
+                    //    case 2:
 
-                            ChangeTextBoxElems(2);
-                            file = new FileInfo(MainExplorer.SketchesExpl.FlatFlange);
+                    //        ChangeTextBoxElems(2);
+                    //        file = new FileInfo(MainExplorer.SketchesExpl.FlatFlange);
 
-                            BitmapImage = new BitmapImage(new Uri(file.FullName));
-                            break;
+                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
+                    //        break;
 
-                        default:
+                    //    default:
 
-                            MessageBox.Show("Error!");
-                            break;
+                    //        MessageBox.Show("Error!");
+                    //        break;
 
 
-                    }
+                    //}
 
                 }
             }
