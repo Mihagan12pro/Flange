@@ -26,7 +26,17 @@ using Flange.Databases.Classes.Standart.Data_storages;
 
 namespace Flange.Model
 {
-     
+    public struct TheController
+     {
+        public readonly int Id;
+        public readonly string Value;
+
+        public TheController(int id,string value)
+        {
+            Value = value;
+            Id = id;
+        }
+    }
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
        
@@ -133,10 +143,10 @@ namespace Flange.Model
                         case 0:
                         case 1:
 
-                            DPar.TextBoxValue = TableData[tableRowIndex].D;
-                            D1Par.TextBoxValue = TableData[tableRowIndex].D1;
-                            D2Par.TextBoxValue = TableData[tableRowIndex].D2;
-                            CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
+                            //DPar.TextBoxValue = TableData[tableRowIndex].D;
+                            //D1Par.TextBoxValue = TableData[tableRowIndex].D1;
+                            //D2Par.TextBoxValue = TableData[tableRowIndex].D2;
+                            //CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
 
                             break;
                     }

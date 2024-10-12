@@ -9,70 +9,67 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Linq;
-
+using Flange.Other;
+using Flange.Model;
 public class Controller : INotifyPropertyChanged
 {
     protected static readonly List<Controller> controllers = new List<Controller>();
 
+    public void GetControllers(List<TheController>theControllers)
+    {
+
+    }
+
     
-    public static List<Controller>Controllers
+    //public static List<Controller>Controllers
+    //{
+    //    get
+    //    {
+    //        return controllers;
+    //    }
+    //}
+
+
+
+
+
+    private string rowValue;
+    public string RowValue
     {
         get
         {
-            return controllers;
+            return rowValue;
+        }
+        set
+        {
+            rowValue = value;
         }
     }
 
 
-    private readonly Exception eIdDublicate = new Exception("This id is not free!");
-    public Controller(bool _readOnly, int textBoxId)
+
+
+    private readonly int id;
+    public  int ID
     {
-        
-
-        ReadOnly = _readOnly;
-       
-        TextBoxId = textBoxId;
-
-
-        if ((from controller in controllers where controller.TextBoxId == TextBoxId select controller).Count() > 0)
-            throw eIdDublicate;
-
-
-        controllers.Add(this);
+        get
+        {
+            return id;
+        }
     }
 
 
-    private string textBoxText;
+
+
+
     private bool readOnly;
-    private SolidColorBrush background;
-    
-    private string rowValue;
-    public string RowValue 
-    { 
-        get 
-        {
-            return rowValue;
-        } 
-        set 
-        {
-            rowValue = value;
-        } 
-    }
-
-    public readonly int TextBoxId;
-
-
-
-
-
-
     public bool ReadOnly
     {
         get
         {
             return readOnly;
         }
-            set
+        set
         {
             if (readOnly != value)
             {
@@ -94,10 +91,13 @@ public class Controller : INotifyPropertyChanged
 
                 readOnly = value;
                 OnPropertyChanged();
-               
+
             }
         }
     }
+
+
+    private SolidColorBrush background;
 
     public SolidColorBrush Background
     {
@@ -108,14 +108,31 @@ public class Controller : INotifyPropertyChanged
         }
         set
         {
-            if  (background != value)
+            if (background != value)
             {
                 background = value;
-               
+
             }
         }
-       
+
     }
+    private readonly Exception eIdDublicate = new Exception("This id is not free!");
+    public Controller(bool _readOnly, int textBoxId)
+    {
+        
+
+        ReadOnly = _readOnly;
+       
+        id = textBoxId;
+
+
+        if ((from controller in controllers where controller.ID == ID select controller).Count() > 0)
+            throw eIdDublicate;
+
+
+        controllers.Add(this);
+    }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
 
