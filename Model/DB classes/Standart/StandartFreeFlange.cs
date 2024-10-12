@@ -7,6 +7,8 @@ using System.Data.SQLite;
 using Flange.Databases.Classes.Standart.Data_storages;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography;
+
+using Flange.Other;
 namespace Flange.Databases.Classes.Standart
 {
     internal class StandartFreeFlange : Standart
@@ -14,9 +16,13 @@ namespace Flange.Databases.Classes.Standart
         private readonly string tableName;
         public StandartFreeFlange()
         {
+            database = MainExplorer.DataBaseExpl.StandartSizesFullName;
+
             tableName = "free_flange";
 
             Data = new ObservableCollection<DataStorage>();
+
+  
 
             SelectfromDatabase();
         }

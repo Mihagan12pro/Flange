@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using Flange.Model;
 
+using Flange.Other;
 namespace Flange.Databases
 {
     internal class SizesSimpleFlange:SizesDatabase
@@ -13,7 +14,7 @@ namespace Flange.Databases
 
         public SizesSimpleFlange(Parametre d, Parametre d1, Parametre d2, Parametre db, Parametre h, Parametre n) : base(d, d1, d2, db, h, n)
         {
-            databaseName = $"Data Source={@"..\..\Databases\DBs\Flange.db"}";
+            databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
             tableName = "sizes";
 
             List<object> data = GetDefaultData(tableName);

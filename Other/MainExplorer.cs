@@ -15,8 +15,8 @@ namespace Flange.Other
      
         static MainExplorer()
         {
-            SketchesExpl = new SketchesExplorer(new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("SimpleFlange.bmp", "Sketches"));
-            DataBaseExpl = new DataBaseExplorer(new DataBaseLocation("default_sizes.db","DBs"),new DataBaseLocation("standart_sizes.db","DBs"));
+            SketchesExpl = new SketchesExplorer(new PathMaster("SimpleFlange.bmp", "Sketches"), new PathMaster("FlatFlange.bmp", "Sketches"), new PathMaster("FreeFlange.bmp", "Sketches"));
+            DataBaseExpl = new DataBaseExplorer( new DataBaseLocation("Flange.db", "DBs"), new DataBaseLocation("standart_sizes.db", "DBs"));
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using Flange.Other;
 using Flange.Model;
 namespace Flange.Databases
 {
@@ -57,8 +57,9 @@ namespace Flange.Databases
 
                 using (SQLiteCommand command = new SQLiteCommand())
                 {
+              
                     command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM {table}";
+                    command.CommandText = $"SELECT * FROM {"sizes"}";
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {

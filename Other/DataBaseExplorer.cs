@@ -68,7 +68,7 @@ namespace Flange.Other
         {
             get
             {
-                return standartSizes.DataBaseFullName;
+                return defaultSizes.DataBaseFullName;
             }
         }
 
