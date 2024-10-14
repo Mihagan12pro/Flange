@@ -6,8 +6,36 @@ using System.Threading.Tasks;
 
 namespace Flange.Other
 {
+    public struct FlangeType
+    {
+        private int id;
+        public int Id
+        {
+            get => id;
+            private set => id = value;
+        }
+
+
+        private string tittle;
+        public string Tittle
+        {
+            get => tittle;
+            private set => tittle = value;
+        }
+
+
+        public FlangeType(string _tittle,int _id)
+        {
+            Tittle = _tittle;
+            Id = _id;
+        }
+    }
     internal static class Constants
     {
+        
+
+
+
         public const int D = 0;
         public const int D1 = 1;
         public const int D2 = 2;
@@ -18,8 +46,15 @@ namespace Flange.Other
         public const int S = 7;
 
 
-        public const int SimpleFlange = 0;
-        public const int FreeFlange = 1;
-        public const int FlatFlange = 2;
+        public static readonly FlangeType SimpleFlange = new FlangeType("Фланец",0);
+        //public static readonly Dictionary<int,string> SimpleFlange = { 0,"Фланец"};
+        //public const int FreeFlange = 1;
+        //public const int FlatFlange = 2;
+
+
+       
+
+
+
     }
 }

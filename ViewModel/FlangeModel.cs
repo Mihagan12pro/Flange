@@ -42,8 +42,8 @@ namespace Flange.Model
        
      
       
-        private string selectFlangeType;
-        private readonly string SimpleFlangeType;
+        //private string selectFlangeType;
+        //private readonly string SimpleFlangeType;
 
 
         private BitmapImage image;
@@ -363,11 +363,19 @@ namespace Flange.Model
 
 
 
+        private int selectedFlangeType;
+        public int SelectedFlangeType
+        {
+            get
+            {
+                return selectedFlangeType;
+            }
 
-
-
-
-
+            set 
+            {
+                selectedFlangeType = value;    
+            }
+        }
 
         private void CreateFlange()
         {
@@ -620,7 +628,7 @@ namespace Flange.Model
             };
             SelectFlangeType = FlangeTypesCBItems[0] ;
 
-            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange(DPar,D1Par,D2Par,DbPar,HPar,CountOfHolesPar);
+            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 
             WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);
