@@ -20,33 +20,26 @@ namespace Flange.Databases
         //protected double d, d1, d2, db, h;
         //protected int n;
 
-        protected string d,d1,d2,db,h,n;
+        public readonly string D,D1,D2,Db,H,N;
 
-        protected List<string> parametresList = new List<string>();
-        public SizesDatabase(string d,string d1,string d2,string db,string h,string n)
+       
+        public SizesDatabase()
         {
-           
-            this.d = d;
-            this.d1 = d1;
-            this.d2 = d2;
-            this.db = db;
-            this.h = h;
-            this.n = n;
+            databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
+            tableName = "sizes";
+
+            List<object> data = GetDefaultData(tableName);
+
+            D = data[0].ToString();
+            D1 = data[1].ToString();
+            D2 = data[2].ToString();
+            Db = data[3].ToString();
+            H = data[4].ToString();
+            N = data[5].ToString();
+
         }
 
-        //public  string GetParam(int id)
-        //{
 
-        //    foreach (var par in parametresList)
-        //    {
-        //        if (par.Id == id)
-        //        {
-        //            return par.TextBoxValue;
-        //        }
-        //    }
-        //    return "";
-            
-        //}
 
         protected  List<object>GetDefaultData(string table)
         {
