@@ -9,11 +9,11 @@ namespace Flange.Databases
 {
     internal class SizesFreeFlange: SizesSimpleFlange
     {
-        protected Parametre a, s;
+        protected string a, s;
 
         private string tableName2;
 
-        public SizesFreeFlange(Parametre d, Parametre d1, Parametre d2, Parametre db, Parametre h, Parametre n, Parametre a,Parametre s):base(d,d1,d2,db,h,n)
+        public SizesFreeFlange(string d, string d1, string d2,string db, string h, string n, string a,string s):base(d,d1,d2,db,h,n)
         {
             tableName2 = "free_sizes";
 
@@ -21,23 +21,11 @@ namespace Flange.Databases
             this.a = a;
             this.s = s;
 
-            List<object> data = GetDefaultData(tableName2);
+            List<object> data2 = GetDefaultData(tableName2);
 
-            for(int i=0;i<data.Count; i++)
-            {
-                switch(i)
-                {
-                    case 0:
-                        a.TextBoxValue = data[i].ToString();
-                        parametresList.Add(a);
-                        break;
 
-                    case 1:
-                        s.TextBoxValue = data[i].ToString();
-                        parametresList.Add(s);
-                        break;
-                }
-            }
+            this.a = data2[0].ToString();
+            this.s = data2[1].ToString();
            
         }
 

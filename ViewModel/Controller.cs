@@ -14,9 +14,20 @@ using Flange.Model;
 public class Controller : INotifyPropertyChanged
 {
     protected static readonly List<Controller> controllers = new List<Controller>();
-
+    private readonly Exception eIdDublicate = new Exception("This id is not free!");
     public void GetControllers(List<TheController>theControllers)
     {
+        theControllers = theControllers.OrderBy(controller => controller.Id).ToList();
+        var IDs = (from theContol in theControllers select theContol.Id).Distinct();
+
+        if (IDs.Count() != theControllers.Count)
+        {
+            throw eIdDublicate;
+        }
+
+        for (int i = 0; i < theControllers.Count; i++)
+        {
+        }
 
     }
 
@@ -116,7 +127,7 @@ public class Controller : INotifyPropertyChanged
         }
 
     }
-    private readonly Exception eIdDublicate = new Exception("This id is not free!");
+ 
     public Controller(bool _readOnly, int textBoxId)
     {
         

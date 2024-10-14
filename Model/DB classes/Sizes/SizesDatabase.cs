@@ -20,10 +20,10 @@ namespace Flange.Databases
         //protected double d, d1, d2, db, h;
         //protected int n;
 
-        protected Parametre d,d1,d2,db,h,n;
+        protected string d,d1,d2,db,h,n;
 
-        protected List<Parametre> parametresList = new List<Parametre>();
-        public SizesDatabase(Parametre d,Parametre d1,Parametre d2,Parametre db,Parametre h,Parametre n)
+        protected List<string> parametresList = new List<string>();
+        public SizesDatabase(string d,string d1,string d2,string db,string h,string n)
         {
            
             this.d = d;
@@ -34,19 +34,19 @@ namespace Flange.Databases
             this.n = n;
         }
 
-        public  string GetParam(int id)
-        {
+        //public  string GetParam(int id)
+        //{
 
-            foreach (var par in parametresList)
-            {
-                if (par.Id == id)
-                {
-                    return par.TextBoxValue;
-                }
-            }
-            return "";
+        //    foreach (var par in parametresList)
+        //    {
+        //        if (par.Id == id)
+        //        {
+        //            return par.TextBoxValue;
+        //        }
+        //    }
+        //    return "";
             
-        }
+        //}
 
         protected  List<object>GetDefaultData(string table)
         {
