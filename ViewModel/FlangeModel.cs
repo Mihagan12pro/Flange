@@ -376,7 +376,7 @@ namespace Flange.Model
            {
                 case 0:
 
-                    SimpleFlange simpleFlange = new SimpleFlange(DPar.TextBoxValue, D1Par.TextBoxValue ,D2Par.TextBoxValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue, DbPar.TextBoxValue);
+                    SimpleFlange simpleFlange = new SimpleFlange(   DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue, DbPar.TextBoxValue);
                     simpleFlange.TryToBuild();
 
                     break;
@@ -531,12 +531,12 @@ namespace Flange.Model
 
                     if (index == 0 )
                     {
-                        sizesFlange = new SizesSimpleFlange(DPar, D1Par, D2Par, DbPar, HPar, CountOfHolesPar);
+                        sizesFlange = new SizesSimpleFlange();
 
                     }
                     else if (index ==1)
                     {
-                        sizesFlange = new SizesFreeFlange(DPar, D1Par, D2Par, DbPar, HPar, CountOfHolesPar,APar,SPar);
+                        sizesFlange = new SizesFreeFlange();
                     }
 
                   
@@ -608,14 +608,6 @@ namespace Flange.Model
             SController = new Controller(false, 7);
 
 
-          DPar = new ParametreDouble(0,DController);
-          D1Par = new ParametreDouble(1,D1Controller);
-          D2Par  = new ParametreDouble(2,D2Controller);
-          DbPar= new ParametreDouble(3,DbController);
-          HPar  = new ParametreDouble(4,HController);
-          CountOfHolesPar  = new ParametreInt(5,CountOfHolesConroller);
-          APar = new ParametreDouble(6,AController);
-          SPar  = new ParametreDouble(7,SController);
 
 
 

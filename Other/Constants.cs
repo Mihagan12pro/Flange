@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flange.Other
 {
-    internal static class ParamettresNames
+    internal static class Constants
     {
         public const int D = 0;
         public const int D1 = 1;
@@ -16,5 +16,10 @@ namespace Flange.Other
         public const int N = 5;
         public const int A = 6;
         public const int S = 7;
+
+
+        public const int SimpleFlange = 0;
+        public const int FreeFlange = 1;
+        public const int FlatFlange = 2;
     }
 }
