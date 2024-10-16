@@ -18,6 +18,8 @@ namespace Flange.Kompas.Modeling
     internal abstract class AbstractFlange
     {
         protected  ksDocument3D iDocument3D;
+
+    
         protected ksDocument2D iDocument2D;
 
         protected static KompasObject kompas;

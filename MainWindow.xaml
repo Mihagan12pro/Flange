@@ -1,4 +1,4 @@
-ï»¿<Window x:Class="Flange.MainWindow"
+<Window x:Class="Flange.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,8 +24,8 @@
 
 
 
-            <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding FlangeTypesCBItems }"  SelectedItem="{Binding     SelectFlangeType}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" />
-            <Button Name="BuiltBtn" Command="{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  Content="ÐŸÐ¾ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ 3D Ð¼Ð¾Ð´ÐµÐ»ÑŒ" Canvas.Right="130" Canvas.Top="0"   ></Button>
+        <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   Model.FlangeTittles}"  SelectedItem="{Binding SelectFlangeType}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" ></ComboBox>
+        <Button Content="Ïîñòðîèòü ìîäåëü" Name="BuiltBtn" Command = "{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"   Canvas.Right="130" Canvas.Top="0"   ></Button>
             <Grid  Canvas.Right="0" Canvas.Top="50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="23*"></RowDefinition>
@@ -49,32 +49,32 @@
                 </Grid.ColumnDefinitions>
 
                 <Label   Grid.Column="0" Name="SizeDLbl" FontSize="12"  FontFamily="GOST Type B"  Content="D" Canvas.Top="58" Height="21" Width="24" HorizontalContentAlignment="Left"  Canvas.Right="127" HorizontalAlignment="Center" Canvas.Left="250" VerticalAlignment="Center" />
-                <TextBox Text="{Binding       DPar.TextBoxValue}" Background="{Binding DController.Background}" IsReadOnly="{Binding DController.ReadOnly}" Grid.Column="1" Name="SizeDTB"  FontFamily="GOST Type B"   Canvas.Top="58"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="116" Canvas.Right="0" Height="23"   />
+                <TextBox  Name="SizeD1Tb" Background="{Binding DController.Background}" IsReadOnly="{Binding DController.ReadOnly}" Grid.Column="1"   FontFamily="GOST Type B"   Canvas.Top="58"  HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Width="116" Canvas.Right="0" Height="23"   />
 
 
                 <Label  Grid.Column="0"  Grid.Row="1" Name="SizeD1Lbl" FontSize="12"  FontFamily="GOST Type B"  Content="D1" Canvas.Top="80" Canvas.Right="127" Height="21" Width="20" HorizontalAlignment="Left" Canvas.Left="254" VerticalAlignment="Center"    />
-                <TextBox Text="{Binding       D1Par.TextBoxValue}" Background="{Binding D1Controller.Background}" IsReadOnly="{Binding D1Controller.ReadOnly}" Grid.Column="1"  Grid.Row="1" Name="SizeD1TB"  FontFamily="GOST Type B"   Canvas.Top="80"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22" HorizontalAlignment="Center"  VerticalAlignment="Center" />
+                <TextBox  Background="{Binding D1Controller.Background}" IsReadOnly="{Binding D1Controller.ReadOnly}" Grid.Column="1"  Grid.Row="1" Name="SizeD1TB"  FontFamily="GOST Type B"   Canvas.Top="80"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22" HorizontalAlignment="Center"  VerticalAlignment="Center" />
 
                 <Label  Grid.Column="0"  Grid.Row="2" x:Name="SizeD2Lbl" FontSize="12"   FontFamily="GOST Type B"  Content="D2" Canvas.Top="99" Height="21" Width="23" Canvas.Right="127"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-                <TextBox Text="{Binding       D2Par.TextBoxValue}" Background="{Binding D2Controller.Background}" IsReadOnly="{Binding D2Controller.ReadOnly}"  Grid.Column="1" Grid.Row="2" x:Name="SizeD2TB"  FontFamily="GOST Type B"    TextWrapping="Wrap" Width="116" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="289" Canvas.Top="98" />
+                <TextBox Background="{Binding D2Controller.Background}" IsReadOnly="{Binding D2Controller.ReadOnly}"  Grid.Column="1" Grid.Row="2" x:Name="SizeD2TB"  FontFamily="GOST Type B"    TextWrapping="Wrap" Width="116" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="289" Canvas.Top="98" />
 
                 <Label Grid.Column="0" Grid.Row="3" x:Name="SizeDbLbl" FontSize="12"  FontFamily="GOST Type B"   Content="Db" Canvas.Top="120" Height="21" Width="23" Canvas.Right="200"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-                <TextBox Text="{Binding       DbPar.TextBoxValue}" Background="{Binding DbController.Background}" IsReadOnly="{Binding DbController.ReadOnly}" Grid.Column="1" Grid.Row="3" x:Name="SizeDbTB"  FontFamily="GOST Type B"  Canvas.Top="120"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox  Background="{Binding DbController.Background}" IsReadOnly="{Binding DbController.ReadOnly}" Grid.Column="1" Grid.Row="3" x:Name="SizeDbTB"  FontFamily="GOST Type B"  Canvas.Top="120"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
 
 
                 <Label  Grid.Column="0" Grid.Row="4" x:Name="SizeHLbl" FontSize="12"   FontFamily="GOST Type B"   Content="H" Canvas.Top="139" Height="21" Width="19" Canvas.Right="200" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-                <TextBox Text="{Binding       HPar.TextBoxValue}" Background="{Binding HController.Background}" IsReadOnly="{Binding HController.ReadOnly}" Grid.Column="1" Grid.Row="4" x:Name="SizeHTB"  FontFamily="GOST Type B"    Canvas.Top="140"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox  Background="{Binding HController.Background}" IsReadOnly="{Binding HController.ReadOnly}" Grid.Column="1" Grid.Row="4" x:Name="SizeHTB"  FontFamily="GOST Type B"    Canvas.Top="140"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
 
                 <Label Grid.Column="0"  Grid.Row="5" Name="CountOfHolesLbl" FontFamily="GOST Type B"   Content="N" Canvas.Top="160" Height="22" Width="20" Canvas.Right="0" Canvas.Left="254" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding  CountOfHolesPar.TextBoxValue}" Background="{Binding CountOfHolesConroller.Background}" IsReadOnly="{Binding CountOfHolesConroller.ReadOnly}" Grid.Column="1" Grid.Row="5" x:Name="CountOfHolesTB" FontFamily="GOST Type B"   Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Background="{Binding CountOfHolesConroller.Background}" IsReadOnly="{Binding CountOfHolesConroller.ReadOnly}" Grid.Column="1" Grid.Row="5" x:Name="CountOfHolesTB" FontFamily="GOST Type B"   Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                 <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="6" Content="a" Name="aLbl" FontFamily="GOST Type B"></Label>
-                <TextBox Text="{Binding APar.TextBoxValue}" IsReadOnly="{Binding  AController.ReadOnly}" Grid.Column="1" Grid.Row="6" Name="aTb"></TextBox>
+                <TextBox IsReadOnly="{Binding  AController.ReadOnly}" Grid.Column="1" Grid.Row="6" Name="aTb"></TextBox>
 
                 <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S" Name="SLbl" FontFamily="GOST Type B"></Label>
-                <TextBox Text="{Binding SPar.TextBoxValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" Name="STb"></TextBox>
+                <TextBox IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" Name="STb"></TextBox>
             </Grid>
 
 

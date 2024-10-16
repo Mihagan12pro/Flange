@@ -50,14 +50,14 @@ namespace Flange.Model
         private SizesSimpleFlange flangeSizes;
 
 
-        public ObservableCollection<string> FlangeTypesCBItems { get; private set; }
+        public ObservableCollection<string> FlangeTittles { get; private set; } 
 
         public Controller DController { get; private set; }
         public Controller D1Controller { get; private set; }
         public Controller D2Controller { get; private set; }
         public Controller HController { get; private set; }
         public Controller DbController { get; private set; }
-        public Controller CountOfHolesConroller { get; private set; }
+        public Controller NConroller { get; private set; }
         public Controller AController { get;private set; }
         public Controller SController {  get; private set; }
 
@@ -71,6 +71,7 @@ namespace Flange.Model
         //public ParametreDouble APar { get; private set; }
         //public ParametreDouble SPar { get; private set; }
 
+      
 
         public CanvasOffsetX SketchOffsetX { get;private set; }
         public CanvasOffsetX TableOffsetX { get;private set; }
@@ -136,23 +137,23 @@ namespace Flange.Model
                 //TableRowIndex = 0;
                 tableRowIndex = value;
 
-                if (value != -1)
-                {
-                    switch(FlangeTypesCBItems.IndexOf(selectFlangeType))
-                    {
-                        case 0:
-                        case 1:
+                //if (value != -1)
+                //{
+                //    switch(FlangeTypesCBItems.IndexOf(selectFlangeType))
+                //    {
+                //        case 0:
+                //        case 1:
 
-                            //DPar.TextBoxValue = TableData[tableRowIndex].D;
-                            //D1Par.TextBoxValue = TableData[tableRowIndex].D1;
-                            //D2Par.TextBoxValue = TableData[tableRowIndex].D2;
-                            //CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
+                //            //DPar.TextBoxValue = TableData[tableRowIndex].D;
+                //            //D1Par.TextBoxValue = TableData[tableRowIndex].D1;
+                //            //D2Par.TextBoxValue = TableData[tableRowIndex].D2;
+                //            //CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
 
-                            break;
-                    }
-                }
+                //            break;
+                //    }
+                //}
 
-                    OnPropertyChanged();
+                //    OnPropertyChanged();
                 
             }
         }
@@ -205,44 +206,6 @@ namespace Flange.Model
         }
       
 
-
-
-
-
-
-
-
-        private int lastSelectedItem = 0;
-
-        private int LastSelectedItem
-        {
-            get
-            {
-                return lastSelectedItem;
-            }
-            set
-            {
-                switch(lastSelectedItem)
-                {
-                    case 1:
-                       // gostTableFree.Dispose();
-                        break;
-                }
-                lastSelectedItem = value;
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -259,7 +222,7 @@ namespace Flange.Model
 
 
 
-
+        private string selectFlangeType;
 
         public string SelectFlangeType
         {
@@ -380,16 +343,16 @@ namespace Flange.Model
         private void CreateFlange()
         {
 
-           switch( FlangeTypesCBItems.IndexOf(selectFlangeType))
+           switch( FlangeTittles.IndexOf(SelectFlangeType))
            {
                 case 0:
 
-                    SimpleFlange simpleFlange = new SimpleFlange(   DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HPar.TextBoxValue,CountOfHolesPar.TextBoxValue, DbPar.TextBoxValue);
+                    SimpleFlange simpleFlange = new SimpleFlange(   DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
                     simpleFlange.TryToBuild();
 
                     break;
                 case 1:
-                    FreeFlange freeFlange = new FreeFlange(DPar.TextBoxValue, D1Par.TextBoxValue, D2Par.TextBoxValue,  HPar.TextBoxValue, CountOfHolesPar.TextBoxValue, DbPar.TextBoxValue, APar.TextBoxValue,SPar.TextBoxValue);
+                    FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,AController.RowValue, SController.RowValue);
                     freeFlange.TryToBuild();
 
                     break;
@@ -476,22 +439,7 @@ namespace Flange.Model
 
         public void UpdateTableWidth(double width)
         {
-            TableWidth = width *0.5;
-
-          
-
-
-
-            if (TableData.Count != 0)
-            {
-                ColumnWidth = (TableWidth / TableData[0].ColumnsCount);
-
-                var a = ColumnWidth;
-              
-
-                OnPropertyChanged(nameof(ColumnWidth));
-            }
-            
+            TableWidth = width * 0.5;
         }
 
 
@@ -527,62 +475,62 @@ namespace Flange.Model
 
         private void ChangeTextBoxElems(int index)
         {
-            SizesSimpleFlange sizesFlange = null;
+            //SizesSimpleFlange sizesFlange = null;
 
-            StandartFreeFlange standartFreeFlange;
-            switch (index)
-            {
-                case 0:
-                case 1:
+            //StandartFreeFlange standartFreeFlange;
+            //switch (index)
+            //{
+            //    case 0:
+            //    case 1:
                  
                    
 
-                    if (index == 0 )
-                    {
-                        sizesFlange = new SizesSimpleFlange();
+            //        if (index == 0 )
+            //        {
+            //            sizesFlange = new SizesSimpleFlange();
 
-                    }
-                    else if (index ==1)
-                    {
-                        sizesFlange = new SizesFreeFlange();
-                    }
+            //        }
+            //        else if (index ==1)
+            //        {
+            //            sizesFlange = new SizesFreeFlange();
+            //        }
 
                   
 
            
 
-                    standartFreeFlange = new StandartFreeFlange();
+            //        standartFreeFlange = new StandartFreeFlange();
 
-                    TableData = standartFreeFlange.Data;
-
-
-                    break;
-
-                default:
-                    sizesFlange = null;
-                    TableData = null;
-                    break;
-            }
+            //        TableData = standartFreeFlange.Data;
 
 
-            LastSelectedItem = index;
-            if (sizesFlange !=null)
-            {
+            //        break;
 
-                DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
-                D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
-                D2Par.TextBoxValue = sizesFlange.GetParam(D2Par.Id);
-                DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
-                HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
-                CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
+            //    default:
+            //        sizesFlange = null;
+            //        TableData = null;
+            //        break;
+            //}
 
-            }
 
-            if (sizesFlange is SizesFreeFlange)
-            {
-                APar.TextBoxValue = sizesFlange.GetParam(APar.Id);
-                SPar.TextBoxValue = sizesFlange.GetParam(SPar.Id);
-            }
+            //LastSelectedItem = index;
+            //if (sizesFlange !=null)
+            //{
+
+            //    DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
+            //    D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
+            //    D2Par.TextBoxValue = sizesFlange.GetParam(D2Par.Id);
+            //    DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
+            //    HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
+            //    CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
+
+            //}
+
+            //if (sizesFlange is SizesFreeFlange)
+            //{
+            //    APar.TextBoxValue = sizesFlange.GetParam(APar.Id);
+            //    SPar.TextBoxValue = sizesFlange.GetParam(SPar.Id);
+            //}
             
         }
 
@@ -609,24 +557,18 @@ namespace Flange.Model
             D2Controller = new Controller(false,2);
             HController = new Controller(false,3);
             DbController = new Controller(false,4);
-            CountOfHolesConroller = new Controller(false,5);
+            NConroller = new Controller(false,5);
 
             AController = new Controller(false, 6);
          
             SController = new Controller(false, 7);
 
 
+            FlangeTittles = new ObservableCollection<string>(( from fl in FlangeType.AllFlangeTypes select fl.Tittle).ToArray());
+            OnPropertyChanged(nameof(FlangeTittles));
 
 
-
-
-            FlangeTypesCBItems = new ObservableCollection<string>
-            {
-                "Фланец",
-                "Свободный фланец",
-                "Плоский фланец"
-            };
-            SelectFlangeType = FlangeTypesCBItems[0] ;
+            // SelectFlangeType = FlangeTypesCBItems[0] ;
 
             SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
 
