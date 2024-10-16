@@ -20,6 +20,7 @@ using Flange.Databases.Classes.Standart;
 using System.Windows.Controls;
 using Flange.Other;
 using Flange.Databases.Classes.Standart.Data_storages;
+using KompasAPI7;
 
 
 
@@ -46,7 +47,7 @@ namespace Flange.Model
         //private readonly string SimpleFlangeType;
 
 
-        private BitmapImage image;
+        private BitmapImage bitmapImage;
         private SizesSimpleFlange flangeSizes;
 
 
@@ -62,23 +63,8 @@ namespace Flange.Model
         public Controller SController {  get; private set; }
 
 
-        //public ParametreDouble DPar { get; private set; } 
-        //public ParametreDouble D1Par { get; private set; } 
-        //public ParametreDouble D2Par { get; private set; } 
-        //public ParametreDouble DbPar { get; private set; } 
-        //public ParametreDouble HPar { get; private set; }
-        //public ParametreInt CountOfHolesPar { get; private set; } 
-        //public ParametreDouble APar { get; private set; }
-        //public ParametreDouble SPar { get; private set; }
-
-      
-
         public CanvasOffsetX SketchOffsetX { get;private set; }
         public CanvasOffsetX TableOffsetX { get;private set; }
-
-     
-
-
 
    
         public event PropertyChangedEventHandler PropertyChanged;
@@ -190,7 +176,6 @@ namespace Flange.Model
 
 
         private  double sketchCancasLeft;
-        
         public double SketchCanvasLeft
         {
             private set
@@ -212,98 +197,6 @@ namespace Flange.Model
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        private string selectFlangeType;
-
-        public string SelectFlangeType
-        {
-            get
-            {
-                return selectFlangeType;
-            }
-            set
-            {
-
-
-
-                if (value!=selectFlangeType)
-                {
-
-                    //AController.ReadOnly = true;
-                    //SController.ReadOnly = true;
-
-                    //SPar.TextBoxValue = "";
-                    //APar.TextBoxValue = "";
-
-                    //selectFlangeType = value;
-
-                    //FileInfo file;
-
-                    //switch (FlangeTypesCBItems.IndexOf(selectFlangeType))
-                    //{
-                    //    case 0:
-                    //        AController.ReadOnly = false;
-                    //        SController.ReadOnly = false;
-                    //        SPar.TextBoxValue = "";
-                    //        APar.TextBoxValue = "";
-
-                    //        ChangeTextBoxElems(0);
-
-                    //        file = new FileInfo(MainExplorer.SketchesExpl.SimpleFlange);
-                           
-                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
-                    //        break;
-
-                    //    case 1:
-
-                    //        AController.ReadOnly = false;
-                    //        SController.ReadOnly = false;
-
-                    //        ChangeTextBoxElems(1);
-
-                    //        file = new FileInfo(MainExplorer.SketchesExpl.FreeFlange);
-
-                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
-                    //        break;
-
-                    //    case 2:
-
-                    //        ChangeTextBoxElems(2);
-                    //        file = new FileInfo(MainExplorer.SketchesExpl.FlatFlange);
-
-                    //        BitmapImage = new BitmapImage(new Uri(file.FullName));
-                    //        break;
-
-                    //    default:
-
-                    //        MessageBox.Show("Error!");
-                    //        break;
-
-
-                    //}
-
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
         private Visibility tableVisibility;
 
         public Visibility TableVisibility
@@ -319,13 +212,6 @@ namespace Flange.Model
         }
 
 
-
-
-
-
-
-
-
         private int selectedFlangeType;
         public int SelectedFlangeType
         {
@@ -336,14 +222,29 @@ namespace Flange.Model
 
             set 
             {
-                selectedFlangeType = value;    
+                
+
+                switch(value)
+                {
+                    case Constants.SimpleFlange:
+                        BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.SimpleFlange));
+                        break;
+                    case Constants.FreeFlange:
+                        BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
+                        break;
+                    case Constants.FlatFlange:
+                        BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FlatFlange));
+                        break;
+                }
+                selectedFlangeType = value;
+                OnPropertyChanged();
             }
         }
 
+
         private void CreateFlange()
         {
-
-           switch( FlangeTittles.IndexOf(SelectFlangeType))
+           switch( SelectedFlangeType)
            {
                 case 0:
 
@@ -360,15 +261,8 @@ namespace Flange.Model
                     MessageBox.Show("Error!");
                     break;
            }
-
         }
         
-
-
-
-
-
-
 
 
         public Command BuildFlangeCommand
@@ -381,15 +275,6 @@ namespace Flange.Model
                 });
             }
         }
-
-
-
-
-
-
-
-
-
 
 
         public SizesSimpleFlange FlangeSizes
@@ -408,27 +293,18 @@ namespace Flange.Model
         }
 
 
-
-
-
-
-
-
-
-
-
         public BitmapImage BitmapImage
         {
             get
             {
-                return image;
+                return bitmapImage;
             }
             set
             {
-                if (image != value)
+                if (bitmapImage != value)
                 {
                    
-                    image = value;
+                    bitmapImage = value;
 
                     OnPropertyChanged();
                 }
@@ -443,11 +319,6 @@ namespace Flange.Model
         }
 
 
-
-    
-
-
-
         private Visibility gridTableVisibility;
         public Visibility GridTableVisibility
         {
@@ -460,17 +331,6 @@ namespace Flange.Model
                 gridTableVisibility= value;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
 
         private void ChangeTextBoxElems(int index)
@@ -535,17 +395,6 @@ namespace Flange.Model
         }
 
 
-
-
-
-
-
-
-
-        
-
-        
-
         public FlangeModel()
         {
             //DVisibitily = Visibility.Hidden;
@@ -580,13 +429,9 @@ namespace Flange.Model
           
 
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
-           
+
+            SelectedFlangeType = 0;
             //TableWidth = WindowWidth/2+  TableOffsetX.Left+SketchOffsetX.Left;
         }
-
-
-    
-       
-        
     }
 }

@@ -24,8 +24,8 @@
 
 
 
-        <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   Model.FlangeTittles}"  SelectedItem="{Binding SelectFlangeType}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" ></ComboBox>
-        <Button Content="Ïîñòðîèòü ìîäåëü" Name="BuiltBtn" Command = "{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"   Canvas.Right="130" Canvas.Top="0"   ></Button>
+        <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   FlangeTittles}"  SelectedIndex="{Binding SelectedFlangeType}" Name="FlangeTypesCB" Canvas.Right="0"  Canvas.Top="0" Width="120" IsReadOnly="True" ></ComboBox>
+        <Button Content="ÐŸÐ¾ÑÑ‚Ñ€Ð¾Ð¸Ñ‚ÑŒ 3Ð´ Ð¼Ð¾Ð´ÐµÐ»ÑŒ" Name="BuiltBtn" Command = "{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"   Canvas.Right="130" Canvas.Top="0"   ></Button>
             <Grid  Canvas.Right="0" Canvas.Top="50">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="23*"></RowDefinition>
