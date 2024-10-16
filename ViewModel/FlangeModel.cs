@@ -108,41 +108,18 @@ namespace Flange.Model
 
 
         private int tableRowIndex;
-        
-
-
         public int TableRowIndex
         {
             get     
             {
-
                 return tableRowIndex;
              } 
             set
             {
-                //TableRowIndex = 0;
                 tableRowIndex = value;
-
-                //if (value != -1)
-                //{
-                //    switch(FlangeTypesCBItems.IndexOf(selectFlangeType))
-                //    {
-                //        case 0:
-                //        case 1:
-
-                //            //DPar.TextBoxValue = TableData[tableRowIndex].D;
-                //            //D1Par.TextBoxValue = TableData[tableRowIndex].D1;
-                //            //D2Par.TextBoxValue = TableData[tableRowIndex].D2;
-                //            //CountOfHolesPar.TextBoxValue = TableData[tableRowIndex].N;
-
-                //            break;
-                //    }
-                //}
-
-                //    OnPropertyChanged();
-                
             }
         }
+
 
         private ObservableCollection<DataStorage> tableData;
         public ObservableCollection<DataStorage> TableData
