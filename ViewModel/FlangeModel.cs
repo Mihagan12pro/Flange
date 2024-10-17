@@ -91,6 +91,22 @@ namespace Flange.Model
 
 
 
+        private ObservableCollection<string> flangeModelTypes = new ObservableCollection<string>();
+        public ObservableCollection<string>FlangeModelTypes
+        {
+            get
+            {
+                return flangeModelTypes;
+            }
+            private set
+            {
+                flangeModelTypes = value;
+
+                OnPropertyChanged(nameof(FlangeModelTypes));
+            }
+        }
+
+
 
         private double tableWidth;
         public double TableWidth

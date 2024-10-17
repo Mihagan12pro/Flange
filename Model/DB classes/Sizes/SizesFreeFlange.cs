@@ -11,16 +11,16 @@ namespace Flange.Databases
     {
         public readonly string A, S;
 
-        private string tableName2;
+        protected readonly string free_sizeTable;
 
         public SizesFreeFlange()
         {
-            tableName2 = "free_sizes";
+            free_sizeTable = "free_sizes";
 
 
            
 
-            List<object> data2 = GetDefaultData(tableName2);
+            List<object> data2 = GetDefaultData(free_sizeTable);
 
 
             A = data2[0].ToString();

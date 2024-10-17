@@ -15,27 +15,26 @@ namespace Flange.Databases
 
        
         
-        protected string databaseName, tableName;
+        protected readonly string databaseName, sizesTable;
 
         //protected double d, d1, d2, db, h;
         //protected int n;
 
-        public readonly string D,D1,D2,Db,H,N;
+        public readonly string D,D1,D2,H,N;
 
        
         public SizesDatabase()
         {
             databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
-            tableName = "sizes";
+            sizesTable = "sizes";
 
-            List<object> data = GetDefaultData(tableName);
+            List<object> data = GetDefaultData(sizesTable);
 
             D = data[0].ToString();
             D1 = data[1].ToString();
             D2 = data[2].ToString();
-            Db = data[3].ToString();
-            H = data[4].ToString();
-            N = data[5].ToString();
+            H = data[3].ToString();
+            N = data[4].ToString();
 
         }
 

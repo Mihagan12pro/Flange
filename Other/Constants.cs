@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -48,8 +49,8 @@ namespace Flange.Other
     }
     internal static class Constants
     {
-        
-
+      
+        public static readonly ObservableCollection<string> ModelTypes = new ObservableCollection<string>{ "3д модель","2д чертёж" };
 
 
         public const int D = 0;
