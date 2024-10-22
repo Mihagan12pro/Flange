@@ -9,6 +9,7 @@ using Flange.Model;
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 using Flange.Databases.Classes.Standart.Data_storages;
+using Flange.Databases.Classes.Standart;
 namespace Flange.ViewModel.Tables
 {
     internal abstract class Table
@@ -38,6 +39,9 @@ namespace Flange.ViewModel.Tables
     }
     class FreeSimpleTable:Table
     {
-
+        public FreeSimpleTable()
+        {
+            Data = new StandartFreeSimpleFlange().Data;
+        }
     }
 }

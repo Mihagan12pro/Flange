@@ -15,6 +15,8 @@ namespace Flange.Databases.Classes.Standart.Data_storages
         public string D1 { get; set; } = "";
         public string D2 { get; set; } = "";
         public string N { get; set; } = "";
+        public string Db { get; set; } = "";
+
 
         public DataStorage(int columnsCount)
         {

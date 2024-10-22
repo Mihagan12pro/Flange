@@ -11,14 +11,14 @@ using System.Security.Cryptography;
 using Flange.Other;
 namespace Flange.Databases.Classes.Standart
 {
-    internal class StandartFreeFlange : Standart
+    internal class StandartFreeSimpleFlange : Standart
     {
         private readonly string tableName;
-        public StandartFreeFlange()
+        public StandartFreeSimpleFlange()
         {
             database = MainExplorer.DataBaseExpl.StandartSizesFullName;
 
-            tableName = "free_flange";
+            tableName = "simple_and_free_flange";
 
             Data = new ObservableCollection<DataStorage>();
 
@@ -36,7 +36,7 @@ namespace Flange.Databases.Classes.Standart
 
                 using (SQLiteCommand command = new SQLiteCommand(connection))
                 {
-                    command.CommandText = $"SELECT * FROM free_flange";
+                    command.CommandText = $"SELECT * FROM {tableName}";
 
                     using (SQLiteDataReader dataReader = command.ExecuteReader())
                     {
@@ -45,12 +45,13 @@ namespace Flange.Databases.Classes.Standart
 
 
 
-                            Data.Add(new DataStorage(4)
+                            Data.Add(new DataStorage(5)
                             {
                                 D = dataReader.GetValue(0).ToString(),
                                 D1 = dataReader.GetValue(1).ToString(),
                                 D2 = dataReader.GetValue(2).ToString(),
-                                N = dataReader.GetValue(3).ToString()
+                                N = dataReader.GetValue(3).ToString(),
+                                Db = dataReader.GetValue(4).ToString()
                             });
 
                             rowIndex++;

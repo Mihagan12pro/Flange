@@ -21,6 +21,7 @@ using System.Windows.Controls;
 using Flange.Other;
 using Flange.Databases.Classes.Standart.Data_storages;
 using KompasAPI7;
+using Flange.ViewModel.Tables;
 
 
 
@@ -40,9 +41,20 @@ namespace Flange.Model
     }
     internal class FlangeModel : DependencyObject,INotifyPropertyChanged
     {
-       
-     
-      
+
+        private Table tableData;
+        public Table TableData
+        {
+            private set
+            {
+                tableData = value;
+            }
+            get
+            {
+                return tableData;
+            }
+        }
+
         //private string selectFlangeType;
         //private readonly string SimpleFlangeType;
 
@@ -139,21 +151,21 @@ namespace Flange.Model
         }
 
 
-        private ObservableCollection<DataStorage> tableData;
-        public ObservableCollection<DataStorage> TableData
-        {
-            get
-            {
-                return tableData;
-            }
-            set
-            {
-                tableData = value;
+        //private ObservableCollection<DataStorage> tableData;
+        //public ObservableCollection<DataStorage> TableData
+        //{
+        //    get
+        //    {
+        //        return tableData;
+        //    }
+        //    set
+        //    {
+        //        tableData = value;
 
 
-                OnPropertyChanged();
-            }
-        }
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private double columnWidth;
         public double ColumnWidth
@@ -222,7 +234,9 @@ namespace Flange.Model
                 {
                     case Constants.SimpleFlange:
 
-                       SizesSimpleFlange simple = new SizesSimpleFlange();
+                        TableData = new FreeSimpleTable();
+
+                        SizesSimpleFlange simple = new SizesSimpleFlange();
                         Controller.SetControllers(new ObservableCollection<TheController>
                         {
                             new TheController(0, simple.D), new TheController(1,simple.D1),
