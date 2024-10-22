@@ -18,7 +18,8 @@ namespace Flange.Databases
 
             simple_sizesTable = "simple_sizes";
 
-            Db = GetDefaultData(simple_sizesTable)[0].ToString();
+
+
         }
 
     }

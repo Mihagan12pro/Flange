@@ -13,8 +13,8 @@ namespace Flange.Databases
     internal abstract class SizesDatabase
     {
 
-       
-        
+
+        protected List<string> values = new List<string>();
         protected readonly string databaseName, sizesTable;
 
         //protected double d, d1, d2, db, h;
@@ -28,14 +28,21 @@ namespace Flange.Databases
             databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
             sizesTable = "sizes";
 
-            List<object> data = GetDefaultData(sizesTable);
+            
 
-            D = data[0].ToString();
-            D1 = data[1].ToString();
-            D2 = data[2].ToString();
-            H = data[3].ToString();
-            N = data[4].ToString();
+            foreach (var i in GetDefaultData(sizesTable))
+                values.Add(i.ToString());
 
+            
+
+            D = values[0].ToString();
+            D1 = values[1].ToString();
+            D2 = values[2].ToString();
+            H = values[3].ToString();
+            N = values[4].ToString();
+
+
+            
         }
 
 
@@ -51,7 +58,7 @@ namespace Flange.Databases
                 {
               
                     command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM {"sizes"}";
+                    command.CommandText = $"SELECT * FROM {table}";
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {

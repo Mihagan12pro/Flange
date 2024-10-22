@@ -70,6 +70,7 @@ namespace Flange.Model
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
+    
 
         private double windowWith;
        
@@ -77,6 +78,7 @@ namespace Flange.Model
         {
             get
             {
+                
                 return windowWith;
             }
             private set
@@ -215,16 +217,40 @@ namespace Flange.Model
 
             set 
             {
-                
-
+               
                 switch(value)
                 {
                     case Constants.SimpleFlange:
+
+                       SizesSimpleFlange simple = new SizesSimpleFlange();
+                        Controller.SetControllers(new ObservableCollection<TheController>
+                        {
+                            new TheController(0, simple.D), new TheController(1,simple.D1),
+                            new TheController(2,simple.D2), new TheController(3,simple.H),
+                            new TheController(4,simple.Db), new TheController(5,simple.N),
+                            new TheController(6,""), new  TheController(7,"")
+                        }.ToArray());
+                       
+
                         BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.SimpleFlange));
                         break;
+
                     case Constants.FreeFlange:
+
+                        SizesFreeFlange free = new SizesFreeFlange();
+
+                        Controller.SetControllers(new ObservableCollection<TheController>
+                        {
+                            new TheController(0, free.D), new TheController(1,free.D1),
+                            new TheController(2,free.D2), new TheController(3,free.D2),
+                            new TheController(4,free.H), new TheController(5,free.N),
+                            new TheController(6,free.A), new  TheController(7,free.S)
+                        }.ToArray());
+
+                       
                         BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
                         break;
+
                     case Constants.FlatFlange:
                         BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FlatFlange));
                         break;
@@ -241,7 +267,7 @@ namespace Flange.Model
            {
                 case 0:
 
-                    SimpleFlange simpleFlange = new SimpleFlange(   DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
+                    SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
                     simpleFlange.TryToBuild();
 
                     break;
@@ -294,13 +320,17 @@ namespace Flange.Model
             }
             set
             {
-                if (bitmapImage != value)
-                {
+                    
+                //switch(value)
+                //{
+                //    case Constants.SimpleFlange:
+                //        break;
+                //}
                    
                     bitmapImage = value;
 
                     OnPropertyChanged();
-                }
+                
 
             }
         }

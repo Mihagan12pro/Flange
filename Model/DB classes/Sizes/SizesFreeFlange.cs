@@ -20,11 +20,12 @@ namespace Flange.Databases
 
            
 
-            List<object> data2 = GetDefaultData(free_sizeTable);
+            List<object> data2 = GetDefaultData("free_sizes");
 
 
             A = data2[0].ToString();
             S = data2[1].ToString();
+            Console.WriteLine(A);
            
         }
 

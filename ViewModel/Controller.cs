@@ -11,38 +11,43 @@ using System.Windows.Media;
 using System.Linq;
 using Flange.Other;
 using Flange.Model;
+using System.Data.SqlClient;
 public class Controller : INotifyPropertyChanged
 {
+
     protected static readonly List<Controller> controllers = new List<Controller>();
-    private readonly Exception eIdDublicate = new Exception("This id is not free!");
-    public void GetControllers(List<TheController>theControllers)
+
+    private static readonly Exception eIdDublicate = new Exception("This id is not free!");
+
+    public static int ControllersCount { get; private set; } = 0;
+
+    public static void SetControllers(TheController[]theControllers)
     {
-        theControllers = theControllers.OrderBy(controller => controller.Id).ToList();
+        theControllers = theControllers.OrderBy(controller => controller.Id).ToArray();
         var IDs = (from theContol in theControllers select theContol.Id).Distinct();
 
-        if (IDs.Count() != theControllers.Count)
+        if (IDs.Count() != theControllers.Count())
         {
             throw eIdDublicate;
         }
 
-        for (int i = 0; i < theControllers.Count; i++)
+        ControllersCount++;
+
+        for (int i = 0; i < theControllers.Count(); i++)
         {
+            if (theControllers[i].Value == "" || theControllers[i].Value == null)
+            {
+                controllers[i].RowValue = "";
+            }
+            else
+            {
+                controllers[i].RowValue = theControllers[i].Value;  
+            }
         }
 
     }
 
-    
-    //public static List<Controller>Controllers
-    //{
-    //    get
-    //    {
-    //        return controllers;
-    //    }
-    //}
-
-
-
-
+   
 
     private string rowValue;
     public string RowValue
@@ -54,6 +59,7 @@ public class Controller : INotifyPropertyChanged
         set
         {
             rowValue = value;
+            OnPropertyChanged();
         }
     }
 
@@ -109,7 +115,6 @@ public class Controller : INotifyPropertyChanged
 
 
     private SolidColorBrush background;
-
     public SolidColorBrush Background
     {
         get
@@ -128,12 +133,21 @@ public class Controller : INotifyPropertyChanged
 
     }
  
+  
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+
     public Controller(bool _readOnly, int textBoxId)
     {
-        
+
 
         ReadOnly = _readOnly;
-       
+
         id = textBoxId;
 
 
@@ -143,15 +157,4 @@ public class Controller : INotifyPropertyChanged
 
         controllers.Add(this);
     }
-
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-
-
 }

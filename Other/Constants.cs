@@ -63,7 +63,7 @@ namespace Flange.Other
         public const int S = 7;
 
 
-        public const int SimpleFlange = 0, FreeFlange = 1, FlatFlange = 2;
+        public  const int SimpleFlange = 0, FreeFlange = 1, FlatFlange = 2;
         //public static readonly Dictionary<int,string> SimpleFlange = { 0,"Фланец"};
         //public const int FreeFlange = 1;
         //public const int FlatFlange = 2;
