@@ -80,6 +80,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
+    <Compile Include="ViewModel\Tables\Table.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,7 +97,6 @@
     <Compile Include="Model\DB classes\Standart\Standart.cs" />
     <Compile Include="Model\DB classes\Standart\StandartFreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
-    <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
     <Compile Include="Other\DataBaseExplorer.cs" />
     <Compile Include="Other\Explorer.cs" />
