@@ -58,6 +58,7 @@ namespace Flange.Model
         //private string selectFlangeType;
         //private readonly string SimpleFlangeType;
 
+        public  ObservableCollection<string> ModelTypesCollection { get; private set; }
 
         private BitmapImage bitmapImage;
         private SizesSimpleFlange flangeSizes;
@@ -78,14 +79,48 @@ namespace Flange.Model
         public CanvasOffsetX SketchOffsetX { get;private set; }
         public CanvasOffsetX TableOffsetX { get;private set; }
 
+
+        public  ModelType Modeltype { get; private set; }
+
+
+      
    
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
     
+        //public int ModelTypeIndex
+        //{
+        //    get
+        //    {
+        //        return Modeltype.Type;
+        //    }
+        //    set
+        //    {
+        //        Modeltype.Type = value;
+               
+        //    }
+        //}
+
+        //public string ModelTypeTittle
+        //{
+        //    get
+        //    {
+        //        return Modeltype.BuildButtonContent;
+        //    }
+        //}
+        public ObservableCollection<string>ModelTypeList
+        {
+            get
+            {
+                return Modeltype.AllModels;
+            }
+        }
+
+
+
 
         private double windowWith;
-       
         public double WindowWidth
         {
             get
@@ -99,7 +134,7 @@ namespace Flange.Model
 
                 TableWidth = value / 1.5;
                 OnPropertyChanged(nameof(TableWidth));
-
+               
             }
         }
 
@@ -219,6 +254,9 @@ namespace Flange.Model
         }
 
 
+
+
+
         private int selectedFlangeType;
         public int SelectedFlangeType
         {
@@ -236,7 +274,9 @@ namespace Flange.Model
 
                         TableData = new FreeSimpleTable();
 
-                        SizesSimpleFlange simple = new SizesSimpleFlange();
+                       
+
+                       SizesSimpleFlange simple = new SizesSimpleFlange();
                         Controller.SetControllers(new ObservableCollection<TheController>
                         {
                             new TheController(0, simple.D), new TheController(1,simple.D1),
@@ -463,11 +503,22 @@ namespace Flange.Model
 
             SketchOffsetX = new CanvasOffsetX(10, 0);
 
+            Modeltype = new ModelType(0);
+
           
 
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
 
             SelectedFlangeType = 0;
+
+            //ModelTypesCollection = ModelType.AllModels;
+
+            //foreach(var i in ModelType.AllModels)
+            //{
+            //    ModelTypesCollection.Add(i);
+            //}
+
+            //Modeltype = new ModelType(Constants.Model3D);
             //TableWidth = WindowWidth/2+  TableOffsetX.Left+SketchOffsetX.Left;
         }
     }

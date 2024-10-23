@@ -1,13 +1,88 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Flange.Other
 {
+    public class ModelType : INotifyPropertyChanged
+    {
+        private int type;
+        public   int Type 
+        {
+            get
+            {
+                return type; 
+            }
+            set
+            {
+                type = value;
+
+                if (value > AllModels.Count || value < 0)
+                    throw eUnknowModelType;
+
+                BuildButtonContent = AllModels[value];
+
+                OnPropertyChanged();
+                
+            }
+        }
+        private string buildButtonContent;
+        public string BuildButtonContent
+        {
+            get
+            {
+                return buildButtonContent;
+            }
+            private set
+            {
+                buildButtonContent = value;
+                OnPropertyChanged(nameof(BuildButtonContent));
+            }
+        }
+
+        private Exception eUnknowModelType = new Exception("Unknown model type!");
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
+        public readonly ObservableCollection<string> AllModels  = new ObservableCollection<string> { "Создать 3д модель", "Создать чертеж", "Создать сборку" };
+        public ModelType(int _type)
+        {
+          
+
+            Type = _type;
+
+            //switch(Type)
+            //{
+            //    case Constants.Model3D:
+            //        BuildButtonContent = AllModels[0];
+            //        break;
+
+            //    case Constants.Draft2D:
+            //        BuildButtonContent = AllModels[1];
+            //        break;
+
+            //    case Constants.Assembly:
+            //        BuildButtonContent = AllModels[2];
+            //        break;
+
+            //    default:
+            //        throw eUnknowModelType;
+            //}
+        }
+
+    }
+
 
     public struct FlangeType
     {
@@ -63,7 +138,15 @@ namespace Flange.Other
         public const int S = 7;
 
 
-        public  const int SimpleFlange = 0, FreeFlange = 1, FlatFlange = 2;
+        public const int Model3D = 0;
+        public const int Draft2D = 1;
+        public const int Assembly = 2;
+        
+
+
+
+
+        public const int SimpleFlange = 0, FreeFlange = 1, FlatFlange = 2;
         //public static readonly Dictionary<int,string> SimpleFlange = { 0,"Фланец"};
         //public const int FreeFlange = 1;
         //public const int FlatFlange = 2;

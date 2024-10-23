@@ -41,7 +41,7 @@ namespace Flange
 
             // TableDataGr.DataContextChanged += TableDataGr_DataContextChanged;
 
-            BuiltBtn.Content = "Построить 3д модель";
+            //BuiltBtn.Content = "Построить 3д модель";
           
 
             DataContext = new FlangeModel();
