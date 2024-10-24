@@ -28,11 +28,17 @@ namespace Flange
         {
             InitializeComponent();
 
-         
-          
 
-           
-          
+
+
+        //            < DataGrid Canvas.Left = "{Binding TableOffsetX.Left}" Canvas.Right = "100" ColumnWidth = "{Binding ColumnWidth}" Grid.Column = "0"  CanUserSortColumns = "False" BorderBrush = "White" Width = "{Binding  TableWidth}" IsReadOnly = "True"  CanUserReorderColumns = "False"   CanUserAddRows = "False"  SelectedIndex = "{Binding TableRowIndex}"   SelectionMode = "Single"  Background = "White"  ItemsSource = "{Binding TableData.Data}"     Name = "TableDataGr" Grid.ColumnSpan = "2" Margin = "230,39,162,83" >
+
+        //    < DataGrid.Columns >
+
+        //    </ DataGrid.Columns >
+        //</ DataGrid >
+
+
             SizeD1Lbl.MaxWidth = SizeD1Lbl.Width;
             SizeDLbl.MaxWidth = SizeDLbl.Width;
             SizeD2Lbl.MaxWidth = SizeD2Lbl.Width;
@@ -52,10 +58,10 @@ namespace Flange
 
       
 
-            foreach(var col in TableDataGr.Columns)
-            {
+            //foreach(var col in TableDataGr.Columns)
+            //{
                
-            }
+            //}
 
 
             MainCanvas.SizeChanged += MainCanvas_SizeChanged;
@@ -67,7 +73,7 @@ namespace Flange
 
         private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            TableDataGr.SelectedIndex = -1;
+           // TableDataGr.SelectedIndex = -1;
             
         }
 

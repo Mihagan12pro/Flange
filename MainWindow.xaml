@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
         mc:Ignorable="d"
-        Title="Flange generator" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}" d:DesignWidth="665">
+        Title="Flange generator" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
 
 
 
@@ -15,12 +15,8 @@
 
 
         <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
-        <DataGrid Canvas.Left="{Binding TableOffsetX.Left}" Canvas.Right="100" ColumnWidth="{Binding ColumnWidth}" Grid.Column="0"  CanUserSortColumns="False" BorderBrush="White" Width="{Binding  TableWidth}" IsReadOnly="True"  CanUserReorderColumns="False"   CanUserAddRows="False"  SelectedIndex="{Binding TableRowIndex}"   SelectionMode="Single"  Background="White"  ItemsSource="{Binding TableData.Data}"     Name="TableDataGr" Grid.ColumnSpan="2" Margin="230,39,162,83" >
 
-            <DataGrid.Columns>
-
-            </DataGrid.Columns>
-        </DataGrid>
+        <DataGrid Name="StandartSizesTableDGr" Canvas.Left="400" Canvas.Top="60" ItemsSource="{Binding TableData.Data}" ></DataGrid>
 
 
 

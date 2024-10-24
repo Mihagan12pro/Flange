@@ -8,14 +8,14 @@ namespace Flange.Databases.Classes.Standart.Data_storages
 {
 
 
-    internal abstract class DataStorage
+    internal struct DataStorage
     {
         //public readonly int ColumnsCount;
         public string D { get; set; } = "";
         public string D1 { get; set; } = "";
         public string D2 { get; set; } = "";
         public string N { get; set; } = "";
-        
+        public string Db { get; set; } = "";
 
 
         public DataStorage()
@@ -24,8 +24,5 @@ namespace Flange.Databases.Classes.Standart.Data_storages
         }
 
     }
-    internal class DataStorageSimpleFree : DataStorage
-    {
-        public string Db { get; set; } = "";
-    }
+
 }

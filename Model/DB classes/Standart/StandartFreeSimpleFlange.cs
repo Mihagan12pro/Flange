@@ -45,7 +45,7 @@ namespace Flange.Databases.Classes.Standart
 
 
 
-                            Data.Add(new DataStorageSimpleFree()
+                            Data.Add(new DataStorage()
                             {
                                 D = dataReader.GetValue(0).ToString(),
                                 D1 = dataReader.GetValue(1).ToString(),

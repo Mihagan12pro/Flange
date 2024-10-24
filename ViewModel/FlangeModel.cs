@@ -48,6 +48,7 @@ namespace Flange.Model
             private set
             {
                 tableData = value;
+                OnPropertyChanged();
             }
             get
             {
@@ -272,7 +273,7 @@ namespace Flange.Model
                 {
                     case Constants.SimpleFlange:
 
-                        TableData = new FreeSimpleTable();
+                        TableData = new FreeSimpleTable(DController,D1Controller,D2Controller,NConroller,DbController);
 
                        
 
