@@ -52,15 +52,14 @@ namespace Flange
 
             DataContext = new FlangeModel();
 
+             //TableDataGr.Width = 400;
 
-            //TableDataGr.Width = 400;
 
 
-      
 
             //foreach(var col in TableDataGr.Columns)
             //{
-               
+
             //}
 
 
@@ -70,6 +69,8 @@ namespace Flange
 
           
         }
+
+     
 
         private void MainWindow_MouseDown(object sender, MouseButtonEventArgs e)
         {

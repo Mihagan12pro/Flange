@@ -24,8 +24,10 @@ namespace Flange.ViewModel.Tables
 
         protected readonly Controller D,  D1, D2, N;
 
-       
-       
+        public readonly int TableWidth;
+
+
+        protected int countOfColumns;
 
         public virtual void SelectedRow(int selectedIndex)
         {
@@ -35,6 +37,12 @@ namespace Flange.ViewModel.Tables
             N.RowValue = Data[selectedIndex].N;
         }
 
+        protected double columnWidth;
+        public double ColumnWidth
+        {
+            get { return columnWidth; }
+            protected set { columnWidth = value ;OnPropertyChanged(); }
+        }
         public ObservableCollection<DataStorage> Data 
         { 
             get
@@ -54,13 +62,15 @@ namespace Flange.ViewModel.Tables
         }
         public Table(Controller D,Controller D1,Controller D2,Controller N)
         {
+            TableWidth = 500;
+
             this.D = D;
             this.D1 = D1;
             this.D2 = D2;
             this.N = N;
             database = MainExplorer.DataBaseExpl.DefaultSizesFullName;
 
-          
+            
 
            // Data = (ObservableCollection<DataStorageSimpleFree>())this.Data;
         }
@@ -73,7 +83,10 @@ namespace Flange.ViewModel.Tables
             this.Db = Db;
             // StandartFreeSimpleFlange standartFreeSimpleFlange = new StandartFreeSimpleFlange();
             Data = new StandartFreeSimpleFlange().Data;
-            //Data = new ObservableCollection<DataStorageSimpleFree>(Data.OfType<DataStorage>());
+            countOfColumns = 5;
+            ColumnWidth = (TableWidth / countOfColumns);
+
+         
         }
 
 

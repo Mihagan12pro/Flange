@@ -8,21 +8,24 @@
         Title="Flange generator" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
 
 
+    
+        <Canvas Name="MainCanvas" >
 
-    <Canvas Name="MainCanvas" >
-
-
-
-
-        <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}" HorizontalAlignment="Left" Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
-
-        <DataGrid Name="StandartSizesTableDGr" Canvas.Left="400" Canvas.Top="60" ItemsSource="{Binding TableData.Data}" ></DataGrid>
+        
 
 
+            <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}"  Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
+
+        <DataGrid Name="StandartSizesTableDGr" Canvas.Right="180" Width="{Binding TableData.TableWidth}"  HorizontalAlignment="Center" FontFamily="GOST Type B" Canvas.Top="60" CanUserAddRows="False" CanUserReorderColumns="True" CanUserResizeColumns="True" ColumnWidth="{Binding TableData.ColumnWidth}"  ItemsSource="{Binding TableData.Data}"  >
+            <DataGrid.Columns>
+
+            </DataGrid.Columns>
+        </DataGrid>
 
 
 
-        <Grid  Canvas.Right="0" Canvas.Top="50">
+            
+                <Grid  Canvas.Right="0" Canvas.Top="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="23*"></RowDefinition>
                 <RowDefinition Height="22*"></RowDefinition>
@@ -72,7 +75,7 @@
             <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S" Name="SLbl" FontFamily="GOST Type B"></Label>
             <TextBox Name="STb" Text="{Binding SController.RowValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" ></TextBox>
         </Grid>
-
+        
         <ToolBar Name="ActionBarTlBr" Height="30" Canvas.Top="0" Width="560" HorizontalAlignment="Left" Background="AliceBlue" VerticalAlignment="Center" Canvas.Right="0">
             
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   FlangeTittles}"  SelectedIndex="{Binding SelectedFlangeType}" Name="FlangeTypesCB"  Width="120" IsReadOnly="True" HorizontalAlignment="Center" Height="19"  VerticalAlignment="Top" ></ComboBox>
@@ -82,9 +85,9 @@
             
         </ToolBar>
 
-
+        
     </Canvas>
 
-
+    
 
 </Window>

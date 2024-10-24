@@ -89,27 +89,10 @@ namespace Flange.Model
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler CanExecuteChanged;
 
-    
-        //public int ModelTypeIndex
-        //{
-        //    get
-        //    {
-        //        return Modeltype.Type;
-        //    }
-        //    set
-        //    {
-        //        Modeltype.Type = value;
-               
-        //    }
-        //}
 
-        //public string ModelTypeTittle
-        //{
-        //    get
-        //    {
-        //        return Modeltype.BuildButtonContent;
-        //    }
-        //}
+
+
+
         public ObservableCollection<string>ModelTypeList
         {
             get
@@ -187,34 +170,23 @@ namespace Flange.Model
         }
 
 
-        //private ObservableCollection<DataStorage> tableData;
-        //public ObservableCollection<DataStorage> TableData
+        
+      
+
+        //private double columnWidth;
+        //public double ColumnWidth
         //{
         //    get
         //    {
-        //        return tableData;
+        //        return columnWidth;
         //    }
         //    set
         //    {
-        //        tableData = value;
-
+        //        columnWidth = value;
 
         //        OnPropertyChanged();
         //    }
         //}
-
-        private double columnWidth;
-        public double ColumnWidth
-        {
-            get
-            {
-                return columnWidth;
-            }
-            private set
-            {
-                columnWidth = value;
-            }
-        }
 
 
 
@@ -274,10 +246,11 @@ namespace Flange.Model
                     case Constants.SimpleFlange:
 
                         TableData = new FreeSimpleTable(DController,D1Controller,D2Controller,NConroller,DbController);
-
+                       // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;
                        
 
-                       SizesSimpleFlange simple = new SizesSimpleFlange();
+                       SizesSimpleFlange simple = new 
+                            SizesSimpleFlange();
                         Controller.SetControllers(new ObservableCollection<TheController>
                         {
                             new TheController(0, simple.D), new TheController(1,simple.D1),
@@ -321,14 +294,14 @@ namespace Flange.Model
            switch( SelectedFlangeType)
            {
                 case 0:
-
+                    //Console.WriteLine(ColumnWidth);
                     SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
-                    simpleFlange.TryToBuild();
+                    //simpleFlange.TryToBuild();
 
                     break;
                 case 1:
                     FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,AController.RowValue, SController.RowValue);
-                    freeFlange.TryToBuild();
+                    //freeFlange.TryToBuild();
 
                     break;
                 default:
@@ -345,6 +318,7 @@ namespace Flange.Model
             {
                 return new Command((obj) =>
                 {
+                    
                     CreateFlange();
                 });
             }
@@ -411,67 +385,7 @@ namespace Flange.Model
         }
 
 
-        private void ChangeTextBoxElems(int index)
-        {
-            //SizesSimpleFlange sizesFlange = null;
-
-            //StandartFreeFlange standartFreeFlange;
-            //switch (index)
-            //{
-            //    case 0:
-            //    case 1:
-                 
-                   
-
-            //        if (index == 0 )
-            //        {
-            //            sizesFlange = new SizesSimpleFlange();
-
-            //        }
-            //        else if (index ==1)
-            //        {
-            //            sizesFlange = new SizesFreeFlange();
-            //        }
-
-                  
-
-           
-
-            //        standartFreeFlange = new StandartFreeFlange();
-
-            //        TableData = standartFreeFlange.Data;
-
-
-            //        break;
-
-            //    default:
-            //        sizesFlange = null;
-            //        TableData = null;
-            //        break;
-            //}
-
-
-            //LastSelectedItem = index;
-            //if (sizesFlange !=null)
-            //{
-
-            //    DPar.TextBoxValue = sizesFlange.GetParam(DPar.Id);
-            //    D1Par.TextBoxValue = sizesFlange.GetParam(D1Par.Id);
-            //    D2Par.TextBoxValue = sizesFlange.GetParam(D2Par.Id);
-            //    DbPar.TextBoxValue = sizesFlange.GetParam(DbPar.Id);
-            //    HPar.TextBoxValue = sizesFlange.GetParam(HPar.Id);
-            //    CountOfHolesPar.TextBoxValue = sizesFlange.GetParam(CountOfHolesPar.Id);
-
-            //}
-
-            //if (sizesFlange is SizesFreeFlange)
-            //{
-            //    APar.TextBoxValue = sizesFlange.GetParam(APar.Id);
-            //    SPar.TextBoxValue = sizesFlange.GetParam(SPar.Id);
-            //}
-            
-        }
-
+        
 
         public FlangeModel()
         {
@@ -506,7 +420,7 @@ namespace Flange.Model
 
             Modeltype = new ModelType(0);
 
-          
+            
 
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
 
