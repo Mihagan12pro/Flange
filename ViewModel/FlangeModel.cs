@@ -127,11 +127,7 @@ namespace Flange.Model
             }
             private set
             {
-                windowWith = value;
-
-                //TableWidth = value / 1.5;
-                //OnPropertyChanged(nameof(TableWidth));
-               
+                windowWith = value;               
             }
         }
 
@@ -153,22 +149,6 @@ namespace Flange.Model
         }
 
 
-
-        //private double tableWidth;
-        //public double TableWidth
-        //{
-        //    get
-        //    {
-        //        return tableWidth;
-        //    }
-        //    set
-        //    {
-        //        tableWidth = value;
-        //        OnPropertyChanged(nameof(TableWidth));
-        //    }
-        //}
-
-
         private int tableRowIndex;
         public int TableRowIndex
         {
@@ -182,25 +162,6 @@ namespace Flange.Model
                 OnPropertyChanged();
             }
         }
-
-
-        
-      
-
-        //private double columnWidth;
-        //public double ColumnWidth
-        //{
-        //    get
-        //    {
-        //        return columnWidth;
-        //    }
-        //    set
-        //    {
-        //        columnWidth = value;
-
-        //        OnPropertyChanged();
-        //    }
-        //}
 
 
 
@@ -323,7 +284,11 @@ namespace Flange.Model
                     break;
            }
         }
-        
+
+        private void CreateExtraSizesWindow()
+        {
+
+        }
 
 
         public Command BuildFlangeCommand
@@ -337,6 +302,17 @@ namespace Flange.Model
                 });
             }
         }
+
+        public Command CreateExtraSizesWindowCommand
+        {
+            get
+            {
+                return new Command((obj) =>
+                {
+                    CreateExtraSizesWindow();
+                });
+            }
+        } 
 
 
         public SizesSimpleFlange FlangeSizes
@@ -363,18 +339,11 @@ namespace Flange.Model
             }
             set
             {
-                    
-                //switch(value)
-                //{
-                //    case Constants.SimpleFlange:
-                //        break;
-                //}
-                   
+                                     
                     bitmapImage = value;
 
                     OnPropertyChanged();
                 
-
             }
         }
 
@@ -439,16 +408,6 @@ namespace Flange.Model
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
 
             SelectedFlangeType = 0;
-
-            //ModelTypesCollection = ModelType.AllModels;
-
-            //foreach(var i in ModelType.AllModels)
-            //{
-            //    ModelTypesCollection.Add(i);
-            //}
-
-            //Modeltype = new ModelType(Constants.Model3D);
-            //TableWidth = WindowWidth/2+  TableOffsetX.Left+SketchOffsetX.Left;
         }
     }
 }

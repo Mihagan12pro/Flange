@@ -81,7 +81,7 @@
             <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   FlangeTittles}"  SelectedIndex="{Binding SelectedFlangeType}" Name="FlangeTypesCB"  Width="120" IsReadOnly="True" HorizontalAlignment="Center" Height="19"  VerticalAlignment="Top" ></ComboBox>
             <ComboBox Name="SelectModelTypeCB"    ItemsSource="{Binding  ModelTypeList}" SelectedIndex="{Binding    Modeltype.Type}" Width="120" HorizontalAlignment="Center"  VerticalAlignment="Top"></ComboBox>
             <Button  Content="{Binding  Modeltype.BuildButtonContent}" BorderBrush="MediumAquamarine" Name="BuiltBtn" Command = "{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  VerticalAlignment="Top" Height="19" Width="126" HorizontalAlignment="Left"   />
-            <Button  Name="ExtraSizesBtn" BorderBrush="MediumAquamarine" FontFamily="GOST Type B" Content="Дополнительные размеры" Width="160" VerticalAlignment="Top" Height="19" HorizontalAlignment="Left" ></Button>
+            <Button  Name="ExtraSizesBtn" Command = "{Binding CreateExtraSizesWindowCommand}" BorderBrush="MediumAquamarine" FontFamily="GOST Type B" Content="Дополнительные размеры" Width="160" VerticalAlignment="Top" Height="19" HorizontalAlignment="Left" ></Button>
             
         </ToolBar>
 
