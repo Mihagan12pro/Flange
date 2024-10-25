@@ -16,9 +16,9 @@
 
             <Image   Name="SketchImage"  Height="Auto" Source="{Binding  BitmapImage}"  Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
 
-        <DataGrid Name="StandartSizesTableDGr" Canvas.Right="180" Width="{Binding TableData.TableWidth}"  HorizontalAlignment="Center" FontFamily="GOST Type B" Canvas.Top="60" CanUserAddRows="False" CanUserReorderColumns="True" CanUserResizeColumns="True" ColumnWidth="{Binding TableData.ColumnWidth}"  ItemsSource="{Binding TableData.Data}"  >
+        <DataGrid Name="StandartSizesTableDGr" Canvas.Right="180" SelectedIndex="{Binding TableData.SelectedIndex}"  Width="{Binding TableData.TableWidth}"   HorizontalAlignment="Center" FontFamily="GOST Type B" Canvas.Top="60" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" IsReadOnly="True"  CanUserResizeColumns="True" ColumnWidth="{Binding TableData.ColumnWidth}"  ItemsSource="{Binding TableData.Data}"  >
             <DataGrid.Columns>
-
+                
             </DataGrid.Columns>
         </DataGrid>
 
@@ -85,7 +85,7 @@
             
         </ToolBar>
 
-        
+
     </Canvas>
 
     

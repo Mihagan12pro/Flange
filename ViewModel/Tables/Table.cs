@@ -24,17 +24,33 @@ namespace Flange.ViewModel.Tables
 
         protected readonly Controller D,  D1, D2, N;
 
-        public readonly int TableWidth;
+        public readonly int TableWidth = 500;
+
+
+        protected int selectedIndex;
+        public int SelectedIndex
+        {
+            get
+            {
+                return selectedIndex;
+            }
+            set
+            {
+                selectedIndex = value;
+                OnPropertyChanged();
+                SelectedRow();
+            }
+        }
 
 
         protected int countOfColumns;
 
-        public virtual void SelectedRow(int selectedIndex)
+        public virtual void SelectedRow()
         {
-            D.RowValue = Data[selectedIndex].D;
-            D1.RowValue = Data[selectedIndex].D1;
-            D2.RowValue = Data[selectedIndex].D2;
-            N.RowValue = Data[selectedIndex].N;
+            D.RowValue = Data[SelectedIndex].D;
+            D1.RowValue = Data[SelectedIndex].D1;
+            D2.RowValue = Data[SelectedIndex].D2;
+            N.RowValue = Data[SelectedIndex].N;
         }
 
         protected double columnWidth;
@@ -60,9 +76,10 @@ namespace Flange.ViewModel.Tables
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public Table(Controller D,Controller D1,Controller D2,Controller N)
+        public Table(Controller D,Controller D1,Controller D2,      Controller N)
         {
-            TableWidth = 500;
+           
+           
 
             this.D = D;
             this.D1 = D1;
@@ -78,7 +95,7 @@ namespace Flange.ViewModel.Tables
     class FreeSimpleTable:Table
     {
         protected readonly Controller Db;
-        public FreeSimpleTable(Controller D, Controller D1, Controller D2, Controller N,Controller Db) : base(D,D1,D2,N)
+        public FreeSimpleTable( Controller  D,Controller D1,Controller D2,  Controller N, Controller Db) : base( D, D1, D2, N)
         {
             this.Db = Db;
             // StandartFreeSimpleFlange standartFreeSimpleFlange = new StandartFreeSimpleFlange();
@@ -90,12 +107,12 @@ namespace Flange.ViewModel.Tables
         }
 
 
-        public override void SelectedRow(int selectedIndex)
+        public override void SelectedRow()
         {
-            base.SelectedRow(selectedIndex);
+            base.SelectedRow();
 
 
-            Db.RowValue = Data[selectedIndex].Db;
+            Db.RowValue = Data[SelectedIndex].Db;
         }
     }
 }

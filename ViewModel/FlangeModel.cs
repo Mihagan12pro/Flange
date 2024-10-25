@@ -101,6 +101,19 @@ namespace Flange.Model
             }
         }
 
+        private int tableHeight;
+        public int TableHeight
+        {
+            get
+            {
+                return tableHeight;
+            }
+            set
+            {
+                tableHeight = value;
+                OnPropertyChanged();
+            }
+        }
 
 
 
@@ -116,8 +129,8 @@ namespace Flange.Model
             {
                 windowWith = value;
 
-                TableWidth = value / 1.5;
-                OnPropertyChanged(nameof(TableWidth));
+                //TableWidth = value / 1.5;
+                //OnPropertyChanged(nameof(TableWidth));
                
             }
         }
@@ -141,19 +154,19 @@ namespace Flange.Model
 
 
 
-        private double tableWidth;
-        public double TableWidth
-        {
-            get
-            {
-                return tableWidth;
-            }
-            set
-            {
-                tableWidth = value;
-                OnPropertyChanged(nameof(TableWidth));
-            }
-        }
+        //private double tableWidth;
+        //public double TableWidth
+        //{
+        //    get
+        //    {
+        //        return tableWidth;
+        //    }
+        //    set
+        //    {
+        //        tableWidth = value;
+        //        OnPropertyChanged(nameof(TableWidth));
+        //    }
+        //}
 
 
         private int tableRowIndex;
@@ -166,6 +179,7 @@ namespace Flange.Model
             set
             {
                 tableRowIndex = value;
+                OnPropertyChanged();
             }
         }
 
@@ -245,7 +259,7 @@ namespace Flange.Model
                 {
                     case Constants.SimpleFlange:
 
-                        TableData = new FreeSimpleTable(DController,D1Controller,D2Controller,NConroller,DbController);
+                        TableData = new FreeSimpleTable(DController, D1Controller, D2Controller, NConroller, DbController);
                        // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;
                        
 
@@ -367,7 +381,7 @@ namespace Flange.Model
 
         public void UpdateTableWidth(double width)
         {
-            TableWidth = width * 0.5;
+            //TableWidth = width * 0.5;
         }
 
 
@@ -420,7 +434,7 @@ namespace Flange.Model
 
             Modeltype = new ModelType(0);
 
-            
+            TableHeight = 600;
 
             TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
 
