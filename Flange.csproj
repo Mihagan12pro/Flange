@@ -80,7 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\DB classes\Sizes\IDefaultSizesDb.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\AbstractDefaultSizesDb.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>

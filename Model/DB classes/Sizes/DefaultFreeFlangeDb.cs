@@ -10,7 +10,7 @@ using Flange.Other;
 using Flange.Model.DB_classes.Sizes;
 namespace Flange.Databases
 {
-    internal class DefaultFreeFlangeDb:DefaultSizesDb
+    internal class DefaultFreeFlangeDb : DefaultSizesDb
     {
         protected readonly string simple_sizesTable;
         public readonly string Db;

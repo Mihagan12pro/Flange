@@ -11,12 +11,12 @@ using Flange.Model;
 using Flange.Model.DB_classes.Sizes;
 namespace Flange.Databases
 {
-    internal abstract class DefaultSizesDb: IDefaultSizesDb
+    internal abstract class DefaultSizesDb: AbstractDefaultSizesDb
     {
 
 
         protected List<string> values = new List<string>();
-        protected readonly string databaseName, sizesTable;
+        protected readonly string  sizesTable;
 
         //protected double d, d1, d2, db, h;
         //protected int n;
@@ -26,7 +26,7 @@ namespace Flange.Databases
        
         public DefaultSizesDb()
         {
-            databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
+           
             sizesTable = "sizes";
 
             
@@ -48,37 +48,7 @@ namespace Flange.Databases
 
 
 
-        protected  List<object>GetDefaultData(string table)
-        {
-            List<object>list = new List<object>();
-            using (SQLiteConnection connection = new SQLiteConnection(databaseName))
-            {
-                connection.Open();
-
-                using (SQLiteCommand command = new SQLiteCommand())
-                {
-              
-                    command.Connection = connection;
-                    command.CommandText = $"SELECT * FROM {table}";
-
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                list.Add(reader.GetValue(i));
-                            }
-                        }
-                    }
-                }
-
-
-                connection.Close();
-            }
-            return list;
-        }
-
+       
 
 
 
