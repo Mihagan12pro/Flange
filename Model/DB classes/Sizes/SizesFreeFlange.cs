@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Flange.Model;
 namespace Flange.Databases
 {
-    internal class SizesFreeFlange: SizesSimpleFlange
+    internal class SizesFreeFlange: SizesSimpleFreeFlange
     {
         public readonly string A, S;
 

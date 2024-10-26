@@ -62,7 +62,7 @@ namespace Flange.Model
         public  ObservableCollection<string> ModelTypesCollection { get; private set; }
 
         private BitmapImage bitmapImage;
-        private SizesSimpleFlange flangeSizes;
+        private DefaultFreeFlangeDb flangeSizes;
 
 
         public ObservableCollection<string> FlangeTittles { get; private set; } 
@@ -218,14 +218,14 @@ namespace Flange.Model
                
                 switch(value)
                 {
-                    case Constants.SimpleFlange:
+                    case Constants.SimpleFreeFlange:
 
                         TableData = new FreeSimpleTable(DController, D1Controller, D2Controller, NConroller, DbController);
                        // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;
                        
 
-                       SizesSimpleFlange simple = new 
-                            SizesSimpleFlange();
+                       DefaultFreeFlangeDb simple = new 
+                            DefaultFreeFlangeDb();
                         Controller.SetControllers(new ObservableCollection<TheController>
                         {
                             new TheController(0, simple.D), new TheController(1,simple.D1),
@@ -236,22 +236,8 @@ namespace Flange.Model
                        
 
                         BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.SimpleFlange));
-                        break;
 
-                    case Constants.FreeFlange:
 
-                        SizesFreeFlange free = new SizesFreeFlange();
-
-                        Controller.SetControllers(new ObservableCollection<TheController>
-                        {
-                            new TheController(0, free.D), new TheController(1,free.D1),
-                            new TheController(2,free.D2), new TheController(3,free.D2),
-                            new TheController(4,free.H), new TheController(5,free.N),
-                            new TheController(6,free.A), new  TheController(7,free.S)
-                        }.ToArray());
-
-                       
-                        BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
                         break;
 
                     case Constants.FlatFlange:
@@ -315,7 +301,7 @@ namespace Flange.Model
         } 
 
 
-        public SizesSimpleFlange FlangeSizes
+        public DefaultFreeFlangeDb FlangeSizes
         {
             private set
             {
@@ -394,7 +380,7 @@ namespace Flange.Model
 
             // SelectFlangeType = FlangeTypesCBItems[0] ;
 
-            SizesSimpleFlange sizesSimpleFlange = new SizesSimpleFlange();
+            DefaultFreeFlangeDb sizesSimpleFlange = new DefaultFreeFlangeDb();
 
             WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);

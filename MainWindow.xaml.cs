@@ -45,22 +45,8 @@ namespace Flange
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
 
-            // TableDataGr.DataContextChanged += TableDataGr_DataContextChanged;
-
-            //BuiltBtn.Content = "Построить 3д модель";
-          
-
             DataContext = new FlangeModel();
 
-             //TableDataGr.Width = 400;
-
-
-
-
-            //foreach(var col in TableDataGr.Columns)
-            //{
-
-            //}
 
 
             MainCanvas.SizeChanged += MainCanvas_SizeChanged;

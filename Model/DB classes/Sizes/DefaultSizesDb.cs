@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Flange.Other;
 using Flange.Model;
+using Flange.Model.DB_classes.Sizes;
 namespace Flange.Databases
 {
-    internal abstract class SizesDatabase
+    internal abstract class DefaultSizesDb: IDefaultSizesDb
     {
 
 
@@ -23,7 +24,7 @@ namespace Flange.Databases
         public readonly string D,D1,D2,H,N;
 
        
-        public SizesDatabase()
+        public DefaultSizesDb()
         {
             databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
             sizesTable = "sizes";

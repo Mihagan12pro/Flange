@@ -80,6 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\DB classes\Sizes\IDefaultSizesDb.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
@@ -93,12 +94,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\DB classes\Sizes\SizesDatabase.cs" />
-    <Compile Include="Model\DB classes\Sizes\SizesFreeFlange.cs" />
-    <Compile Include="Model\DB classes\Sizes\SizesSimpleFlange.cs" />
+    <Compile Include="Model\DB classes\Sizes\DefaultSizesDb.cs" />
+    <Compile Include="Model\DB classes\Sizes\DefaultFreeFlangeDb.cs" />
     <Compile Include="Model\DB classes\Standart\Data storages\DataStorage.cs" />
     <Compile Include="Model\DB classes\Standart\Standart.cs" />
-    <Compile Include="Model\DB classes\Standart\StandartFreeSimpleFlange.cs" />
+    <Compile Include="Model\DB classes\Standart\StandartFreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
     <Compile Include="Other\DataBaseExplorer.cs" />

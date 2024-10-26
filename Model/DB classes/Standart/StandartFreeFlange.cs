@@ -11,10 +11,10 @@ using System.Security.Cryptography;
 using Flange.Other;
 namespace Flange.Databases.Classes.Standart
 {
-    internal class StandartFreeSimpleFlange : Standart
+    internal class StandartFreeFlange : Standart
     {
         private readonly string tableName;
-        public StandartFreeSimpleFlange()
+        public StandartFreeFlange()
         {
             database = MainExplorer.DataBaseExpl.StandartSizesFullName;
 
@@ -53,7 +53,8 @@ namespace Flange.Databases.Classes.Standart
                                 N = dataReader.GetValue(3).ToString(),
                                 Db = dataReader.GetValue(4).ToString()
                             });
-
+                            var a = dataReader.GetValue(4).ToString();
+                            var b = a;
                             rowIndex++;
                         }
                     }

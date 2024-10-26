@@ -99,7 +99,7 @@ namespace Flange.ViewModel.Tables
         {
             this.Db = Db;
             // StandartFreeSimpleFlange standartFreeSimpleFlange = new StandartFreeSimpleFlange();
-            Data = new StandartFreeSimpleFlange().Data;
+            Data = new StandartFreeFlange().Data;
             countOfColumns = 5;
             ColumnWidth = (TableWidth / countOfColumns);
 

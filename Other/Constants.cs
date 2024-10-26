@@ -90,10 +90,10 @@ namespace Flange.Other
 
         public static readonly List<FlangeType> AllFlangeTypes = new List<FlangeType>() 
         {
-            new FlangeType("Фланец", 0),
-            new FlangeType("Свободный фланец", 1), 
-            new FlangeType("Плоский фланец", 2), new FlangeType("Глухой фланец", 3),
-            new FlangeType("Воротниковый фланец", 4),new FlangeType("Фланцевая муфта", 5)
+            new FlangeType("Свободный фланец", 0),
+           
+            new FlangeType("Плоский фланец", 1), new FlangeType("Глухой фланец", 2),
+            new FlangeType("Воротниковый фланец", 3),new FlangeType("Фланцевая муфта", 4)
         };
 
 
@@ -146,7 +146,7 @@ namespace Flange.Other
 
 
 
-        public const int SimpleFlange = 0, FreeFlange = 1, FlatFlange = 2;
+        public const int SimpleFreeFlange = 0, FlatFlange = 1;
         //public static readonly Dictionary<int,string> SimpleFlange = { 0,"Фланец"};
         //public const int FreeFlange = 1;
         //public const int FlatFlange = 2;

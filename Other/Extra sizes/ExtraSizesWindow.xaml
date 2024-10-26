@@ -5,9 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange.Other.Extra_sizes"
         mc:Ignorable="d"
-        Title="Дополнительные размеры"  Height="350" Width="450" >
+        Title="Дополнительные размеры"  Height="300" Width="300" Background="Azure"  >
 
     <Grid>
-        
+        <TabControl Name="RibbonTCrl">
+            <TabItem Header="Главная" Name="MainItem">
+                
+            </TabItem>
+            
+            <TabItem Header="Отверстия D2">
+                
+            </TabItem>
+
+            <TabItem Header="Отверстие "></TabItem>
+            
+            
+        </TabControl>
     </Grid>
 </Window>
