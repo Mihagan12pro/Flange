@@ -137,12 +137,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Resours source\DBs\gost sizes.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resours source\DBs\default_sizes.db" />
+    <None Include="Resours source\DBs\standart_sizes.db" />
     <None Include="Resours source\Prototypes\Свободный фланец.m3d" />
     <None Include="Resours source\Prototypes\Свободный фланец.m3d.cdw" />
     <None Include="Resours source\Prototypes\Фланец.cdw" />

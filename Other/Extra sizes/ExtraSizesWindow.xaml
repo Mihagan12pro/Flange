@@ -7,19 +7,45 @@
         mc:Ignorable="d"
         Title="Дополнительные размеры"  Height="300" Width="300" Background="Azure"  >
 
-    <Grid>
+    <Grid >
         <TabControl Name="RibbonTCrl">
             <TabItem Header="Главная" Name="MainItem">
-                
-            </TabItem>
-            
-            <TabItem Header="Отверстия D2">
-                
+                <Grid Name="ExtraGr" Background="Azure" Margin="0,-1,0,0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="0.2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Name ="ExtraSizesTableGr"  Grid.Row="0" Grid.Column="1" Margin="0,-1,2,14"></DataGrid>
+
+                    <Border Name="StackPanelBr" BorderBrush="AntiqueWhite" BorderThickness="2" Margin="0,-13,-3,0" Grid.Column="1" Grid.Row="1">
+                        <StackPanel Name="ButtonsMainStPl" Background="AliceBlue" Orientation="Vertical" HorizontalAlignment="Center" Width="152" Margin="0,0,0,0">
+                            <Button Name="AcceptBtn" Content="Применить" FontSize="7" Width="100" Height="13" Margin="2"  />
+                            <Button x:Name="DeleteCurrentSizebtn"  Content="Удалить выбранный размер" Height="14" FontSize="7" Width="100" Margin="2" />
+                            <Button Name="deleteAllBtn" Content="Удалить все размеры" FontSize="7" Height="13" Width="100" Margin="2"></Button>
+                        </StackPanel>
+                    </Border>
+
+
+                    <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2">
+                        
+                    </Border>
+
+                </Grid>
             </TabItem>
 
-            <TabItem Header="Отверстие "></TabItem>
-            
-            
+            <TabItem Header="Отверстия D2">
+
+            </TabItem>
+
+
+
+
         </TabControl>
     </Grid>
 </Window>
