@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flange.Other.Abstract_classes_and_interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Flange.Other.Extra_sizes.ViewModel
 {
-    internal class ExtraViewModel
+    internal class ExtraViewModel : ViewModelAbstract
     {
         private int windowWidth;
-        public int WindowWidth
+        public  int WindowWidth
         {
             get
             {
@@ -19,7 +20,13 @@ namespace Flange.Other.Extra_sizes.ViewModel
             set
             {
                 windowWidth = value;
+                OnPropertyChanged();
             }
+        }
+
+        public ExtraViewModel()
+        {
+            WindowWidth = 300;
         }
 
     }

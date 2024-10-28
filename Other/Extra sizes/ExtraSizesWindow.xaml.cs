@@ -20,12 +20,22 @@ namespace Flange.Other.Extra_sizes
     /// </summary>
     public partial class ExtraSizesWindow : Window
     {
+        Binding binding = new Binding("WindowWidth");
         public ExtraSizesWindow()
         {
             InitializeComponent();
 
 
             DataContext = new ExtraViewModel();
+
+            
+
+            
+
+            binding.Source = DataContext;
+            binding.Mode = BindingMode.TwoWay;
+
+            this.SetBinding(WidthProperty,binding);
         }
     }
 }
