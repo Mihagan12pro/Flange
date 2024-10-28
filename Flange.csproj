@@ -85,6 +85,7 @@
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Other\Extra sizes\ViewModel\ExtraViewModel.cs" />
     <Compile Include="ViewModel\Tables\Table.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -117,8 +118,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModel\CanvasOffset.cs" />
-    <Compile Include="ViewModel\Command.cs" />
-    <Compile Include="ViewModel\FlangeModel.cs" />
+    <Compile Include="Other\Command.cs" />
+    <Compile Include="ViewModel\FlangeViewModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -22,7 +22,7 @@ using Flange.Other;
 using Flange.Databases.Classes.Standart.Data_storages;
 using KompasAPI7;
 using Flange.ViewModel.Tables;
-
+using Flange.Other.Extra_sizes;
 
 
 
@@ -39,7 +39,7 @@ namespace Flange.Model
             Id = id;
         }
     }
-    internal class FlangeModel : DependencyObject,INotifyPropertyChanged
+    internal class FlangeViewModel : DependencyObject,INotifyPropertyChanged
     {
 
         private Table tableData;
@@ -273,7 +273,9 @@ namespace Flange.Model
 
         private void CreateExtraSizesWindow()
         {
+            ExtraSizesWindow window = new ExtraSizesWindow();
 
+            window.ShowDialog();
         }
 
 
@@ -356,7 +358,7 @@ namespace Flange.Model
 
         
 
-        public FlangeModel()
+        public FlangeViewModel()
         {
             //DVisibitily = Visibility.Hidden;
             

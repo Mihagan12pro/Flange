@@ -45,7 +45,7 @@ namespace Flange
             SizeHLbl.MaxWidth = SizeHLbl.Width;
 
 
-            DataContext = new FlangeModel();
+            DataContext = new FlangeViewModel();
 
 
 
@@ -66,7 +66,7 @@ namespace Flange
 
         private void MainCanvas_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (DataContext is FlangeModel flangeModel)
+            if (DataContext is FlangeViewModel flangeModel)
             {
                 flangeModel.UpdateTableWidth(e.NewSize.Width);
             }

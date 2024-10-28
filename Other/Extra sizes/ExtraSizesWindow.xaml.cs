@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flange.Other.Extra_sizes.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace Flange.Other.Extra_sizes
         public ExtraSizesWindow()
         {
             InitializeComponent();
+
+
+            DataContext = new ExtraViewModel();
         }
     }
 }
