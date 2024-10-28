@@ -23,7 +23,8 @@ using Flange.Databases.Classes.Standart.Data_storages;
 using KompasAPI7;
 using Flange.ViewModel.Tables;
 using Flange.Other.Extra_sizes;
-
+using System.Windows.Media.Animation;
+using Flange.Other.Abstract_classes_and_interfaces;
 
 
 namespace Flange.Model
@@ -39,7 +40,7 @@ namespace Flange.Model
             Id = id;
         }
     }
-    internal class FlangeViewModel : DependencyObject,INotifyPropertyChanged
+    internal class FlangeViewModel : ViewModelAbstract
     {
 
         private Table tableData;
@@ -86,7 +87,7 @@ namespace Flange.Model
 
       
    
-        public event PropertyChangedEventHandler PropertyChanged;
+       
         public event EventHandler CanExecuteChanged;
 
 
@@ -181,10 +182,6 @@ namespace Flange.Model
         }
       
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
 
         private Visibility tableVisibility;

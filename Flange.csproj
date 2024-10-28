@@ -82,6 +82,7 @@
     </ApplicationDefinition>
     <Compile Include="Other\Abstract classes and interfaces\AbstractDefaultSizesDb.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\ViewModelAbstract.cs" />
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
     </Compile>
