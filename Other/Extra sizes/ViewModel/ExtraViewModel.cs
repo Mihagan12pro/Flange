@@ -71,6 +71,9 @@ namespace Flange.Other.Extra_sizes.ViewModel
             {
                 mainTabStackPanelHeight = value;
                 OnPropertyChanged();
+
+
+                MainTabButtonsHeight = mainTabStackPanelHeight / 6;
             }
         }
 
@@ -85,6 +88,7 @@ namespace Flange.Other.Extra_sizes.ViewModel
             {
                 mainTabTableHeight = value;
                 OnPropertyChanged();
+                MainTabStackPanelHeight = WindowHeight/3;
             }
         }
 
@@ -103,6 +107,19 @@ namespace Flange.Other.Extra_sizes.ViewModel
             }
         }
 
+        private int mainTabButtonsHeight;
+        public int MainTabButtonsHeight
+        {
+            get
+            {
+                return mainTabButtonsHeight;
+            }
+            private set
+            {
+                mainTabButtonsHeight = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ExtraViewModel()
         {

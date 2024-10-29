@@ -25,9 +25,11 @@
 
                    
                         <StackPanel Name="ButtonsMainStPl" Background="AliceBlue" Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1"  Grid.RowSpan="2" Margin="0,-16" Grid.Row="1"  Width="{Binding MainTabStackPanelWidth}">
-                        <Button Name="AcceptBtn" Content="Применить" FontFamily="GOST Type B" FontSize="10" Width="{Binding  MainTabButtonsWidth}" Margin="2" Height="15"   />
-                        <Button x:Name="DeleteCurrentSizebtn"  Content="Удалить выбранный размер" Height="16" FontFamily="GOST Type B" FontSize="10" Width="{Binding  MainTabButtonsWidth}" Margin="0" />
-                        <Button Name="deleteAllBtn" Content="Удалить все размеры" FontFamily="GOST Type B" FontSize="10" Height="20" Width="{Binding  MainTabButtonsWidth}" Margin="2"></Button>
+
+                        <Button Name="AcceptBtn" Content="Применить" FontFamily="GOST Type B" FontSize="10" Width="{Binding  MainTabButtonsWidth}" FontWeight="Bold" Margin="2" Height="{Binding MainTabButtonsHeight}"   />
+                        <Button x:Name="DeleteCurrentSizebtn"  Content="Удалить выбранный размер" FontFamily="GOST Type B" FontSize="10"  FontWeight="Bold" Height="{Binding MainTabButtonsHeight}" Width="{Binding  MainTabButtonsWidth}" Margin="0" />
+                        <Button Name="deleteAllBtn" Content="Удалить все размеры" FontFamily="GOST Type B" FontSize="10"   FontWeight="Bold" Height="{Binding MainTabButtonsHeight}" Width="{Binding  MainTabButtonsWidth}" Margin="2"></Button>
+                        
                         </StackPanel>
                     
 
