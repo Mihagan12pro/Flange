@@ -21,10 +21,10 @@
                         <RowDefinition Height="0.2*"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <DataGrid Name ="ExtraSizesTableGr"  Grid.Row="0" Grid.Column="1" Margin="-1, 16"></DataGrid>
+                    <DataGrid Name ="ExtraSizesTableGr"  Grid.Row="0" Grid.Column="1" Height="{Binding MainTabTableHeight}" Margin="0,0,0,24" />
 
-                   
-                        <StackPanel Name="ButtonsMainStPl" Background="AliceBlue" Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1"  Grid.RowSpan="2" Margin="0,-16" Grid.Row="1"  Width="{Binding MainTabStackPanelWidth}">
+
+                    <StackPanel Name="ButtonsMainStPl" Background="AliceBlue" Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="1"  Grid.RowSpan="2" Margin="0,-16" Grid.Row="1"  Width="{Binding MainTabStackPanelWidth}">
 
                         <Button Name="AcceptBtn" Content="Применить" FontFamily="GOST Type B" FontSize="10" Width="{Binding  MainTabButtonsWidth}" FontWeight="Bold" Margin="2" Height="{Binding MainTabButtonsHeight}"   />
                         <Button x:Name="DeleteCurrentSizebtn"  Content="Удалить выбранный размер" FontFamily="GOST Type B" FontSize="10"  FontWeight="Bold" Height="{Binding MainTabButtonsHeight}" Width="{Binding  MainTabButtonsWidth}" Margin="0" />
