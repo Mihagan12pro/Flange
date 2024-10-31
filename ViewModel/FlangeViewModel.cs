@@ -200,7 +200,7 @@ namespace Flange.Model
 
 
 
-
+  
 
         private int selectedFlangeType;
         public int SelectedFlangeType
@@ -270,7 +270,7 @@ namespace Flange.Model
 
         private void CreateExtraSizesWindow()
         {
-            ExtraSizesWindow window = new ExtraSizesWindow();
+            ExtraSizesWindow window = new ExtraSizesWindow(SelectedFlangeType);
 
             window.ShowDialog();
         }

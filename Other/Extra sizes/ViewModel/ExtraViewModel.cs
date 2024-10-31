@@ -5,7 +5,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Media.Imaging;
 namespace Flange.Other.Extra_sizes.ViewModel
 {
     internal class ExtraViewModel : ViewModelAbstract
@@ -57,7 +57,7 @@ namespace Flange.Other.Extra_sizes.ViewModel
                 mainTabStackPanelWidth = value;
                 OnPropertyChanged();
 
-                MainTabButtonsWidth = 9 * MainTabStackPanelWidth / 10;
+                MainTabButtonsWidth = 12 * MainTabStackPanelWidth / 13;
             }
         }
 
@@ -118,6 +118,20 @@ namespace Flange.Other.Extra_sizes.ViewModel
             private set
             {
                 mainTabButtonsHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private BitmapImage image;
+        public BitmapImage Image
+        {
+            get
+            {
+                return image;
+            }
+            set
+            {
+                image = value;
                 OnPropertyChanged();
             }
         }

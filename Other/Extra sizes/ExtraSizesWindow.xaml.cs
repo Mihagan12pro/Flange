@@ -18,20 +18,25 @@ namespace Flange.Other.Extra_sizes
     /// <summary>
     /// Interaction logic for ExtraSizesWindow.xaml
     /// </summary>
-    public partial class ExtraSizesWindow : Window
+
+    public partial class ExtraSizesWindow 
     {
         private Binding windowWidthBinding = new Binding("WindowWidth");
         private Binding windowHeightBinding = new Binding("WindowHeight");
+
+        public readonly int SelectedFlangeType;
+       
         //Binding stackPanelWidthBinding = new Binding("StackPanelWidth");
-        public ExtraSizesWindow()
+        public ExtraSizesWindow(int SelectedFlangeType)
         {
             InitializeComponent();
 
+            
 
             DataContext = new ExtraViewModel();
 
             
-
+            this.SelectedFlangeType = SelectedFlangeType;
             
 
             windowWidthBinding.Source = DataContext;
@@ -45,7 +50,7 @@ namespace Flange.Other.Extra_sizes
 
             this.SetBinding(WidthProperty,windowWidthBinding);
             this.SetBinding(HeightProperty, windowHeightBinding);
-            this.Title = "";
+           
             //StackPanelBr.SetBinding(WidthProperty, stackPanelWidthBinding);
         }
     }
