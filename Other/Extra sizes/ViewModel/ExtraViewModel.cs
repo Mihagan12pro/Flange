@@ -122,24 +122,25 @@ namespace Flange.Other.Extra_sizes.ViewModel
             }
         }
 
-        private BitmapImage image;
+
+        private readonly BitmapImage image;
         public BitmapImage Image
         {
             get
             {
                 return image;
             }
-            set
-            {
-                image = value;
-                OnPropertyChanged();
-            }
+        
         }
 
-        public ExtraViewModel()
+        public ExtraViewModel(string pathToImage)
         {
             WindowWidth = 300;
             WindowHeight = 300;
+
+
+            image = new BitmapImage(new Uri(pathToImage));
+           
         }
 
     }

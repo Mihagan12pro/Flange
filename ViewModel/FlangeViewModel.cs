@@ -215,7 +215,7 @@ namespace Flange.Model
                
                 switch(value)
                 {
-                    case Constants.SimpleFreeFlange:
+                    case Constants.FreeFlange:
 
                         TableData = new FreeSimpleTable(DController, D1Controller, D2Controller, NConroller, DbController);
                        // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;

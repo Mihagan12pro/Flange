@@ -146,7 +146,7 @@ namespace Flange.Other
 
 
 
-        public const int SimpleFreeFlange = 0, FlatFlange = 1;
+        public const int FreeFlange = 0, FlatFlange = 1;
         //public static readonly Dictionary<int,string> SimpleFlange = { 0,"Фланец"};
         //public const int FreeFlange = 1;
         //public const int FlatFlange = 2;

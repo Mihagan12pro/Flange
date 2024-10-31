@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Flange.Other;
 namespace Flange.Other.Extra_sizes
 {
     /// <summary>
@@ -24,19 +24,28 @@ namespace Flange.Other.Extra_sizes
         private Binding windowWidthBinding = new Binding("WindowWidth");
         private Binding windowHeightBinding = new Binding("WindowHeight");
 
-        public readonly int SelectedFlangeType;
+        public static int SelectedFlangeType { get; private set; }
        
         //Binding stackPanelWidthBinding = new Binding("StackPanelWidth");
-        public ExtraSizesWindow(int SelectedFlangeType)
+        public ExtraSizesWindow(int selectedFlangeType)
         {
             InitializeComponent();
 
+
+            string pathToImage = "";
+            switch(selectedFlangeType)
+            {
+                case Constants.FreeFlange:
+                   pathToImage=MainExplorer.SketchesExpl.SimpleFlange;
+                    break;
+               
+            }
             
 
-            DataContext = new ExtraViewModel();
+            DataContext = new ExtraViewModel(pathToImage);
 
             
-            this.SelectedFlangeType = SelectedFlangeType;
+            SelectedFlangeType = selectedFlangeType;
             
 
             windowWidthBinding.Source = DataContext;
