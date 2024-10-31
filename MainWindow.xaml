@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
         mc:Ignorable="d"
-        Title="Flange generator" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
+        Title="Генератор фланцев" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
 
 
     

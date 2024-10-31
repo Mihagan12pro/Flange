@@ -39,8 +39,9 @@ namespace Flange.Other.Extra_sizes.ViewModel
                 windowHeight = value;
                 OnPropertyChanged();
 
-                MainTabStackPanelHeight = WindowHeight / 3;
+               
                 MainTabTableHeight = 2*WindowHeight / 3;
+                MainTabStackPanelHeight = WindowHeight - MainTabTableHeight;
             }
         }
 
