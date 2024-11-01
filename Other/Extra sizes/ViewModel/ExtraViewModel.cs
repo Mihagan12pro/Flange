@@ -45,6 +45,8 @@ namespace Flange.Other.Extra_sizes.ViewModel
             }
         }
 
+       
+
         private int mainTabStackPanelWidth;
         public int MainTabStackPanelWidth
         {
@@ -58,8 +60,28 @@ namespace Flange.Other.Extra_sizes.ViewModel
                 OnPropertyChanged();
 
                 MainTabButtonsWidth = 12 * MainTabStackPanelWidth / 13;
+
+                //MainTabColumnWidth = MainTabStackPanelWidth / 3;
+                MainTabColumnWidth = 100;
             }
         }
+
+        private int mainTabColumnWidth;
+        public int MainTabColumnWidth
+        {
+            get
+            {
+                return mainTabColumnWidth;
+            }
+           set
+            {
+                mainTabColumnWidth = value;
+                OnPropertyChanged(nameof(mainTabColumnWidth));
+
+
+            }
+        }
+
 
         private int mainTabStackPanelHeight;
         public int MainTabStackPanelHeight
@@ -75,6 +97,7 @@ namespace Flange.Other.Extra_sizes.ViewModel
 
 
                 MainTabButtonsHeight = mainTabStackPanelHeight / 6;
+               
             }
         }
 
@@ -105,6 +128,8 @@ namespace Flange.Other.Extra_sizes.ViewModel
             {
                 mainTabButtonsWidth = value;
                 OnPropertyChanged();
+
+
             }
         }
 
@@ -140,7 +165,7 @@ namespace Flange.Other.Extra_sizes.ViewModel
 
 
             image = new BitmapImage(new Uri(pathToImage));
-           
+          
         }
 
     }

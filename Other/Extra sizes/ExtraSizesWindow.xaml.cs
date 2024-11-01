@@ -23,6 +23,7 @@ namespace Flange.Other.Extra_sizes
     {
         private Binding windowWidthBinding = new Binding("WindowWidth");
         private Binding windowHeightBinding = new Binding("WindowHeight");
+        private Binding extraSizesTableColumnWidthBinding = new Binding("MainTabColumnWidth ");
 
         public static int SelectedFlangeType { get; private set; }
        
@@ -59,8 +60,17 @@ namespace Flange.Other.Extra_sizes
 
             this.SetBinding(WidthProperty,windowWidthBinding);
             this.SetBinding(HeightProperty, windowHeightBinding);
+
            
+
+
+
             //StackPanelBr.SetBinding(WidthProperty, stackPanelWidthBinding);
         }
+
+
+        //Максимальная ширина кнопки - 230
+        //Минимальная ширина кнопки - 138
+
     }
 }
