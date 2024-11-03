@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Flange.Other;
+using System.IO;
 namespace Flange.Other.Extra_sizes
 {
     /// <summary>
@@ -37,11 +38,29 @@ namespace Flange.Other.Extra_sizes
             switch(selectedFlangeType)
             {
                 case Constants.FreeFlange:
-                   pathToImage=MainExplorer.SketchesExpl.SimpleFlange;
+                   pathToImage=MainExplorer.SketchesExpl.FreeFlange;
                     break;
-               
+
+                case Constants.FlatFlange:
+                    pathToImage = MainExplorer.SketchesExpl.FlatFlange;
+                    break;
+
+                case Constants.BlindFlange:
+                    pathToImage = MainExplorer.SketchesExpl.BlindFlange;
+                    break;
+
+                case Constants.CollarFlange:
+                    pathToImage = MainExplorer.SketchesExpl.CollarFlange;
+                    break;
             }
-            
+
+            if (!File.Exists(pathToImage))
+            {
+                MessageBox.Show("Пока не реализовано!");
+                this.Close();
+                return;
+            }
+
 
             DataContext = new ExtraViewModel(pathToImage);
 

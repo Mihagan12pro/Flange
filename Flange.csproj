@@ -155,15 +155,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resours source\Sketches\FreeFlange.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resours source\Sketches\SimpleFlange.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resours source\Sketches\FlatFlange.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Model\Kompas\Drafting\" />
     <Folder Include="View\" />
   </ItemGroup>
@@ -240,6 +231,14 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resours source\Sketches\CollarFlange.PNG" />
+    <Resource Include="Resours source\Sketches\FlatFlange.PNG" />
+    <Resource Include="Resours source\Sketches\FreeFlange.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resours source\Sketches\BlindFlange.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

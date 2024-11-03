@@ -74,8 +74,8 @@ namespace Flange.Model
         public Controller HController { get; private set; }
         public Controller DbController { get; private set; }
         public Controller NConroller { get; private set; }
-        public Controller AController { get;private set; }
-        public Controller SController {  get; private set; }
+        public Controller A1Controller { get;private set; }
+        public Controller S1Controller {  get; private set; }
 
 
         public CanvasOffsetX SketchOffsetX { get;private set; }
@@ -232,13 +232,19 @@ namespace Flange.Model
                         }.ToArray());
                        
 
-                        BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.SimpleFlange));
-
-
+                        BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.FreeFlange));
                         break;
 
                     case Constants.FlatFlange:
                         BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FlatFlange));
+                        break;
+
+                    case Constants.BlindFlange:
+                        BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.BlindFlange));
+                        break;
+
+                    case Constants.CollarFlange:
+                        BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.CollarFlange));
                         break;
                 }
                 selectedFlangeType = value;
@@ -258,7 +264,7 @@ namespace Flange.Model
 
                     break;
                 case 1:
-                    FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,AController.RowValue, SController.RowValue);
+                    FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
                     //freeFlange.TryToBuild();
 
                     break;
@@ -273,6 +279,9 @@ namespace Flange.Model
             ExtraSizesWindow window = new ExtraSizesWindow(SelectedFlangeType);
 
             window.ShowDialog();
+            
+       
+
         }
 
 
@@ -368,9 +377,9 @@ namespace Flange.Model
             DbController = new Controller(false,4);
             NConroller = new Controller(false,5);
 
-            AController = new Controller(false, 6);
+            A1Controller = new Controller(false, 6);
          
-            SController = new Controller(false, 7);
+            S1Controller = new Controller(false, 7);
 
 
             FlangeTittles = new ObservableCollection<string>(( from fl in FlangeType.AllFlangeTypes select fl.Tittle).ToArray());

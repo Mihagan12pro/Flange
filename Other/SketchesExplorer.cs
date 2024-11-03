@@ -10,30 +10,41 @@ namespace Flange.Other
     class SketchesExplorer :Explorer
     {
        
-        private readonly PathMaster simpleFlangePath;
-        private readonly PathMaster flatFlangePath;
         private readonly PathMaster freeFlangePath;
+        private readonly PathMaster flatFlangePath;
+        private readonly PathMaster blindFlangePath;
+        private readonly PathMaster collarFlangePath;
+        private readonly PathMaster couplingFlangePath;
 
-        public readonly string SimpleFlange;
+
         public readonly string FlatFlange;
         public readonly string FreeFlange;
-        public SketchesExplorer(PathMaster simpleFlangePath,PathMaster flatFlangePath,PathMaster freeFlangePath)  : base(simpleFlangePath)
+        public readonly string CollarFlange;//Воротниковый фланец
+        public readonly string CouplingFlange;//Фланцевая муфта
+        public readonly string BlindFlange;
+
+        public SketchesExplorer(PathMaster freeFlangePath,PathMaster flatFlangePath,
+            PathMaster blindFlangePath,PathMaster collarFlangePath)  : base(freeFlangePath)
         {
-            this.simpleFlangePath = simpleFlangePath;
-            this.flatFlangePath = flatFlangePath;
             this.freeFlangePath = freeFlangePath;
+            this.flatFlangePath = flatFlangePath;
+            this.blindFlangePath = blindFlangePath;
+            this.collarFlangePath = collarFlangePath;
+            
 
 
 
 
 
-            pathMasters.Add(this.simpleFlangePath);
             pathMasters.Add(this.freeFlangePath);
+     
             pathMasters.Add(this.flatFlangePath);
 
-            SimpleFlange = this.simpleFlangePath.FilePath;
-            FlatFlange = this.flatFlangePath.FilePath;
             FreeFlange = this.freeFlangePath.FilePath;
+            FlatFlange = this.flatFlangePath.FilePath;
+            BlindFlange = this.blindFlangePath.FilePath;
+            CollarFlange = this.collarFlangePath.FilePath;
+           
 
             UniquePaths();
         }

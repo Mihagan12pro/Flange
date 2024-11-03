@@ -69,11 +69,11 @@
             <Label Grid.Column="0"  Grid.Row="5" Name="NLbl" FontFamily="GOST Type B"   Content="N" Canvas.Top="160" Height="22" Width="20" Canvas.Right="0" Canvas.Left="254" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBox Text="{Binding NConroller.RowValue}"  Name="NTB" Background="{Binding NConroller.Background}" IsReadOnly="{Binding NConroller.ReadOnly}" Grid.Column="1" Grid.Row="5"  FontFamily="GOST Type B"   Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
-            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="6" Content="a" Name="aLbl" FontFamily="GOST Type B"></Label>
-            <TextBox Name="aTb" Text="{Binding AController.RowValue}" IsReadOnly="{Binding  AController.ReadOnly}" Grid.Column="1" Grid.Row="6" ></TextBox>
+            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="6" Content="a1" Name="a1Lbl" FontFamily="GOST Type B"></Label>
+            <TextBox Name="a1Tb" Text="{Binding A1Controller.RowValue}" IsReadOnly="{Binding  A1Controller.ReadOnly}" Grid.Column="1" Grid.Row="6" ></TextBox>
 
-            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S" Name="SLbl" FontFamily="GOST Type B"></Label>
-            <TextBox Name="STb" Text="{Binding SController.RowValue}" IsReadOnly="{Binding  SController.ReadOnly}" Grid.Column="1" Grid.Row="7" ></TextBox>
+            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S1" Name="SLbl" FontFamily="GOST Type B"></Label>
+            <TextBox Name="S1Tb" Text="{Binding S1Controller.RowValue}" IsReadOnly="{Binding  S1Controller.ReadOnly}" Grid.Column="1" Grid.Row="7" ></TextBox>
         </Grid>
         
         <ToolBar Name="ActionBarTlBr" Height="30" Canvas.Top="0" Width="560" HorizontalAlignment="Left" Background="AliceBlue" VerticalAlignment="Center" Canvas.Right="0">
