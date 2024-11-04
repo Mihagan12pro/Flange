@@ -1,13 +1,24 @@
 ﻿using Flange.Other.Abstract_classes_and_interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlTypes;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+
 namespace Flange.Other.Extra_sizes.ViewModel
 {
+
+
+
+
+
+
+
     internal class ExtraViewModel : ViewModelAbstract
     {
         private int windowWidth;

@@ -52,11 +52,11 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Name="FlangeDiscItem" Header="Диск фланца"></TabItem>
-            
-            <TabItem Header="Отверстия D2" FontFamily="GOST Type B" >
-
+            <TabItem Name="FlangeDiscItem" Header="Диск фланца">
+                
             </TabItem>
+            
+           
 
         
 

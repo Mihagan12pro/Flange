@@ -87,6 +87,7 @@
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Other\Extra sizes\ViewModel\ExtraViewModel.cs" />
+    <Compile Include="Other\Extra sizes\ViewModel\TabItem\TabItemController.cs" />
     <Compile Include="ViewModel\Tables\Table.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
