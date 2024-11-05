@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange.Other.Extra_sizes"
         mc:Ignorable="d"
-        Title="Дополнительные размеры"   Height="300" MinWidth="300" MaxWidth="500" MinHeight="300" MaxHeight="500" Width="300" Background="Azure" Name="ExtraWnd"  >
+        Title="Доп. размеры"   Height="300" MinWidth="300" MaxWidth="500" MinHeight="300" MaxHeight="500" Width="300" Background="Azure" Name="ExtraWnd"  >
 
     <Grid >
         <TabControl Name="RibbonTCrl" FontFamily="GOST Type B">
@@ -45,7 +45,7 @@
 
 
 
-                    <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="2" Height="260" Margin="0,0,163,0" VerticalAlignment="Bottom">
+                    <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2">
                         <Image Name="SketchIm" Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></Image>
                     </Border>
 
@@ -66,7 +66,7 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Label Name="SizeTittleLbl" Content="Сверху" Margin="0,25"></Label>
+                        <Label Name="SizeTittleLbl" Content="Сверху" Margin="0,15,0,60" VerticalAlignment="Center"></Label>
                         <Border BorderThickness="1" BorderBrush="#bababa"  Height="30"  HorizontalAlignment="Left" Margin="4" Width="78" MaxWidth="78" MinWidth="78"  >
                                 <StackPanel Name="RadioStPl" Height="28" HorizontalAlignment="Left" >
                                     <RadioButton Name="ChamferTopRdBtn" Content="Фаска"  FontFamily="GOST Type B" FontSize="12" HorizontalAlignment="Left" />
