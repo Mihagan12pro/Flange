@@ -27,7 +27,7 @@
                             <DataGridTextColumn x:Name="TabTittleCn" Header="Вкладка" Width="0.99*"  ></DataGridTextColumn>
                             <DataGridTextColumn x:Name="SizeTypeCn" Header="Название" Width="1*"  ></DataGridTextColumn>
                             <DataGridTextColumn x:Name="ValueCn" Header="Значение"  Width="1*"   ></DataGridTextColumn>
-                            
+
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -35,17 +35,17 @@
                     <StackPanel Name="ButtonsMainStPl" Background="Azure" Orientation="Vertical"   HorizontalAlignment="Stretch" Grid.Column="1"  Grid.RowSpan="1"  Grid.Row="1"   Margin="0">
 
                         <Button Name="AcceptBtn" Content="Применить" FontStretch="UltraExpanded" FontFamily="GOST Type B" FontSize="11" Width="{Binding  MainTabButtonsWidth}" FontWeight="Bold" Margin="4" Height="{Binding MainTabButtonsHeight}"    >
-                            
-                            
+
+
                         </Button>
                         <Button x:Name="DeleteCurrentSizebtn"  Content="Удалить выбранный размер" FontFamily="GOST Type B" FontSize="11"  FontWeight="Bold" Height="{Binding MainTabButtonsHeight}" Width="{Binding  MainTabButtonsWidth}" Margin="4"   />
                         <Button Name="deleteAllBtn" Content="Удалить все размеры" FontFamily="GOST Type B" FontSize="11"   FontWeight="Bold" Height="{Binding MainTabButtonsHeight}" Width="{Binding  MainTabButtonsWidth}" Margin="3"  ></Button>
-                        
+
                     </StackPanel>
-                    
 
 
-                    <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2">
+
+                    <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="2" Height="260" Margin="0,0,163,0" VerticalAlignment="Bottom">
                         <Image Name="SketchIm" Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></Image>
                     </Border>
 
@@ -53,12 +53,41 @@
             </TabItem>
 
             <TabItem Name="FlangeDiscItem" Header="Диск фланца">
-                
-            </TabItem>
-            
-           
 
-        
+               
+                <Border Margin="10,10" BorderBrush="#bababa" BorderThickness="2" >
+                    <Grid Background="#e5e3e8" Margin="0,0"  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Label Name="SizeTittleLbl" Content="Сверху" Margin="0,25"></Label>
+                        <Border BorderThickness="1" BorderBrush="#bababa"  Height="30"  HorizontalAlignment="Left" Margin="4" Width="78" MaxWidth="78" MinWidth="78"  >
+                                <StackPanel Name="RadioStPl" Height="28" HorizontalAlignment="Left" >
+                                    <RadioButton Name="ChamferTopRdBtn" Content="Фаска"  FontFamily="GOST Type B" FontSize="12" HorizontalAlignment="Left" />
+                                    <RadioButton Name="FilletTopRdBtn" Content="Скругление" FontFamily="GOST Type B" FontSize="12"  HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Border>
+                     
+
+                        <Border Name="Horizontalbr" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderBrush="#bababa" BorderThickness="3" Height="2" />
+
+                       
+
+                    </Grid>
+                </Border>
+
+
+            </TabItem>
+
+
+
+
 
 
         </TabControl>

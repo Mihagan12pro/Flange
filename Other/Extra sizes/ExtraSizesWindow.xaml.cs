@@ -80,8 +80,8 @@ namespace Flange.Other.Extra_sizes
             this.SetBinding(WidthProperty,windowWidthBinding);
             this.SetBinding(HeightProperty, windowHeightBinding);
 
-           
 
+            
 
 
             //StackPanelBr.SetBinding(WidthProperty, stackPanelWidthBinding);
