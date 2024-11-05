@@ -242,6 +242,7 @@
     <Resource Include="Resours source\Sketches\BlindFlange.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PathExplorerLibrary.dll" />
     <Content Include="SQLite.Interop.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
