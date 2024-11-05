@@ -67,6 +67,7 @@
                         </Grid.RowDefinitions>
 
                         <Label Name="SizeTittleLbl" Content="Сверху" Margin="0,15,0,60" VerticalAlignment="Center"></Label>
+                        
                         <Border BorderThickness="1" BorderBrush="#bababa"  Height="30"  HorizontalAlignment="Left" Margin="4" Width="78" MaxWidth="78" MinWidth="78"  >
                                 <StackPanel Name="RadioStPl" Height="28" HorizontalAlignment="Left" >
                                     <RadioButton Name="ChamferTopRdBtn" Content="Фаска"  FontFamily="GOST Type B" FontSize="12" HorizontalAlignment="Left" />
