@@ -52,7 +52,7 @@
                 </Grid>
             </TabItem>
 
-            <TabItem Name="FlangeDiscItem" Header="Диск фланца">
+            <TabItem Name="FlangeDiscItem" Header="Диск фланца" Height="17" VerticalAlignment="Bottom">
 
 
                 <Border Margin="10,10" BorderBrush="#bababa" BorderThickness="1" >
@@ -77,21 +77,26 @@
 
                         <Border Name="Horizontalbr" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderBrush="#bababa" BorderThickness="1" Height="1"  />
 
-                        <Border Grid.Row="0" Grid.Column="1" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Stretch" Margin="30,10,30,40">
-                            
+                        <Border Grid.Row="0" Grid.Column="1" BorderThickness="1" BorderBrush="#bababa" HorizontalAlignment="Stretch" Margin="30,10,30,40">
+                            <Image></Image>
                         </Border>
                         <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom">
 
 
 
-                            <StackPanel Orientation="Horizontal" >
-                                <Label Content="l1,мм"/>
-                                <TextBox Width="85" Height="9" FontSize="8" />
+                            <StackPanel x:Name="ChamferLengthStPl" Orientation="Horizontal" Visibility="Visible" >
+                                <Label Name="ChamferLengthLbl" Content="l1,мм"/>
+                                <TextBox Name="ChamferLengthTB" Width="85" Height="9" FontSize="8" />
                             </StackPanel>
 
-                            <StackPanel Orientation="Horizontal" Height="22" Margin="10,-5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <Label Width="24">u1</Label>
-                                <TextBox Width="85" Height="9" Margin="-1" FontSize="8"></TextBox>
+                            <StackPanel Name="ChamferANgleStPl" Orientation="Horizontal" Height="22" Margin="10,-5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible">
+                                <Label Name="ChamferAngleLbl" Width="24">u1</Label>
+                                <TextBox Name="ChamferAngleTB" Width="85" Height="9" Margin="-1" FontSize="8"></TextBox>
+                            </StackPanel>
+
+                            <StackPanel Name="Radius1StPl" Orientation="Horizontal" Visibility="Collapsed">
+                                <Label Name="Radius1Lbl" Width="34" Content="r1,мм" HorizontalAlignment="Left"></Label>
+                                <TextBox Name="Radius1TB" FontSize="8" Height="9" Width="90"></TextBox>
                             </StackPanel>
 
                         </StackPanel>

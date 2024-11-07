@@ -12,7 +12,8 @@ namespace Flange.Other
     {
         public static readonly SketchesExplorer SketchesExpl;
         public static readonly DataBaseExplorer DataBaseExpl;
-     
+
+        
         static MainExplorer()
         {
             SketchesExpl = new SketchesExplorer(new PathMaster("FreeFlange.png", "Sketches"), new PathMaster("FlatFlange.png", "Sketches"),
