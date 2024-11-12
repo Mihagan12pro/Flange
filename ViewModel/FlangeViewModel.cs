@@ -78,8 +78,8 @@ namespace Flange.Model
         public Controller S1Controller {  get; private set; }
 
 
-        public CanvasOffsetX SketchOffsetX { get;private set; }
-        public CanvasOffsetX TableOffsetX { get;private set; }
+        //public CanvasOffsetX SketchOffsetX { get;private set; }
+        //public CanvasOffsetX TableOffsetX { get;private set; }
 
 
         public  ModelType Modeltype { get; private set; }
@@ -393,13 +393,13 @@ namespace Flange.Model
             WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);
 
-            SketchOffsetX = new CanvasOffsetX(10, 0);
+            //SketchOffsetX = new CanvasOffsetX(10, 0);
 
             Modeltype = new ModelType(0);
 
             TableHeight = 600;
 
-            TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
+            //TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
 
             SelectedFlangeType = 0;
         }

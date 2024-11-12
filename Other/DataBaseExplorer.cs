@@ -11,27 +11,50 @@ namespace Flange.Other
     {
         public readonly string DataBaseName,DataBaseFullName;
 
+        protected List<string> tableNames = new List<string>();
+
         protected readonly Exception eConnectionError;
+
+
+
 
         public DataBaseLocation(string _FileName, string _FolderName) : base(_FileName, _FolderName)
         {
             DataBaseName = FileName;
             DataBaseFullName = "Data Source=" + FilePath;
 
-            eConnectionError = new Exception($"The application can't connect to the {DataBaseName}!");
 
-            try
+            using (SQLiteConnection conn = new SQLiteConnection(DataBaseFullName))
             {
-                using (SQLiteConnection tryConnect = new SQLiteConnection(DataBaseFullName))
+                conn.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand("select name from sqlite_master where type = 'table'",conn))
                 {
-                    tryConnect.Open();
-                    tryConnect.Close();
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while(reader.Read())
+                        {
+                            tableNames.Add(Convert.ToString(reader["name"]));
+                        }
+                        reader.Close();
+                    }
                 }
+                conn.Close();
             }
-            catch
-            {
-                throw eConnectionError;
-            }
+
+            //eConnectionError = new Exception($"The application can't connect to the {DataBaseName}!");
+
+            //try
+            //{
+            //    using (SQLiteConnection tryConnect = new SQLiteConnection(DataBaseFullName))
+            //    {
+            //        tryConnect.Open();
+            //        tryConnect.Close();
+            //    }
+            //}
+            //catch
+            //{
+            //    throw eConnectionError;
+            //}
         }
     }
     internal class DataBaseExplorer : Explorer

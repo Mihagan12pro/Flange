@@ -119,7 +119,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModel\CanvasOffset.cs" />
     <Compile Include="Other\Command.cs" />
     <Compile Include="ViewModel\FlangeViewModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
