@@ -44,7 +44,7 @@ namespace Flange.Model.DB_classes.Sizes
 
         public AbstractDefaultSizesDb()
         {
-            databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
+            //databaseName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
         }
     }
 }

@@ -8,8 +8,8 @@ using Flange.Other;
 using Flange.Model;
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
-using Flange.Databases.Classes.Standart.Data_storages;
-using Flange.Databases.Classes.Standart;
+//using Flange.Databases.Classes.Standart.Data_storages;
+//using Flange.Databases.Classes.Standart;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 namespace Flange.ViewModel.Tables
@@ -20,7 +20,7 @@ namespace Flange.ViewModel.Tables
 
         protected readonly string database;
 
-        protected  ObservableCollection<DataStorage>data;
+        //protected  ObservableCollection<DataStorage>data;
 
         protected readonly Controller D,  D1, D2, N;
 
@@ -47,10 +47,10 @@ namespace Flange.ViewModel.Tables
 
         public virtual void SelectedRow()
         {
-            D.RowValue = Data[SelectedIndex].D;
-            D1.RowValue = Data[SelectedIndex].D1;
-            D2.RowValue = Data[SelectedIndex].D2;
-            N.RowValue = Data[SelectedIndex].N;
+            //D.RowValue = Data[SelectedIndex].D;
+            //D1.RowValue = Data[SelectedIndex].D1;
+            //D2.RowValue = Data[SelectedIndex].D2;
+            //N.RowValue = Data[SelectedIndex].N;
         }
 
         protected double columnWidth;
@@ -59,18 +59,18 @@ namespace Flange.ViewModel.Tables
             get { return columnWidth; }
             protected set { columnWidth = value ;OnPropertyChanged(); }
         }
-        public ObservableCollection<DataStorage> Data 
-        { 
-            get
-            {
-                return data;
-            }
-            set 
-            {
-                data = value;
-                OnPropertyChanged();
-            } 
-        }
+        //public ObservableCollection<DataStorage> Data 
+        //{ 
+        //    get
+        //    {
+        //        return data;
+        //    }
+        //    set 
+        //    {
+        //        data = value;
+        //        OnPropertyChanged();
+        //    } 
+        //}
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -85,7 +85,7 @@ namespace Flange.ViewModel.Tables
             this.D1 = D1;
             this.D2 = D2;
             this.N = N;
-            database = MainExplorer.DataBaseExpl.DefaultSizesFullName;
+          //  database = MainExplorer.DataBaseExpl.DefaultSizesFullName;
 
             
 
@@ -99,7 +99,7 @@ namespace Flange.ViewModel.Tables
         {
             this.Db = Db;
             // StandartFreeSimpleFlange standartFreeSimpleFlange = new StandartFreeSimpleFlange();
-            Data = new StandartFreeFlange().Data;
+           // Data = new StandartFreeFlange().Data;
             countOfColumns = 5;
             ColumnWidth = (TableWidth / countOfColumns);
 
@@ -112,7 +112,7 @@ namespace Flange.ViewModel.Tables
             base.SelectedRow();
 
 
-            Db.RowValue = Data[SelectedIndex].Db;
+            //Db.RowValue = Data[SelectedIndex].Db;
         }
     }
 }

@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
-using Flange.Databases;
+//using Flange.Databases;
 using System.Data.SqlTypes;
 using System.Windows.Input;
 using Flange.ViewModel;
 using Flange.Kompas.Modeling;
-using Flange.Databases.Classes.Standart;
+//using Flange.Databases.Classes.Standart;
 //using Flange.Databases.GOST_tables;
 //using Flange.Databases.GOST_tables.GOST_data_classes;
 using System.Windows.Controls;
 using Flange.Other;
-using Flange.Databases.Classes.Standart.Data_storages;
+//using Flange.Databases.Classes.Standart.Data_storages;
 using KompasAPI7;
 using Flange.ViewModel.Tables;
 using Flange.Other.Extra_sizes;
@@ -63,7 +63,7 @@ namespace Flange.Model
         public  ObservableCollection<string> ModelTypesCollection { get; private set; }
 
         private BitmapImage bitmapImage;
-        private DefaultFreeFlangeDb flangeSizes;
+      //  private DefaultFreeFlangeDb flangeSizes;
 
 
         public ObservableCollection<string> FlangeTittles { get; private set; } 
@@ -221,15 +221,15 @@ namespace Flange.Model
                        // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;
                        
 
-                       DefaultFreeFlangeDb simple = new 
-                            DefaultFreeFlangeDb();
-                        Controller.SetControllers(new ObservableCollection<TheController>
-                        {
-                            new TheController(0, simple.D), new TheController(1,simple.D1),
-                            new TheController(2,simple.D2), new TheController(3,simple.H),
-                            new TheController(4,simple.Db), new TheController(5,simple.N),
-                            new TheController(6,""), new  TheController(7,"")
-                        }.ToArray());
+                       //DefaultFreeFlangeDb simple = new 
+                       //     DefaultFreeFlangeDb();
+                        //Controller.SetControllers(new ObservableCollection<TheController>
+                        //{
+                        //    new TheController(0, simple.D), new TheController(1,simple.D1),
+                        //    new TheController(2,simple.D2), new TheController(3,simple.H),
+                        //    new TheController(4,simple.Db), new TheController(5,simple.N),
+                        //    new TheController(6,""), new  TheController(7,"")
+                        //}.ToArray());
                        
 
                         BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.FreeFlange));
@@ -309,20 +309,20 @@ namespace Flange.Model
         } 
 
 
-        public DefaultFreeFlangeDb FlangeSizes
-        {
-            private set
-            {
-                if (value != flangeSizes)
-                {
-                    flangeSizes = value;
-                }
-            }
-            get
-            {
-                return flangeSizes;
-            }
-        }
+        //public DefaultFreeFlangeDb FlangeSizes
+        //{
+        //    private set
+        //    {
+        //        if (value != flangeSizes)
+        //        {
+        //            flangeSizes = value;
+        //        }
+        //    }
+        //    get
+        //    {
+        //        return flangeSizes;
+        //    }
+        //}
 
 
         public BitmapImage BitmapImage
@@ -388,7 +388,7 @@ namespace Flange.Model
 
             // SelectFlangeType = FlangeTypesCBItems[0] ;
 
-            DefaultFreeFlangeDb sizesSimpleFlange = new DefaultFreeFlangeDb();
+            //DefaultFreeFlangeDb sizesSimpleFlange = new DefaultFreeFlangeDb();
 
             WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);

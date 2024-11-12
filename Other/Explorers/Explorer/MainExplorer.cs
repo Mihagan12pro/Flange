@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using PathExplorerLibrary;
+using Flange.Other.Explorers.Master;
 namespace Flange.Other
 {
     internal static class MainExplorer
@@ -18,7 +19,7 @@ namespace Flange.Other
         {
             SketchesExpl = new SketchesExplorer(new PathMaster("FreeFlange.png", "Sketches"), new PathMaster("FlatFlange.png", "Sketches"),
                 new PathMaster("BlindFlange.png","Sketches"), new PathMaster("CollarFlange.png","Sketches"));
-            DataBaseExpl = new DataBaseExplorer( new DataBaseLocation("default_sizes.db", "DBs"), new DataBaseLocation("standart_sizes.db", "DBs"));
+            DataBaseExpl = new DataBaseExplorer( new DataBaseMaster("default_sizes.db", "DBs"), new DataBaseMaster("standart_sizes.db", "DBs"));
         }
     }
 }

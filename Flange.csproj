@@ -80,9 +80,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Other\Abstract classes and interfaces\AbstractDefaultSizesDb.cs" />
+    <Compile Include="Model\DB classes\Default\DB\DefaultDataBase.cs" />
+    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeDB.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\ViewModelAbstract.cs" />
+    <Compile Include="Other\Explorers\Master\DataBaseMaster.cs" />
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
     </Compile>
@@ -97,18 +100,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\DB classes\Sizes\DefaultSizesDb.cs" />
-    <Compile Include="Model\DB classes\Sizes\DefaultFreeFlangeDb.cs" />
-    <Compile Include="Model\DB classes\Standart\Data storages\DataStorage.cs" />
-    <Compile Include="Model\DB classes\Standart\Standart.cs" />
-    <Compile Include="Model\DB classes\Standart\StandartFreeFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
     <Compile Include="Model\Kompas\Modeling\SimpleFlange.cs" />
-    <Compile Include="Other\DataBaseExplorer.cs" />
-    <Compile Include="Other\Explorer.cs" />
-    <Compile Include="Other\MainExplorer.cs" />
-    <Compile Include="Other\Constants.cs" />
-    <Compile Include="Other\SketchesExplorer.cs" />
+    <Compile Include="Other\Explorers\Explorer\DataBaseExplorer.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\Explorer.cs" />
+    <Compile Include="Other\Explorers\Explorer\MainExplorer.cs" />
+    <Compile Include="Other\Common\Constants.cs" />
+    <Compile Include="Other\Explorers\Explorer\SketchesExplorer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -119,7 +117,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Other\Command.cs" />
+    <Compile Include="Other\Common\Command.cs" />
     <Compile Include="ViewModel\FlangeViewModel.cs" />
     <Compile Include="ViewModel\Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,6 +153,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\DB classes\Standart\Data storages\" />
     <Folder Include="Model\Kompas\Drafting\" />
     <Folder Include="View\" />
   </ItemGroup>

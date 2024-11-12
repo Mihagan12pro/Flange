@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Flange.Databases.Classes.Standart;
+//using Flange.Databases.Classes.Standart;
 using Flange.Model;
 namespace Flange
 {
