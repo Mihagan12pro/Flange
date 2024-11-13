@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,11 @@ namespace Flange.Model.DB_classes.Default
 {
     internal class DefaultDataBase : DataBase
     {
+       
         public DefaultDataBase()
         {
-            databaseFullName = MainExplorer.DataBaseExpl.DefaultSizes.DataBaseFullName;
-            databaseTables = MainExplorer.DataBaseExpl.DefaultSizes.TableNames.ToArray();
+            DatabaseFullName = MainExplorer.DataBaseExpl.DefaultSizes.DataBaseFullName;
+            DatabaseTables = MainExplorer.DataBaseExpl.DefaultSizes.TableNames.ToArray();
         }
     }
 }

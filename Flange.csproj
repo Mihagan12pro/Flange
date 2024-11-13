@@ -81,10 +81,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\DB classes\Default\DB\DefaultDataBase.cs" />
-    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeDB.cs" />
+    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeTable.cs" />
+    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeWithCircularHolesTable.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
-    <Compile Include="Other\Abstract classes and interfaces\ViewModelAbstract.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
+    <Compile Include="Other\Abstract classes and interfaces\NotifyPropertyChanged.cs" />
     <Compile Include="Other\Explorers\Master\DataBaseMaster.cs" />
     <Compile Include="Other\Extra sizes\ExtraSizesWindow.xaml.cs">
       <DependentUpon>ExtraSizesWindow.xaml</DependentUpon>
@@ -155,7 +157,6 @@
   <ItemGroup>
     <Folder Include="Model\DB classes\Standart\Data storages\" />
     <Folder Include="Model\Kompas\Drafting\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">

@@ -7,10 +7,10 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using Flange.Other.Abstract_classes_and_interfaces;
 namespace Flange.Other
 {
-    public class ModelType : INotifyPropertyChanged
+    internal class ModelType :Notify
     {
         private int type;
         public   int Type 
@@ -47,13 +47,6 @@ namespace Flange.Other
         }
 
         private Exception eUnknowModelType = new Exception("Unknown model type!");
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
 
         public readonly ObservableCollection<string> AllModels  = new ObservableCollection<string> { "Создать 3д модель", "Создать чертеж", "Создать сборку" };
         public ModelType(int _type)

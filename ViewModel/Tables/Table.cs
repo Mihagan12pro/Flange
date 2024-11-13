@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Flange.Other;
 using Flange.Model;
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
-//using Flange.Databases.Classes.Standart.Data_storages;
-//using Flange.Databases.Classes.Standart;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Flange.Other.Abstract_classes_and_interfaces;
 namespace Flange.ViewModel.Tables
 {
-    internal abstract class Table : INotifyPropertyChanged
+    internal abstract class Table : Notify
     {
         // public readonly string 
 
@@ -59,23 +57,7 @@ namespace Flange.ViewModel.Tables
             get { return columnWidth; }
             protected set { columnWidth = value ;OnPropertyChanged(); }
         }
-        //public ObservableCollection<DataStorage> Data 
-        //{ 
-        //    get
-        //    {
-        //        return data;
-        //    }
-        //    set 
-        //    {
-        //        data = value;
-        //        OnPropertyChanged();
-        //    } 
-        //}
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
         public Table(Controller D,Controller D1,Controller D2,      Controller N)
         {
            
@@ -85,11 +67,7 @@ namespace Flange.ViewModel.Tables
             this.D1 = D1;
             this.D2 = D2;
             this.N = N;
-          //  database = MainExplorer.DataBaseExpl.DefaultSizesFullName;
-
-            
-
-           // Data = (ObservableCollection<DataStorageSimpleFree>())this.Data;
+         
         }
     }
     class FreeSimpleTable:Table

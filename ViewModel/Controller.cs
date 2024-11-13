@@ -12,7 +12,8 @@ using System.Linq;
 using Flange.Other;
 using Flange.Model;
 using System.Data.SqlClient;
-public class Controller : INotifyPropertyChanged
+using Flange.Other.Abstract_classes_and_interfaces;
+internal class Controller : Notify
 {
 
     protected static readonly List<Controller> controllers = new List<Controller>();
@@ -133,15 +134,6 @@ public class Controller : INotifyPropertyChanged
 
     }
  
-  
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-
     public Controller(bool _readOnly, int textBoxId)
     {
 
