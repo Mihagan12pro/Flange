@@ -83,6 +83,7 @@
     <Compile Include="Model\DB classes\Default\DB\DefaultDataBase.cs" />
     <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeTable.cs" />
     <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeWithCircularHolesTable.cs" />
+    <Compile Include="Model\DB classes\Default\Tables\DefaultFreeFlangeTable.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
