@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Flange.Model.DB_classes.Default
 {
-    internal abstract class DefaultFlangeTable: SizeTable
+    public abstract class DefaultFlangeTable: SizeTable
     {
         //protected readonly string tableFullName = MainExplorer.DataBaseExpl.DefaultSizesFullName;
 
@@ -48,8 +48,11 @@ namespace Flange.Model.DB_classes.Default
 
             dbName = new DefaultDataBase().DatabaseFullName;
 
-            D = Convert.ToDouble(ExtractData()[0]);
-            H = Convert.ToDouble(ExtractData()[1]);
+            object []objs = new object[2];
+            objs = ExtractData().ToArray();
+
+            D = Convert.ToDouble(objs[0]);
+            H = Convert.ToDouble(objs[0]);
         }
 
 
@@ -59,20 +62,26 @@ namespace Flange.Model.DB_classes.Default
 
             using (SQLiteConnection connection = new SQLiteConnection(dbName))
             {
+                int n = -1;
                 connection.Open();
 
                 string commandText = $"SELECT * FROM {tableName}";
 
-                using (SQLiteCommand command = new SQLiteCommand(commandText))
+                using (SQLiteCommand command = new SQLiteCommand(commandText,connection))
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        int n = -1;
+
+
                         while (reader.Read())
                         {
-                            n++;
-                            extractedData.Add(reader.GetValue(n));
+                            for(int i =0; i < reader.FieldCount;i++)
+                            {
+                                extractedData.Add(reader.GetValue(i));
+                            }
                         }
+                        
+
                     }    
                 }    
 

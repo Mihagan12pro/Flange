@@ -100,7 +100,40 @@
                             </StackPanel>
 
                         </StackPanel>
+                        
+                        <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" BorderBrush="#bababa" HorizontalAlignment="Stretch" Margin="30,10,30,40">
+                            <Image></Image>
+                        </Border>
 
+                        <Label Name="SizeTittleBottomLbl" Grid.Row="1" Content="Снизу" Margin="0,15,0,60" VerticalAlignment="Center"></Label>
+
+                        <Border Name="ChooseSizeBottomBr" Grid.Row="1" BorderThickness="1" BorderBrush="#bababa"  Height="30"  HorizontalAlignment="Left" Margin="4" Width="78" MaxWidth="78" MinWidth="78">
+                            <StackPanel Name="RadioBottomStPl"  Height="28" HorizontalAlignment="Left" >
+                                <RadioButton Name="ChamferBottomRdBtn" Content="Фаска"  FontFamily="GOST Type B" FontSize="12" HorizontalAlignment="Left" />
+                                <RadioButton Name="FilletTopBottomRdBtn" Content="Скругление" FontFamily="GOST Type B" FontSize="12"  HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </Border>
+
+                        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+
+
+
+                            <StackPanel x:Name="ChamferLengthBottomStPl" Orientation="Horizontal" Visibility="Visible" >
+                                <Label Name="ChamferLengthBottomLbl" Content="l2,мм"/>
+                                <TextBox Name="ChamferLengthBottomTB" Width="85" Height="9" FontSize="8" />
+                            </StackPanel>
+
+                            <StackPanel Name="ChamferANgleBottomStPl" Orientation="Horizontal" Height="22" Margin="10,-5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Visible">
+                                <Label Name="ChamferAngleBottomLbl" Width="24">u2</Label>
+                                <TextBox Name="ChamferAngleBottomTB" Width="85" Height="9" Margin="-1" FontSize="8"></TextBox>
+                            </StackPanel>
+
+                            <StackPanel Name="Radius1BottomStPl" Orientation="Horizontal" Visibility="Collapsed">
+                                <Label Name="Radius1BottomLbl" Width="34" Content="r2,мм" HorizontalAlignment="Left"></Label>
+                                <TextBox Name="Radius1BottomTB" FontSize="8" Height="9" Width="90"></TextBox>
+                            </StackPanel>
+
+                        </StackPanel>
                     </Grid>
                 </Border>
 

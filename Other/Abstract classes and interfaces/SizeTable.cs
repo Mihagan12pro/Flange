@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Flange.Other.Abstract_classes_and_interfaces
 {
-    internal abstract class SizeTable: Notify
+    public abstract class SizeTable: Notify
     {
         protected string tableName, dbName;
 

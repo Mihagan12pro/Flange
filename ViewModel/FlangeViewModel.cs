@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
-//using Flange.Databases;
 using System.Data.SqlTypes;
 using System.Windows.Input;
 using Flange.ViewModel;
 using Flange.Kompas.Modeling;
-//using Flange.Databases.Classes.Standart;
-//using Flange.Databases.GOST_tables;
-//using Flange.Databases.GOST_tables.GOST_data_classes;
 using System.Windows.Controls;
 using Flange.Other;
-//using Flange.Databases.Classes.Standart.Data_storages;
 using KompasAPI7;
 using Flange.ViewModel.Tables;
 using Flange.Other.Extra_sizes;
 using System.Windows.Media.Animation;
 using Flange.Other.Abstract_classes_and_interfaces;
+using Flange.Model.DB_classes.Default.Tables;
+using Flange.Model.DB_classes.Default;
+
+
+
 
 
 namespace Flange.Model
@@ -34,10 +34,39 @@ namespace Flange.Model
         public readonly int Id;
         public readonly string Value;
 
+        
+        
+
         public TheController(int id,string value)
         {
             Value = value;
             Id = id;
+           
+        }
+    }
+
+    public struct ValidatorDefaultTable
+    {
+        private static ValidatorDefaultTable instance;
+
+        public readonly dynamic DefaultTableClass;
+
+        private ValidatorDefaultTable(dynamic defaultTableClass)
+        {
+            if (defaultTableClass is not DefaultFlangeTable)
+            {
+                throw new ArgumentException("An argument must be DefaultFlangeTable class object!");
+            }
+            DefaultTableClass = defaultTableClass;
+        }
+        public static ValidatorDefaultTable Instance(dynamic defaultTableClass)
+        {
+
+            instance = new ValidatorDefaultTable(defaultTableClass); 
+
+
+            return instance;
+
         }
     }
     internal class FlangeViewModel : ViewModelAbstract
@@ -57,13 +86,11 @@ namespace Flange.Model
             }
         }
 
-        //private string selectFlangeType;
-        //private readonly string SimpleFlangeType;
 
         public  ObservableCollection<string> ModelTypesCollection { get; private set; }
 
         private BitmapImage bitmapImage;
-      //  private DefaultFreeFlangeDb flangeSizes;
+      
 
 
         public ObservableCollection<string> FlangeTittles { get; private set; } 
@@ -78,16 +105,20 @@ namespace Flange.Model
         public Controller S1Controller {  get; private set; }
 
 
+
+
         //public CanvasOffsetX SketchOffsetX { get;private set; }
         //public CanvasOffsetX TableOffsetX { get;private set; }
-
+       public ValidatorDefaultTable Validator { get; private set; }
 
         public  ModelType Modeltype { get; private set; }
 
 
-      
-   
-       
+        public DefaultFlangeTable DefaultTable { get; private set; }
+        //  DefaultFlangeTable flangeTable;
+
+        
+
         public event EventHandler CanExecuteChanged;
 
 
@@ -166,23 +197,6 @@ namespace Flange.Model
 
 
 
-        private  double sketchCancasLeft;
-        public double SketchCanvasLeft
-        {
-            private set
-            {
-                sketchCancasLeft = value;
-                OnPropertyChanged(nameof(SketchCanvasLeft));
-
-            }
-            get
-            {
-                return sketchCancasLeft;
-            }
-        }
-      
-
-
 
         private Visibility tableVisibility;
 
@@ -216,23 +230,10 @@ namespace Flange.Model
                 switch(value)
                 {
                     case Constants.FreeFlange:
+                        Validator = ValidatorDefaultTable.Instance(new DefaultFreeFlangeTable());
 
-                        TableData = new FreeSimpleTable(DController, D1Controller, D2Controller, NConroller, DbController);
-                       // ColumnWidth =2.5 * TableData.TableWidth/ TableData.Data.Count;
-                       
-
-                       //DefaultFreeFlangeDb simple = new 
-                       //     DefaultFreeFlangeDb();
-                        //Controller.SetControllers(new ObservableCollection<TheController>
-                        //{
-                        //    new TheController(0, simple.D), new TheController(1,simple.D1),
-                        //    new TheController(2,simple.D2), new TheController(3,simple.H),
-                        //    new TheController(4,simple.Db), new TheController(5,simple.N),
-                        //    new TheController(6,""), new  TheController(7,"")
-                        //}.ToArray());
-                       
-
-                        BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.FreeFlange));
+                     
+                           BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.FreeFlange));
                         break;
 
                     case Constants.FlatFlange:
@@ -307,23 +308,6 @@ namespace Flange.Model
                 });
             }
         } 
-
-
-        //public DefaultFreeFlangeDb FlangeSizes
-        //{
-        //    private set
-        //    {
-        //        if (value != flangeSizes)
-        //        {
-        //            flangeSizes = value;
-        //        }
-        //    }
-        //    get
-        //    {
-        //        return flangeSizes;
-        //    }
-        //}
-
 
         public BitmapImage BitmapImage
         {

@@ -20,7 +20,7 @@ namespace Flange.Other.Abstract_classes_and_interfaces
     }
 
 
-    internal abstract class Notify: INotifyPropertyChanged
+    public abstract class Notify: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

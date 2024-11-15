@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Flange.Model.DB_classes.Default.Tables
 {
-    internal class DefaultFreeFlangeTable : DefaultFlangeWithCircularHolesTable
+    public class DefaultFreeFlangeTable : DefaultFlangeWithCircularHolesTable
     {
         protected double db;
         public double Db
