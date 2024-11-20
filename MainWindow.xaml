@@ -16,12 +16,19 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition Height="0.25*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <custom:CustomToolBar  Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
-            
+        <custom:CustomToolBar  Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0" VerticalAlignment="Top" Margin="1 -2 1 1">
+            <Border custom:CustomToolBar.IsRight="True" BorderBrush="DimGray" BorderThickness="1" Margin="1" VerticalAlignment="Top">
+                <StackPanel Name="ModelButtonsStPl" Orientation="Vertical" >
+                    <Button Name="CreateModelBtn" Margin="2" VerticalAlignment="Stretch"> Создать 3д модель</Button>
+                    <Button Name="CreateDraftBtn" Margin="2" VerticalAlignment="Stretch">Создать 2д чертеж</Button>
+                    <Button Name="CreateAssembleBtn" Margin="2" VerticalAlignment="Stretch">Создать сборку</Button>
+                </StackPanel>
+            </Border>
+          
         </custom:CustomToolBar>
         
     </Grid>
