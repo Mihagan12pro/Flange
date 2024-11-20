@@ -4,90 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
+        xmlns:custom="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
         Title="Генератор фланцев" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
 
+    <Grid Background="Azure">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-    
-        <Canvas Name="MainCanvas" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-
-
-
-        <Image   Name="SketchImage" Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant"   Source="{Binding  BitmapImage}"  Margin="0,34,0,0" Canvas.Left="{Binding SketchOffsetX.Left}"  VerticalAlignment="Top" Canvas.Top="0" />
-
-        <DataGrid Name="StandartSizesTableDGr" Canvas.Right="180" SelectedIndex="{Binding TableData.SelectedIndex}"  Width="{Binding TableData.TableWidth}"   HorizontalAlignment="Center" FontFamily="GOST Type B" Canvas.Top="60" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" IsReadOnly="True"  CanUserResizeColumns="True" ColumnWidth="{Binding TableData.ColumnWidth}"  ItemsSource="{Binding TableData.Data}"  >
-            <DataGrid.Columns>
-                
-            </DataGrid.Columns>
-        </DataGrid>
-
-
-
+        <custom:CustomToolBar  Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
             
-                <Grid  Canvas.Right="0" Canvas.Top="50">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="23*"></RowDefinition>
-                <RowDefinition Height="22*"></RowDefinition>
-                <RowDefinition Height="22"></RowDefinition>
-                <RowDefinition Height="22*"></RowDefinition>
-                <RowDefinition Height="22*"></RowDefinition>
-                <RowDefinition Height="22*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-                <RowDefinition Height="0*"></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Label   Grid.Column="0" Name="SizeDLbl" FontSize="12"  FontFamily="GOST Type B"  Content="D" Canvas.Top="58" Height="21" Width="24" HorizontalContentAlignment="Left"  Canvas.Right="127" HorizontalAlignment="Center" Canvas.Left="250" VerticalAlignment="Center" />
-            <TextBox Name="SizeDTb" Text="{Binding DController.RowValue}"   Background="{Binding DController.Background}" IsReadOnly="{Binding DController.ReadOnly}"  FontFamily="GOST Type B" Width="116"  Height="23" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Center" Canvas.Right="0"  Grid.Column="1"     Canvas.Top="58"     />
-
-
-            <Label  Grid.Column="0"  Grid.Row="1" Name="SizeD1Lbl" FontSize="12"  FontFamily="GOST Type B"  Content="D1" Canvas.Top="80" Canvas.Right="127" Height="21" Width="20" HorizontalAlignment="Left" Canvas.Left="254" VerticalAlignment="Center"    />
-            <TextBox  Name="SizeD1TB" Text="{Binding D1Controller.RowValue}"  Background="{Binding D1Controller.Background}" IsReadOnly="{Binding D1Controller.ReadOnly}" FontFamily="GOST Type B" Width="116"  Height="22" TextWrapping="Wrap"  HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Canvas.Right="0"  Grid.Row="1"     Canvas.Top="80"   />
-
-            <Label  Grid.Column="0"  Grid.Row="2" x:Name="SizeD2Lbl" FontSize="12"   FontFamily="GOST Type B"  Content="D2" Canvas.Top="99" Height="21" Width="23" Canvas.Right="127"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-            <TextBox Name="SizeD2TB" Text="{Binding D2Controller.RowValue}" Background="{Binding D2Controller.Background}" IsReadOnly="{Binding D2Controller.ReadOnly}"    FontFamily="GOST Type B" Width="116" Height="22" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"   HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="289" Canvas.Top="98" />
-
-            <Label Grid.Column="0" Grid.Row="3" x:Name="SizeDbLbl" FontSize="12"  FontFamily="GOST Type B"   Content="Db" Canvas.Top="120" Height="21" Width="23" Canvas.Right="200"  HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-            <TextBox x:Name="SizeDbTB" Text="{Binding DbController.RowValue}"  Background="{Binding DbController.Background}" IsReadOnly="{Binding DbController.ReadOnly}"  FontFamily="GOST Type B" Width="116" Height="22" Canvas.Right="0"   Grid.Column="1" Grid.Row="3"   Canvas.Top="120"  TextWrapping="Wrap"   HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-
-
-            <Label  Grid.Column="0" Grid.Row="4" x:Name="SizeHLbl" FontSize="12"   FontFamily="GOST Type B"   Content="H" Canvas.Top="139" Height="21" Width="19" Canvas.Right="200" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="254"/>
-            <TextBox  Name="SizeHTB" Text="{Binding HController.RowValue}" Background="{Binding HController.Background}" IsReadOnly="{Binding HController.ReadOnly}" Grid.Column="1" Grid.Row="4"   FontFamily="GOST Type B"    Canvas.Top="140"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-
-            <Label Grid.Column="0"  Grid.Row="5" Name="NLbl" FontFamily="GOST Type B"   Content="N" Canvas.Top="160" Height="22" Width="20" Canvas.Right="0" Canvas.Left="254" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding NConroller.RowValue}"  Name="NTB" Background="{Binding NConroller.Background}" IsReadOnly="{Binding NConroller.ReadOnly}" Grid.Column="1" Grid.Row="5"  FontFamily="GOST Type B"   Canvas.Top="160"  TextWrapping="Wrap" Width="116" Canvas.Right="0" Height="22"  HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="6" Content="a1" Name="a1Lbl" FontFamily="GOST Type B"></Label>
-            <TextBox Name="a1Tb" Text="{Binding A1Controller.RowValue}" IsReadOnly="{Binding  A1Controller.ReadOnly}" Grid.Column="1" Grid.Row="6" ></TextBox>
-
-            <Label Grid.Column="0" HorizontalAlignment="Center" Grid.Row="7" Content="S1" Name="SLbl" FontFamily="GOST Type B"></Label>
-            <TextBox Name="S1Tb" Text="{Binding S1Controller.RowValue}" IsReadOnly="{Binding  S1Controller.ReadOnly}" Grid.Column="1" Grid.Row="7" ></TextBox>
-        </Grid>
+        </custom:CustomToolBar>
         
-        <ToolBar Name="ActionBarTlBr" Height="30" Canvas.Top="0" Width="560" HorizontalAlignment="Left" Background="AliceBlue" VerticalAlignment="Center" Canvas.Right="0">
-            
-            <ComboBox  FontFamily="GOST Type B"   ItemsSource="{Binding   FlangeTittles}"  SelectedIndex="{Binding SelectedFlangeType}" Name="FlangeTypesCB"  Width="120" IsReadOnly="True" HorizontalAlignment="Center" Height="19"  VerticalAlignment="Top" ></ComboBox>
-            <ComboBox Name="SelectModelTypeCB"    ItemsSource="{Binding  ModelTypeList}" SelectedIndex="{Binding    Modeltype.Type}" Width="120" HorizontalAlignment="Center"  VerticalAlignment="Top"></ComboBox>
-            <Button  Content="{Binding  Modeltype.BuildButtonContent}" BorderBrush="MediumAquamarine" Name="BuiltBtn" Command = "{Binding BuildFlangeCommand}"  FontFamily="GOST Type B"  VerticalAlignment="Top" Height="19" Width="126" HorizontalAlignment="Left"   />
-            <Button  Name="ExtraSizesBtn" Command = "{Binding CreateExtraSizesWindowCommand}" BorderBrush="MediumAquamarine" FontFamily="GOST Type B" Content="Дополнительные размеры" Width="160" VerticalAlignment="Top" Height="19" HorizontalAlignment="Left" ></Button>
-            
-        </ToolBar>
+    </Grid>
 
 
-    </Canvas>
 
-    
+
 
 </Window>
