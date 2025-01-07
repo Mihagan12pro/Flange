@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flange"
         xmlns:custom="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
+        Title="Генератор фланцев" Background="Gray" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
 
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
@@ -16,12 +16,33 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.02*"></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Menu Grid.ColumnSpan="3" Background="White">
-            
+        <Menu Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
+            <MenuItem Header="Параметры приложения">
+                <MenuItem Header="Язык приложения"></MenuItem>
+                <MenuItem Header="Шрифты и цвета"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Параметры изделия">
+                <MenuItem Header="Дополнительные размеры"></MenuItem>
+                <MenuItem Header="Материал детали"></MenuItem>
+                <MenuItem Header="Параметры сохранения"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Выбор САПР системы">
+                <MenuItem Header="Компас-3D" IsChecked="True" IsCheckable="True" ></MenuItem>
+                <MenuItem Header="nanoCAD" IsCheckable="True" ></MenuItem>
+            </MenuItem>
+            <MenuItem  Height="24" Header="Построить...">
+                <MenuItem Header="3д модель"></MenuItem>
+                <MenuItem Header="2д чертёж"></MenuItem>
+                <MenuItem Header="Сборку"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе"></MenuItem>
+                <MenuItem Header="Как пользоваться программой"></MenuItem>
+            </MenuItem>
         </Menu>
 
     </Grid>
