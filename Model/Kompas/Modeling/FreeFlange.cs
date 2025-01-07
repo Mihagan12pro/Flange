@@ -76,11 +76,6 @@ namespace Flange.Kompas.Modeling
 
             iChamferCollection.Clear();
 
-            //Edge a = (Edge)iEntityCollection.GetByIndex(0);
-
-            //iChamferCollection.Add(a);
-            //iEntityCollection.SelectByPoint(d/2, 0, h);
-            //iEntityCollection.SelectByPoint(db,0,-h);
             iEntityCollection.SelectByPoint(db/2, 0, -h);
 
             iChamferCollection.Add(iEntityCollection.GetByIndex(0));
