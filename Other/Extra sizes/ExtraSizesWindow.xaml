@@ -46,13 +46,13 @@
 
 
                     <Border Name="SketchBr" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BorderBrush="Black" BorderThickness="2">
-                        <Image Name="SketchIm" Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></Image>
+                        <Image Name="SketchIm" Source="{Binding Image}" Stretch="Fill" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"></Image>
                     </Border>
 
                 </Grid>
             </TabItem>
 
-            <TabItem Name="FlangeDiscItem" Header="Диск фланца" Height="17" VerticalAlignment="Bottom">
+            <TabItem Name="FlangeDiscItem" Header="Диск" Height="17" VerticalAlignment="Bottom">
 
 
                 <Border Margin="10,10" BorderBrush="#bababa" BorderThickness="1" >

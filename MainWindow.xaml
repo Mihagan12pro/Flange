@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
-        xmlns:custom="clr-namespace:Flange.Other.WPF_override"
+        xmlns:radio="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" Background="Gray" MinWidth="1000" Height="500" MinHeight="450"  Width="{Binding  WindowWidth}"  d:DesignWidth="665">
-
+        Title="Генератор фланцев" Background="Gray"  Height="500" MinWidth="630" MinHeight="350"  >
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,30 +19,62 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Menu Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
-            <MenuItem Header="Параметры приложения">
+        <Menu Margin="0 -1" Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
+            <MenuItem Header="Справка" Name="HelpMenuItem">
+                <MenuItem Header="О программе"></MenuItem>
+                <MenuItem Header="Руководство"></MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Дополнительно">
+                <MenuItem Header="Просмотр 3д моделей">
+                    
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Параметры приложения" Name="AppConfigMenuItem">
                 <MenuItem Header="Язык приложения"></MenuItem>
                 <MenuItem Header="Шрифты и цвета"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Параметры изделия">
+            <MenuItem Header="Параметры изделия" Name="DateilConfigManuItem">
                 <MenuItem Header="Дополнительные размеры"></MenuItem>
                 <MenuItem Header="Материал детали"></MenuItem>
                 <MenuItem Header="Параметры сохранения"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Выбор САПР системы">
-                <MenuItem Header="Компас-3D" IsChecked="True" IsCheckable="True" ></MenuItem>
-                <MenuItem Header="nanoCAD" IsCheckable="True" ></MenuItem>
-            </MenuItem>
-            <MenuItem  Height="24" Header="Построить...">
+            <radio:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
+               
+            </radio:RadioMenuItemBox>
+
+            <radio:RadioMenuItem Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
+                <MenuItem Header="Свободный">
+
+                </MenuItem>
+                <MenuItem Header="Плоский">
+
+                </MenuItem>
+                <MenuItem Header="Глухой">
+
+                </MenuItem>
+                <MenuItem Header="Воротниковый">
+
+                </MenuItem>
+            </radio:RadioMenuItem>
+
+           
+            <MenuItem   Header="Создать" Name="BuildMenuItem">
                 <MenuItem Header="3д модель"></MenuItem>
                 <MenuItem Header="2д чертёж"></MenuItem>
                 <MenuItem Header="Сборку"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Справка">
-                <MenuItem Header="О программе"></MenuItem>
-                <MenuItem Header="Как пользоваться программой"></MenuItem>
-            </MenuItem>
         </Menu>
+
+        <Border Grid.Column="0" Grid.Row="1" BorderThickness="3" BorderBrush="Black" >
+            <Image Name="SketchImage"  Stretch="Fill" Source="C:\Users\kargi\OneDrive\Рабочий стол\Flange\Заглушка2.PNG" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+        </Border>
+        <DataGridRow  Name="StandartSizesTable" Grid.Column="1" Grid.Row="1">
+            
+        </DataGridRow>
+        
+
+
 
     </Grid>
 
