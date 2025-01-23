@@ -30,25 +30,9 @@ namespace Flange
         {
             InitializeComponent();
 
-            RadioMenuItem kompas3DItem = new RadioMenuItem();
-            kompas3DItem.Name = "Kompas3DMenuItem";
-            kompas3DItem.Header = "Компас-3D";
-
-            RadioMenuItem nanoCADItem = new RadioMenuItem();
-            kompas3DItem.Name = "nanoCadMenuItem";
-            kompas3DItem.Header = "nanoCAD";
-
-            ChooseCADMenuItem.InsertChild(kompas3DItem);
-            ChooseCADMenuItem.InsertChild(nanoCADItem);
+            Kompas3DMenuItem.IsChecked = true;
 
             DataContext = new FlangeViewModel();
-            
         }
-
-
-
-
     }
-
-   
 }

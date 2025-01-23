@@ -94,8 +94,8 @@
     </Compile>
     <Compile Include="Other\Extra sizes\ViewModel\ExtraViewModel.cs" />
     <Compile Include="Other\Extra sizes\ViewModel\TabItem\TabItemController.cs" />
+    <Compile Include="Other\WPF override\RadioMenuItemBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItem.cs" />
-    <Compile Include="Other\WPF override\CustomToolBar.cs" />
     <Compile Include="ViewModel\Tables\Table.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PathExplorerLibrary.dll" />
+    <Resource Include="Resours source\Sketches\EmptyIMG.png" />
     <Content Include="SQLite.Interop.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

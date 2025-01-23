@@ -22,6 +22,7 @@ using System.Windows.Media.Animation;
 using Flange.Other.Abstract_classes_and_interfaces;
 using Flange.Model.DB_classes.Default.Tables;
 using Flange.Model.DB_classes.Default;
+using Flange.Other.WPF_override;
 
 
 
@@ -51,6 +52,8 @@ namespace Flange.Model
 
         public readonly dynamic DefaultTableClass;
 
+
+
         private ValidatorDefaultTable(dynamic defaultTableClass)
         {
             if (defaultTableClass is not DefaultFlangeTable)
@@ -69,6 +72,10 @@ namespace Flange.Model
 
         }
     }
+
+
+
+
     internal class FlangeViewModel : ViewModelAbstract
     {
 
@@ -92,37 +99,46 @@ namespace Flange.Model
         private BitmapImage bitmapImage;
       
 
-
         public ObservableCollection<string> FlangeTittles { get; private set; } 
 
-        public Controller DController { get; private set; }
-        public Controller D1Controller { get; private set; }
-        public Controller D2Controller { get; private set; }
-        public Controller HController { get; private set; }
-        public Controller DbController { get; private set; }
-        public Controller NConroller { get; private set; }
-        public Controller A1Controller { get;private set; }
-        public Controller S1Controller {  get; private set; }
 
+        public ValidatorDefaultTable Validator { get; private set; }
 
-
-
-        //public CanvasOffsetX SketchOffsetX { get;private set; }
-        //public CanvasOffsetX TableOffsetX { get;private set; }
-       public ValidatorDefaultTable Validator { get; private set; }
 
         public  ModelType Modeltype { get; private set; }
-
-
+        
+    
         public DefaultFlangeTable DefaultTable { get; private set; }
-        //  DefaultFlangeTable flangeTable;
-
+    
         
 
         public event EventHandler CanExecuteChanged;
 
 
+        private RadioMenuItem selectCADRadioMenu;
 
+        private bool isFreeFlangeSelected;
+        public bool IsFreeFlangeSelected
+        {
+            get
+            {
+                return isFreeFlangeSelected;
+            }
+            set
+            {
+                isFreeFlangeSelected = value;
+
+                if (value == true)
+                { 
+                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
+                }
+                else
+                {
+                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.EmptyIMG));
+                }
+                OnPropertyChanged();
+            }
+        }
 
 
         public ObservableCollection<string>ModelTypeList
@@ -157,9 +173,10 @@ namespace Flange.Model
                 
                 return windowWith;
             }
-            private set
+            set
             {
-                windowWith = value;               
+                windowWith = value;
+                OnPropertyChanged();
             }
         }
 
@@ -187,34 +204,13 @@ namespace Flange.Model
             get     
             {
                 return tableRowIndex;
-             } 
+            } 
             set
             {
                 tableRowIndex = value;
                 OnPropertyChanged();
             }
         }
-
-
-
-
-        private Visibility tableVisibility;
-
-        public Visibility TableVisibility
-        {
-            get
-            {
-                return tableVisibility; 
-            }
-            set 
-            { 
-                tableVisibility = value; 
-            }
-        }
-
-
-
-  
 
         private int selectedFlangeType;
         public int SelectedFlangeType
@@ -256,23 +252,23 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-           switch( SelectedFlangeType)
-           {
-                case 0:
-                    //Console.WriteLine(ColumnWidth);
-                    SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
-                    //simpleFlange.TryToBuild();
+           //switch( SelectedFlangeType)
+           //{
+           //     case 0:
+           //         //Console.WriteLine(ColumnWidth);
+           //         SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
+           //         //simpleFlange.TryToBuild();
 
-                    break;
-                case 1:
-                    FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
-                    //freeFlange.TryToBuild();
+           //         break;
+           //     case 1:
+           //         FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
+           //         //freeFlange.TryToBuild();
 
-                    break;
-                default:
-                    MessageBox.Show("Error!");
-                    break;
-           }
+           //         break;
+           //     default:
+           //         MessageBox.Show("Error!");
+           //         break;
+           //}
         }
 
         private void CreateExtraSizesWindow()
@@ -285,7 +281,6 @@ namespace Flange.Model
 
         }
 
-
         public Command BuildFlangeCommand
         {
             get
@@ -297,6 +292,13 @@ namespace Flange.Model
                 });
             }
         }
+
+       
+
+        //public Command WindowSizeChanged
+        //{
+
+        //}
 
         public Command CreateExtraSizesWindowCommand
         {
@@ -350,42 +352,15 @@ namespace Flange.Model
 
         public FlangeViewModel()
         {
-            //DVisibitily = Visibility.Hidden;
-            
-
-
-            DController = new Controller(false,0);
-            D1Controller = new Controller(false,1);
-            D2Controller = new Controller(false,2);
-            HController = new Controller(false,3);
-            DbController = new Controller(false,4);
-            NConroller = new Controller(false,5);
-
-            A1Controller = new Controller(false, 6);
-         
-            S1Controller = new Controller(false, 7);
-
+           
 
             FlangeTittles = new ObservableCollection<string>(( from fl in FlangeType.AllFlangeTypes select fl.Tittle).ToArray());
             OnPropertyChanged(nameof(FlangeTittles));
 
+            IsFreeFlangeSelected = true;
+            OnPropertyChanged(nameof(IsFreeFlangeSelected));
 
-            // SelectFlangeType = FlangeTypesCBItems[0] ;
-
-            //DefaultFreeFlangeDb sizesSimpleFlange = new DefaultFreeFlangeDb();
-
-            WindowWidth = 1000;
             UpdateTableWidth(WindowWidth);
-
-            //SketchOffsetX = new CanvasOffsetX(10, 0);
-
-            Modeltype = new ModelType(0);
-
-            TableHeight = 600;
-
-            //TableOffsetX = new CanvasOffsetX(SketchOffsetX.Left + 100,0);
-
-            SelectedFlangeType = 0;
         }
     }
 }

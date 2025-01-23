@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flange"
         xmlns:radio="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" Background="Gray"  Height="500" MinWidth="630" MinHeight="350"  >
+        Title="Генератор фланцев" Background="Gray" Height="500" MinWidth="630" MinHeight="350" Width="{Binding WindowWidth}" >
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,46 +20,44 @@
         </Grid.RowDefinitions>
 
         <Menu Margin="0 -1" Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
-            <MenuItem Header="Справка" Name="HelpMenuItem">
+            <MenuItem Header="Справка" Name="HelpMenuItem" Visibility="{Binding Visibility}">
                 <MenuItem Header="О программе"></MenuItem>
                 <MenuItem Header="Руководство"></MenuItem>
 
             </MenuItem>
-            <MenuItem Header="Дополнительно">
+            <MenuItem Header="Дополнительно" Name="ExtraMenuItem" >
                 <MenuItem Header="Просмотр 3д моделей">
-                    
+
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Параметры приложения" Name="AppConfigMenuItem">
+            <MenuItem Header="Параметры приложения" Name="AppsConfigMenuItem">
                 <MenuItem Header="Язык приложения"></MenuItem>
                 <MenuItem Header="Шрифты и цвета"></MenuItem>
             </MenuItem>
             <MenuItem Header="Параметры изделия" Name="DateilConfigManuItem">
-                <MenuItem Header="Дополнительные размеры"></MenuItem>
+                <MenuItem Name="ExtraSizes"  Header="Дополнительные размеры"></MenuItem>
                 <MenuItem Header="Материал детали"></MenuItem>
                 <MenuItem Header="Параметры сохранения"></MenuItem>
             </MenuItem>
             <radio:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
-               
+                <radio:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
+                    
+                </radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="nanoCAD" x:Name="nanoCADMenuItem">
+
+                </radio:RadioMenuItem>
             </radio:RadioMenuItemBox>
 
-            <radio:RadioMenuItem Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
-                <MenuItem Header="Свободный">
+            <radio:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
 
-                </MenuItem>
-                <MenuItem Header="Плоский">
+                <radio:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Плоский"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Глухой"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Воротниковый"></radio:RadioMenuItem>
+            </radio:RadioMenuItemBox>
 
-                </MenuItem>
-                <MenuItem Header="Глухой">
 
-                </MenuItem>
-                <MenuItem Header="Воротниковый">
-
-                </MenuItem>
-            </radio:RadioMenuItem>
-
-           
-            <MenuItem   Header="Создать" Name="BuildMenuItem">
+            <MenuItem Header="Создать" Name="BuildMenuItem">
                 <MenuItem Header="3д модель"></MenuItem>
                 <MenuItem Header="2д чертёж"></MenuItem>
                 <MenuItem Header="Сборку"></MenuItem>
@@ -67,19 +65,14 @@
         </Menu>
 
         <Border Grid.Column="0" Grid.Row="1" BorderThickness="3" BorderBrush="Black" >
-            <Image Name="SketchImage"  Stretch="Fill" Source="C:\Users\kargi\OneDrive\Рабочий стол\Flange\Заглушка2.PNG" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+            <Image Name="SketchImage"  Stretch="Fill" Source="{Binding BitmapImage}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
         </Border>
         <DataGridRow  Name="StandartSizesTable" Grid.Column="1" Grid.Row="1">
-            
+
         </DataGridRow>
-        
 
-
-
+        <Rectangle Grid.Column="2" Grid.Row="1" Stretch="Fill" >
+           
+        </Rectangle>
     </Grid>
-
-
-
-
-
 </Window>
