@@ -7,13 +7,12 @@ using System.Windows.Controls;
 using System.Windows;
 namespace Flange.Other.WPF_override
 {
-    internal class ParameteresBox: TextBox
+    internal class ParametersBox: TextBox
     {
-        public ParameteresBox()
+        public ParametersBox()
         {
             LostFocus += ParameteresBox_LostFocus;
         }
-
         private void ParameteresBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
@@ -28,7 +27,5 @@ namespace Flange.Other.WPF_override
                 Text = "0";
             }
         }
-
-      
     }
 }

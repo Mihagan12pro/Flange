@@ -82,80 +82,88 @@
         
         <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource Form}">
             <StackPanel>
-                
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD}">
                     <DockPanel >
                         <Label Style="{StaticResource FormLabel}" >D</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
-                <Border  Style="{StaticResource Fieldset}">
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD1}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}" >D1</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D2</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D3</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD4}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D4</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD5}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D5</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfDb}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">Db</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH1}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H1</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
-                <Border  Style="{StaticResource Fieldset}">
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H2</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
-                <Border  Style="{StaticResource Fieldset}">
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H3</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
-                <Border  Style="{StaticResource Fieldset}">
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfs1}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">s1</Label>
-                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
