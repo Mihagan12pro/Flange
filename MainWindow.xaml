@@ -167,6 +167,14 @@
                     </DockPanel>
                 </Border>
 
+
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfn}">
+                    <DockPanel>
+                        <Label Style="{StaticResource FormLabel}">n</Label>
+                        <override:CountBox Style="{StaticResource FormCountText}"></override:CountBox>
+                    </DockPanel>
+                </Border>
+
             </StackPanel>
 
            

@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Other\Extra sizes\ViewModel\ExtraViewModel.cs" />
     <Compile Include="Other\Extra sizes\ViewModel\TabItem\TabItemController.cs" />
+    <Compile Include="Other\WPF override\CountBox.cs" />
     <Compile Include="Other\WPF override\ParametersBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItemBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItem.cs" />

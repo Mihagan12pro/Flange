@@ -6,7 +6,7 @@
         <Setter Property="CornerRadius" Value="4"></Setter>
         <Setter Property="BorderBrush" Value="Black"></Setter>
         <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="Margin" Value="10 5"></Setter>
+        <Setter Property="Margin" Value="10 2"></Setter>
         <Setter Property="Background" Value="White"></Setter>
     </Style>
 
@@ -31,4 +31,12 @@
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
         <Setter Property="FontWeight" Value="Bold"></Setter>
     </Style>
+
+    <Style x:Key="FormCountText" TargetType="override:CountBox">
+        <Setter Property="Margin" Value="0 2 2 2"></Setter>
+        <Setter Property="FontFamily" Value="Gost Type A"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+    
 </ResourceDictionary>

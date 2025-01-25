@@ -138,6 +138,8 @@ namespace Flange.Model
                     VisibilityOfD1 = Visibility.Visible;
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfDb = Visibility.Visible;
+
+                    VisibilityOfn = Visibility.Visible;
                 }
                 OnPropertyChanged();
             }
@@ -164,6 +166,8 @@ namespace Flange.Model
                     VisibilityOfD3 = Visibility.Visible;
                     VisibilityOfDb = Visibility.Visible;
                     VisibilityOfs1 = Visibility.Visible;
+
+                    VisibilityOfn = Visibility.Visible;
                 }
                 OnPropertyChanged();
 
@@ -190,6 +194,8 @@ namespace Flange.Model
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfD3 = Visibility.Visible;
                     VisibilityOfs1 = Visibility.Visible;
+
+                    VisibilityOfn = Visibility.Visible;
                 }
                 OnPropertyChanged();
             }
@@ -221,6 +227,8 @@ namespace Flange.Model
                     VisibilityOfH2 = Visibility.Visible;
                     VisibilityOfH3 = Visibility.Visible;
                     VisibilityOfs1 = Visibility.Visible;
+
+                    VisibilityOfn = Visibility.Visible;
                 }
                 OnPropertyChanged();
             }
@@ -368,6 +376,20 @@ namespace Flange.Model
                 OnPropertyChanged();
             }
         }
+
+        private Visibility visibilityOfn;
+        public Visibility VisibilityOfn
+        {
+            get
+            {
+                return visibilityOfn;
+            }
+            private set
+            {
+                visibilityOfn = value;
+                OnPropertyChanged();
+            }
+        }
         
         public ObservableCollection<string>ModelTypeList
         {
@@ -458,6 +480,7 @@ namespace Flange.Model
             VisibilityOfH2 = Visibility.Collapsed;
             VisibilityOfH3 = Visibility.Collapsed;
             VisibilityOfs1 = Visibility.Collapsed;
+            VisibilityOfn = Visibility.Collapsed;
         }
 
         private ObservableCollection<string> flangeModelTypes = new ObservableCollection<string>();
@@ -634,21 +657,8 @@ namespace Flange.Model
             VisibilityOfD = Visibility.Visible;
             VisibilityOfH = Visibility.Visible;
 
+            CollapseAll();
 
-            VisibilityOfD1 = Visibility.Collapsed;
-            VisibilityOfD2 = Visibility.Collapsed;
-            VisibilityOfD3 = Visibility.Collapsed;
-            VisibilityOfD4 = Visibility.Collapsed;
-            VisibilityOfD5 = Visibility.Collapsed;
-            VisibilityOfDb = Visibility.Collapsed;
-
-            VisibilityOfH1 = Visibility.Collapsed;
-            VisibilityOfH2 = Visibility.Collapsed;
-            VisibilityOfH3 = Visibility.Collapsed;
-
-            VisibilityOfs1 = Visibility.Collapsed;
-
-            //
             //FlangeTittles = new ObservableCollection<string>(( from fl in FlangeType.AllFlangeTypes select fl.Tittle).ToArray());
             OnPropertyChanged(nameof(FlangeTittles));
 

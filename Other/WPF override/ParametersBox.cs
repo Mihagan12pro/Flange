@@ -21,6 +21,7 @@ namespace Flange.Other.WPF_override
 
                 if (double.TryParse(Text, out double d))
                 {
+                    Text = Convert.ToString(Math.Abs(Convert.ToDouble(Text)));
                     return;
                 }
                 MessageBox.Show("Некорректный ввод!","Внимание!",MessageBoxButton.OK,MessageBoxImage.Error);
