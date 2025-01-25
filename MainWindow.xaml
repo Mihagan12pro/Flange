@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Генератор фланцев" Background="White"  Height="500" MinWidth="630" MinHeight="350"  Width="{Binding WindowWidth}" >
     <Window.Resources>
-        <ResourceDictionary Source="FieldsetDictionary.xaml" />
+        <ResourceDictionary Source="FormDictionary.xaml" />
     </Window.Resources>
     <Grid>
        
@@ -77,71 +77,86 @@
 
         </DataGridRow>
 
+        
+        
+        
         <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource Form}">
             <StackPanel>
                 
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
-                        <Label Style="{StaticResource FormLabel}">D</Label>
-                    </StackPanel>
+                    <DockPanel >
+                        <Label Style="{StaticResource FormLabel}" >D</Label>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
-                        <Label Style="{StaticResource FormLabel}">D1</Label>
-                    </StackPanel>
+                    <DockPanel>
+                        <Label Style="{StaticResource FormLabel}" >D1</Label>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D2</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D3</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D4</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D5</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">Db</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H1</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H2</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H3</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
                 <Border  Style="{StaticResource Fieldset}">
-                    <StackPanel Style="{StaticResource FormStackPanel}">
+                    <DockPanel>
                         <Label Style="{StaticResource FormLabel}">s1</Label>
-                    </StackPanel>
+                        <override:ParameteresBox Style="{StaticResource FormParametreText}"></override:ParameteresBox>
+                    </DockPanel>
                 </Border>
 
             </StackPanel>
