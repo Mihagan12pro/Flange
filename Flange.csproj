@@ -94,9 +94,14 @@
     </Compile>
     <Compile Include="Other\Extra sizes\ViewModel\ExtraViewModel.cs" />
     <Compile Include="Other\Extra sizes\ViewModel\TabItem\TabItemController.cs" />
+    <Compile Include="Other\WPF override\ParameteresBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItemBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItem.cs" />
     <Compile Include="ViewModel\Tables\Table.cs" />
+    <Page Include="FormDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

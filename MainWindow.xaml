@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange"
-        xmlns:radio="clr-namespace:Flange.Other.WPF_override"
+        xmlns:override="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" Background="Gray" Height="500" MinWidth="630" MinHeight="350"  Width="{Binding WindowWidth}" >
-    <Grid Background="Azure">
+        Title="Генератор фланцев" Background="White"  Height="500" MinWidth="630" MinHeight="350"  Width="{Binding WindowWidth}" >
+    <Window.Resources>
+        <ResourceDictionary Source="FieldsetDictionary.xaml" />
+    </Window.Resources>
+    <Grid>
+       
+
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -39,22 +45,22 @@
                 <MenuItem Header="Материал детали"></MenuItem>
                 <MenuItem Header="Параметры сохранения"></MenuItem>
             </MenuItem>
-            <radio:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
-                <radio:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
-                    
-                </radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="nanoCAD" x:Name="nanoCADMenuItem">
+            <override:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
+                <override:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
 
-                </radio:RadioMenuItem>
-            </radio:RadioMenuItemBox>
+                </override:RadioMenuItem>
+                <override:RadioMenuItem Header="nanoCAD" x:Name="nanoCADMenuItem">
 
-            <radio:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
+                </override:RadioMenuItem>
+            </override:RadioMenuItemBox>
 
-                <radio:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Плоский" IsChecked = "{Binding IsFlatFlangeSelected}"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Глухой" IsChecked="{Binding IsBlindFlangeSelected}"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></radio:RadioMenuItem>
-            </radio:RadioMenuItemBox>
+            <override:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
+
+                <override:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></override:RadioMenuItem>
+                <override:RadioMenuItem Header="Плоский" IsChecked = "{Binding IsFlatFlangeSelected}"></override:RadioMenuItem>
+                <override:RadioMenuItem Header="Глухой" IsChecked="{Binding IsBlindFlangeSelected}"></override:RadioMenuItem>
+                <override:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></override:RadioMenuItem>
+                                </override:RadioMenuItemBox>
 
 
             <MenuItem Header="Создать" Name="BuildMenuItem">
@@ -71,8 +77,76 @@
 
         </DataGridRow>
 
-        <Rectangle Grid.Column="2" Grid.Row="1" Stretch="Fill" >
+        <Border Grid.Column="2" Grid.Row="1" Style="{StaticResource Form}">
+            <StackPanel>
+                
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D</Label>
+                    </StackPanel>
+                </Border>
+
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D1</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D2</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D3</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D4</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">D5</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">Db</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">H</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">H1</Label>
+                    </StackPanel>
+                </Border>
+
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">H2</Label>
+                    </StackPanel>
+                </Border>
+
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">H3</Label>
+                    </StackPanel>
+                </Border>
+                <Border  Style="{StaticResource Fieldset}">
+                    <StackPanel Style="{StaticResource FormStackPanel}">
+                        <Label Style="{StaticResource FormLabel}">s1</Label>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+
            
-        </Rectangle>
+        </Border>
     </Grid>
 </Window>
