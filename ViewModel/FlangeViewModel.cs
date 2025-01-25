@@ -96,7 +96,7 @@ namespace Flange.Model
 
         public  ObservableCollection<string> ModelTypesCollection { get; private set; }
 
-        private BitmapImage bitmapImage;
+     
       
 
         public ObservableCollection<string> FlangeTittles { get; private set; } 
@@ -132,15 +132,64 @@ namespace Flange.Model
                 { 
                     BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
                 }
-                else
+                OnPropertyChanged();
+            }
+        }
+
+        private bool isFlatFlangeSelected;
+        public bool IsFlatFlangeSelected
+        {
+            get
+            {
+                return isFlatFlangeSelected;
+            }
+            set
+            {
+                isFlatFlangeSelected = value;
+                if (value == true)
                 {
-                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.EmptyIMG));
+                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FlatFlange));
+                }
+                OnPropertyChanged();
+
+            }
+        }
+
+        private bool isBlindFlangeSelected;
+        public bool IsBlindFlangeSelected
+        {
+            get
+            {
+                return isBlindFlangeSelected;
+            }
+            set
+            {
+                isBlindFlangeSelected = value;
+                if (value == true)
+                {
+                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.BlindFlange));
                 }
                 OnPropertyChanged();
             }
         }
 
-
+        private bool isCollarFlangeSelected;
+        public bool IsCollarFlangeSelected
+        {
+            get
+            {
+                return isCollarFlangeSelected;
+            }
+            set
+            {
+                isCollarFlangeSelected = value;
+                if (value == true)
+                {
+                    BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.CollarFlange));
+                }
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<string>ModelTypeList
         {
             get
@@ -163,8 +212,32 @@ namespace Flange.Model
             }
         }
 
-
-
+        private Visibility helpMenuVisibility;
+        public Visibility HelpMenuVisibility
+        {
+            get
+            {
+                return helpMenuVisibility;
+            }
+            private set
+            {
+                helpMenuVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        private Visibility extraMenuVisibility;
+        public Visibility ExtraMenuVisibility
+        {
+            get
+            {
+                return extraMenuVisibility;
+            }
+            private set
+            {
+                extraMenuVisibility = value;
+                OnPropertyChanged();
+            }
+        }
         private double windowWith;
         public double WindowWidth
         {
@@ -176,6 +249,20 @@ namespace Flange.Model
             set
             {
                 windowWith = value;
+                if (value < 725)
+                {
+                    HelpMenuVisibility = Visibility.Collapsed;
+                    
+                    if (value < 660)
+                    {
+                        ExtraMenuVisibility = Visibility.Collapsed;
+                    }
+                }
+                else
+                {
+                    HelpMenuVisibility = Visibility.Visible;
+                    ExtraMenuVisibility= Visibility.Visible;
+                }
                 OnPropertyChanged();
             }
         }
@@ -209,6 +296,23 @@ namespace Flange.Model
             {
                 tableRowIndex = value;
                 OnPropertyChanged();
+            }
+        }
+
+        private BitmapImage bitmapImage;
+        public BitmapImage BitmapImage
+        {
+            get
+            {
+                return bitmapImage;
+            }
+            set
+            {
+
+                bitmapImage = value;
+
+                OnPropertyChanged();
+
             }
         }
 
@@ -281,6 +385,7 @@ namespace Flange.Model
 
         }
 
+
         public Command BuildFlangeCommand
         {
             get
@@ -293,12 +398,9 @@ namespace Flange.Model
             }
         }
 
-       
+    
 
-        //public Command WindowSizeChanged
-        //{
-
-        //}
+        
 
         public Command CreateExtraSizesWindowCommand
         {
@@ -309,23 +411,9 @@ namespace Flange.Model
                     CreateExtraSizesWindow();
                 });
             }
-        } 
-
-        public BitmapImage BitmapImage
-        {
-            get
-            {
-                return bitmapImage;
-            }
-            set
-            {
-                                     
-                    bitmapImage = value;
-
-                    OnPropertyChanged();
-                
-            }
         }
+
+        
 
 
         public void UpdateTableWidth(double width)

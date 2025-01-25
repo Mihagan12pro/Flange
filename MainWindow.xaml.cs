@@ -32,7 +32,14 @@ namespace Flange
 
             Kompas3DMenuItem.IsChecked = true;
 
+            SizeChanged += MainWindow_SizeChanged;
+
             DataContext = new FlangeViewModel();
+        }
+
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            (DataContext as FlangeViewModel).WindowWidth = Width;
         }
     }
 }

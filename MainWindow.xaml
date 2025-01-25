@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flange"
         xmlns:radio="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" Background="Gray" Height="500" MinWidth="630" MinHeight="350" Width="{Binding WindowWidth}" >
+        Title="Генератор фланцев" Background="Gray" Height="500" MinWidth="630" MinHeight="350"  Width="{Binding WindowWidth}" >
     <Grid Background="Azure">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,12 +20,12 @@
         </Grid.RowDefinitions>
 
         <Menu Margin="0 -1" Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
-            <MenuItem Header="Справка" Name="HelpMenuItem" Visibility="{Binding Visibility}">
-                <MenuItem Header="О программе"></MenuItem>
+            <MenuItem Header="Справка" Name="HelpMenuItem" Visibility="{Binding HelpMenuVisibility}">
+                <MenuItem  Header="О программе"></MenuItem>
                 <MenuItem Header="Руководство"></MenuItem>
 
             </MenuItem>
-            <MenuItem Header="Дополнительно" Name="ExtraMenuItem" >
+            <MenuItem Header="Дополнительно" Name="ExtraMenuItem" Visibility="{Binding ExtraMenuVisibility}">
                 <MenuItem Header="Просмотр 3д моделей">
 
                 </MenuItem>
@@ -51,9 +51,9 @@
             <radio:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
 
                 <radio:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Плоский"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Глухой"></radio:RadioMenuItem>
-                <radio:RadioMenuItem Header="Воротниковый"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Плоский" IsChecked = "{Binding IsFlatFlangeSelected}"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Глухой" IsChecked="{Binding IsBlindFlangeSelected}"></radio:RadioMenuItem>
+                <radio:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></radio:RadioMenuItem>
             </radio:RadioMenuItemBox>
 
 
