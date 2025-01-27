@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using Kompas6API5;
 using Kompas6Constants3D;
+using System.Runtime.InteropServices;
 namespace Flange.Kompas.Modeling
 {
     internal abstract class AbstractFlange
@@ -22,7 +23,7 @@ namespace Flange.Kompas.Modeling
     
         protected ksDocument2D iDocument2D;
 
-        protected static KompasObject kompas;
+        protected  KompasObject Kompas;
         protected ksPart iPart;
 
         protected  ksEntity planeXOZ,planeXOY,planeZOY,planeOffsetXOY;
@@ -69,15 +70,15 @@ namespace Flange.Kompas.Modeling
         }
 
 
-        public AbstractFlange(string D, string D1, string D2,  string H, string CountOfHoles)
+        public AbstractFlange()
         {
            
             
-            paramsList.Add(D);
-            paramsList.Add(D1);
-            paramsList.Add(D2);
-            paramsList.Add(H);
-            paramsList.Add(CountOfHoles);
+            //paramsList.Add(D);
+            //paramsList.Add(D1);
+            //paramsList.Add(D2);
+            //paramsList.Add(H);
+            //paramsList.Add(CountOfHoles);
 
 
 
@@ -157,74 +158,102 @@ namespace Flange.Kompas.Modeling
         private void OpenKompas()
         {
             Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
-            kompas = (KompasObject)Activator.CreateInstance(t);
+            Kompas = (KompasObject)Activator.CreateInstance(t);
         }
         private void CreateDocument()
         {
-            if (kompas != null)
+            if (Kompas != null)
             {
-                kompas.Visible = true;
-                kompas.ActivateControllerAPI();
+                Kompas.Visible = true;
+                Kompas.ActivateControllerAPI();
             }
-            if (kompas != null)
+            if (Kompas != null)
             {
-                iDocument3D = (ksDocument3D)kompas.Document3D();
+                iDocument3D = (ksDocument3D)Kompas.Document3D();
                 iDocument3D.Create(false, true);
             }
         }
-        protected virtual void Build()
+        public virtual void Build()
         {
-            if (kompas == null)
-            {
-                //Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
-                //kompas = (KompasObject)Activator.CreateInstance(t);
-                OpenKompas();
-            }
-
             try
-            {
-                //if (kompas != null)
-                //{
-                //    kompas.Visible = true;
-                //    kompas.ActivateControllerAPI();
-                //}
-                //if (kompas != null)
-                //{
-                //    iDocument3D = (ksDocument3D)kompas.Document3D();
-                //    iDocument3D.Create(false, true);
-                //}
-                CreateDocument();
+            { 
+                Kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
+                Kompas.Visible = true;
             }
-            catch
+            catch(Exception e)
             {
-                OpenKompas();
-                CreateDocument();
+                if (Kompas == null)
+                {
+                    if (Kompas == null)
+                    {
+                        var type = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                        Kompas = (KompasObject)Activator.CreateInstance(type);
+                    }
+
+                    if (Kompas != null)
+                    {
+                        Kompas.Visible = true;
+                        Kompas.ActivateControllerAPI();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ошибка подключения к программе КОМПАС-3D!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
             }
-      
-                //OpenKompas3D();
+            
+           
+            //if (kompas == null)
+            //{
+            //    //Type t = Type.GetTypeFromProgID("KOMPAS.Application.5");
+            //    //kompas = (KompasObject)Activator.CreateInstance(t);
+            //    OpenKompas();
+            //}
 
-                //try
-                //{
-                //    CreateNewDocument();
-                //}
-                //catch
-                //{
-                //    kompas = null;
-                //    OpenKompas3D();
-                //    CreateNewDocument();
-                //}
-                iPart = (part)iDocument3D.GetPart(-1);
+            //try
+            //{
+            //    //if (kompas != null)
+            //    //{
+            //    //    kompas.Visible = true;
+            //    //    kompas.ActivateControllerAPI();
+            //    //}
+            //    //if (kompas != null)
+            //    //{
+            //    //    iDocument3D = (ksDocument3D)kompas.Document3D();
+            //    //    iDocument3D.Create(false, true);
+            //    //}
+            //    CreateDocument();
+            //}
+            //catch
+            //{
+            //    OpenKompas();
+            //    CreateDocument();
+            //}
 
-            planeXOZ = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
-            planeZOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ);
-            planeXOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
-            planeOffsetXOY = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
+            //OpenKompas3D();
 
-            Sketch1();
-            BossRotation1();
-            Sketch2();
-            CutExtrusion1();
-            CircularArray1();
+            //try
+            //{
+            //    CreateNewDocument();
+            //}
+            //catch
+            //{
+            //    kompas = null;
+            //    OpenKompas3D();
+            //    CreateNewDocument();
+            //}
+            //    iPart = (part)iDocument3D.GetPart(-1);
+
+            //planeXOZ = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
+            //planeZOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeYOZ);
+            //planeXOY = (ksEntity)iPart.GetDefaultEntity((short)Obj3dType.o3d_planeXOY);
+            //planeOffsetXOY = (ksEntity)iPart.NewEntity((short)Obj3dType.o3d_planeOffset);
+
+            //Sketch1();
+            //BossRotation1();
+            //Sketch2();
+            //CutExtrusion1();
+            //CircularArray1();
         }
         //private void OpenKompas3D()
         //{
@@ -236,7 +265,7 @@ namespace Flange.Kompas.Modeling
         //}
         private void CreateNewDocument()
         {
-            iDocument3D = (ksDocument3D)kompas.Document3D();
+            iDocument3D = (ksDocument3D)Kompas.Document3D();
             iDocument3D.Create(false, true);
         }
 

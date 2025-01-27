@@ -738,23 +738,26 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-           //switch( SelectedFlangeType)
-           //{
-           //     case 0:
-           //         //Console.WriteLine(ColumnWidth);
-           //         SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
-           //         //simpleFlange.TryToBuild();
+            FreeFlange freeFlange = new FreeFlange();
 
-           //         break;
-           //     case 1:
-           //         FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
-           //         //freeFlange.TryToBuild();
+            freeFlange.Build();
+            //switch( SelectedFlangeType)
+            //{
+            //     case 0:
+            //         //Console.WriteLine(ColumnWidth);
+            //         SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
+            //         //simpleFlange.TryToBuild();
 
-           //         break;
-           //     default:
-           //         MessageBox.Show("Error!");
-           //         break;
-           //}
+            //         break;
+            //     case 1:
+            //         FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
+            //         //freeFlange.TryToBuild();
+
+            //         break;
+            //     default:
+            //         MessageBox.Show("Error!");
+            //         break;
+            //}
         }
 
         private void CreateExtraSizesWindow()

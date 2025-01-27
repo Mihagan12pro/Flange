@@ -64,7 +64,7 @@
 
 
             <MenuItem Header="Создать" Name="BuildMenuItem">
-                <MenuItem Header="3д модель"></MenuItem>
+                <MenuItem Header="3д модель" Command="{Binding BuildFlangeCommand}"></MenuItem>
                 <MenuItem Header="2д чертёж"></MenuItem>
                 <MenuItem Header="Сборку"></MenuItem>
             </MenuItem>

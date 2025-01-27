@@ -20,21 +20,21 @@ namespace Flange.Kompas.Modeling
         protected entity iSketch3;
         protected entity iCutExtrusion2;
 
-        public SimpleFlange(string D, string D1, string D2, string H, string CountOfHoles, string Db) : base(D, D1, D2, H, CountOfHoles)
+        public SimpleFlange() 
         {
 
-            paramsList.Add(Db);
+           
            
         }
 
         public override void TryToBuild()
         {
-            if (CheckParams())
+            //if (CheckParams())
             
-                Build();
+            //    Build();
             
-            else
-                MessageBox.Show("Некорректный ввод!");
+            //else
+            //    MessageBox.Show("Некорректный ввод!");
 
         }
         protected override bool CheckParams()
@@ -60,7 +60,7 @@ namespace Flange.Kompas.Modeling
             return haveNotInvalid;
         }
 
-        protected override void Build()
+        public override void Build()
         {
             
 
