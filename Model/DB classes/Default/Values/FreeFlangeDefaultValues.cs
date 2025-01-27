@@ -51,6 +51,7 @@ namespace Flange.Model.DB_classes.Default.Values
                                             throw valueError;
                                         }
                                         n = Convert.ToInt32(Convert.ToString(reader.GetValue(0)));
+
                                         break;
                                     }
                                 }

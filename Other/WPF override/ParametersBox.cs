@@ -17,16 +17,23 @@ namespace Flange.Other.WPF_override
         {
             if (Visibility == Visibility.Visible)
             {
-                Text = Text.Replace(",",".");
-
-                if (double.TryParse(Text, out double d))
+                if (double.TryParse(Text.Replace(",","."), out double d))
                 {
-                    Text = Convert.ToString(Math.Abs(Convert.ToDouble(Text)));
+                    Text = Convert.ToString(Math.Abs(d));
                     return;
                 }
-                MessageBox.Show("Некорректный ввод!","Внимание!",MessageBoxButton.OK,MessageBoxImage.Error);
-                Text = "0";
+                else if (double.TryParse(Text.Replace(".",","),out d))
+                {
+                    Text = Convert.ToString(Math.Abs(d));
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Некорректный ввод!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                 
             }
+            // && !double.TryParse(Text.Replace(".",","),out double d2)
         }
     }
 }

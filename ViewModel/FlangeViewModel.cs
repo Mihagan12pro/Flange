@@ -68,6 +68,8 @@ namespace Flange.Model
 
         private RadioMenuItem selectCADRadioMenu;
 
+        private DefaultValues defaultValues;
+
   
         private string _D;
         public string D
@@ -110,6 +112,48 @@ namespace Flange.Model
                 OnPropertyChanged();
             }
         }
+        private string _D3;
+        public string D3
+        {
+            get
+            {
+                return _D3;
+            }
+            set
+            {
+                _D3 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _D4;
+        public string D4
+        {
+            get
+            {
+                return _D4;
+            }
+            set
+            {
+                _D4 = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _D5;
+        public string D5
+        {
+            get
+            {
+                return _D5;
+            }
+            set
+            {
+                _D5 = value;
+                OnPropertyChanged();
+            }
+        }
 
         private string _Db;
         public string Db
@@ -135,6 +179,48 @@ namespace Flange.Model
             set
             {
                 _H = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _H2;
+        public string H2
+        {
+            get
+            {
+                return _H2;
+            }
+            set
+            {
+                _H2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _H3;
+        public string H3
+        {
+            get
+            {
+                return _H3;
+            }
+            set
+            {
+                _H3 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _H4;
+        public string H4
+        {
+            get
+            {
+                return _H4;
+            }
+            set
+            {
+                _H4 = value;
                 OnPropertyChanged();
             }
         }
@@ -178,14 +264,14 @@ namespace Flange.Model
                     VisibilityOfDb = Visibility.Visible;
                     VisibilityOfn = Visibility.Visible;
 
-                    FreeFlangeDefaultValues freeFlangeValues = new FreeFlangeDefaultValues();
+                    defaultValues = new FreeFlangeDefaultValues();
 
-                    D = Convert.ToString(freeFlangeValues.D);
-                    D1 = Convert.ToString(freeFlangeValues.D1);
-                    D2 = Convert.ToString(freeFlangeValues.D2);
-                    Db = Convert.ToString(freeFlangeValues.Db);
-                    H = Convert.ToString(freeFlangeValues.H);
-                    n = Convert.ToString(freeFlangeValues.n);
+                    D = Convert.ToString(defaultValues.D);
+                    D1 = Convert.ToString((defaultValues as FreeFlangeDefaultValues).D1);
+                    D2 = Convert.ToString((defaultValues as FreeFlangeDefaultValues).D2);
+                    Db = Convert.ToString((defaultValues as FreeFlangeDefaultValues).Db);
+                    H = Convert.ToString(defaultValues.H);
+                    n = Convert.ToString((defaultValues as FreeFlangeDefaultValues).n);
                 }
                 OnPropertyChanged();
             }
@@ -214,7 +300,16 @@ namespace Flange.Model
                     VisibilityOfH4 = Visibility.Visible;
                     VisibilityOfn = Visibility.Visible;
 
+                    defaultValues = new FlatFlangeDefaultValues();
 
+                    D = Convert.ToString(defaultValues.D);
+                    D1 = Convert.ToString((defaultValues as FlatFlangeDefaultValues).D1);
+                    D2 = Convert.ToString((defaultValues as FlatFlangeDefaultValues).D2);
+                    Db = Convert.ToString((defaultValues as FlatFlangeDefaultValues).Db);
+                    H = Convert.ToString(defaultValues.H);
+                    n = Convert.ToString((defaultValues as FlatFlangeDefaultValues).n);
+                    D3 = Convert.ToString((defaultValues as FlatFlangeDefaultValues).D3);
+                    H4 = Convert.ToString((defaultValues as FlatFlangeDefaultValues).H4);
                 }
                 OnPropertyChanged();
 
@@ -270,12 +365,25 @@ namespace Flange.Model
                     VisibilityOfD4 = Visibility.Visible;
                     VisibilityOfD5 = Visibility.Visible;
                     VisibilityOfDb = Visibility.Visible;
-                    VisibilityOfH1 = Visibility.Visible;
                     VisibilityOfH2 = Visibility.Visible;
                     VisibilityOfH3 = Visibility.Visible;
                     VisibilityOfH4 = Visibility.Visible;
-
                     VisibilityOfn = Visibility.Visible;
+
+                    defaultValues = new CollarFlangeDefaultValues();
+
+                    D = Convert.ToString(defaultValues.D);
+                    D1 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).D1);
+                    D2 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).D2);
+                    D3 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).D3);
+                    D4 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).D4);
+                    D5 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).D5);
+                    Db = Convert.ToString((defaultValues as CollarFlangeDefaultValues).Db);
+                    H = Convert.ToString(defaultValues.H);
+                    H2 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).H2);
+                    H3 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).H3);
+                    H4 = Convert.ToString((defaultValues as CollarFlangeDefaultValues).H4);
+                    n = Convert.ToString((defaultValues as CollarFlangeDefaultValues).n);
                 }
                 OnPropertyChanged();
             }
@@ -368,19 +476,19 @@ namespace Flange.Model
             }
         }
 
-        private Visibility visibilityOfH1;
-        public Visibility VisibilityOfH1
-        {
-            get
-            {
-                return visibilityOfH1;
-            }
-            private set
-            {
-                visibilityOfH1 = value;
-                OnPropertyChanged();
-            }
-        }
+        //private Visibility visibilityOfH1;
+        //public Visibility VisibilityOfH1
+        //{
+        //    get
+        //    {
+        //        return visibilityOfH1;
+        //    }
+        //    private set
+        //    {
+        //        visibilityOfH1 = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         private Visibility visibilityOfH2;
         public Visibility VisibilityOfH2
@@ -523,7 +631,7 @@ namespace Flange.Model
             VisibilityOfD4 = Visibility.Collapsed;
             VisibilityOfD5 = Visibility.Collapsed;
             VisibilityOfDb = Visibility.Collapsed;
-            VisibilityOfH1 = Visibility.Collapsed;
+            //VisibilityOfH1 = Visibility.Collapsed;
             VisibilityOfH2 = Visibility.Collapsed;
             VisibilityOfH3 = Visibility.Collapsed;
             VisibilityOfH4 = Visibility.Collapsed;

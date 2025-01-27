@@ -81,7 +81,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\DB classes\DbTable.cs" />
+    <Compile Include="Model\DB classes\Default\Values\CollarFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\DefaultValues.cs" />
+    <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />

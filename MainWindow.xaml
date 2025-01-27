@@ -107,21 +107,21 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D3</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D3}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD4}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D4</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D4}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD5}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D5</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D5}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
@@ -135,35 +135,29 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
-                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH1}">
-                    <DockPanel>
-                        <Label Style="{StaticResource FormLabel}">H1</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
-                    </DockPanel>
-                </Border>
-
+          
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H2</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H2}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H3</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H3}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH4}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H4</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H4}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
