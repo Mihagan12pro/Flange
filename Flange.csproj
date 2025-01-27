@@ -80,10 +80,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\DB classes\Default\DB\DefaultDataBase.cs" />
-    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeTable.cs" />
-    <Compile Include="Model\DB classes\Default\Tables\DefaultFlangeWithCircularHolesTable.cs" />
-    <Compile Include="Model\DB classes\Default\Tables\DefaultFreeFlangeTable.cs" />
+    <Compile Include="Model\DB classes\DbTable.cs" />
+    <Compile Include="Model\DB classes\Default\Values\DefaultValues.cs" />
+    <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
+    <Compile Include="Model\DB classes\Value.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
@@ -98,7 +98,6 @@
     <Compile Include="Other\WPF override\ParametersBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItemBox.cs" />
     <Compile Include="Other\WPF override\RadioMenuItem.cs" />
-    <Compile Include="ViewModel\Tables\Table.cs" />
     <Page Include="FormDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -130,7 +129,6 @@
   <ItemGroup>
     <Compile Include="Other\Common\Command.cs" />
     <Compile Include="ViewModel\FlangeViewModel.cs" />
-    <Compile Include="ViewModel\Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -164,8 +162,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\DB classes\Default\Extra values\" />
     <Folder Include="Model\DB classes\Standart\Data storages\" />
     <Folder Include="Model\Kompas\Drafting\" />
+    <Folder Include="ViewModel\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">

@@ -16,13 +16,14 @@ using Flange.Kompas.Modeling;
 using System.Windows.Controls;
 using Flange.Other;
 using KompasAPI7;
-using Flange.ViewModel.Tables;
+//using Flange.ViewModel.Tables;
 using Flange.Other.Extra_sizes;
 using System.Windows.Media.Animation;
 using Flange.Other.Abstract_classes_and_interfaces;
-using Flange.Model.DB_classes.Default.Tables;
+//using Flange.Model.DB_classes.Default.Tables;
 using Flange.Model.DB_classes.Default;
 using Flange.Other.WPF_override;
+using Flange.Model.DB_classes.Default.Values;
 
 
 
@@ -30,68 +31,22 @@ using Flange.Other.WPF_override;
 
 namespace Flange.Model
 {
-    public struct TheController
-     {
-        public readonly int Id;
-        public readonly string Value;
-
-        
-        
-
-        public TheController(int id,string value)
-        {
-            Value = value;
-            Id = id;
-           
-        }
-    }
-
-    public struct ValidatorDefaultTable
-    {
-        private static ValidatorDefaultTable instance;
-
-        public readonly dynamic DefaultTableClass;
-
-
-
-        private ValidatorDefaultTable(dynamic defaultTableClass)
-        {
-            if (defaultTableClass is not DefaultFlangeTable)
-            {
-                throw new ArgumentException("An argument must be DefaultFlangeTable class object!");
-            }
-            DefaultTableClass = defaultTableClass;
-        }
-        public static ValidatorDefaultTable Instance(dynamic defaultTableClass)
-        {
-
-            instance = new ValidatorDefaultTable(defaultTableClass); 
-
-
-            return instance;
-
-        }
-    }
-
-
-
-
-    internal class FlangeViewModel : ViewModelAbstract
+   internal class FlangeViewModel : ViewModelAbstract
     {
 
-        private Table tableData;
-        public Table TableData
-        {
-            private set
-            {
-                tableData = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return tableData;
-            }
-        }
+        //private Table tableData;
+        //public Table TableData
+        //{
+        //    private set
+        //    {
+        //        tableData = value;
+        //        OnPropertyChanged();
+        //    }
+        //    get
+        //    {
+        //        return tableData;
+        //    }
+        //}
 
 
         public  ObservableCollection<string> ModelTypesCollection { get; private set; }
@@ -102,13 +57,9 @@ namespace Flange.Model
         public ObservableCollection<string> FlangeTittles { get; private set; } 
 
 
-        public ValidatorDefaultTable Validator { get; private set; }
-
-
         public  ModelType Modeltype { get; private set; }
         
     
-        public DefaultFlangeTable DefaultTable { get; private set; }
     
         
 
@@ -116,6 +67,91 @@ namespace Flange.Model
 
 
         private RadioMenuItem selectCADRadioMenu;
+
+  
+        private string _D;
+        public string D
+        {
+            get
+            {
+                return _D;
+            }
+            set
+            {
+                _D = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _D1;
+        public string D1
+        {
+            get
+            {
+                return _D1;
+            }
+            set
+            {
+                _D1= value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _D2;
+        public string D2
+        {
+            get
+            {
+                return _D2;
+            }
+            set
+            {
+                _D2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _Db;
+        public string Db
+        {
+            get
+            {
+                return _Db;
+            }
+            set
+            {
+                _Db = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _H;
+        public string H
+        {
+            get
+            {
+                return _H;
+            }
+            set
+            {
+                _H = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _n;
+        public string n
+        {
+            get
+            {
+                return _n;
+            }
+            set
+            {
+                _n = value;
+                OnPropertyChanged();
+            }
+        }
 
         private bool isFreeFlangeSelected;
         public bool IsFreeFlangeSelected
@@ -126,20 +162,30 @@ namespace Flange.Model
             }
             set
             {
-               
+
                 isFreeFlangeSelected = value;
 
                 if (value == true)
-                { 
+                {
                     BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
 
                     CollapseAll();
 
+                    FreeFlangeDefaultValues free = new FreeFlangeDefaultValues();
+
                     VisibilityOfD1 = Visibility.Visible;
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfDb = Visibility.Visible;
-
                     VisibilityOfn = Visibility.Visible;
+
+                    FreeFlangeDefaultValues freeFlangeValues = new FreeFlangeDefaultValues();
+
+                    D = Convert.ToString(freeFlangeValues.D);
+                    D1 = Convert.ToString(freeFlangeValues.D1);
+                    D2 = Convert.ToString(freeFlangeValues.D2);
+                    Db = Convert.ToString(freeFlangeValues.Db);
+                    H = Convert.ToString(freeFlangeValues.H);
+                    n = Convert.ToString(freeFlangeValues.n);
                 }
                 OnPropertyChanged();
             }
@@ -165,9 +211,10 @@ namespace Flange.Model
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfD3 = Visibility.Visible;
                     VisibilityOfDb = Visibility.Visible;
-                    VisibilityOfs1 = Visibility.Visible;
-
+                    VisibilityOfH4 = Visibility.Visible;
                     VisibilityOfn = Visibility.Visible;
+
+
                 }
                 OnPropertyChanged();
 
@@ -193,7 +240,7 @@ namespace Flange.Model
                     VisibilityOfD1 = Visibility.Visible;
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfD3 = Visibility.Visible;
-                    VisibilityOfs1 = Visibility.Visible;
+                    VisibilityOfH4 = Visibility.Visible;
 
                     VisibilityOfn = Visibility.Visible;
                 }
@@ -226,7 +273,7 @@ namespace Flange.Model
                     VisibilityOfH1 = Visibility.Visible;
                     VisibilityOfH2 = Visibility.Visible;
                     VisibilityOfH3 = Visibility.Visible;
-                    VisibilityOfs1 = Visibility.Visible;
+                    VisibilityOfH4 = Visibility.Visible;
 
                     VisibilityOfn = Visibility.Visible;
                 }
@@ -363,16 +410,16 @@ namespace Flange.Model
             }
         }
 
-        private Visibility visibilityOfs1;
-        public Visibility VisibilityOfs1
+        private Visibility visibilityOfH4;
+        public Visibility VisibilityOfH4
         {
             get
             {
-                return visibilityOfs1;
+                return visibilityOfH4;
             }
             private set
             {
-                visibilityOfs1 = value;
+                visibilityOfH4 = value;
                 OnPropertyChanged();
             }
         }
@@ -479,7 +526,7 @@ namespace Flange.Model
             VisibilityOfH1 = Visibility.Collapsed;
             VisibilityOfH2 = Visibility.Collapsed;
             VisibilityOfH3 = Visibility.Collapsed;
-            VisibilityOfs1 = Visibility.Collapsed;
+            VisibilityOfH4 = Visibility.Collapsed;
             VisibilityOfn = Visibility.Collapsed;
         }
 

@@ -17,6 +17,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 //using Flange.Databases.Classes.Standart;
 using Flange.Model;
+using Flange.Model.DB_classes.Default.Values;
+using Flange.Other;
 using Flange.Other.WPF_override;
 namespace Flange
 {
@@ -34,7 +36,17 @@ namespace Flange
 
             SizeChanged += MainWindow_SizeChanged;
 
+   
+            DefaultValues.Connection = new System.Data.SQLite.SQLiteConnection("Data Source="+MainExplorer.DataBaseExpl.DefaultSizes.FilePath);
+
             DataContext = new FlangeViewModel();
+
+            Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DefaultValues.Connection.Close();
         }
 
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)

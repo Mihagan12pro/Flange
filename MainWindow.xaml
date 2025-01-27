@@ -86,21 +86,21 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD}">
                     <DockPanel >
                         <Label Style="{StaticResource FormLabel}" >D</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD1}">
                     <DockPanel>
-                        <Label Style="{StaticResource FormLabel}" >D1</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <Label Style="{StaticResource FormLabel}">D1</Label>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D1}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D2</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D2}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
@@ -128,7 +128,7 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfDb}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">Db</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding Db}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
@@ -160,9 +160,9 @@
                     </DockPanel>
                 </Border>
 
-                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfs1}">
+                <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH4}">
                     <DockPanel>
-                        <Label Style="{StaticResource FormLabel}">s1</Label>
+                        <Label Style="{StaticResource FormLabel}">H4</Label>
                         <override:ParametersBox Style="{StaticResource FormParametreText}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
@@ -171,7 +171,7 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfn}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">n</Label>
-                        <override:CountBox Style="{StaticResource FormCountText}"></override:CountBox>
+                        <override:CountBox Style="{StaticResource FormCountText}" Text = "{Binding n}"></override:CountBox>
                     </DockPanel>
                 </Border>
 
