@@ -336,8 +336,21 @@ namespace Flange.Model
                     VisibilityOfD2 = Visibility.Visible;
                     VisibilityOfD3 = Visibility.Visible;
                     VisibilityOfH4 = Visibility.Visible;
-
                     VisibilityOfn = Visibility.Visible;
+
+
+                    defaultValues = new BlindFlangeDefaultValues();
+
+                    D = Convert.ToString(defaultValues.D);
+                    H = Convert.ToString(defaultValues.H);
+                    D1 = Convert.ToString((defaultValues as BlindFlangeDefaultValues).D1);
+                    D2 = Convert.ToString((defaultValues as BlindFlangeDefaultValues).D2);
+                    D3 = Convert.ToString((defaultValues as BlindFlangeDefaultValues).D3);
+                    H4 = Convert.ToString((defaultValues as BlindFlangeDefaultValues).H4);
+                    n = Convert.ToString((defaultValues as BlindFlangeDefaultValues).n);
+
+
+
                 }
                 OnPropertyChanged();
             }

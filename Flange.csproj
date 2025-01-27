@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\DB classes\DbTable.cs" />
+    <Compile Include="Model\DB classes\Default\Values\BlindFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\CollarFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\DefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
