@@ -24,6 +24,7 @@ using Flange.Other.Abstract_classes_and_interfaces;
 using Flange.Model.DB_classes.Default;
 using Flange.Other.WPF_override;
 using Flange.Model.DB_classes.Default.Values;
+using Flange.Model.Kompas.Modeling;
 
 
 
@@ -738,9 +739,9 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            //FreeFlange freeFlange = new FreeFlange();
+            FreeFlange freeFlange = new FreeFlange(95,10);
 
-            //freeFlange.Build();
+            freeFlange.Build();
             //switch( SelectedFlangeType)
             //{
             //     case 0:

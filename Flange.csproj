@@ -88,6 +88,8 @@
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
     <Compile Include="Model\Kompas\Entities.cs" />
+    <Compile Include="Model\Kompas\FlangeDocument.cs" />
+    <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
     <Compile Include="Other\Abstract classes and interfaces\NotifyPropertyChanged.cs" />
