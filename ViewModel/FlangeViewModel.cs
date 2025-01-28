@@ -738,9 +738,9 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            FreeFlange freeFlange = new FreeFlange();
+            //FreeFlange freeFlange = new FreeFlange();
 
-            freeFlange.Build();
+            //freeFlange.Build();
             //switch( SelectedFlangeType)
             //{
             //     case 0:
