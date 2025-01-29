@@ -33,7 +33,6 @@ namespace Flange.Other.WPF_override
                 }
                  
             }
-            // && !double.TryParse(Text.Replace(".",","),out double d2)
         }
     }
 }

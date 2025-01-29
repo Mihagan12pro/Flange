@@ -87,9 +87,10 @@
     <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
-    <Compile Include="Model\Kompas\Entities.cs" />
+    <Compile Include="Model\Kompas\KompasOverride.cs" />
     <Compile Include="Model\Kompas\FlangeDocument.cs" />
-    <Compile Include="Model\Kompas\Modeling\FreeFlange.cs" />
+    <Compile Include="Model\Kompas\Modeling\FreeFlange3DModel.cs" />
+    <Compile Include="Model\SizeTypes.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
     <Compile Include="Other\Abstract classes and interfaces\NotifyPropertyChanged.cs" />
@@ -115,7 +116,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Kompas\Modeling\AbstractFlange.cs" />
+    <Compile Include="Model\Kompas\Modeling\Flange3DModel.cs" />
     <Compile Include="Other\Explorers\Explorer\DataBaseExplorer.cs" />
     <Compile Include="Other\Abstract classes and interfaces\Explorer.cs" />
     <Compile Include="Other\Explorers\Explorer\MainExplorer.cs" />

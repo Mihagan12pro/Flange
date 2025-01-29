@@ -12,7 +12,13 @@ namespace Flange.Model.Kompas
     internal abstract class FlangeDocument
     {
         protected KompasObject Kompas;
+        protected string detailName;
 
+        protected string userRoot;
+
+        protected string OneDrive;
+
+        protected string Documents;
 
         public virtual void Build()
         {
@@ -26,7 +32,7 @@ namespace Flange.Model.Kompas
                 Kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
                 Kompas.Visible = true;
             }
-            catch (Exception e)
+            catch 
             {
                 if (Kompas == null)
                 {
@@ -47,6 +53,18 @@ namespace Flange.Model.Kompas
                     }
                 }
             }
+        }
+
+        protected virtual bool ParametresValidation()
+        {
+            return true;
+        }
+
+        public abstract void SaveModel();
+
+        public FlangeDocument(Diameters diameters,Heights heights)
+        {
+            
         }
     }
 }

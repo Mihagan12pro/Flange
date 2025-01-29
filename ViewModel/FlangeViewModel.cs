@@ -15,12 +15,9 @@ using Flange.ViewModel;
 using Flange.Kompas.Modeling;
 using System.Windows.Controls;
 using Flange.Other;
-using KompasAPI7;
-//using Flange.ViewModel.Tables;
 using Flange.Other.Extra_sizes;
 using System.Windows.Media.Animation;
 using Flange.Other.Abstract_classes_and_interfaces;
-//using Flange.Model.DB_classes.Default.Tables;
 using Flange.Model.DB_classes.Default;
 using Flange.Other.WPF_override;
 using Flange.Model.DB_classes.Default.Values;
@@ -48,22 +45,6 @@ namespace Flange.Model
         //        return tableData;
         //    }
         //}
-
-
-        public  ObservableCollection<string> ModelTypesCollection { get; private set; }
-
-     
-      
-
-        public ObservableCollection<string> FlangeTittles { get; private set; } 
-
-
-        public  ModelType Modeltype { get; private set; }
-        
-    
-    
-        
-
         public event EventHandler CanExecuteChanged;
 
 
@@ -560,14 +541,6 @@ namespace Flange.Model
             }
         }
         
-        public ObservableCollection<string>ModelTypeList
-        {
-            get
-            {
-                return Modeltype.AllModels;
-            }
-        }
-
         private int tableHeight;
         public int TableHeight
         {
@@ -739,9 +712,10 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            FreeFlange freeFlange = new FreeFlange(95,10);
+            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() { D = 95,D1 = 65, D2 = 8,Db = 19},new Heights() { H = 10},new Counts() {n = 4});
 
             freeFlange.Build();
+            freeFlange.SaveModel();
             //switch( SelectedFlangeType)
             //{
             //     case 0:
@@ -831,8 +805,6 @@ namespace Flange.Model
 
             CollapseAll();
 
-            //FlangeTittles = new ObservableCollection<string>(( from fl in FlangeType.AllFlangeTypes select fl.Tittle).ToArray());
-            OnPropertyChanged(nameof(FlangeTittles));
 
             IsFreeFlangeSelected = true;
             OnPropertyChanged(nameof(IsFreeFlangeSelected));
