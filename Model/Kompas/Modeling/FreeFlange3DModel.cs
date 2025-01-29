@@ -1,5 +1,6 @@
 ﻿using Flange.Kompas.Modeling;
 using Flange.Model.Kompas.Entities;
+using Kompas6Constants3D;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ namespace Flange.Model.Kompas.Modeling
         protected int n;
 
         protected Sketch sketch2;
+        protected CutExtrusion cutExtrusion1;
         public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts) : base(diameters,heights)
         {
             n = counts.n;
@@ -54,14 +56,25 @@ namespace Flange.Model.Kompas.Modeling
             return true;
         }
 
-        protected void Sketch2()
+        protected virtual void Sketch2()
         {
-           
+           sketch2 = new Sketch(iPart,planeXOZ.GetPlane());
+           sketch2.Circle(new Point(0,0),Db*0.5);
+           sketch2.EndEditingSketch();
+        }
+
+        protected virtual void CutExtrusion1()
+        {
+            cutExtrusion1 = new CutExtrusion(iPart,sketch2,Direction_Type.dtBoth,End_Type.etThroughAll);
+            cutExtrusion1.Cut();
         }
 
         public override void Build()
         {
             base.Build();
+
+            Sketch2();
+            CutExtrusion1();
         }
     }
 }
