@@ -119,4 +119,33 @@ namespace Flange.Model.Kompas.Entities
             rotate.Create();
         }
     }
+
+    class CutExtrusion : KompasEntity
+    {
+        private Sketch sketch;
+        private entity cutExtrusion;
+        private ksCutExtrusionDefinition cutExtrusionDef;
+        private Direction_Type direction;
+        private End_Type howExtrude;
+        private double depthOfExtrusion;
+
+        public CutExtrusion(ksPart iPart,Sketch sketch,Direction_Type direction,End_Type howExtrude) : base(iPart)
+        {
+            this.sketch = sketch;
+            this.direction = direction;
+            this.howExtrude = howExtrude;
+        }
+
+        public void Cut()
+        {
+            cutExtrusion = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);
+            cutExtrusionDef = (ksCutExtrusionDefinition)cutExtrusion.GetDefinition();
+
+            cutExtrusionDef.directionType = (short)direction;
+            cutExtrusionDef.SetSketch(sketch.ISketch);
+            cutExtrusionDef.SetSideParam(true,(short)howExtrude,depthOfExtrusion,0,false);
+
+            cutExtrusion.Create();
+        }
+    }
 }
