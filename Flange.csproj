@@ -87,9 +87,12 @@
     <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
-    <Compile Include="Model\Kompas\KompasOverride.cs" />
+    <Compile Include="Model\Kompas\ArrayOperation.cs" />
+    <Compile Include="Model\Kompas\Extrusions.cs" />
+    <Compile Include="Model\Kompas\KompasEntity.cs" />
     <Compile Include="Model\Kompas\FlangeDocument.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange3DModel.cs" />
+    <Compile Include="Model\Kompas\Sketch.cs" />
     <Compile Include="Model\SizeTypes.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
