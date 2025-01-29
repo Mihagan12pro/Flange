@@ -17,29 +17,11 @@ namespace Flange.Model.Kompas.Entities
         YOZ = (short)Obj3dType.o3d_planeYOZ,
     }
 
-
-    //class Point2D
-    //{
-    //    public readonly double X, Y;
-
-    //    public Point2D(double _X,double _Y)
-    //    {
-    //        X = _X;
-    //        Y = _Y;
-    //    }
-    //}
-
-    //class Point3D : Point2D
-    //{
-    //    public readonly double Z;
-    //    public Point3D(double _X, double _Y, double _Z) : base(_X, _Y)
-    //    {
-    //        Z = _Z;
-    //    }
-    //}
+    
 
     abstract class KompasEntity
     {
+        protected short id;
         protected readonly ksPart iPart;
         public KompasEntity(ksPart iPart)
         {
@@ -61,17 +43,26 @@ namespace Flange.Model.Kompas.Entities
         }
     }
 
+
     class Sketch: KompasEntity
     {
         protected ksDocument2D doc2D;
-        protected readonly ksEntity iSketch;
         protected  ksSketchDefinition iSketchDef;
         protected readonly ksEntity plane;
+        protected readonly ksEntity iSketch;
+        public ksEntity ISketch
+        {
+            get
+            {
+                return iSketch;
+            }
+        }
+
         public Sketch(ksPart iPart,ksEntity plane):base (iPart)
         {
-           
+            id = 5;
 
-            iSketch = (ksEntity)iPart.NewEntity(5);
+            iSketch = (ksEntity)iPart.NewEntity(id);
 
             this.plane = plane;
 
@@ -100,6 +91,32 @@ namespace Flange.Model.Kompas.Entities
         public void Circle(Point center,double diameter)
         {
             doc2D.ksCircle(center.X,center.Y, diameter,1);
+        }
+    }
+
+    class BossRotation : KompasEntity
+    {
+        private double angle;
+        private bool direction;
+        private Sketch sketch;
+        private entity rotate;
+        public BossRotation(ksPart iPart,Sketch sketch,double angle,bool direction) : base(iPart)
+        {
+            this.sketch = sketch;
+            this.direction = direction;
+            this.angle = angle;
+            id = 25;
+        }
+
+        public void Rotate()
+        {
+            rotate = (entity)iPart.NewEntity((short)Obj3dType.o3d_bossRotated);
+            ksBossRotatedDefinition rotatedDefinition = (ksBossRotatedDefinition)rotate.GetDefinition();
+
+            rotatedDefinition.SetSketch(sketch.ISketch);
+            rotatedDefinition.SetSideParam(direction,angle);
+
+            rotate.Create();
         }
     }
 }

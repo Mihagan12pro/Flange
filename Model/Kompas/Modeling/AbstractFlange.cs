@@ -14,6 +14,7 @@ using Kompas6Constants3D;
 using System.Runtime.InteropServices;
 using Flange.Model.Kompas.Entities;
 using Flange.Model.Kompas;
+using Flange.Other;
 namespace Flange.Kompas.Modeling
 {
     internal abstract class AbstractFlange: FlangeDocument
@@ -29,6 +30,7 @@ namespace Flange.Kompas.Modeling
 
         protected Plane planeXOY, planeXOZ, planeYOZ;
         protected Sketch sketch1;
+        protected BossRotation bossRotation1;
         //protected Plane
 
         //protected  ksEntity planeXOZ,planeXOY,planeZOY,planeOffsetXOY;
@@ -96,6 +98,7 @@ namespace Flange.Kompas.Modeling
             planeYOZ = new Plane(iPart, StandartPlanes.YOZ);
 
             Sketch1();
+            BossRotation1();
            
             //if (kompas == null)
             //{
@@ -180,6 +183,13 @@ namespace Flange.Kompas.Modeling
             sketch1.CenterLine(rightBottomPoint,rightTopPoint);
 
             sketch1.EndEditingSketch();
+        }
+
+        protected virtual void BossRotation1()
+        {
+            bossRotation1 = new BossRotation(iPart,sketch1,360,Constants.Forward);
+
+            bossRotation1.Rotate();
         }
         //protected void Sketch2()
         //{

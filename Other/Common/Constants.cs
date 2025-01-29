@@ -134,6 +134,9 @@ namespace Flange.Other
         public const int Model3D = 0;
         public const int Draft2D = 1;
         public const int Assembly = 2;
+
+        public const bool Forward = true;
+        public const bool Backward = false;
         
 
 
