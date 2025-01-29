@@ -75,7 +75,7 @@ namespace Flange.Model.Kompas.Entities
             doc2D = iSketchDef.BeginEdit();
         }
 
-        public void EndEditingSketch()
+        public void CreateSketch()
         {
             iSketchDef.EndEdit();
         }
@@ -88,9 +88,14 @@ namespace Flange.Model.Kompas.Entities
         {
             doc2D.ksLineSeg(2*point1.X, point1.Y, point2.X, point2.Y, 3);
         }
+
+        public void CenterCircle(Point center,double diameter)
+        {
+            doc2D.ksCircle(center.X, center.Y, diameter / 2, 3);
+        }
         public void Circle(Point center,double diameter)
         {
-            doc2D.ksCircle(center.X,center.Y, diameter,1);
+            doc2D.ksCircle(center.X,center.Y, diameter/2,1);
         }
     }
 
@@ -146,6 +151,15 @@ namespace Flange.Model.Kompas.Entities
             cutExtrusionDef.SetSideParam(true,(short)howExtrude,depthOfExtrusion,0,false);
 
             cutExtrusion.Create();
+        }
+    }
+
+
+    class MirrorOperation : KompasEntity
+    {
+        public MirrorOperation(ksPart iPart) : base(iPart)
+        {
+
         }
     }
 }

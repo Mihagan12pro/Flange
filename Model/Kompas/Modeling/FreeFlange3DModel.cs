@@ -16,8 +16,8 @@ namespace Flange.Model.Kompas.Modeling
         protected double D1, D2,Db;
         protected int n;
 
-        protected Sketch sketch2;
-        protected CutExtrusion cutExtrusion1;
+        protected Sketch sketch2,sketch3;
+        protected CutExtrusion cutExtrusion1, cutExtrusion2;
         public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts) : base(diameters,heights)
         {
             n = counts.n;
@@ -50,7 +50,13 @@ namespace Flange.Model.Kompas.Modeling
             if (D2 >= D1 || D2 == 0)
             {
                 MessageBox.Show("Некорректный размер D2!");
-                return true;
+                return false;
+            }
+
+            if (Convert.ToDouble(n) > Math.Floor(Math.PI * D1/D2))
+            {
+                MessageBox.Show("Отверстия с диаметров D2 не поместятся в таком количестве!");
+                return false;
             }
 
             return true;
@@ -59,8 +65,8 @@ namespace Flange.Model.Kompas.Modeling
         protected virtual void Sketch2()
         {
            sketch2 = new Sketch(iPart,planeXOZ.GetPlane());
-           sketch2.Circle(new Point(0,0),Db*0.5);
-           sketch2.EndEditingSketch();
+           sketch2.Circle(new Point(0,0),Db);
+           sketch2.CreateSketch();
         }
 
         protected virtual void CutExtrusion1()
@@ -69,12 +75,31 @@ namespace Flange.Model.Kompas.Modeling
             cutExtrusion1.Cut();
         }
 
+        protected virtual void Sketch3()
+        {
+            sketch3 = new Sketch(iPart,planeXOZ.GetPlane());
+
+            //sketch3.CenterCircle(new Point(0,0),D1);
+            sketch3.Circle(new Point(0,D1/2),D2);
+
+            sketch3.CreateSketch();
+        }
+
+        protected virtual void CutExtrusion2()
+        {
+            cutExtrusion2 = new CutExtrusion(iPart,sketch3,Direction_Type.dtBoth,End_Type.etThroughAll);
+
+            cutExtrusion2.Cut();
+        }
+
         public override void Build()
         {
             base.Build();
 
             Sketch2();
             CutExtrusion1();
+            Sketch3();
+            CutExtrusion2();
         }
     }
 }

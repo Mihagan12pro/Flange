@@ -146,7 +146,7 @@ namespace Flange.Kompas.Modeling
 
             sketch1.CenterLine(rightBottomPoint,rightTopPoint);
 
-            sketch1.EndEditingSketch();
+            sketch1.CreateSketch();
         }
 
         protected virtual void BossRotation1()
