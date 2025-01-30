@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Flange.Model.Kompas.Kompas_override;
 using Kompas6API5;
 using Kompas6Constants3D;
-namespace Flange.Model.Kompas.Entities
+namespace Flange.Model.Kompas.Kompas_override
 {
     class BossRotation : KompasEntity, ICopy
     {
@@ -21,6 +22,11 @@ namespace Flange.Model.Kompas.Entities
             id = 25;
         }
 
+        public ksEntity GetKsEntity()
+        {
+            return rotate;
+        }
+
         public void Rotate()
         {
             rotate = (entity)iPart.NewEntity((short)Obj3dType.o3d_bossRotated);
@@ -31,6 +37,8 @@ namespace Flange.Model.Kompas.Entities
 
             rotate.Create();
         }
+
+       
     }
 
     class CutExtrusion : KompasEntity, ICopy
@@ -49,6 +57,10 @@ namespace Flange.Model.Kompas.Entities
             this.howExtrude = howExtrude;
         }
 
+        public ksEntity GetKsEntity()
+        {
+            return cutExtrusion;
+        }
         public void Cut()
         {
             cutExtrusion = (entity)iPart.NewEntity((short)Obj3dType.o3d_cutExtrusion);

@@ -87,12 +87,15 @@
     <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
-    <Compile Include="Model\Kompas\ArrayOperation.cs" />
-    <Compile Include="Model\Kompas\Extrusions.cs" />
-    <Compile Include="Model\Kompas\KompasEntity.cs" />
+    <Compile Include="Model\Kompas\Kompas override\ArrayOperation.cs" />
+    <Compile Include="Model\Kompas\Kompas override\Axis.cs" />
+    <Compile Include="Model\Kompas\Kompas override\Extrusions.cs" />
+    <Compile Include="Model\Kompas\Kompas override\ICopy.cs" />
+    <Compile Include="Model\Kompas\Kompas override\KompasEntity.cs" />
     <Compile Include="Model\Kompas\FlangeDocument.cs" />
+    <Compile Include="Model\Kompas\Kompas override\Plane.cs" />
     <Compile Include="Model\Kompas\Modeling\FreeFlange3DModel.cs" />
-    <Compile Include="Model\Kompas\Sketch.cs" />
+    <Compile Include="Model\Kompas\Kompas override\Sketch.cs" />
     <Compile Include="Model\SizeTypes.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
@@ -214,24 +217,6 @@
     </COMReference>
     <COMReference Include="Kompas6Constants3D">
       <Guid>{2CAF168C-7961-4B90-9DA2-701419BEEFE3}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="KompasAPI7">
-      <Guid>{69AC2981-37C0-4379-84FD-5DD2F3C0A520}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="KompasLibrary">
-      <Guid>{C1633829-7BB0-4E69-8ED4-043ADB7E8090}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

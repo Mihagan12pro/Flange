@@ -1,5 +1,7 @@
 ﻿using Flange.Kompas.Modeling;
 using Flange.Model.Kompas.Entities;
+using Flange.Model.Kompas.Kompas_override;
+using Kompas6API5;
 using Kompas6Constants3D;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace Flange.Model.Kompas.Modeling
 
         protected Sketch sketch2,sketch3;
         protected CutExtrusion cutExtrusion1, cutExtrusion2;
+        protected CircularCopy<AxisByTwoPlanes> circularCopy1;
         public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts) : base(diameters,heights)
         {
             n = counts.n;
@@ -92,6 +95,16 @@ namespace Flange.Model.Kompas.Modeling
             cutExtrusion2.Cut();
         }
 
+        protected virtual void CircularArray1()
+        {
+            AxisByTwoPlanes axis = new AxisByTwoPlanes(iPart,StandartPlanes.XOY,StandartPlanes.YOZ);
+            axis.CreateAxis();
+
+            circularCopy1 = new CircularCopy<AxisByTwoPlanes>(iPart,n,axis,360);
+            circularCopy1.Add(cutExtrusion2);
+            circularCopy1.Copy();
+        }
+
         public override void Build()
         {
             base.Build();
@@ -100,6 +113,7 @@ namespace Flange.Model.Kompas.Modeling
             CutExtrusion1();
             Sketch3();
             CutExtrusion2();
+            CircularArray1();
         }
     }
 }

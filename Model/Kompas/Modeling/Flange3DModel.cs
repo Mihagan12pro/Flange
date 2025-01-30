@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using Kompas6API5;
 using Kompas6Constants3D;
 using System.Runtime.InteropServices;
-using Flange.Model.Kompas.Entities;
+using Flange.Model.Kompas.Kompas_override;
 using Flange.Model.Kompas;
 using Flange.Other;
 using Flange.Model;
