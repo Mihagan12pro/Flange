@@ -712,7 +712,7 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() {D = 95, D1 = 65, D2 = 8, Db = 19},new Heights() {H = 10},new Counts() {n = 4});
+            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() {D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) },new Heights() {H = Convert.ToDouble(this.H) },new Counts() {n = Convert.ToInt32(this.n) });
 
             freeFlange.Build();
             freeFlange.SaveModel();

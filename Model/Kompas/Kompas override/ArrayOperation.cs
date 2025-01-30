@@ -49,9 +49,9 @@ namespace Flange.Model.Kompas.Entities
             this.angle = angle;
 
             circularCopyDef = circularCopy.GetDefinition();
-            circularCopyDef.count1 = count;
+            //circularCopyDef.count1 = count;
             circularCopyDef.SetAxis(axis.Axis);
-            circularCopyDef.SetCopyParamAlongDir(count, angle, true,true);
+            circularCopyDef.SetCopyParamAlongDir(count, angle, true,false);
 
             entityCollection = circularCopyDef.GetOperationArray();
             entityCollection.Clear();
