@@ -86,56 +86,56 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD}">
                     <DockPanel >
                         <Label Style="{StaticResource FormLabel}" >D</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD1}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D1</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D1}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D1,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D2</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D2}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding D2,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D3</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D3}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D3,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD4}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D4</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D4}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D4,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfD5}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">D5</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D5}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding D5,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfDb}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">Db</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding Db}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text = "{Binding Db,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
@@ -143,21 +143,21 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH2}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H2</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H2}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H2,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH3}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H3</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H3}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H3,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfH4}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">H4</Label>
-                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H4}"></override:ParametersBox>
+                        <override:ParametersBox Style="{StaticResource FormParametreText}" Text="{Binding H4,UpdateSourceTrigger=PropertyChanged}"></override:ParametersBox>
                     </DockPanel>
                 </Border>
 
@@ -165,7 +165,7 @@
                 <Border  Style="{StaticResource Fieldset}" Visibility="{Binding  VisibilityOfn}">
                     <DockPanel>
                         <Label Style="{StaticResource FormLabel}">n</Label>
-                        <override:CountBox Style="{StaticResource FormCountText}" Text = "{Binding n}"></override:CountBox>
+                        <override:CountBox Style="{StaticResource FormCountText}" Text = "{Binding n,UpdateSourceTrigger=PropertyChanged}"></override:CountBox>
                     </DockPanel>
                 </Border>
 

@@ -32,7 +32,7 @@ namespace Flange.Model.Kompas
                 Kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
                 Kompas.Visible = true;
             }
-            catch 
+            catch(System.Runtime.InteropServices.COMException) 
             {
                 if (Kompas == null)
                 {
