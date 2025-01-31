@@ -712,27 +712,11 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() {D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) },new Heights() {H = Convert.ToDouble(this.H) },new Counts() {n = Convert.ToInt32(this.n) });
+            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() { D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) }, new Heights() { H = Convert.ToDouble(this.H) }, new Counts() { n = Convert.ToInt32(this.n) },new ChamferSizesCollection() { DiskChamferTop =  new ChamferSizes(60,1),DiskChamferBottom = new ChamferSizes(45,2)});
 
             freeFlange.Build();
             freeFlange.SaveModel();
-            //switch( SelectedFlangeType)
-            //{
-            //     case 0:
-            //         //Console.WriteLine(ColumnWidth);
-            //         SimpleFlange simpleFlange = new SimpleFlange(DController.RowValue, D1Controller.RowValue ,D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue);
-            //         //simpleFlange.TryToBuild();
 
-            //         break;
-            //     case 1:
-            //         FreeFlange freeFlange = new FreeFlange(DController.RowValue, D1Controller.RowValue, D2Controller.RowValue, HController.RowValue, NConroller.RowValue, DbController.RowValue,A1Controller.RowValue, S1Controller.RowValue);
-            //         //freeFlange.TryToBuild();
-
-            //         break;
-            //     default:
-            //         MessageBox.Show("Error!");
-            //         break;
-            //}
         }
 
         private void CreateExtraSizesWindow()

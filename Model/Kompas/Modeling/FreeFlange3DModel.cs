@@ -21,7 +21,7 @@ namespace Flange.Model.Kompas.Modeling
         protected Sketch sketch2,sketch3;
         protected CutExtrusion cutExtrusion1, cutExtrusion2;
         protected CircularCopy<AxisByTwoPlanes> circularCopy1;
-        public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts) : base(diameters,heights)
+        public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts,ChamferSizesCollection chamfers) : base(diameters,heights,chamfers)
         {
             n = counts.n;
             D1 = diameters.D1;

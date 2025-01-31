@@ -26,70 +26,26 @@ namespace Flange.Kompas.Modeling
     
         protected ksDocument2D iDocument2D;
 
-
+        protected ChamferSizesCollection chamfers;
         
         protected ksPart iPart;
 
         protected Plane planeXOY, planeXOZ, planeYOZ;
         protected Sketch sketch1;
         protected BossRotation bossRotation1;
-        //protected Plane
-
-        //protected  ksEntity planeXOZ,planeXOY,planeZOY,planeOffsetXOY;
-
-        // protected entity iSketch1, iSketch2;
-        // protected SketchDefinition iSketch1Definition, iSketch2Definition;
-
-        // protected entity iBossRotation1;
-        // protected entity iCutExtrusion1;
-        // protected BossRotatedDefinition iBossRotation1Definition;
-        //// protected CutRotatedDefinition iCutRotation1Definition;
-
-        // protected ksEntity iCircularArray;
-        // protected ksCircularCopyDefinition  iCircularArrayDefinition;
-
-        //protected double d, d1, d2,  h;
-        //protected int countOfHoles;
-        //protected List<string> paramsList = new List<string>();
+        protected Chamfer diskChamferTop,diskChamferBottom;
 
 
-        //protected struct Lines
-        //{
-        //    public readonly double Angle1;
-        //    public readonly double Angle2;
-        //    public readonly double Line1;
-
-        //    public Lines(double line1,double angle)
-        //    {
-        //        Angle1 = angle;
-        //        Line1 = line1;
-
-        //        Angle2 = 90 - Angle1;
-        //    }
-
-
-
-        //    public double Line2
-        //    {
-        //        get
-        //        {
-        //            return (Math.Sin(Angle2) * Line1) / Math.Sin(Angle2);
-        //        }
-        //    }
-        //}
+       
 
         protected double D, H;
 
-        public Flange3DModel(Diameters diameters, Heights heights):base (diameters, heights)
+        public Flange3DModel(Diameters diameters, Heights heights,ChamferSizesCollection chamfers):base (diameters, heights)
         {
             D = diameters.D;
             H = heights.H;
 
-            userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
-
-            OneDrive = Path.Combine(userRoot, "OneDrive");
-
-            Documents = Path.Combine(OneDrive, "Документы");
+            this.chamfers = chamfers;
         }
 
         protected override bool ParametresValidation()
@@ -124,6 +80,16 @@ namespace Flange.Kompas.Modeling
 
                 Sketch1();
                 BossRotation1();
+
+                if (chamfers.DiskChamferTop.IsSelected)
+                {
+                    DiskChamferTop();
+                }
+
+                if (chamfers.DiskChamferBottom.IsSelected)
+                {
+                    DiskChamferBottom();
+                }
             }
            
         }
@@ -156,6 +122,17 @@ namespace Flange.Kompas.Modeling
             bossRotation1.Rotate();
         }
 
+        protected virtual void DiskChamferTop()
+        {
+            diskChamferTop = new Chamfer(iPart,new Point3D(D/2,H/2,0),chamfers.DiskChamferTop);
+            diskChamferTop.AddChamfer();
+        }
+
+        protected virtual void DiskChamferBottom()
+        {
+            diskChamferBottom = new Chamfer(iPart, new Point3D(D/2,-H/2,0), chamfers.DiskChamferBottom);
+            diskChamferBottom.AddChamfer();
+        }
 
         public override void SaveModel()
         {

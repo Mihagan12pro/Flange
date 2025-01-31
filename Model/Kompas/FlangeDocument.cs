@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
+using System.IO;
 namespace Flange.Model.Kompas
 {
     internal abstract class FlangeDocument
@@ -64,7 +64,11 @@ namespace Flange.Model.Kompas
 
         public FlangeDocument(Diameters diameters,Heights heights)
         {
-            
+            userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
+
+            OneDrive = Path.Combine(userRoot, "OneDrive");
+
+            Documents = Path.Combine(OneDrive, "Документы");
         }
     }
 }

@@ -33,6 +33,10 @@ namespace Flange.Other
 
         public const bool Forward = true;
         public const bool Backward = false;
+
+
+        public const int TOP = 0;
+        public const int BOTTOM = 1;
         
 
 

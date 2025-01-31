@@ -89,6 +89,7 @@
     <Compile Include="Model\DB classes\Value.cs" />
     <Compile Include="Model\Kompas\Kompas override\ArrayOperation.cs" />
     <Compile Include="Model\Kompas\Kompas override\Axis.cs" />
+    <Compile Include="Model\Kompas\Kompas override\Roundings.cs" />
     <Compile Include="Model\Kompas\Kompas override\Extrusions.cs" />
     <Compile Include="Model\Kompas\Kompas override\ICopy.cs" />
     <Compile Include="Model\Kompas\Kompas override\KompasEntity.cs" />

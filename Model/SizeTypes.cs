@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -38,6 +39,7 @@ namespace Flange.Model
     {
         private double angle, lenght;
 
+        public readonly bool IsSelected;
         public double Angle
         {
             get
@@ -49,11 +51,34 @@ namespace Flange.Model
                 angle = value;
             }
         }
-        public ChamferSizes(double angleInDegrees,double lenght)
+        public double Lenght
+        {
+            get
+            {
+                return lenght;
+            }
+            private set
+            {
+                lenght = value;
+            }
+        }
+        public ChamferSizes(double angle,double lenght)
         {
             this.lenght = lenght;
 
-            this.angle = (angleInDegrees*Math.PI)/180;
+            IsSelected = true;
+
+            this.angle = angle;
         }
+    }
+
+    struct ChamferSizesCollection
+    {
+        public ChamferSizesCollection()
+        {
+            
+        }
+
+        public ChamferSizes DiskChamferTop, DiskChamferBottom;
     }
 }
