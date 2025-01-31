@@ -25,52 +25,51 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Menu Margin="0 -1" Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu">
-            <MenuItem Header="Справка" Name="HelpMenuItem" Visibility="{Binding HelpMenuVisibility}">
-                <MenuItem  Header="О программе"></MenuItem>
-                <MenuItem Header="Руководство"></MenuItem>
-
-            </MenuItem>
-            <MenuItem Header="Дополнительно" Name="ExtraMenuItem" Visibility="{Binding ExtraMenuVisibility}">
-                <MenuItem Header="Просмотр 3д моделей">
+        <StackPanel   Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal" >
+            <Menu  Background="White" Grid.ColumnSpan="3" Name="MainWindowMenu" VerticalAlignment="Center">
+                <MenuItem Header="Справка" Name="HelpMenuItem" Visibility="{Binding HelpMenuVisibility}">
+                    <MenuItem  Header="О программе"></MenuItem>
+                    <MenuItem Header="Руководство"></MenuItem>
 
                 </MenuItem>
-            </MenuItem>
-            <MenuItem Header="Параметры приложения" Name="AppsConfigMenuItem">
-                <MenuItem Header="Язык приложения"></MenuItem>
-                <MenuItem Header="Шрифты и цвета"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Параметры изделия" Name="DateilConfigManuItem">
-                <MenuItem Name="ExtraSizes"  Header="Дополнительные размеры"></MenuItem>
-                <MenuItem Header="Материал детали"></MenuItem>
-                <MenuItem Header="Параметры сохранения"></MenuItem>
-            </MenuItem>
-            <override:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
-                <override:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
+                <MenuItem Header="Дополнительно" Name="ExtraMenuItem" Visibility="{Binding ExtraMenuVisibility}">
+                    <MenuItem Header="Просмотр 3д моделей">
 
-                </override:RadioMenuItem>
-                <override:RadioMenuItem Header="nanoCAD" x:Name="nanoCADMenuItem">
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Параметры приложения" Name="AppsConfigMenuItem">
+                    <MenuItem Header="Язык приложения"></MenuItem>
+                    <MenuItem Header="Шрифты и цвета"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Параметры изделия" Name="DateilConfigManuItem">
+                    <MenuItem Name="ExtraSizes"  Header="Дополнительные размеры"></MenuItem>
+                    <MenuItem Header="Материал детали"></MenuItem>
+                    <MenuItem Header="Параметры сохранения"></MenuItem>
+                </MenuItem>
+                <override:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
+                    <override:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
 
-                </override:RadioMenuItem>
-            </override:RadioMenuItemBox>
+                    </override:RadioMenuItem>
+                    <override:RadioMenuItem Header="nanoCAD" x:Name="nanoCADMenuItem">
 
-            <override:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
+                    </override:RadioMenuItem>
+                </override:RadioMenuItemBox>
 
-                <override:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></override:RadioMenuItem>
-                <override:RadioMenuItem Header="Плоский" IsChecked = "{Binding IsFlatFlangeSelected}"></override:RadioMenuItem>
-                <override:RadioMenuItem Header="Глухой" IsChecked="{Binding IsBlindFlangeSelected}"></override:RadioMenuItem>
-                <override:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></override:RadioMenuItem>
-            </override:RadioMenuItemBox>
+                <override:RadioMenuItemBox Header="Тип фланца" x:Name="ChooseFlangeMenuItem">
 
+                    <override:RadioMenuItem Header="Свободный" IsChecked = "{Binding IsFreeFlangeSelected}"></override:RadioMenuItem>
+                    <override:RadioMenuItem Header="Плоский" IsChecked = "{Binding IsFlatFlangeSelected}"></override:RadioMenuItem>
+                    <override:RadioMenuItem Header="Глухой" IsChecked="{Binding IsBlindFlangeSelected}"></override:RadioMenuItem>
+                    <override:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></override:RadioMenuItem>
+                </override:RadioMenuItemBox>
+            </Menu>
+            <Button VerticalAlignment="Center" Name="BuildButton" Command="{Binding BuildFlangeCommand}" Background="White">Построить</Button>
+        </StackPanel>
+     
 
-            <MenuItem Header="Создать" Name="BuildMenuItem">
-                <MenuItem Header="3д модель" Command="{Binding BuildFlangeCommand}"></MenuItem>
-                <MenuItem Header="2д чертёж"></MenuItem>
-                <MenuItem Header="Сборку"></MenuItem>
-            </MenuItem>
-        </Menu>
+        
 
-        <Border Grid.Column="0" Grid.Row="1" BorderThickness="3" BorderBrush="Black" >
+        <Border Grid.Column="0"  Grid.Row="1" BorderThickness="3" BorderBrush="Black" >
             <Image Name="SketchImage"  Stretch="Fill" Source="{Binding BitmapImage}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
         </Border>
         <DataGridRow  Name="StandartSizesTable" Grid.Column="1" Grid.Row="1">

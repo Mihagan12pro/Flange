@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flange.Other.Extra_sizes"
         mc:Ignorable="d"
-        Title="Доп. размеры"   Height="300" MinWidth="300" MaxWidth="500" MinHeight="300" MaxHeight="500" Width="300" Background="Azure" Name="ExtraWnd"  >
+        Title="Дополнительные размеры"   Height="300" MinWidth="300" MaxWidth="500" Width="300" Background="Azure" Name="ExtraWnd"  >
 
     <Grid >
         <TabControl Name="RibbonTCrl" FontFamily="GOST Type B">
