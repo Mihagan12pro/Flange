@@ -42,9 +42,9 @@
                     <MenuItem Header="Шрифты и цвета"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Параметры изделия" Name="DateilConfigManuItem">
-                    <MenuItem Name="ExtraSizes"  Header="Дополнительные размеры"></MenuItem>
+                    <MenuItem Name="ExtraSizes" Command="{Binding CreateExtraSizesWindowCommand}"  Header="Дополнительные размеры"></MenuItem>
                     <MenuItem Header="Материал детали"></MenuItem>
-                    <MenuItem Header="Параметры сохранения"></MenuItem>
+                    <MenuItem Header="Параметры сохранения" ></MenuItem>
                 </MenuItem>
                 <override:RadioMenuItemBox Header="Выбор САПР системы" x:Name="ChooseCADMenuItem" >
                     <override:RadioMenuItem Header="КОМПАС-3D" x:Name="Kompas3DMenuItem" >
@@ -63,7 +63,7 @@
                     <override:RadioMenuItem Header="Воротниковый"  IsChecked="{Binding IsCollarFlangeSelected}"></override:RadioMenuItem>
                 </override:RadioMenuItemBox>
             </Menu>
-            <Button VerticalAlignment="Center" Name="BuildButton" Command="{Binding BuildFlangeCommand}" Background="White">Построить</Button>
+            <Button VerticalAlignment="Center" Name="BuildButton" Command="{Binding BuildFlangeCommand}" Margin="5 0" Background="White">Построить</Button>
         </StackPanel>
      
 

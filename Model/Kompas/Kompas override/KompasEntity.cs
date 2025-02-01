@@ -9,7 +9,7 @@ using Kompas6API5;
 using Kompas6Constants3D;
 namespace Flange.Model.Kompas.Kompas_override
 {
-    enum StandartPlanes
+    public enum StandartPlanes
     {
         XOZ = (short)Obj3dType.o3d_planeXOZ,
         XOY = (short)Obj3dType.o3d_planeXOY,
@@ -19,7 +19,7 @@ namespace Flange.Model.Kompas.Kompas_override
     
 
 
-    internal abstract class KompasEntity
+    public abstract class KompasEntity
     {
         protected short id;
         protected readonly ksPart iPart;

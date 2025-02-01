@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Flange.Model.Kompas.Kompas_override;
 using Kompas6API5;
 using Kompas6Constants3D;
-namespace Flange.Model.Kompas.Entities
+namespace Flange.Model.Kompas.Kompas_override
 {
     abstract class ArrayOperation : KompasEntity
     {

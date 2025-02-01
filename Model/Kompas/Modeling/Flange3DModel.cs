@@ -19,7 +19,7 @@ using Flange.Model;
 using System.IO;
 namespace Flange.Kompas.Modeling
 {
-    internal abstract class Flange3DModel: FlangeDocument
+    public abstract class Flange3DModel: FlangeDocument
     {
         protected  ksDocument3D iDocument3D;
 
@@ -40,12 +40,12 @@ namespace Flange.Kompas.Modeling
 
         protected double D, H;
 
-        public Flange3DModel(Diameters diameters, Heights heights,ChamferSizesCollection chamfers):base (diameters, heights)
+        public Flange3DModel(Diameters diameters, Heights heights, ExtraSizesCollection extraSizes):base (diameters, heights)
         {
             D = diameters.D;
             H = heights.H;
 
-            this.chamfers = chamfers;
+            this.chamfers = extraSizes.Chamfers;
         }
 
         protected override bool ParametresValidation()

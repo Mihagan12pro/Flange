@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Flange.Model.Kompas.Kompas_override
 {
-    class Sketch : KompasEntity
+    public class Sketch : KompasEntity
     {
         protected ksDocument2D doc2D;
         protected ksSketchDefinition iSketchDef;

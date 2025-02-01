@@ -15,25 +15,22 @@ using System.Windows.Shapes;
 using Flange.Other;
 using System.IO;
 using Flange.Kompas.Modeling;
+using Flange.Model.Kompas.Modeling;
+using Flange.Model.Kompas;
 namespace Flange.Other.Extra_sizes
 {
     /// <summary>
     /// Interaction logic for ExtraSizesWindow.xaml
     /// </summary>
 
-    public partial class ExtraSizesWindow 
+    public partial class ExtraSizesWindow
     {
-
-        //public  Flange3DModel flangeModel;
-        public ExtraSizesWindow()
+        private FlangeDocument flange;
+        public ExtraSizesWindow(FlangeDocument flange)
         {
             InitializeComponent();
 
-
+            this.flange = flange;
         }
-
-
-       
-
     }
 }

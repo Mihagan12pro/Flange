@@ -1,5 +1,4 @@
 ﻿using Flange.Kompas.Modeling;
-using Flange.Model.Kompas.Entities;
 using Flange.Model.Kompas.Kompas_override;
 using Kompas6API5;
 using Kompas6Constants3D;
@@ -21,7 +20,7 @@ namespace Flange.Model.Kompas.Modeling
         protected Sketch sketch2,sketch3;
         protected CutExtrusion cutExtrusion1, cutExtrusion2;
         protected CircularCopy<AxisByTwoPlanes> circularCopy1;
-        public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts,ChamferSizesCollection chamfers) : base(diameters,heights,chamfers)
+        public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts, ExtraSizesCollection extraSizes) : base(diameters,heights,extraSizes)
         {
             n = counts.n;
             D1 = diameters.D1;

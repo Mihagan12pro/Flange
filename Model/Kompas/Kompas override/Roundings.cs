@@ -6,7 +6,7 @@ using System.Windows;
 
 namespace Flange.Model.Kompas.Kompas_override
 {
-    abstract class Rounding : KompasEntity, ICopy
+    public abstract class Rounding : KompasEntity, ICopy
     {
         protected ksEntityCollection partCollection;
         protected Point3D point;
@@ -25,7 +25,7 @@ namespace Flange.Model.Kompas.Kompas_override
 
     }
 
-    internal class Chamfer : Rounding
+    public class Chamfer : Rounding
     {
         private double length1, length2;
 

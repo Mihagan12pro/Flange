@@ -32,23 +32,10 @@ namespace Flange.Model
    internal class FlangeViewModel : ViewModelAbstract
     {
 
-        //private Table tableData;
-        //public Table TableData
-        //{
-        //    private set
-        //    {
-        //        tableData = value;
-        //        OnPropertyChanged();
-        //    }
-        //    get
-        //    {
-        //        return tableData;
-        //    }
-        //}
         public event EventHandler CanExecuteChanged;
 
 
-        private RadioMenuItem selectCADRadioMenu;
+        //private RadioMenuItem selectCADRadioMenu;
 
         private DefaultValues defaultValues;
 
@@ -672,48 +659,9 @@ namespace Flange.Model
             }
         }
 
-        //private int selectedFlangeType;
-        //public int SelectedFlangeType
-        //{
-        //    get
-        //    {
-        //        return selectedFlangeType;
-        //    }
-
-        //    set 
-        //    {
-               
-        //        switch(value)
-        //        {
-        //            case Constants.FreeFlange:
-        //                Validator = ValidatorDefaultTable.Instance(new DefaultFreeFlangeTable());
-
-                     
-        //                   BitmapImage = new BitmapImage(new Uri( MainExplorer.SketchesExpl.FreeFlange));
-        //                break;
-
-        //            case Constants.FlatFlange:
-        //                BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FlatFlange));
-        //                break;
-
-        //            case Constants.BlindFlange:
-        //                BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.BlindFlange));
-        //                break;
-
-        //            case Constants.CollarFlange:
-        //                BitmapImage = new BitmapImage(new Uri(MainExplorer.SketchesExpl.CollarFlange));
-        //                break;
-        //        }
-        //        selectedFlangeType = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-
         private void CreateFlange()
         {
-            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() { D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) }, new Heights() { H = Convert.ToDouble(this.H) }, new Counts() { n = Convert.ToInt32(this.n) },new ChamferSizesCollection() { DiskChamferTop =  new ChamferSizes(60,1),DiskChamferBottom = new ChamferSizes(45,2)});
-
+            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() { D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) }, new Heights() { H = Convert.ToDouble(this.H) }, new Counts() { n = Convert.ToInt32(this.n) }, new ExtraSizesCollection() { Chamfers = new ChamferSizesCollection() { DiskChamferBottom = new ChamferSizes(45, 2), DiskChamferTop = new ChamferSizes(45, 1) } });
             freeFlange.Build();
             freeFlange.SaveModel();
 
@@ -721,12 +669,24 @@ namespace Flange.Model
 
         private void CreateExtraSizesWindow()
         {
-            //ExtraSizesWindow window = new ExtraSizesWindow(SelectedFlangeType);
+            ExtraSizesWindow window;
 
-           // window.ShowDialog();
-            
-       
+            if (isFreeFlangeSelected)
+            {
+                
+            }
+            else if (isFlatFlangeSelected)
+            {
 
+            }
+            else if (isCollarFlangeSelected)
+            {
+
+            }
+            else if (isBlindFlangeSelected)
+            {
+
+            }
         }
 
 

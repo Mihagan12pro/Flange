@@ -9,7 +9,7 @@ using System.Windows;
 using System.IO;
 namespace Flange.Model.Kompas
 {
-    internal abstract class FlangeDocument
+    public abstract class FlangeDocument
     {
         protected KompasObject Kompas;
         protected string detailName;

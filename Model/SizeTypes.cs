@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Flange.Model
 {
-    struct Diameters
+    public struct Diameters
     {
         public Diameters()
         {
@@ -17,7 +17,7 @@ namespace Flange.Model
 
         public double D, D1, D2, D3, D4, D5, Db;
     }
-    struct Heights
+    public struct Heights
     {
         public Heights()
         {
@@ -35,7 +35,7 @@ namespace Flange.Model
         public int n;
     }
 
-    struct ChamferSizes
+   public struct ChamferSizes
     {
         private double angle, lenght;
 
@@ -72,7 +72,8 @@ namespace Flange.Model
         }
     }
 
-    struct ChamferSizesCollection
+
+    public struct ChamferSizesCollection
     {
         public ChamferSizesCollection()
         {
@@ -80,5 +81,14 @@ namespace Flange.Model
         }
 
         public ChamferSizes DiskChamferTop, DiskChamferBottom;
+    }
+
+    public struct ExtraSizesCollection
+    {
+        public ExtraSizesCollection()
+        {
+            
+        }
+        public ChamferSizesCollection Chamfers;
     }
 }

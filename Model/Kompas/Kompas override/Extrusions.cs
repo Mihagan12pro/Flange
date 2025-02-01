@@ -8,7 +8,7 @@ using Kompas6API5;
 using Kompas6Constants3D;
 namespace Flange.Model.Kompas.Kompas_override
 {
-    class BossRotation : KompasEntity, ICopy
+    public class BossRotation : KompasEntity, ICopy
     {
         private double angle;
         private bool direction;

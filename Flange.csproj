@@ -175,8 +175,6 @@
   <ItemGroup>
     <Folder Include="Model\DB classes\Default\Extra values\" />
     <Folder Include="Model\DB classes\Standart\Data storages\" />
-    <Folder Include="Model\Kompas\Drafting\" />
-    <Folder Include="ViewModel\Tables\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Kompas6API2D5COM">
