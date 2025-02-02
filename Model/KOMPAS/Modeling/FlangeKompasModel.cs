@@ -36,25 +36,9 @@ namespace Flange.Kompas.Modeling
         protected Sketch sketch1;
         protected BossRotation bossRotation1;
         protected Chamfer diskChamferTop,diskChamferBottom;
-
-
-
-
-
+        protected Fillet diskFilletTop,diskFilletBottom;
 
         protected string detailName;
-
-       // private string userRoot, onedrive, documents;
-
-        //userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
-
-        //    OneDrive = Path.Combine(userRoot, "OneDrive");
-
-        //    Documents = Path.Combine(OneDrive, "Документы");
-
-
-       
-       
 
         protected readonly double D;
         public double _D { get; set; }
@@ -62,6 +46,8 @@ namespace Flange.Kompas.Modeling
 
         protected readonly double H;
         public double _H { get; set; }
+
+        protected bool canBuild;
 
 
         protected ChamferSizesCollection chamfers;
@@ -76,6 +62,8 @@ namespace Flange.Kompas.Modeling
 
         public string Document { get; set; }
 
+        protected FilletSizesCollection fillets;
+        public FilletSizesCollection _Fillets { get; set; }
 
         protected readonly string document;
        
@@ -89,8 +77,10 @@ namespace Flange.Kompas.Modeling
             H = _H;
 
            _Chamfers = extraSizes.Chamfers;
-
            chamfers = _Chamfers;
+
+            _Fillets = extraSizes.Fillets;
+            fillets = _Fillets;
 
             UserRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
 
@@ -115,12 +105,18 @@ namespace Flange.Kompas.Modeling
                 MessageBox.Show("Высота грани не должна быть равна нулю!");
                 return false;
             }
+            if ((chamfers.DiskChamferBottom.IsSelected && fillets.DiskFilletBottom.IsSelected) || (chamfers.DiskChamferTop.IsSelected && fillets.DiskFilletTop.IsSelected))
+            {
+                MessageBox.Show("Нельзя применить два вида скруглений к одной и той же грани!");
+                return false;
+            }
             return true;
         }
 
         public virtual void Build()
         {
-            if (ParametresValidation())
+            canBuild = ParametresValidation();
+            if (canBuild)
             {
                 try
                 {
@@ -171,6 +167,16 @@ namespace Flange.Kompas.Modeling
                 {
                     DiskChamferBottom();
                 }
+
+                if (fillets.DiskFilletTop.IsSelected)
+                {
+                    DiskFilletTop();
+                }
+
+                if (fillets.DiskFilletBottom.IsSelected)
+                {
+                    DiskFilletBottom();
+                }
             }
            
         }
@@ -211,13 +217,26 @@ namespace Flange.Kompas.Modeling
 
         protected virtual void DiskChamferBottom()
         {
-            diskChamferBottom = new Chamfer(iPart, new Point3D(D/2,-H/2,0), chamfers.DiskChamferBottom);
+            diskChamferBottom = new Chamfer(iPart, new Point3D(D/2,-H / 2,0), chamfers.DiskChamferBottom);
             diskChamferBottom.AddChamfer();
+        }
+
+        protected virtual void DiskFilletTop()
+        {
+            diskFilletTop = new Fillet(iPart, new Point3D(D / 2, H / 2, 0), fillets.DiskFilletTop);
+            diskFilletTop.AddFillet();
+        }
+
+        protected virtual void DiskFilletBottom()
+        {
+            diskFilletBottom = new Fillet(iPart, new Point3D(D / 2, -H / 2, 0), fillets.DiskFilletBottom);
+            diskFilletBottom.AddFillet();
         }
 
         public void SaveModel()
         {
-            iDocument3D.SaveAs(Path.Combine(document, detailName));
+            if (canBuild)
+                iDocument3D.SaveAs(Path.Combine(document, detailName));
         }
     }
 }

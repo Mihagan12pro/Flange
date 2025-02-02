@@ -17,16 +17,21 @@ namespace Flange.Model
 
         public double D, D1, D2, D3, D4, D5, Db;
     }
+
+
+
     public struct Heights
     {
         public Heights()
         {
 
         }
-        public double H,H1, H2, H3, H4;
+        public double H, H1, H2, H3, H4;
     }
 
-    struct Counts
+
+
+    public struct Counts
     {
         public Counts()
         {
@@ -35,7 +40,9 @@ namespace Flange.Model
         public int n;
     }
 
-   public struct ChamferSizes
+
+
+    public struct ChamferSizes
     {
         private double angle, lenght;
 
@@ -62,7 +69,7 @@ namespace Flange.Model
                 lenght = value;
             }
         }
-        public ChamferSizes(double angle,double lenght)
+        public ChamferSizes(double angle, double lenght)
         {
             this.lenght = lenght;
 
@@ -72,16 +79,49 @@ namespace Flange.Model
         }
     }
 
-
     public struct ChamferSizesCollection
     {
+        public ChamferSizes DiskChamferTop, DiskChamferBottom;
         public ChamferSizesCollection()
+        {
+
+        }
+    }
+
+
+    public struct FilletSizes
+    {
+        public readonly bool IsSelected;
+
+        private double radius;
+        public double Radius
+        {
+            get
+            {
+                return radius;
+            }
+            private set
+            {
+                radius = value;
+            }
+        }
+        public FilletSizes(double Radius)
+        {
+            IsSelected = true;
+
+            this.Radius = Radius;
+        }
+    }
+
+    public struct FilletSizesCollection
+    {
+        public FilletSizes DiskFilletTop, DiskFilletBottom;
+        public FilletSizesCollection()
         {
             
         }
-
-        public ChamferSizes DiskChamferTop, DiskChamferBottom;
     }
+
 
     public struct ExtraSizesCollection
     {
@@ -90,5 +130,6 @@ namespace Flange.Model
             
         }
         public ChamferSizesCollection Chamfers;
+        public FilletSizesCollection Fillets;
     }
 }

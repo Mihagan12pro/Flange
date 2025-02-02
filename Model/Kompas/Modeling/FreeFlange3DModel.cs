@@ -46,7 +46,7 @@ namespace Flange.Model.Kompas.Modeling
         {
             if (!base.ParametresValidation())
             {
-                return base.ParametresValidation(); 
+                return false; 
             }
 
             if (Db >= D || Db == 0)
@@ -118,13 +118,16 @@ namespace Flange.Model.Kompas.Modeling
 
         public override void Build()
         {
-            base.Build();
-
-            Sketch2();
-            CutExtrusion1();
-            Sketch3();
-            CutExtrusion2();
-            CircularArray1();
+            canBuild = ParametresValidation();
+            if (canBuild)
+            {
+                base.Build();
+                Sketch2();
+                CutExtrusion1();
+                Sketch3();
+                CutExtrusion2();
+                CircularArray1();
+            }
         }
     }
 }

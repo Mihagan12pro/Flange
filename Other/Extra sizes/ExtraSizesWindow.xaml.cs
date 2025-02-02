@@ -17,6 +17,7 @@ using System.IO;
 using Flange.Kompas.Modeling;
 using Flange.Model.Kompas.Modeling;
 using Flange.Model.Kompas;
+using Flange.Model.Interface;
 namespace Flange.Other.Extra_sizes
 {
     /// <summary>
@@ -25,12 +26,10 @@ namespace Flange.Other.Extra_sizes
 
     public partial class ExtraSizesWindow
     {
-        private FlangeDocument flange;
-        public ExtraSizesWindow(FlangeDocument flange)
+        internal readonly IFlangeModel flangeModel;
+        internal ExtraSizesWindow(IFlangeModel flangeModel)
         {
             InitializeComponent();
-
-            this.flange = flange;
         }
     }
 }

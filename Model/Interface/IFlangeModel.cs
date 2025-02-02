@@ -10,10 +10,11 @@ namespace Flange.Model.Interface
     {
         double _D { get; set; }
         double _H { get; set; }
-        ChamferSizesCollection _Chamfers { get;set; }
+        ChamferSizesCollection _Chamfers { get; set; }
+        FilletSizesCollection _Fillets { get; set; }
         string FileExtension { get; set; }
         string OneDrive { get; set; }
         string UserRoot { get; set; }
-        string Document {  get; set; }  
+        string Document { get; set; }
     }
 }

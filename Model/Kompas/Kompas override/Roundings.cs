@@ -25,6 +25,44 @@ namespace Flange.Model.Kompas.Kompas_override
 
     }
 
+    public class Fillet : Rounding
+    {
+        private entity fillet;
+        private ksFilletDefinition filletDef;
+        private ksEntityCollection filletCollection;
+        public Fillet(ksPart iPart, Point3D point,FilletSizes filletSizes) : base(iPart, point)
+        {
+            fillet = iPart.NewEntity((short)Obj3dType.o3d_fillet);
+            filletDef = fillet.GetDefinition();
+            filletDef.radius = filletSizes.Radius;
+
+            filletCollection = filletDef.array();
+            filletCollection.Clear();
+        }
+        public void AddFillet()
+        {
+            partCollection.SelectByPoint(point.X, point.Y, point.Z);
+
+            var selectedPoint = partCollection.GetByIndex(0);
+
+            if (selectedPoint == null)
+            {
+                MessageBox.Show("Не удалось найти точку!", "Ошибка построения фаски!");
+                return;
+            }
+
+            filletCollection.Add(selectedPoint);
+
+            fillet.Create();
+        }
+
+        public new ksEntity GetKsEntity()
+        {
+            return fillet;
+        }
+    }
+
+
     public class Chamfer : Rounding
     {
         private double length1, length2;
