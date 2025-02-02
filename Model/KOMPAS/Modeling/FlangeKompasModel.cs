@@ -17,16 +17,18 @@ using Flange.Model.Kompas;
 using Flange.Other;
 using Flange.Model;
 using System.IO;
+using Flange.Model.Interface;
+using System.Windows.Navigation;
+using System.Xml.Linq;
+using System.ComponentModel.DataAnnotations;
 namespace Flange.Kompas.Modeling
 {
-    public abstract class Flange3DModel: FlangeDocument
+    public abstract class Flange3DModel : IFlangeModel
     {
+        protected KompasObject Kompas;
         protected  ksDocument3D iDocument3D;
-
-    
         protected ksDocument2D iDocument2D;
 
-        protected ChamferSizesCollection chamfers;
         
         protected ksPart iPart;
 
@@ -36,19 +38,72 @@ namespace Flange.Kompas.Modeling
         protected Chamfer diskChamferTop,diskChamferBottom;
 
 
+
+
+
+
+        protected string detailName;
+
+       // private string userRoot, onedrive, documents;
+
+        //userRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
+
+        //    OneDrive = Path.Combine(userRoot, "OneDrive");
+
+        //    Documents = Path.Combine(OneDrive, "Документы");
+
+
+       
        
 
-        protected double D, H;
+        protected readonly double D;
+        public double _D { get; set; }
 
-        public Flange3DModel(Diameters diameters, Heights heights, ExtraSizesCollection extraSizes):base (diameters, heights)
+
+        protected readonly double H;
+        public double _H { get; set; }
+
+
+        protected ChamferSizesCollection chamfers;
+        public ChamferSizesCollection _Chamfers { get; set; }
+
+        protected string fileExtension;
+        public string FileExtension { get=>fileExtension; set=>fileExtension = value; }
+
+        public string OneDrive { get; set; }
+
+        public string UserRoot { get; set; }
+
+        public string Document { get; set; }
+
+
+        protected readonly string document;
+       
+
+        public Flange3DModel(Diameters diameters, Heights heights, ExtraSizesCollection extraSizes)
         {
-            D = diameters.D;
-            H = heights.H;
+           _D = diameters.D;
+           _H = heights.H;
 
-            this.chamfers = extraSizes.Chamfers;
+            D = _D;
+            H = _H;
+
+           _Chamfers = extraSizes.Chamfers;
+
+           chamfers = _Chamfers;
+
+            UserRoot = System.Environment.GetEnvironmentVariable("USERPROFILE");
+
+            OneDrive = Path.Combine(UserRoot, "OneDrive");
+
+            Document = Path.Combine(OneDrive, "Документы");
+
+            document = Document;
+
+            FileExtension = ".m3d";
         }
 
-        protected override bool ParametresValidation()
+        protected virtual bool ParametresValidation()
         {
             if (D == 0)
             {
@@ -63,11 +118,37 @@ namespace Flange.Kompas.Modeling
             return true;
         }
 
-        public override void Build()
+        public virtual void Build()
         {
             if (ParametresValidation())
             {
-                base.Build();
+                try
+                {
+                    Kompas = (KompasObject)Marshal.GetActiveObject("KOMPAS.Application.5");
+                    Kompas.Visible = true;
+                }
+                catch (System.Runtime.InteropServices.COMException)
+                {
+                    if (Kompas == null)
+                    {
+                        if (Kompas == null)
+                        {
+                            var type = Type.GetTypeFromProgID("KOMPAS.Application.5");
+                            Kompas = (KompasObject)Activator.CreateInstance(type);
+                        }
+
+                        if (Kompas != null)
+                        {
+                            Kompas.Visible = true;
+                            Kompas.ActivateControllerAPI();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ошибка подключения к программе КОМПАС-3D!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                    }
+                }
 
                 iDocument3D = (ksDocument3D)Kompas.Document3D();
                 iDocument3D.Create(false, true);
@@ -134,9 +215,9 @@ namespace Flange.Kompas.Modeling
             diskChamferBottom.AddChamfer();
         }
 
-        public override void SaveModel()
+        public void SaveModel()
         {
-            iDocument3D.SaveAs(Path.Combine(Documents, detailName));
+            iDocument3D.SaveAs(Path.Combine(document, detailName));
         }
     }
 }

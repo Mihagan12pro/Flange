@@ -1,4 +1,5 @@
 ﻿using Flange.Kompas.Modeling;
+using Flange.Model.Interface;
 using Flange.Model.Kompas.Kompas_override;
 using Kompas6API5;
 using Kompas6Constants3D;
@@ -6,28 +7,39 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 namespace Flange.Model.Kompas.Modeling
 {
-    internal class FreeFlange3DModel : Flange3DModel
+    internal class FreeFlange3DModel : Flange3DModel, IFreeFlangeModel
     {
-        protected double D1, D2,Db;
-        protected int n;
+        protected readonly double D1, D2,Db;
+        protected readonly int n;
 
         protected Sketch sketch2,sketch3;
         protected CutExtrusion cutExtrusion1, cutExtrusion2;
         protected CircularCopy<AxisByTwoPlanes> circularCopy1;
+
+        public double _D1 { get; set; }
+        public double _D2 { get; set; }
+        public double _Db { get; set; }
+        public int _n { get; set; }
+
         public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts, ExtraSizesCollection extraSizes) : base(diameters,heights,extraSizes)
         {
-            n = counts.n;
-            D1 = diameters.D1;
-            D2 = diameters.D2;
-            Db = diameters.Db;
+            _n = counts.n;
+            _D1 = diameters.D1;
+            _D2 = diameters.D2;
+            _Db = diameters.Db;
 
-            detailName = "Свободный фланец.m3d";
+            n = _n;
+            D1 = _D1;
+            D2 = _D2;
+            Db = _Db;
+            detailName = "Свободный фланец" + FileExtension;
         }
 
         protected override bool ParametresValidation()

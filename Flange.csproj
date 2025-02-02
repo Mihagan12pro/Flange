@@ -87,16 +87,18 @@
     <Compile Include="Model\DB classes\Default\Values\FlatFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
-    <Compile Include="Model\Kompas\Kompas override\ArrayOperation.cs" />
-    <Compile Include="Model\Kompas\Kompas override\Axis.cs" />
-    <Compile Include="Model\Kompas\Kompas override\Roundings.cs" />
-    <Compile Include="Model\Kompas\Kompas override\Extrusions.cs" />
-    <Compile Include="Model\Kompas\Kompas override\ICopy.cs" />
-    <Compile Include="Model\Kompas\Kompas override\KompasEntity.cs" />
-    <Compile Include="Model\Kompas\FlangeDocument.cs" />
-    <Compile Include="Model\Kompas\Kompas override\Plane.cs" />
-    <Compile Include="Model\Kompas\Modeling\FreeFlange3DModel.cs" />
-    <Compile Include="Model\Kompas\Kompas override\Sketch.cs" />
+    <Compile Include="Model\Interface\IFlangeModel.cs" />
+    <Compile Include="Model\Interface\IFreeFlangeModel.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\ArrayOperation.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\Axis.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\Roundings.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\Extrusions.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\ICopy.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\KompasEntity.cs" />
+    <Compile Include="Model\KOMPAS\FlangeDocument.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\Plane.cs" />
+    <Compile Include="Model\KOMPAS\Modeling\FreeFlange3DModel.cs" />
+    <Compile Include="Model\KOMPAS\Kompas override\Sketch.cs" />
     <Compile Include="Model\SizeTypes.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />
     <Compile Include="Other\Abstract classes and interfaces\SizeTable.cs" />
@@ -122,7 +124,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\Kompas\Modeling\Flange3DModel.cs" />
+    <Compile Include="Model\KOMPAS\Modeling\FlangeKompasModel.cs" />
     <Compile Include="Other\Explorers\Explorer\DataBaseExplorer.cs" />
     <Compile Include="Other\Abstract classes and interfaces\Explorer.cs" />
     <Compile Include="Other\Explorers\Explorer\MainExplorer.cs" />
