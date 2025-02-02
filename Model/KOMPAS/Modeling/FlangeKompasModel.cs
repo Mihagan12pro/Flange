@@ -23,7 +23,7 @@ using System.Xml.Linq;
 using System.ComponentModel.DataAnnotations;
 namespace Flange.Kompas.Modeling
 {
-    public abstract class Flange3DModel : IFlangeModel
+    public abstract class FlangeKompasModel : IFlangeModel
     {
         protected KompasObject Kompas;
         protected  ksDocument3D iDocument3D;
@@ -68,7 +68,7 @@ namespace Flange.Kompas.Modeling
         protected readonly string document;
        
 
-        public Flange3DModel(Diameters diameters, Heights heights, ExtraSizesCollection extraSizes)
+        public FlangeKompasModel(Diameters diameters, Heights heights, ExtraSizesCollection extraSizes)
         {
            _D = diameters.D;
            _H = heights.H;

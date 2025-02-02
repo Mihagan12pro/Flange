@@ -82,6 +82,7 @@ namespace Flange.Model
     public struct ChamferSizesCollection
     {
         public ChamferSizes DiskChamferTop, DiskChamferBottom;
+        public ChamferSizes CentralHoleChamferTop, CentralHoleChamferBottom;
         public ChamferSizesCollection()
         {
 
@@ -116,6 +117,7 @@ namespace Flange.Model
     public struct FilletSizesCollection
     {
         public FilletSizes DiskFilletTop, DiskFilletBottom;
+        public FilletSizes CentralHoleFilletTop, CentralHoleFilletBottom;
         public FilletSizesCollection()
         {
             

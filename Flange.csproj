@@ -96,7 +96,7 @@
     <Compile Include="Model\KOMPAS\Kompas override\ICopy.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\KompasEntity.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\Plane.cs" />
-    <Compile Include="Model\KOMPAS\Modeling\FreeFlange3DModel.cs" />
+    <Compile Include="Model\KOMPAS\Modeling\FreeFlangeKompasModel.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\Sketch.cs" />
     <Compile Include="Model\SizeTypes.cs" />
     <Compile Include="Other\Abstract classes and interfaces\DataBase.cs" />

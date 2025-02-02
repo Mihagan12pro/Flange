@@ -35,7 +35,7 @@ namespace Flange.Model.Kompas.Kompas_override
             fillet = iPart.NewEntity((short)Obj3dType.o3d_fillet);
             filletDef = fillet.GetDefinition();
             filletDef.radius = filletSizes.Radius;
-
+           
             filletCollection = filletDef.array();
             filletCollection.Clear();
         }

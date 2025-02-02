@@ -12,9 +12,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Media3D;
 namespace Flange.Model.Kompas.Modeling
 {
-    internal class FreeFlange3DModel : Flange3DModel, IFreeFlangeModel
+    internal class FreeFlangeKompasModel : FlangeKompasModel, IFreeFlangeModel
     {
         protected readonly double D1, D2,Db;
         protected readonly int n;
@@ -23,12 +24,15 @@ namespace Flange.Model.Kompas.Modeling
         protected CutExtrusion cutExtrusion1, cutExtrusion2;
         protected CircularCopy<AxisByTwoPlanes> circularCopy1;
 
+        protected Chamfer centralHoleChamferTop, centralHoleChamferBottom;
+        protected Fillet centralHoleFilletTop, centralHoleFilletBottom;
+
         public double _D1 { get; set; }
         public double _D2 { get; set; }
         public double _Db { get; set; }
         public int _n { get; set; }
 
-        public FreeFlange3DModel(Diameters diameters, Heights heights,Counts counts, ExtraSizesCollection extraSizes) : base(diameters,heights,extraSizes)
+        public FreeFlangeKompasModel(Diameters diameters, Heights heights,Counts counts, ExtraSizesCollection extraSizes) : base(diameters,heights,extraSizes)
         {
             _n = counts.n;
             _D1 = diameters.D1;
@@ -73,6 +77,11 @@ namespace Flange.Model.Kompas.Modeling
                 return false;
             }
 
+            if ((fillets.CentralHoleFilletTop.IsSelected && chamfers.CentralHoleChamferTop.IsSelected)||(fillets.CentralHoleFilletBottom.IsSelected && chamfers.CentralHoleChamferBottom.IsSelected))
+            {
+                MessageBox.Show("Нельзя применить два вида скруглений к одной и той же грани!");
+                return false;
+            }
             return true;
         }
 
@@ -116,6 +125,28 @@ namespace Flange.Model.Kompas.Modeling
             circularCopy1.Copy();
         }
 
+        protected virtual void CentralHoleChamferTop()
+        {
+            centralHoleChamferTop = new Chamfer(iPart,new Point3D(Db/2,H/2,0),chamfers.CentralHoleChamferTop);
+            centralHoleChamferTop.AddChamfer();
+        }
+        protected virtual void CentralHoleChamferBottom()
+        {
+            centralHoleChamferBottom = new Chamfer(iPart, new Point3D(Db / 2, -H / 2, 0), chamfers.CentralHoleChamferBottom);
+            centralHoleChamferBottom.AddChamfer();
+        }
+
+        protected virtual void CentralHoleFilletTop()
+        {
+            centralHoleFilletTop = new Fillet(iPart, new Point3D(Db / 2, H / 2, 0), fillets.CentralHoleFilletTop);
+            centralHoleFilletTop.AddFillet();
+        }
+        protected virtual void CentralHoleFilletBottom()
+        {
+            centralHoleFilletBottom = new Fillet(iPart, new Point3D(Db / 2, -H / 2, 0), fillets.CentralHoleFilletBottom);
+            centralHoleFilletBottom.AddFillet();
+        }
+
         public override void Build()
         {
             canBuild = ParametresValidation();
@@ -124,6 +155,22 @@ namespace Flange.Model.Kompas.Modeling
                 base.Build();
                 Sketch2();
                 CutExtrusion1();
+                if (fillets.CentralHoleFilletBottom.IsSelected)
+                {
+                    CentralHoleFilletBottom();
+                }
+                if (fillets.CentralHoleFilletTop.IsSelected)
+                {
+                    CentralHoleFilletTop();
+                }
+                if (chamfers.CentralHoleChamferBottom.IsSelected)
+                {
+                    CentralHoleChamferBottom();
+                }
+                if (chamfers.CentralHoleChamferTop.IsSelected)
+                {
+                    CentralHoleChamferTop();
+                }
                 Sketch3();
                 CutExtrusion2();
                 CircularArray1();

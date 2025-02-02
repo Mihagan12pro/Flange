@@ -661,7 +661,20 @@ namespace Flange.Model
 
         private void CreateFlange()
         {
-            FreeFlange3DModel freeFlange = new FreeFlange3DModel(new Diameters() { D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) }, new Heights() { H = Convert.ToDouble(this.H) }, new Counts() { n = Convert.ToInt32(this.n) }, new ExtraSizesCollection() { Fillets = new FilletSizesCollection() { DiskFilletTop = new FilletSizes(1) }, Chamfers = new ChamferSizesCollection { DiskChamferBottom = new ChamferSizes(45, 2) } });
+            FreeFlangeKompasModel freeFlange = new FreeFlangeKompasModel(new Diameters() { D = Convert.ToDouble(this.D), D1 = Convert.ToDouble(this.D1), D2 = Convert.ToDouble(this.D2), Db = Convert.ToDouble(this.Db) }, new Heights() { H = Convert.ToDouble(this.H) }, new Counts() { n = Convert.ToInt32(this.n) }, new ExtraSizesCollection()
+            {
+                Fillets = new FilletSizesCollection()
+                {
+                    CentralHoleFilletBottom = new FilletSizes(2),
+                    CentralHoleFilletTop = new FilletSizes(3)
+                },
+                Chamfers = new ChamferSizesCollection
+                {
+                    DiskChamferBottom = new ChamferSizes(45, 2)
+
+
+                }
+            });
             freeFlange.Build();
             freeFlange.SaveModel();
         }
