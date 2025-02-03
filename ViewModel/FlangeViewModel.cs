@@ -666,12 +666,14 @@ namespace Flange.Model
                 Fillets = new FilletSizesCollection()
                 {
                     CentralHoleFilletBottom = new FilletSizes(2),
-                    CentralHoleFilletTop = new FilletSizes(3)
+                    CentralHoleFilletTop = new FilletSizes(3),
+                    HoleForScrewFilletTop = new FilletSizes(1),HoleForScrewFilletBottom = new FilletSizes(2)
                 },
                 Chamfers = new ChamferSizesCollection
                 {
                     DiskChamferBottom = new ChamferSizes(45, 2)
-
+                    //HoleForScrewChamferTop = new ChamferSizes(45, 2),
+                    //HoleForScrewChamferBottom = new ChamferSizes(45, 2)
 
                 }
             });

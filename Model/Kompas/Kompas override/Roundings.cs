@@ -9,6 +9,7 @@ namespace Flange.Model.Kompas.Kompas_override
     public abstract class Rounding : KompasEntity, ICopy
     {
         protected ksEntityCollection partCollection;
+        private entity ksEntity;
         protected Point3D point;
 
         public Rounding(ksPart iPart,Point3D point) : base(iPart)
@@ -18,10 +19,7 @@ namespace Flange.Model.Kompas.Kompas_override
             partCollection = iPart.EntityCollection((short)Obj3dType.o3d_edge);
         }
 
-        public ksEntity GetKsEntity()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract ksEntity GetKsEntity();
 
     }
 
@@ -55,8 +53,8 @@ namespace Flange.Model.Kompas.Kompas_override
 
             fillet.Create();
         }
-
-        public new ksEntity GetKsEntity()
+       
+        public override ksEntity GetKsEntity()
         {
             return fillet;
         }
@@ -111,7 +109,7 @@ namespace Flange.Model.Kompas.Kompas_override
             chamfer.Create();
         }
 
-        public new ksEntity GetKsEntity()
+        public override ksEntity GetKsEntity()
         {
             return chamfer;
         }

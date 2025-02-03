@@ -27,6 +27,9 @@ namespace Flange.Model.Kompas.Modeling
         protected Chamfer centralHoleChamferTop, centralHoleChamferBottom;
         protected Fillet centralHoleFilletTop, centralHoleFilletBottom;
 
+        protected Chamfer holeForScrewChamferTop, holeForScrewChamferBottom;
+        protected Fillet holeForScrewFilletTop, holeForScrewFilletBottom;
+
         public double _D1 { get; set; }
         public double _D2 { get; set; }
         public double _Db { get; set; }
@@ -102,7 +105,6 @@ namespace Flange.Model.Kompas.Modeling
         {
             sketch3 = new Sketch(iPart,planeXOZ.GetPlane());
 
-            //sketch3.CenterCircle(new Point(0,0),D1);
             sketch3.Circle(new Point(0,D1/2),D2);
 
             sketch3.CreateSketch();
@@ -122,6 +124,23 @@ namespace Flange.Model.Kompas.Modeling
 
             circularCopy1 = new CircularCopy<AxisByTwoPlanes>(iPart,n,axis,360);
             circularCopy1.Add(cutExtrusion2);
+            if (chamfers.HoleForScrewChamferTop.IsSelected)
+            {
+                circularCopy1.Add(holeForScrewChamferTop);
+            }
+            if (chamfers.HoleForScrewChamferBottom.IsSelected)
+            {
+                circularCopy1.Add(holeForScrewChamferBottom);
+            }
+
+            if (fillets.HoleForScrewFilletTop.IsSelected)
+            {
+                circularCopy1.Add(holeForScrewFilletTop);
+            }
+            if (fillets.HoleForScrewFilletBottom.IsSelected)
+            {
+                circularCopy1.Add(holeForScrewFilletBottom);
+            }
             circularCopy1.Copy();
         }
 
@@ -141,10 +160,35 @@ namespace Flange.Model.Kompas.Modeling
             centralHoleFilletTop = new Fillet(iPart, new Point3D(Db / 2, H / 2, 0), fillets.CentralHoleFilletTop);
             centralHoleFilletTop.AddFillet();
         }
+
         protected virtual void CentralHoleFilletBottom()
         {
             centralHoleFilletBottom = new Fillet(iPart, new Point3D(Db / 2, -H / 2, 0), fillets.CentralHoleFilletBottom);
             centralHoleFilletBottom.AddFillet();
+        }
+
+        protected virtual void HoleForScrewFilletTop()
+        {
+            holeForScrewFilletTop = new Fillet(iPart, new Point3D(0, H / 2, -(0.5 * D1 + 0.5 * D2)),fillets.HoleForScrewFilletTop);
+            holeForScrewFilletTop.AddFillet();
+        }
+
+        protected virtual void HoleForScrewFilletBottom()
+        {
+            holeForScrewFilletBottom = new Fillet(iPart, new Point3D(0, -H / 2, -(0.5 * D1 + 0.5 * D2)), fillets.HoleForScrewFilletBottom);
+            holeForScrewFilletBottom.AddFillet();
+        }
+
+        protected virtual void HoleForScrewChamferTop()
+        {
+            holeForScrewChamferTop = new Chamfer(iPart,new Point3D(0,H/2,-(0.5*D1+0.5*D2)/*0.5 * D1 + 0.5 * D2*/),chamfers.HoleForScrewChamferTop);
+            holeForScrewChamferTop.AddChamfer();
+        }
+       
+        protected virtual void HoleForScrewChamferBottom()
+        {
+            holeForScrewChamferBottom = new Chamfer(iPart, new Point3D(0, -H/2, -(0.5 * D1 + 0.5 * D2)/*0.5 * D1 + 0.5 * D2*/), chamfers.HoleForScrewChamferBottom);
+            holeForScrewChamferBottom.AddChamfer();
         }
 
         public override void Build()
@@ -171,8 +215,27 @@ namespace Flange.Model.Kompas.Modeling
                 {
                     CentralHoleChamferTop();
                 }
+
                 Sketch3();
+
                 CutExtrusion2();
+                if (chamfers.HoleForScrewChamferTop.IsSelected)
+                {
+                    HoleForScrewChamferTop();
+                }
+                if (chamfers.HoleForScrewChamferBottom.IsSelected)
+                {
+                    HoleForScrewChamferBottom();
+                }
+                if (fillets.HoleForScrewFilletBottom.IsSelected)
+                {
+                    HoleForScrewFilletBottom();
+                }
+                if(fillets.HoleForScrewFilletTop.IsSelected)
+                {
+                    HoleForScrewFilletTop();
+                }
+
                 CircularArray1();
             }
         }

@@ -21,9 +21,16 @@ namespace Flange.Model.Kompas.Kompas_override
 
         public virtual void Copy()
         {
-            foreach (ICopy copy in copies)
+            //foreach (ICopy copy in copies)
+            //{
+            //    entityCollection.Add(copy.GetKsEntity());
+            //}
+            for (int i = 0; i < copies.Count; i++)
             {
-                entityCollection.Add(copy.GetKsEntity());
+              
+                    entityCollection.Add(copies[i].GetKsEntity());
+                
+              
             }
         }
 
@@ -65,7 +72,7 @@ namespace Flange.Model.Kompas.Kompas_override
         public override void Copy()
         {
             base.Copy();
-
+           
             circularCopy.Create();
         }
     }

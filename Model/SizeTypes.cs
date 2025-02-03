@@ -83,6 +83,7 @@ namespace Flange.Model
     {
         public ChamferSizes DiskChamferTop, DiskChamferBottom;
         public ChamferSizes CentralHoleChamferTop, CentralHoleChamferBottom;
+        public ChamferSizes HoleForScrewChamferTop, HoleForScrewChamferBottom;
         public ChamferSizesCollection()
         {
 
@@ -118,6 +119,7 @@ namespace Flange.Model
     {
         public FilletSizes DiskFilletTop, DiskFilletBottom;
         public FilletSizes CentralHoleFilletTop, CentralHoleFilletBottom;
+        public FilletSizes HoleForScrewFilletTop, HoleForScrewFilletBottom;
         public FilletSizesCollection()
         {
             
