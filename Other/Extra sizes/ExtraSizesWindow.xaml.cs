@@ -30,10 +30,17 @@ namespace Flange.Other.Extra_sizes
         internal readonly IFlangeModel flangeModel;
         internal ExtraSizesWindow(IFlangeModel flangeModel)
         {
+          
+            DataContext = new ExtraViewModel(flangeModel);
             InitializeComponent();
 
 
-            this.flangeModel = flangeModel;
+           
+        }
+
+        private void ExtraWnd_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+           
         }
     }
 }

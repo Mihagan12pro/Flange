@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Flange"
         xmlns:override="clr-namespace:Flange.Other.WPF_override"
         mc:Ignorable="d"
-        Title="Генератор фланцев" Background="White"  Height="500" MinWidth="630" MinHeight="350"  Width="{Binding WindowWidth}" >
+        Title="Генератор фланцев" Background="White"  Height="500" MinWidth="630" MinHeight="350"   >
     <Window.Resources>
         <ResourceDictionary Source="FormDictionary.xaml" />
     </Window.Resources>

@@ -11,7 +11,7 @@ using System.Windows;
 using System.Windows.Media.Media3D;
 
 namespace Flange.Model.KOMPAS.Modeling
-{FlangeModelWithHolesForScrews
+{
     internal abstract class FlangeModelWithHolesForScrews : FlangeKompasModel,IFlangeModelWithHolesForScrews
     {
         public double _D1 { get; set; }

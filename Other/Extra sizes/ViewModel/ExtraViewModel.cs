@@ -1,4 +1,5 @@
-﻿using Flange.Other.Abstract_classes_and_interfaces;
+﻿using Flange.Model.Interface;
+using Flange.Other.Abstract_classes_and_interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,176 +8,232 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace Flange.Other.Extra_sizes.ViewModel
 {
-
-
-
-
-
-
-
     internal class ExtraViewModel : ViewModelAbstract
     {
-        private int windowWidth;
-        public  int WindowWidth
+        private IFlangeModel flangeModel;
+        public IFlangeModel FlangeModel
+        {
+            get { return flangeModel; }
+            private set {  flangeModel = value; OnPropertyChanged(); }
+        }
+
+        
+
+        private Visibility chooseSizeOfHolesVisibility;
+        public Visibility ChooseSizeOfHolesVisibility
         {
             get
             {
+                return chooseSizeOfHolesVisibility;
+            }
+            private set
+            {
+                chooseSizeOfHolesVisibility = value;
+                OnPropertyChanged();
+            }
+        }
 
-                return windowWidth;
+
+
+        private double chamferTopLength;
+        public double ChamferTopLength
+        {
+            get => chamferTopLength;
+            set { chamferTopLength = value; OnPropertyChanged();} 
+        }
+
+        private double chamferBottomLength;
+        public double ChamferBottomLength
+        {
+            get => chamferBottomLength;
+            set { chamferBottomLength = value;OnPropertyChanged();}
+        }
+
+
+
+
+        private Visibility diskChamferTopVisibility;
+        public Visibility DiskChamferTopVisibility
+        {
+            get
+            {
+                return diskChamferTopVisibility;
+            }
+            private set
+            {
+                diskChamferTopVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        private Visibility diskFilletTopVisibility;
+        public Visibility DiskFilletTopVisibility
+        {
+            get
+            {
+                return diskFilletTopVisibility;
+            }
+            private set
+            {
+                diskFilletTopVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility diskChamferBottomVisibility;
+        public Visibility DiskChamferBottomVisibility
+        {
+            get
+            {
+                return diskChamferBottomVisibility;
+            }
+            private set
+            {
+                diskChamferBottomVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        private Visibility diskFilletBottomVisibility;
+        public Visibility DiskFilletBottomVisibility
+        {
+            get
+            {
+                return diskFilletBottomVisibility;
+            }
+            private set
+            {
+                diskFilletBottomVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+
+
+        private bool isDiskBottomFilletChecked;
+        public bool IsDiskBottomFilletChecked
+        {
+            get
+            {
+                return isDiskBottomFilletChecked;
             }
             set
             {
-                windowWidth = value;
+                if (value)
+                {
+                    DiskChamferBottomVisibility = Visibility.Collapsed;
+                    DiskFilletBottomVisibility = Visibility.Visible;
+                }
+                isDiskBottomFilletChecked = value;
                 OnPropertyChanged();
-
-                MainTabStackPanelWidth = windowWidth/2;
             }
         }
 
-        private int windowHeight;
-        public int WindowHeight
+        private bool isDiskTopFilletChecked;
+        public bool IsDiskTopFilletChecked
         {
             get
             {
-                return windowHeight;
+                return isDiskTopFilletChecked;
             }
             set
             {
-                windowHeight = value;
+                if (value)
+                {
+                    DiskChamferTopVisibility = Visibility.Collapsed;
+                    DiskFilletTopVisibility = Visibility.Visible;
+                }
+                isDiskTopFilletChecked = value;
                 OnPropertyChanged();
-
-               
-                MainTabTableHeight = 2*WindowHeight / 3;
-                MainTabStackPanelHeight = WindowHeight - MainTabTableHeight;
             }
         }
 
-       
-
-        private int mainTabStackPanelWidth;
-        public int MainTabStackPanelWidth
+        private bool isDiskBottomChamferChecked;
+        public bool IsDiskBottomChamferChecked
         {
             get
             {
-                return mainTabStackPanelWidth;
+                return isDiskBottomChamferChecked;
             }
-            private set
+            set
             {
-                mainTabStackPanelWidth = value;
+                if (value)
+                {
+                    DiskChamferBottomVisibility = Visibility.Visible;
+                    DiskFilletBottomVisibility = Visibility.Collapsed;
+                }
+                isDiskBottomChamferChecked = value;
                 OnPropertyChanged();
-
-                MainTabButtonsWidth = 12 * MainTabStackPanelWidth / 13;
-
-                //MainTabColumnWidth = MainTabStackPanelWidth / 3;
-                MainTabColumnWidth = 100;
             }
         }
 
-        private int mainTabColumnWidth;
-        public int MainTabColumnWidth
+        private bool isDiskTopChamferChecked;
+        public bool IsDiskTopChamferChecked
         {
             get
             {
-                return mainTabColumnWidth;
+                return isDiskTopChamferChecked;
             }
-           set
+            set
             {
-                mainTabColumnWidth = value;
-                OnPropertyChanged(nameof(mainTabColumnWidth));
-
-
-            }
-        }
-
-
-        private int mainTabStackPanelHeight;
-        public int MainTabStackPanelHeight
-        {
-            get
-            {
-                return mainTabStackPanelHeight;
-            }
-            private set
-            {
-                mainTabStackPanelHeight = value;
-                OnPropertyChanged();
-
-
-                MainTabButtonsHeight = mainTabStackPanelHeight / 6;
-               
-            }
-        }
-
-        private int mainTabTableHeight;
-        public int MainTabTableHeight
-        {
-            get
-            {
-                return mainTabTableHeight;
-            }
-            private set
-            {
-                mainTabTableHeight = value;
-                OnPropertyChanged();
-                MainTabStackPanelHeight = WindowHeight/3;
-            }
-        }
-
-
-        private int mainTabButtonsWidth;
-        public int MainTabButtonsWidth
-        {
-            get
-            {
-                return mainTabButtonsWidth;
-            }
-            private set
-            {
-                mainTabButtonsWidth = value;
-                OnPropertyChanged();
-
-
-            }
-        }
-
-        private int mainTabButtonsHeight;
-        public int MainTabButtonsHeight
-        {
-            get
-            {
-                return mainTabButtonsHeight;
-            }
-            private set
-            {
-                mainTabButtonsHeight = value;
+                if (value)
+                {
+                    DiskChamferTopVisibility = Visibility.Visible;
+                    DiskFilletTopVisibility = Visibility.Collapsed;
+                }
+                isDiskTopChamferChecked = value;
                 OnPropertyChanged();
             }
         }
 
 
-        private readonly BitmapImage image;
+
+        private  BitmapImage image;
         public BitmapImage Image
         {
             get
             {
                 return image;
             }
+            private set
+            {
+                image = value;
+                OnPropertyChanged();
+            }
         
         }
 
-        public ExtraViewModel(string pathToImage)
+        public ExtraViewModel(IFlangeModel flangeModel)
         {
-            WindowWidth = 300;
-            WindowHeight = 300;
+            this.flangeModel = flangeModel;
 
+            chooseSizeOfHolesVisibility = Visibility.Collapsed;
 
-            image = new BitmapImage(new Uri(pathToImage));
-          
+            IsDiskTopChamferChecked = flangeModel._Chamfers.DiskChamferTop.IsSelected;
+            IsDiskBottomChamferChecked = flangeModel._Chamfers.DiskChamferBottom.IsSelected;
+
+            IsDiskBottomFilletChecked = flangeModel._Fillets.DiskFilletBottom.IsSelected;
+            IsDiskTopFilletChecked = flangeModel._Fillets.DiskFilletTop.IsSelected;
+
+            if (flangeModel is IFlangeModelWithHolesForScrews)
+            {
+                if (flangeModel is IFreeFlangeModel)
+                {
+                    Image = new BitmapImage(new Uri(MainExplorer.SketchesExpl.FreeFlange));
+                }
+            }
+            else
+            {
+
+            }
+
         }
 
     }

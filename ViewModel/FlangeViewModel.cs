@@ -249,7 +249,11 @@ namespace Flange.Model
                             new Diameters() { D = Convert.ToDouble(D),D1 = Convert.ToDouble(D1),D2 = Convert.ToDouble(D2)},
                             new Heights() { H = Convert.ToDouble(H)},
                             new Counts() { n = 4},
-                            new ExtraSizesCollection() { Chamfers = new ChamferSizesCollection() { CentralHoleChamferTop = new ChamferSizes(45,1)} }
+                            new ExtraSizesCollection()
+                                { 
+                                    Chamfers = new ChamferSizesCollection() { CentralHoleChamferTop = new ChamferSizes(45,1),DiskChamferTop = new ChamferSizes(45,1)} ,
+                                    Fillets = new FilletSizesCollection() { DiskFilletBottom = new FilletSizes(1)}
+                                }
                         );
                 }
                 OnPropertyChanged();
