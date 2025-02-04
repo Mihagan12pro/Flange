@@ -88,6 +88,7 @@
     <Compile Include="Model\DB classes\Default\Values\FreeFlangeDefaultValues.cs" />
     <Compile Include="Model\DB classes\Value.cs" />
     <Compile Include="Model\Interface\IFlangeModel.cs" />
+    <Compile Include="Model\Interface\IFlangeModelWithHolesForScrews.cs" />
     <Compile Include="Model\Interface\IFreeFlangeModel.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\ArrayOperation.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\Axis.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Model\KOMPAS\Kompas override\ICopy.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\KompasEntity.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\Plane.cs" />
+    <Compile Include="Model\KOMPAS\Modeling\FlangeModelWithHolesForScrews.cs" />
     <Compile Include="Model\KOMPAS\Modeling\FreeFlangeKompasModel.cs" />
     <Compile Include="Model\KOMPAS\Kompas override\Sketch.cs" />
     <Compile Include="Model\SizeTypes.cs" />

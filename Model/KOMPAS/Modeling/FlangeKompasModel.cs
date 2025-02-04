@@ -90,6 +90,7 @@ namespace Flange.Kompas.Modeling
 
             document = Document;
 
+
             FileExtension = ".m3d";
         }
 

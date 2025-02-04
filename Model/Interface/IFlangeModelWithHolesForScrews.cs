@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Flange.Model.Interface
 {
-    internal interface IFreeFlangeModel : IFlangeModelWithHolesForScrews
+    interface IFlangeModelWithHolesForScrews : IFlangeModel
     {
-        double _Db { get; set; }
+        int _n { get; set; }
+        double _D1 { get; set; }
+        double _D2 { get; set; }
     }
 }

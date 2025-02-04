@@ -24,12 +24,16 @@ namespace Flange.Other.Extra_sizes
     /// Interaction logic for ExtraSizesWindow.xaml
     /// </summary>
 
+   
     public partial class ExtraSizesWindow
     {
         internal readonly IFlangeModel flangeModel;
         internal ExtraSizesWindow(IFlangeModel flangeModel)
         {
             InitializeComponent();
+
+
+            this.flangeModel = flangeModel;
         }
     }
 }

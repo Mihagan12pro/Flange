@@ -22,6 +22,7 @@ using Flange.Model.DB_classes.Default;
 using Flange.Other.WPF_override;
 using Flange.Model.DB_classes.Default.Values;
 using Flange.Model.Kompas.Modeling;
+using Flange.Model.Interface;
 
 
 
@@ -39,6 +40,7 @@ namespace Flange.Model
 
         private DefaultValues defaultValues;
 
+        private IFlangeModel flangeModel;
   
         private string _D;
         public string D
@@ -241,6 +243,14 @@ namespace Flange.Model
                     Db = Convert.ToString((defaultValues as FreeFlangeDefaultValues).Db);
                     H = Convert.ToString(defaultValues.H);
                     n = Convert.ToString((defaultValues as FreeFlangeDefaultValues).n);
+
+                    flangeModel = new FreeFlangeKompasModel
+                        (
+                            new Diameters() { D = Convert.ToDouble(D),D1 = Convert.ToDouble(D1),D2 = Convert.ToDouble(D2)},
+                            new Heights() { H = Convert.ToDouble(H)},
+                            new Counts() { n = 4},
+                            new ExtraSizesCollection() { Chamfers = new ChamferSizesCollection() { CentralHoleChamferTop = new ChamferSizes(45,1)} }
+                        );
                 }
                 OnPropertyChanged();
             }
@@ -667,13 +677,15 @@ namespace Flange.Model
                 {
                     CentralHoleFilletBottom = new FilletSizes(2),
                     CentralHoleFilletTop = new FilletSizes(3),
-                    HoleForScrewFilletTop = new FilletSizes(1),HoleForScrewFilletBottom = new FilletSizes(2)
+
+                    //HoleForScrewFilletBottom = new FilletSizes(1),
+                    HoleForScrewFilletTop = new FilletSizes(1)
                 },
                 Chamfers = new ChamferSizesCollection
                 {
-                    DiskChamferBottom = new ChamferSizes(45, 2)
-                    //HoleForScrewChamferTop = new ChamferSizes(45, 2),
-                    //HoleForScrewChamferBottom = new ChamferSizes(45, 2)
+                    //DiskChamferBottom = new ChamferSizes(45, 2),HoleForScrewChamferTop = new ChamferSizes(60,2),
+                    //HoleForScrewChamferBottom = new ChamferSizes(60,2)
+                    HoleForScrewChamferBottom = new ChamferSizes(45,2)
 
                 }
             });
@@ -683,24 +695,8 @@ namespace Flange.Model
 
         private void CreateExtraSizesWindow()
         {
-            ExtraSizesWindow window;
-
-            if (isFreeFlangeSelected)
-            {
-                
-            }
-            else if (isFlatFlangeSelected)
-            {
-
-            }
-            else if (isCollarFlangeSelected)
-            {
-
-            }
-            else if (isBlindFlangeSelected)
-            {
-
-            }
+            ExtraSizesWindow window = new ExtraSizesWindow(flangeModel);
+            window.ShowDialog();
         }
 
 
