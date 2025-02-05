@@ -41,21 +41,47 @@ namespace Flange.Other.Extra_sizes.ViewModel
 
 
 
-        private double chamferTopLength;
-        public double ChamferTopLength
+        private double diskChamferTopLength;
+        public double DiskChamferTopLength
         {
-            get => chamferTopLength;
-            set { chamferTopLength = value; OnPropertyChanged();} 
+            get => diskChamferTopLength;
+            set { diskChamferTopLength = value; OnPropertyChanged();} 
         }
 
-        private double chamferBottomLength;
-        public double ChamferBottomLength
+        private double diskChamferTopAngle;
+        public double DiskChamferTopAngle
         {
-            get => chamferBottomLength;
-            set { chamferBottomLength = value;OnPropertyChanged();}
+            get => diskChamferTopAngle;
+            set { diskChamferTopAngle = value; OnPropertyChanged(); }
         }
 
+        private double diskChamferBottomAngle;
+        public double DiskChamferBottomAngle
+        {
+            get => diskChamferBottomAngle;
+            set { diskChamferBottomAngle = value;OnPropertyChanged(); }
+        }
 
+        private double diskChamferBottomLength;
+        public double DiskChamferBottomLength
+        {
+            get => diskChamferBottomLength;
+            set { diskChamferBottomLength = value;OnPropertyChanged();}
+        }
+
+        private double diskFilletTopRadius;
+        public double DiskFilletTopRadius
+        {
+            get => diskFilletTopRadius;
+            set { diskFilletTopRadius = value; OnPropertyChanged(); }
+        }
+
+        private double diskFilletBottomRadius;
+        public double DiskFilletBottomRadius
+        {
+            get => diskFilletBottomRadius;
+            set { diskFilletBottomRadius = value; OnPropertyChanged(); }
+        }
 
 
         private Visibility diskChamferTopVisibility;
@@ -221,6 +247,16 @@ namespace Flange.Other.Extra_sizes.ViewModel
 
             IsDiskBottomFilletChecked = flangeModel._Fillets.DiskFilletBottom.IsSelected;
             IsDiskTopFilletChecked = flangeModel._Fillets.DiskFilletTop.IsSelected;
+
+
+            DiskChamferBottomAngle = flangeModel._Chamfers.DiskChamferBottom.Angle;
+            DiskChamferBottomLength = flangeModel._Chamfers.DiskChamferBottom.Lenght;
+            DiskChamferTopAngle = flangeModel._Chamfers.DiskChamferTop.Angle;
+            DiskChamferTopLength = flangeModel._Chamfers.DiskChamferTop.Lenght;
+
+            DiskFilletBottomRadius = flangeModel._Fillets.DiskFilletBottom.Radius;
+            DiskFilletTopRadius = flangeModel._Fillets.DiskFilletTop.Radius;
+
 
             if (flangeModel is IFlangeModelWithHolesForScrews)
             {

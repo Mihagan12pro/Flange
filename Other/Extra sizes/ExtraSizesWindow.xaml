@@ -82,17 +82,17 @@
 
                             <StackPanel x:Name="DiskChamferTopLengthStPl" Orientation="Horizontal" Visibility="{Binding DiskChamferTopVisibility}" >
                                 <Label Name="DiskChamferTopLbl" Content="l1,мм"/>
-                                <override:ParametersBox x:Name="DiskChamferTopTB" FontFamily="Times new Roman" Width="85" Height="9" FontSize="8" />
+                                <override:ParametersBox x:Name="DiskChamferTopTB" Text="{Binding DiskChamferTopLength}"  Width="85" Height="9" FontSize="8" />
                             </StackPanel>
 
                             <StackPanel Name="DiskChamferTopAngleStPl" Orientation="Horizontal" Height="22" Margin="10,-5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="{Binding DiskChamferTopVisibility}">
                                 <Label Name="DiskChamferTopAngleLbl" HorizontalContentAlignment="Center" Width="24">u1</Label>
-                                <TextBox Name="DiskChamferTopAngleTB" FontFamily="Times new Roman" Width="85" Height="9" Margin="-1" FontSize="8"></TextBox>
+                                <TextBox Name="DiskChamferTopAngleTB" Text="{Binding DiskChamferTopAngle}" FontFamily="Times new Roman" Width="85" Height="9" Margin="-1" FontSize="8"></TextBox>
                             </StackPanel>
 
                             <StackPanel Name="DiskFilletTopRadiusStPl" Orientation="Horizontal" Visibility="{Binding DiskFilletTopVisibility}">
                                 <Label Name="Radius1Lbl"  Width="36" Content="r1,мм" HorizontalAlignment="Left"></Label>
-                                <override:ParametersBox x:Name="Radius1TB" FontFamily="Times new Roman" FontSize="8" Height="9" Width="90"></override:ParametersBox>
+                                <override:ParametersBox x:Name="Radius1TB" Text="{Binding DiskFilletTopRadius}" FontFamily="Times new Roman" FontSize="8" Height="9" Width="90"></override:ParametersBox>
                             </StackPanel>
 
                         </StackPanel>
@@ -114,17 +114,17 @@
 
                             <StackPanel x:Name="DiskChamferBottomStPl" Orientation="Horizontal" Visibility="{Binding DiskChamferBottomVisibility}" >
                                 <Label Name="DiskChamferBottomLenghtLbl"  Content="l2,мм"/>
-                                <override:ParametersBox x:Name="DiskChamferBottomLenghtPB" Width="85" Height="9" HorizontalAlignment="Left" FontSize="8" />
+                                <override:ParametersBox x:Name="DiskChamferBottomLenghtPB" Text="{Binding DiskChamferBottomLength}" Width="85" Height="9" HorizontalAlignment="Left" FontSize="8" />
                             </StackPanel>
 
                             <StackPanel Name="ChamferANgleBottomStPl" Orientation="Horizontal" Height="22" Margin="10,-5" HorizontalAlignment="Stretch" Visibility="{Binding DiskChamferBottomVisibility}" Width="226">
                                 <Label Name="DiskChamferBottomAngleLbl" Width="24">u2</Label>
-                                <TextBox Name="DiskChamferBottomAngleTB" Width="82" FontFamily="Times new Roman" HorizontalAlignment="Left" Height="10" Margin="-1" FontSize="8"></TextBox>
+                                <TextBox Name="DiskChamferBottomAngleTB" Width="82" FontFamily="Times new Roman" Text="{Binding DiskChamferBottomAngle}" HorizontalAlignment="Left" Height="10" Margin="-1" FontSize="8"></TextBox>
                             </StackPanel>
 
                             <StackPanel Name="DiskFilletBottomStPl" Orientation="Horizontal" Visibility="{Binding  DiskFilletBottomVisibility}">
                                 <Label Name="DiskFilletBottomLbl" Width="36" Content="r2,мм"/>
-                                <TextBox Name="DiskFilletBottomTB" FontFamily="Times new Roman" FontSize="8" Height="9" Width="90"></TextBox>
+                                <TextBox Name="DiskFilletBottomTB" Text="{Binding  DiskFilletBottomRadius}" FontFamily="Times new Roman" FontSize="8" Height="9" Width="90"></TextBox>
                             </StackPanel>
 
                         </StackPanel>
